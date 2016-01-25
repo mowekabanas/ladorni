@@ -1,0 +1,68 @@
+.WinesList {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: 1em 0;
+}
+
+.WineItem,
+.WineTitle,
+.WineDescription,
+.WineCategory {
+	margin: auto;
+	/*text-align: center;*/
+	display: block;
+}
+
+.WineItem {
+	background-color: white;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	padding: 4.5em;
+	width: 50%;
+	height: 100vh;
+}
+
+.WineItem img {
+	max-height: 36em;
+}
+
+.WineTitle,
+.WineDescription,
+.WineCategory {
+	opacity: .87;
+}
+
+.WineTitle {
+	display: block;
+	font-size: 3.75em;
+	font-weight: 200;
+	line-height: 1.1;
+	margin-bottom: .375em;
+	min-height: 2.25em;
+}
+
+.WineCategory {
+	opacity: .72;
+	margin: 1em 0;
+}
+
+.WineDescription {
+	display: none;
+	font-size: 1.3125em;
+	line-height: 1.45;
+}

@@ -1,0 +1,68 @@
+.MainHeader {
+	height: 100vh;
+	position: relative;
+}
+
+.MainHeader--deep-purple {
+	background-color: #512da8;
+}
+
+.MainHeader-about {
+	display: none;
+}
+
+.MainHeaderCover {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.MainHeaderCover--ImageBackground {
+	background: url("../img/photo-1417353783325-14cb8f9ba1dd.jpeg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.MainHeaderCover img {
+	filter: drop-shadow(5px 5px 6px rgba(0,0,0,.96));
+}
+
+.MainHeaderCoverInner {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.MainHeaderCoverInner .Cover {
+	max-width: 16em;
+	width: 100%;
+	padding: .5em;
+}
+
+@media (min-height: 36em) {
+
+	.MainHeaderCoverInner .Cover {
+		max-width: 24em;
+		padding: .5em;
+	}
+
+}
+
+@media (min-height: 48em) {
+
+	.MainHeaderCoverInner .Cover {
+		max-width: 36em;
+		padding: 1em;
+	}
+
+}

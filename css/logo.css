@@ -1,0 +1,41 @@
+.Logo {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+}
+
+.Logo--cover {
+	-webkit-justify-content: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.Logo-select-area {
+	padding: 1.125em 0;
+}
+
+.Logo--cover .Logo-select-area {
+	margin: auto;
+	padding: 2.25em 0;
+}
+
+.Logo-svg {
+	width: 100%;
+}
+
+.Logo--cover .Logo-svg {
+	max-height: 4.5em;
+}
+
+.MainHeader--ImageBackground .Logo--cover .Logo-svg {
+	filter: drop-shadow(1px 1px 1px rgba(0,0,0,.36));
+}
+
+.MainHeader--deep-purple .Logo--cover .Logo-svg {
+	fill: #f0fffd;
+}

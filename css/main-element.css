@@ -1,0 +1,15 @@
+.Main h2 {
+	font-weight: 200;
+	font-size: 4.5em;
+	text-align: center;
+}
+
+.Main p {
+	color: #757575;
+	font-weight: 400;
+	font-size: 1.125em;
+	line-height: 1.8;
+	margin: 4.5em auto 6em;
+	max-width: 48em;
+	text-align: center;
+}
