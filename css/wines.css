@@ -12,7 +12,7 @@
 
 .WineItem,
 .WineTitle,
-.WineDescription,
+.WineHeaderDescription,
 .WineCategory {
 	margin: auto;
 	/*text-align: center;*/
@@ -42,7 +42,7 @@
 }
 
 .WineTitle,
-.WineDescription,
+.WineHeaderDescription,
 .WineCategory {
 	opacity: .87;
 }
@@ -61,7 +61,7 @@
 	margin: 1em 0;
 }
 
-.WineDescription {
+.WineHeaderDescription {
 	display: none;
 	font-size: 1.3125em;
 	line-height: 1.45;

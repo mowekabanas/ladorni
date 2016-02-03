@@ -33,7 +33,7 @@
 }
 
 .MainHeader--ImageBackground .Logo--cover .Logo-svg {
-	filter: drop-shadow(1px 1px 1px rgba(0,0,0,.36));
+	/*filter: drop-shadow(1px 1px 1px rgba(0,0,0,.36));*/
 }
 
 .MainHeader--deep-purple .Logo--cover .Logo-svg {
