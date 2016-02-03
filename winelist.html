@@ -352,9 +352,15 @@
 		margin: 21em 1em 0;
 		padding: 0 1.125em;
 		width: 100%;
+		-webkit-transition: background .3s ease;
+		-moz-transition: background .3s ease;
+		-ms-transition: background .3s ease;
+		-o-transition: background .3s ease;
+		transition: background .3s ease;
 	}
 
 	.WineCheckout-select-area:hover {
+		background-color: #fafafa;
 		cursor: pointer;
 	}
 
@@ -818,8 +824,8 @@
 
 		if (wine.contentArea) {
 			wine.contentArea.addEventListener('click', onWineClick, false);
-//			wine.contentArea.addEventListener('mouseover', onWineOver, false);
-//			wine.contentArea.addEventListener('mouseout', onWineOut, false);
+			wine.contentArea.addEventListener('mouseover', onWineOver, false);
+			wine.contentArea.addEventListener('mouseout', onWineOut, false);
 			wine.contentArea.parent = wine;
 		}
 
