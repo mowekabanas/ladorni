@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'ladorni';
-	src: url('../font/ladorni.eot?88914079');
-	src: url('../font/ladorni.eot?88914079#iefix') format('embedded-opentype'),
-	url('../font/ladorni.woff?88914079') format('woff'),
-	url('../font/ladorni.ttf?88914079') format('truetype'),
-	url('../font/ladorni.svg?88914079#ladorni') format('svg');
+	src: url('../font/ladorni.eot?41974464');
+	src: url('../font/ladorni.eot?41974464#iefix') format('embedded-opentype'),
+	url('../font/ladorni.woff?41974464') format('woff'),
+	url('../font/ladorni.ttf?41974464') format('truetype'),
+	url('../font/ladorni.svg?41974464#ladorni') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'ladorni';
-    src: url('../font/ladorni.svg?88914079#ladorni') format('svg');
+    src: url('../font/ladorni.svg?41974464#ladorni') format('svg');
   }
 }
 */
@@ -109,3 +109,5 @@
 .icon-ellipsis:before { content: '\e834'; } /* '' */
 .icon-ellipsis-vert:before { content: '\e835'; } /* '' */
 .icon-clock:before { content: '\e836'; } /* '' */
+.icon-bag:before { content: '\e837'; } /* '' */
+.icon-box:before { content: '\e838'; } /* '' */

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="">
+<html lang="pt-br" class="roboto">
 <meta charset="UTF-8">
 <title>La Dorni Vinhos</title>
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
@@ -126,6 +127,7 @@
 	/* Wine Footer */
 
 	.WineFooter {
+		padding-right: 0;
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -137,27 +139,129 @@
 		transition: all .6s;
 	}
 
+	@media (min-width: 60em) {
+
+		.WineFooter {
+			padding: 4.5em 1em 0;
+		}
+
+	}
+
+	@media (min-width: 72em) {
+
+		.WineFooter {
+			padding: 6em 1.5em 0;
+		}
+
+	}
+
+	@media (min-width: 96em) {
+
+		.WineFooter {
+			padding: 8em 2.25em 0;
+		}
+
+	}
+
+	/* Wine Info */
+
+	.WineInfo {
+		margin: 0 0 1.5em;
+	}
+
 	.WineInfoList {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
 		width: 100%;
-		height: 40px;
+		min-height: 40px;
+	}
+
+	/* Wine Info Items */
+
+	.WineInfoItem {
+		width: 50%;
+		padding: 1em 0;
+	}
+
+	@media (min-width: 72em) {
+
+		.WineInfoItem {
+			width: 25%;
+			padding: 1em 0;
+		}
+
+	}
+
+	.WineInfoItem-select-area {
+		-webkit-align-items: center;
+		align-items: center;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+
+	.WineInfoItem-header {
+		-webkit-align-items: center;
+		align-items: center;
+		border-radius: 50%;
+		border-style: solid;
+		border-width: 1px;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		height: 3.75em;
+		-webkit-justify-content: center;
+		justify-content: center;
+		margin-bottom: 1em;
+		width: 3.75em;
+	}
+
+	.WineInfoItem-header span {
+		font-size: 1.125em;
+	}
+
+	.WineInfoItem-title {
+		text-transform: uppercase;
+	}
+
+	.WineInfoItem-title span {
+		font-size: 1em;
+		font-weight: 600;
+		letter-spacing: .3675pt;
 	}
 
 	/* HOVER */
 
-	.Wine:hover .WineHeader {
+	.Wine.is-active .WineHeader {
 		padding: 8em 0 0 6em;
 		width: 33.3333333%;
 	}
 
-	.Wine:hover .WineHeaderDescription {
+	.Wine.is-active .WineHeaderDescription {
 		width: 24em;
 	}
 
-	.Wine:hover .WineContent {
+	.Wine.is-active .WineContent {
 		width: 66.6666666%;
 	}
 
-	.Wine:hover .WineFigure {
+	.Wine.is-active .WineFigure {
 		width: 50%;
 		-webkit-transform: translateX(100%);
 		-moz-transform: translateX(100%);
@@ -166,7 +270,7 @@
 		transform: translateX(100%);
 	}
 
-	.Wine:hover .WineFooter {
+	.Wine.is-active .WineFooter {
 		width: 50%;
 		-webkit-transform: translateX(-100%);
 		-moz-transform: translateX(-100%);
@@ -175,9 +279,201 @@
 		transform: translateX(-100%);
 	}
 
+	/* Wine Table Info */
+
+	.WineTableInfo {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		padding: 1em;
+		width: 100%;
+	}
+
+	.WineTableCell {
+		border-style: solid;
+		border-width: 1px;
+		flex: 1;
+		margin: -1px 0 0 -1px;
+		padding: .5em 1em;
+		text-align: left;
+	}
+
+	.WineTableCell span {
+		font-size: .875em;
+	}
+
+	.WineTableCell--fourth {
+		min-width: 50%;
+	}
+
+	.WineTableCell--third {
+		min-width: 50%;
+	}
+
+	.WineTableCell--half {
+		min-width: 100%;
+	}
+
+	.WineTableCell--full {
+		min-width: 100%;
+	}
+
+	@media (min-width: 60em) {
+
+		.WineTableCell--fourth {
+			min-width: 25%;
+		}
+
+		.WineTableCell--third {
+			min-width: 33.33333333%;
+		}
+
+		.WineTableCell--half {
+			min-width: 50%;
+		}
+
+	}
+
+	/* Wine Checkout Button */
+
+	.WineCheckout {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: flex-end;
+		justify-content: flex-end;
+		height: 4.5em;
+		margin: 21em 1em 0;
+		padding: 0 1.125em;
+		width: 100%;
+	}
+
+	.WineCheckout-select-area:hover {
+		cursor: pointer;
+	}
+
+	.WineCheckout .WineCheckout-select-area {
+		position: relative;
+		height: 4.5em;
+		width: 16em;
+		display: block;
+	}
+
+	.WineCheckoutHeader {
+		position: absolute;
+		width: 4.5em;
+		height: 4.5em;
+		right: 0;
+	}
+
+	.WineCheckoutHeader-square {
+		border-style: solid;
+		border-width: 2px;
+		border-left-color: rgba(0,0,0,0);
+		height: 4.5em;
+		left: 0;
+		position: absolute;
+		top: 0;
+		-webkit-transition: transform .6s, border .3s;
+		-moz-transition: transform .6s, border .3s;
+		-ms-transition: transform .6s, border .3s;
+		-o-transition: transform .6s, border .3s;
+		transition: transform .6s, border .3s;
+		width: 4.5em;
+	}
+
+	.WineCheckout-select-area:hover .WineCheckoutHeader-square {
+		border-top-color: rgba(0,0,0,0);
+		-webkit-transform: rotate(-72deg);
+		-moz-transform: rotate(-72deg);
+		-ms-transform: rotate(-72deg);
+		-o-transform: rotate(-72deg);
+		transform: rotate(-72deg);
+	}
+
+	.WineCheckoutHeader-icon {
+		-webkit-align-items: center;
+		align-items: center;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		height: 100%;
+		-webkit-justify-content: center;
+		justify-content: center;
+		position: absolute;
+		right: 0;
+		top: 0;
+		-webkit-transition: transform .6s, color .3s .15s;
+		-moz-transition: transform .6s, color .3s .15s;
+		-ms-transition: transform .6s, color .3s .15s;
+		-o-transition: transform .6s, color .3s .15s;
+		transition: transform .6s, color .3s .15s;
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		transform: translateX(-50%);
+		width: 4.5em;
+	}
+
+	.WineCheckout-select-area:hover .WineCheckoutHeader-icon {
+		color: #d50000;
+		-webkit-transform: translateX(10%);
+		-moz-transform: translateX(10%);
+		-ms-transform: translateX(10%);
+		-o-transform: translateX(10%);
+		transform: translateX(10%);
+	}
+
+	.WineCheckoutHeader-icon span {
+		font-size: 2.25em;
+	}
+
+	.WineCheckoutTitle {
+		padding: 0 0 0 1em;
+		position: absolute;
+		right: 4.5em;
+		top: .25em;
+		text-align: left;
+		-webkit-transition: transform .75s, color .3s;
+		-moz-transition: transform .75s, color .3s;
+		-ms-transition: transform .75s, color .3s;
+		-o-transition: transform .75s, color .3s;
+		transition: transform .75s, color .3s;
+		width: 10em;
+	}
+
+	.WineCheckout-select-area:hover .WineCheckoutTitle {
+		color: #d50000;
+		-webkit-transform: translateX(2.25em);
+		-moz-transform: translateX(2.25em);
+		-ms-transform: translateX(2.25em);
+		-o-transform: translateX(2.25em);
+		transform: translateX(2.25em);
+		-webkit-transition: transform 1.5s ease-out;
+		-moz-transition: transform 1.5s ease-out;
+		-ms-transition: transform 1.5s ease-out;
+		-o-transition: transform 1.5s ease-out;
+		transition: transform 1.5s ease-out;
+	}
+
+	.WineCheckoutTitle span {
+		font-size: .75em;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
 </style>
 
-<article class="Wine .is-active">
+<article class="Wine is-active">
 
 	<header class="WineHeader grey-900">
 
@@ -187,7 +483,7 @@
 
 		</section>
 
-		<div class="WineHeaderDescription crimson-text">
+		<div class="WineHeaderDescription pt-serif-italic">
 
 			<p>possui uma bela cor rubi intensa com notas aromáticas frutadas, com toques de geléia e amora. Em boca apresenta-se seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</p>
 
@@ -209,38 +505,154 @@
 
 			</figure>
 
-			<footer class="WineFooter grey-200">
+			<footer class="WineFooter">
 
-				<section class="WineInfo red-900">
+				<section class="WineInfo">
 
-					<ul class="WineInfoList blue">
+					<ul class="WineInfoList font-grey-900">
 
 						<li class="WineInfoItem">
 
-							<span class="icon-glass"></span>
+							<a class="WineInfoItem-select-area">
+
+								<header class="WineInfoItem-header">
+
+									<span class="icon-hourglass-1"></span>
+
+								</header>
+
+								<span class="WineInfoItem-title">
+
+									<span>2014</span>
+
+								</span>
+
+							</a>
 
 						</li>
 
 						<li class="WineInfoItem">
 
-							<span class="icon-glass"></span>
+							<a class="WineInfoItem-select-area">
+
+								<header class="WineInfoItem-header">
+
+									<span class="icon-wine"></span>
+
+								</header>
+
+								<span class="WineInfoItem-title">
+
+									<span>12% Vol</span>
+
+								</span>
+
+							</a>
 
 						</li>
 
 						<li class="WineInfoItem">
 
-							<span class="icon-glass"></span>
+							<a class="WineInfoItem-select-area">
+
+								<header class="WineInfoItem-header">
+
+									<span class="icon-box"></span>
+
+								</header>
+
+								<span class="WineInfoItem-title">
+
+									<span>730 ml</span>
+
+								</span>
+
+							</a>
 
 						</li>
 
 						<li class="WineInfoItem">
 
-							<span class="icon-glass"></span>
+							<a class="WineInfoItem-select-area">
+
+								<header class="WineInfoItem-header">
+
+									<span class="icon-glass"></span>
+
+								</header>
+
+								<span class="WineInfoItem-title">
+
+									<span>Varietal</span>
+
+								</span>
+
+							</a>
 
 						</li>
-
 
 					</ul>
+
+				</section>
+
+				<section class="WineTableInfo border-grey-900">
+
+					<div class="WineTableCell WineTableCell--half">
+
+						<span>Teor alcoólico: 12%</span>
+
+					</div>
+
+					<div class="WineTableCell WineTableCell--half">
+
+						<span>Tipo: Vinho varietal</span>
+
+					</div>
+
+					<div class="WineTableCell WineTableCell--half">
+
+						<span>Garrafa: 730 ml</span>
+
+					</div>
+
+					<div class="WineTableCell WineTableCell--half">
+
+						<span>Açúcar residual: 1.5 g/l</span>
+
+					</div>
+
+					<div class="WineTableCell WineTableCell--full">
+
+						<span>Característica: seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</span>
+
+					</div>
+
+
+				</section>
+
+				<section class="WineCheckout font-grey-900">
+
+					<a class="WineCheckout-select-area" href="http://ladornistore.com.br/produto.php?cod_produto=7002542">
+
+						<header class="WineCheckoutHeader">
+
+							<span class="WineCheckoutHeader-square"></span>
+
+							<span class="WineCheckoutHeader-icon">
+
+								<span class="icon-basket"></span>
+
+							</span>
+
+						</header>
+
+						<section class="WineCheckoutTitle">
+
+							<span>Ir para loja online</span>
+
+						</section>
+
+					</a>
 
 				</section>
 
@@ -286,11 +698,11 @@
 			font-size: 1.125em;
 		}
 
-	    .Wine:hover .WineHeader {
+	    .Wine.is-active .WineHeader {
 			padding: 4.5em 0 0 3em;
 		}
 
-		.Wine:hover .WineHeaderDescription {
+		.Wine.is-active .WineHeaderDescription {
 			width: 16em;
 		}
 
@@ -321,11 +733,11 @@
 			width: 36em;
 		}
 
-		.Wine:hover .WineHeader {
+		.Wine.is-active .WineHeader {
 			padding: 6em 0 0 4.5em;
 		}
 
-		.Wine:hover .WineHeaderDescription {
+		.Wine.is-active .WineHeaderDescription {
 			width: 18em;
 		}
 
@@ -360,16 +772,59 @@
 			font-size: 1.3125em;
 		}
 
-	    .Wine:hover .WineHeader {
+	    .Wine.is-active .WineHeader {
 			padding: 8em 0 0 6em;
 		}
 
-		.Wine:hover .WineHeaderDescription {
+		.Wine.is-active .WineHeaderDescription {
 			width: 24em;
 		}
 
 	}
 
 </style>
+
+<script>
+
+	var wines = document.querySelectorAll('.Wine');
+
+	var onWineClick = function() {
+
+		if (!this.parent.classList.contains('is-active'))
+			this.parent.classList.add('is-active');
+
+	};
+
+	var onWineOver = function() {
+
+		if (!this.parent.classList.contains('is-active'))
+			this.parent.classList.add('is-active');
+
+	};
+
+	var onWineOut = function() {
+
+		this.parent.classList.remove('is-active');
+
+	};
+
+	for (var i = wines.length; i--; ) {
+
+		var wine = wines[i];
+
+		wine.contentArea = wine.querySelector('.WineContent');
+		wine.header = wine.querySelector('.WineHeader');
+		wine.footer = wine.querySelector('.WineFooter');
+
+		if (wine.contentArea) {
+			wine.contentArea.addEventListener('click', onWineClick, false);
+//			wine.contentArea.addEventListener('mouseover', onWineOver, false);
+//			wine.contentArea.addEventListener('mouseout', onWineOut, false);
+			wine.contentArea.parent = wine;
+		}
+
+	}
+
+</script>
 
 </html>
