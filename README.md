@@ -40,7 +40,7 @@
 </article>
 ```
 
-###Wine Header
+###Header
 
 ```html
 <header class="WineHeader">
@@ -69,7 +69,7 @@
 </header>
 ```
 
-###Wine Content
+###Content
 
 ```html
 <section class="WineContent">
@@ -99,7 +99,7 @@
 </section>
 ```
 
-###Wine Footer
+###Footer
 
 ```html
 <footer class="WineFooter">
@@ -129,7 +129,7 @@
 </footer>
 ```
 
-###Wine Resume
+###Resume
 
 ```html
 <section class="WineResume">
@@ -163,7 +163,7 @@
 </section>
 ```
 
-###Wine Table
+###Table
 
 ```html
 <section class="WineTable border-grey-900">
@@ -203,7 +203,7 @@
 </section>
 ```
 
-###Wine Checkout Button
+###Checkout Button
 
 ```html
 <section class="WineCheckout font-grey-900">
