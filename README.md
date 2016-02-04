@@ -68,3 +68,33 @@
 
 </header>
 ```
+
+###Wine Content
+
+```html
+<section class="WineContent">
+
+	<div class="WineContent-background"></div>
+
+	<div class="WineContent-inner">
+
+		<figure class="WineFigure">
+
+			<div class="WineFigure-wrapper">
+
+				<img src="image.png" alt="Title"/>
+
+			</div>
+
+		</figure>
+
+		<footer class="WineFooter">
+
+			...
+
+		</footer>
+
+	</div>
+
+</section>
+```
