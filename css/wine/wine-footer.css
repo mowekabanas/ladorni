@@ -1,0 +1,59 @@
+/* Wine Footer */
+
+.WineFooter {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	left: 100%;
+	overflow-y: auto;
+	padding-right: 0;
+	position: absolute;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+	-ms-transition: all .6s;
+	-o-transition: all .6s;
+	transition: all .6s;
+	width: 100%;
+}
+
+.Wine.is-active .WineFooter {
+	width: 50%;
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+
+/* Wine Footer media */
+
+@media (min-width: 60em) {
+
+	.WineFooter {
+		padding: 3em 1em 3em;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	.WineFooter {
+		padding: 4.5em 1.5em 3em;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.WineFooter {
+		padding: 8em 2.25em 3em;
+	}
+
+}

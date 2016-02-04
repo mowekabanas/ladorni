@@ -1,0 +1,20 @@
+/* Wine Content */
+
+.WineContent {
+	right: 0;
+	text-align: center;
+	width: 25%;
+}
+
+.Wine.is-active .WineContent {
+	width: 66.6666666%;
+}
+
+/* Wine Content Background and Inner */
+
+.WineContent-background,
+.WineContent-inner {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}

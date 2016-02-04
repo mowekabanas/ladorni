@@ -1,0 +1,221 @@
+/* Wine Header */
+
+.WineHeader {
+	-webkit-box-shadow: 1px 0 6px rgba(0,0,0,.36);
+	-moz-box-shadow: 1px 0 6px rgba(0,0,0,.36);
+	box-shadow: 1px 0 6px rgba(0,0,0,.36);
+	width: 75%;
+	z-index: 1;
+}
+
+.Wine.is-active .WineHeader {
+	width: 33.3333333%;
+}
+
+/* Wine Header Background and Inner */
+
+.WineHeader-background,
+.WineHeader-inner {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* Wine Header background */
+
+.WineHeader-background {
+	width: 100%;
+	height: 100%;
+}
+
+/* Wine Header inner */
+
+.WineHeader-inner {
+	padding: 1em 1em 0;
+}
+
+/* Wine Header title */
+
+.WineHeader-title {
+	margin: 0 0 1em;
+}
+
+.WineHeader-title h1 {
+	color: #ffffff;
+	font-size: 2.25em;
+	line-height: 1.2;
+	font-weight: 100;
+}
+
+.WineHeader-title h1 strong {
+	display: block;
+	font-weight: 900;
+	font-size: 1.5em;
+}
+
+/* Wine Header description */
+
+.WineHeader-description {
+	color: #eeeeee;
+	width: 100%;
+	margin: 0 0 2.25em;
+}
+
+.WineHeader-description p {
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 100;
+	line-height: 1.6;
+}
+
+.WineHeader-description p:before {
+	content: '"...';
+	letter-spacing: 2px;
+}
+
+.WineHeader-description p:after {
+	content: '"';
+}
+
+/* Wine Header Media */
+
+@media (min-width: 48em) {
+
+	/* Wine Header inner */
+
+	.WineHeader-inner {
+		padding: 3.75em 1.5em 0 8em;
+	}
+
+	.Wine.is-active .WineHeader-inner {
+		padding: 3.75em 1.5em 0 3em;
+	}
+
+}
+
+@media (min-width: 60em) {
+
+	/* Wine Header inner */
+
+	.WineHeader-inner {
+		padding: 4.5em 2.25em 0 8em;
+	}
+
+	.Wine.is-active .WineHeader-inner {
+		padding: 4.5em 2.25em 0 3.75em;
+	}
+
+	/* Wine Header title */
+
+	.WineHeader-title {
+		margin: 0 0 1.125em;
+	}
+
+	.WineHeader-title h1 {
+		font-size: 3em;
+	}
+
+	.WineHeader-title h1 strong {
+		display: block;
+		font-weight: 900;
+		font-size: 1.5em;
+	}
+
+	/* Wine Header description */
+
+	.WineHeader-description {
+		max-width: 24em;
+		margin: 0 0 1.5em;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	/* Wine Header inner */
+
+	.WineHeader-inner {
+		padding: 6em 1.5em 0 12em;
+	}
+
+	.Wine.is-active .WineHeader-inner {
+		padding: 6em 1.5em 0 6em;
+	}
+
+	/* Wine Header title */
+
+	.WineHeader-title {
+		margin: 0 0 1.5em;
+	}
+
+	.WineHeader-title h1 {
+		font-size: 3.75em;
+	}
+
+	.WineHeader-title h1 strong {
+		display: block;
+		font-weight: 900;
+		font-size: 1.5em;
+	}
+
+	/* Wine Header description */
+
+	.WineHeader-description {
+		max-width: 36em;
+	}
+
+	.WineHeader-description p {
+		font-size: 1.125em;
+	}
+
+	.Wine.is-active .WineHeader-description {
+		max-width: 18em;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	/* Wine Header inner */
+
+	.WineHeader-inner {
+		padding: 8em 2.25em 0 18em;
+	}
+
+	.Wine.is-active .WineHeader {
+		padding: 8em 2.25em 0 6em;
+	}
+
+	/* Wine Header title */
+
+	.WineHeader-title {
+		margin: 0 0 2.25em;
+	}
+
+	.WineHeader-title h1 {
+		font-size: 4.5em;
+	}
+
+	.WineHeader-title h1 strong {
+		display: block;
+		font-weight: 900;
+		font-size: 1.5em;
+	}
+
+	/* Wine Header description */
+
+	.WineHeader-description {
+		margin: 0 0 2.25em;
+	}
+
+	.WineHeader-description p {
+		font-size: 1.3125em;
+	}
+
+	.Wine.is-active .WineHeader-description {
+		max-width: 24em;
+	}
+
+}

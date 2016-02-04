@@ -1,0 +1,122 @@
+/* Wine Resume */
+
+.WineResume {
+	margin: 0 0 .5em;
+}
+
+/* Wine Resume List */
+
+.WineResumeList {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	width: 100%;
+	min-height: 40px;
+}
+
+/* Wine Resume Item */
+
+.WineResumeItem {
+	width: 50%;
+	margin: 0 0 1em;
+}
+
+/* Wine Resume Item select area */
+
+.WineResumeItem-select-area {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+/* Wine Resume Item header */
+
+.WineResumeItem-header {
+	-webkit-align-items: center;
+	align-items: center;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 1px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 3em;
+	-webkit-justify-content: center;
+	justify-content: center;
+	margin-bottom: .5em;
+	width: 3em;
+}
+
+.WineResumeItem-header span {
+	font-size: 1em;
+}
+
+/* Wine Resume Item title */
+
+.WineResumeItem-title {
+	text-transform: uppercase;
+}
+
+.WineResumeItem-title span {
+	font-size: .875em;
+	font-weight: 600;
+	letter-spacing: .3675pt;
+}
+
+/* Wine Resume media */
+
+@media (min-width: 72em) {
+
+	.WineResume {
+		margin: 0 0 1em;
+	}
+
+	.WineResumeItem {
+		width: 25%;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.WineResume {
+		margin: 0 0 1.5em;
+	}
+
+	.WineResumeItem {
+		margin: 0 0 1.5em;
+	}
+
+	.WineResumeItem-header {
+		border-width: 1px;
+		height: 3.75em;
+		margin-bottom: 1em;
+		width: 3.75em;
+	}
+
+	.WineResumeItem-header span {
+		font-size: 1.125em;
+	}
+
+	.WineResumeItem-title span {
+		font-size: 1em;
+	}
+
+}

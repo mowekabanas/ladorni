@@ -11,8 +11,8 @@
 }
 
 .WineItem,
-.WineTitle,
-.WineHeaderDescription,
+.WineHeader-title,
+.WineHeader-description,
 .WineCategory {
 	margin: auto;
 	/*text-align: center;*/
@@ -41,13 +41,13 @@
 	max-height: 36em;
 }
 
-.WineTitle,
-.WineHeaderDescription,
+.WineHeader-title,
+.WineHeader-description,
 .WineCategory {
 	opacity: .87;
 }
 
-.WineTitle {
+.WineHeader-title {
 	display: block;
 	font-size: 3.75em;
 	font-weight: 200;
@@ -61,7 +61,7 @@
 	margin: 1em 0;
 }
 
-.WineHeaderDescription {
+.WineHeader-description {
 	display: none;
 	font-size: 1.3125em;
 	line-height: 1.45;
