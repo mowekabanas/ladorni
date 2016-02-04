@@ -43,7 +43,7 @@
 	width: 3.75em;
 }
 
-/* Wine Checkout Button square (part of icon) */
+/* Wine Checkout Button Icon square (part of icon) */
 
 .WineCheckoutIcon-square {
 	border-style: solid;
@@ -70,7 +70,7 @@
 	transform: rotate(-72deg);
 }
 
-/* Wine Checkout Button icon (part of icon) */
+/* Wine Checkout Button Icon symbol (part of icon) */
 
 .WineCheckoutIcon-symbol {
 	-webkit-align-items: center;
@@ -115,7 +115,7 @@
 /* Wine Checkout Button title */
 
 .WineCheckout-title {
-	padding: 0 0 0 1em;
+	padding: 0 0 0 1.5em;
 	position: absolute;
 	right: 3.75em;
 	top: .25em;
@@ -168,15 +168,21 @@
 		height: 4.5em;
 	}
 
+	/* Wine Checkout Button Icon */
+
 	.WineCheckoutIcon {
 		width: 4.5em;
 		height: 4.5em;
 	}
 
+	/* Wine Checkout Button Icon square (part of icon) */
+
 	.WineCheckoutIcon-square {
 		height: 4.5em;
 		width: 4.5em;
 	}
+
+	/* Wine Checkout Button Icon symbol (part of icon) */
 
 	.WineCheckoutIcon-symbol {
 		width: 4.5em;
@@ -186,10 +192,14 @@
 		font-size: 2.25em;
 	}
 
+	/* Wine Checkout Button title */
+
 	.WineCheckout-title {
 		padding: 0 0 0 1em;
 		right: 6em;
 	}
+
+	/* Wine Checkout Button title */
 
 	.WineCheckout-title span {
 		font-size: .875em;

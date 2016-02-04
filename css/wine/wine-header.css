@@ -9,7 +9,7 @@
 }
 
 .Wine.is-active .WineHeader {
-	width: 33.3333333%;
+	width: 40%;
 }
 
 /* Wine Header Background and Inner */
@@ -90,21 +90,27 @@
 	}
 
 	.Wine.is-active .WineHeader-inner {
-		padding: 3.75em 1.5em 0 3em;
+		padding: 3.75em 1.5em 0 3.75em;
 	}
 
 }
 
 @media (min-width: 60em) {
 
+	/* Wine Header */
+
+	.Wine.is-active .WineHeader {
+		width: 33.3333333%;
+	}
+
 	/* Wine Header inner */
 
 	.WineHeader-inner {
-		padding: 4.5em 2.25em 0 8em;
+		padding: 4.5em 1.5em 0 8em;
 	}
 
 	.Wine.is-active .WineHeader-inner {
-		padding: 4.5em 2.25em 0 3.75em;
+		padding: 4.5em 1.5em 0 3.75em;
 	}
 
 	/* Wine Header title */
@@ -141,7 +147,7 @@
 	}
 
 	.Wine.is-active .WineHeader-inner {
-		padding: 6em 1.5em 0 6em;
+		padding: 6em 1.5em 0 4.5em;
 	}
 
 	/* Wine Header title */

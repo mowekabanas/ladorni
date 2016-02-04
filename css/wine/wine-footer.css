@@ -34,10 +34,18 @@
 
 /* Wine Footer media */
 
+@media (min-width: 48em) {
+
+	.WineFooter {
+		padding: 3em 1em 2.25em;
+	}
+
+}
+
 @media (min-width: 60em) {
 
 	.WineFooter {
-		padding: 3em 1em 3em;
+		padding: 3em 1em 2.25em;
 	}
 
 }
