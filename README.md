@@ -128,3 +128,107 @@
 
 </footer>
 ```
+
+###Wine Resume
+
+```html
+<section class="WineResume">
+
+	<ul class="WineResumeList">
+
+		<li class="WineResumeItem">
+
+			<a class="WineResumeItem-select-area">
+
+				<header class="WineResumeItem-header">
+
+					<span class="icon-icon"></span>
+
+				</header>
+
+			<span class="WineResumeItem-title">
+
+				<span>Title</span>
+
+			</span>
+
+			</a>
+
+		</li>
+
+		...
+
+	</ul>
+
+</section>
+```
+
+###Wine Table
+
+```html
+<section class="WineTable border-grey-900">
+
+	<div class="WineTable-cell">
+
+		<span>Text</span>
+
+	</div>
+
+	<div class="WineTable-cell WineTable-cell--fourth">
+
+		<span>Text</span>
+
+	</div>
+
+	<div class="WineTable-cell WineTable-cell--third">
+
+		<span>Text</span>
+
+	</div>
+
+	<div class="WineTable-cell WineTable-cell--half">
+
+		<span>Text</span>
+
+	</div>
+
+	<div class="WineTable-cell WineTable-cell--full">
+
+		<span>Text</span>
+
+	</div>
+	
+	...
+
+</section>
+```
+
+###Wine Checkout Button
+
+```html
+<section class="WineCheckout font-grey-900">
+
+	<a class="WineCheckout-select-area" href="#">
+
+		<header class="WineCheckoutIcon">
+
+			<span class="WineCheckoutIcon-square"></span>
+
+			<span class="WineCheckoutIcon-symbol">
+
+				<span class="icon-basket"></span>
+
+			</span>
+
+		</header>
+
+		<section class="WineCheckout-title">
+
+			<span>Title</span>
+
+		</section>
+
+	</a>
+
+</section>
+```
