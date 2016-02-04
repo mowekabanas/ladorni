@@ -3,9 +3,9 @@
 ```html
 <article class="Wine is-active">
 
-	<header class="WineHeader red-900">
+	<header class="WineHeader">
 
-		<div class="WineHeader-background grey-900"></div>
+		<div class="WineHeader-background"></div>
 
 		<div class="WineHeader-inner">
 
@@ -43,9 +43,9 @@
 ###Wine Header
 
 ```html
-<header class="WineHeader red-900">
+<header class="WineHeader">
 
-	<div class="WineHeader-background grey-900"></div>
+	<div class="WineHeader-background"></div>
 
 	<div class="WineHeader-inner">
 
@@ -97,4 +97,34 @@
 	</div>
 
 </section>
+```
+
+###Wine Footer
+
+```html
+<footer class="WineFooter">
+
+	<header class="flex flex-column">
+
+		<section class="WineResume">
+
+			...
+
+		</section>
+
+		<section class="WineTable">
+
+			...
+
+		</section>
+
+	</header>
+
+	<section class="WineCheckout">
+
+		...
+
+	</section>
+
+</footer>
 ```
