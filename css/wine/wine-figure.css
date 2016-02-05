@@ -1,25 +1,12 @@
 /* Wine Figure */
 
 .WineFigure {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	left: -50%;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-ms-transition: all .6s;
-	-o-transition: all .6s;
-	transition: all .6s;
+	z-index: -1;
 }
 
-.Wine.is-active .WineFigure {
-	width: 50%;
-	-webkit-transform: translateX(100%);
-	-moz-transform: translateX(100%);
-	-ms-transform: translateX(100%);
-	-o-transform: translateX(100%);
-	transform: translateX(100%);
-}
+.Wine.is-active .WineFigure { }
+
+/* Wine Figure wrappper */
 
 .WineFigure-wrapper {
 	height: 100%;
@@ -27,7 +14,9 @@
 	width: 100%;
 }
 
-.WineFigure img {
+/* Wine Figure img */
+
+.WineFigure-img {
 	margin: 0 auto;
 	display: block;
 	height: 100%;
@@ -35,21 +24,62 @@
 
 @media (min-width: 48em) {
 
+	/* Wine Figure */
+
+	.WineFigure {
+		height: 100%;
+		position: absolute;
+		right: 0;
+		width: 100%;
+	}
+
+	/* Wine Figure wrappper */
+
 	.WineFigure-wrapper {
 		padding: 10em 0;
+		-webkit-transition: transform .6s;
+		-moz-transition: transform .6s;
+		-ms-transition: transform .6s;
+		-o-transition: transform .6s;
+		transition: transform .6s;
+		-webkit-transform: translateX(25%);
+		-moz-transform: translateX(25%);
+		-ms-transform: translateX(25%);
+		-o-transform: translateX(25%);
+		transform: translateX(25%);
 	}
+
+	.Wine.is-active .WineFigure-wrapper {
+	    -webkit-transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
+	    -moz-transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
+	    -ms-transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
+	    -o-transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
+	    transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
+    }
 
 }
 
 @media (min-width: 60em) {
 
+	/* Wine Figure wrappper */
+
 	.WineFigure-wrapper {
 		padding: 8em 0;
+	}
+
+	.Wine.is-active .WineFigure-wrapper {
+		-webkit-transform: translateX(0%);
+		-moz-transform: translateX(0%);
+		-ms-transform: translateX(0%);
+		-o-transform: translateX(0%);
+		transform: translateX(0%);
 	}
 
 }
 
 @media (min-width: 72em) {
+
+	/* Wine Figure wrappper */
 
 	.WineFigure-wrapper {
 		padding: 6em 0;
@@ -58,6 +88,8 @@
 }
 
 @media (min-width: 96em) {
+
+	/* Wine Figure wrappper */
 
 	.WineFigure-wrapper {
 		padding: 4.5em 0;

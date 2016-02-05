@@ -27,42 +27,42 @@
 
 <article class="Wine">
 
-	<header class="WineHeader red-900">
-
-		<div class="WineHeader-background grey-900"></div>
-
-		<div class="WineHeader-inner">
-
-			<section class="WineHeader-title">
-
-				<h1>
-					<span class="brand">La Dorni</span>
-					<strong>Merlot</strong>
-				</h1>
-
-			</section>
-
-			<div class="WineHeader-description pt-serif-italic">
-
-				<p>possui uma bela cor rubi intensa com notas aromáticas frutadas, com toques de geléia e amora. Em boca apresenta-se seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</p>
-
-			</div>
-
-		</div>
-
-	</header>
-
 	<section class="WineContent">
 
 		<div class="WineContent-background"></div>
 
 		<div class="WineContent-inner">
 
+			<header class="WineHeader red-900">
+
+				<div class="WineHeader-background grey-900"></div>
+
+				<div class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h1>
+							<span class="brand">La Dorni</span>
+							<strong>Merlot</strong>
+						</h1>
+
+					</section>
+
+					<div class="WineHeader-description pt-serif-italic">
+
+						<p>possui uma bela cor rubi intensa com notas aromáticas frutadas, com toques de geléia e amora. Em boca apresenta-se seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</p>
+
+					</div>
+
+				</div>
+
+			</header>
+
 			<figure class="WineFigure">
 
 				<div class="WineFigure-wrapper">
 
-					<img src="img/merlot.png" alt="Merlot"/>
+					<img class="WineFigure-img" src="img/merlot.png" alt="Merlot"/>
 
 				</div>
 
@@ -327,6 +327,13 @@
 	var wineList = new WineList(document.documentElement);
 
 	wineList.init();
+
+	var w = document.getElementsByClassName('Wine')[0];
+	var wh = w.querySelectorAll('.WineHeader')[0];
+
+	wh.addEventListener('click', function() {
+		w.classList.toggle('is-active');
+	}, false);
 
 </script>
 

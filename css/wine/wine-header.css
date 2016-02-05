@@ -1,15 +1,11 @@
 /* Wine Header */
 
 .WineHeader {
-	-webkit-box-shadow: 1px 0 6px rgba(0,0,0,.36);
-	-moz-box-shadow: 1px 0 6px rgba(0,0,0,.36);
-	box-shadow: 1px 0 6px rgba(0,0,0,.36);
-	width: 75%;
-	z-index: 1;
+	width: 100%;
 }
 
 .Wine.is-active .WineHeader {
-	width: 40%;
+	/*width: 40%;*/
 }
 
 /* Wine Header Background and Inner */
@@ -83,9 +79,34 @@
 
 @media (min-width: 48em) {
 
+	/* Wine Header */
+
+	.WineHeader {
+		-webkit-box-shadow: 1px 0 6px rgba(0,0,0,.36);
+		-moz-box-shadow: 1px 0 6px rgba(0,0,0,.36);
+		box-shadow: 1px 0 6px rgba(0,0,0,.36);
+		height: 100%;
+		position: absolute;
+		-webkit-transition: width .6s;
+		-moz-transition: width .6s;
+		-ms-transition: width .6s;
+		-o-transition: width .6s;
+		transition: width .6s;
+		width: 75%;
+	}
+
+	.Wine.is-active .WineHeader {
+		width: 40%;
+	}
+
 	/* Wine Header inner */
 
 	.WineHeader-inner {
+		-webkit-transition: padding .6s;
+		-moz-transition: padding .6s;
+		-ms-transition: padding .6s;
+		-o-transition: padding .6s;
+		transition: padding .6s;
 		padding: 3.75em 1.5em 0 8em;
 	}
 
