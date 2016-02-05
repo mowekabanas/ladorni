@@ -1,16 +1,22 @@
-/* Wine Content */
+/* Wine Content media */
 
-.WineContent {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
+@media (min-width: 48em) {
 
-/* Wine Content Background and Inner */
+	/* Wine Content */
 
-.WineContent-background,
-.WineContent-inner {
-	position: absolute;
-	width: 100%;
-	height: 100%;
+	.WineContent {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+	/* Wine Content Background and Inner */
+
+	.WineContent-background,
+	.WineContent-inner {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
 }
