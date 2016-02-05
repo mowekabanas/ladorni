@@ -1,0 +1,28 @@
+social = {
+
+    "networks": [
+        
+        {
+            "name":"facebook",
+            "url":"https://www.facebook.com/Vin%C3%ADcola-La-Dorni-do-Brasil-Ltda-168902366495327",
+        },
+        {
+            "name":"twitter",
+            "url":"https://twitter.com/ladorni",
+        },
+        {
+            "name":"store",
+            "url":"http://www.ladornistore.com.br",
+        },
+        {
+            "name":"blog",
+            "url":"http://www.ladorni.com.br/blog",
+        },
+        {
+            "name":"instagram",
+            "url":"https://www.instagram.com/ladorni",
+        }
+
+    ]
+
+};
