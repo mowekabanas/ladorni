@@ -1,28 +1,22 @@
-/* Wine Content */
+/* Wine Content media */
 
-.WineContent {
-	right: 0;
-	text-align: center;
-	width: 25%;
-}
+@media (min-width: 48em) {
 
-.Wine.is-active .WineContent {
-	width: 60%;
-}
+	/* Wine Content */
 
-/* Wine Content Background and Inner */
+	.WineContent {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
 
-.WineContent-background,
-.WineContent-inner {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
+	/* Wine Content Background and Inner */
 
-@media (min-width: 60em) {
-
-	.Wine.is-active .WineContent {
-		width: 66.6666666%;
+	.WineContent-background,
+	.WineContent-inner {
+		position: absolute;
+		width: 100%;
+		height: 100%;
 	}
 
 }

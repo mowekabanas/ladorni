@@ -6,38 +6,41 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	height: 100%;
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
 	-webkit-flex-flow: column;
 	flex-flow: column;
-	left: 100%;
-	overflow-y: auto;
+	opacity: 1;
 	padding-right: 0;
-	position: absolute;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-ms-transition: all .6s;
-	-o-transition: all .6s;
-	transition: all .6s;
+	-webkit-transition: transform .6s;
+	-moz-transition: transform .6s;
+	-ms-transition: transform .6s;
+	-o-transition: transform .6s;
+	transition: transform .6s;
 	width: 100%;
 }
 
-.Wine.is-active .WineFooter {
-	width: 50%;
-	-webkit-transform: translateX(-100%);
-	-moz-transform: translateX(-100%);
-	-ms-transform: translateX(-100%);
-	-o-transform: translateX(-100%);
-	transform: translateX(-100%);
-}
-
-/* Wine Footer media */
+/* Wine Footer media width */
 
 @media (min-width: 48em) {
 
+	/* Wine Footer */
+
 	.WineFooter {
-		padding: 3em 1em 2.25em;
+		height: 100%;
+		left: 100%;
+		overflow-y: auto;
+		padding: 3em 0 2.25em;
+		position: absolute;
+		width: 33.333333333%;
+	}
+
+	.Wine.is-active .WineFooter {
+		-webkit-transform: translateX(-100%);
+		-moz-transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
+		-o-transform: translateX(-100%);
+		transform: translateX(-100%);
 	}
 
 }

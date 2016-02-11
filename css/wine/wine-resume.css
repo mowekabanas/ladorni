@@ -1,7 +1,11 @@
 /* Wine Resume */
 
 .WineResume {
-	margin: 0 0 .5em;
+	margin: 0 0 2.25em;
+}
+
+.WineFooter .WineResume {
+	display: none;
 }
 
 /* Wine Resume List */
@@ -24,7 +28,7 @@
 
 .WineResumeItem {
 	width: 50%;
-	margin: 0 0 1em;
+	margin: 0 0 2.25em;
 }
 
 /* Wine Resume Item select area */
@@ -57,15 +61,15 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	height: 3em;
+	height: 3.75em;
 	-webkit-justify-content: center;
 	justify-content: center;
-	margin-bottom: .5em;
-	width: 3em;
+	margin-bottom: .75em;
+	width: 3.75em;
 }
 
 .WineResumeItem-header span {
-	font-size: 1em;
+	font-size: 1.125em;
 }
 
 /* Wine Resume Item title */
@@ -76,20 +80,113 @@
 
 .WineResumeItem-title span {
 	font-size: .875em;
-	font-weight: 600;
-	letter-spacing: .3675pt;
+	font-weight: 400;
+	letter-spacing: 1pt;
 }
 
-/* Wine Resume media */
+/* Wine Resume media width */
+
+@media (min-width: 48em) {
+
+	/* Wine Resume */
+
+	.WineResume {
+		margin: 0 0 .5em;
+	}
+
+	.WineHeader .WineResume {
+		max-width: 14em;
+	}
+
+	/* Wine Resume Item */
+
+	.WineResumeItem {
+		margin: 0 0 1em;
+		width: 50%;
+	}
+
+	.WineHeader .WineResumeItem {
+		margin: 0 0 2.25em;
+	}
+
+	.WineResumeItem-header {
+		border-width: 1px;
+		height: 3em;
+		margin-bottom: .5em;
+		width: 3em;
+	}
+
+	.WineHeader .WineResumeItem-header {
+		height: 3.75em;
+		width: 3.75em;
+	}
+
+	.WineResumeItem-header span {
+		font-size: 1em;
+	}
+
+	.WineHeader .WineResumeItem-header span {
+		font-size: 1.125em;
+	}
+
+	.WineResumeItem-title span {
+		letter-spacing: .3675pt;
+		font-size: .875em;
+		font-weight: 600;
+	}
+
+}
+
+@media (min-width: 60em) {
+
+	/* Wine Resume Item */
+
+	.WineHeader .WineResume {
+		max-width: 16em;
+	}
+
+	.WineHeader .WineResumeItem {
+		margin: 0 0 1.5em;
+		width: 25%;
+	}
+
+	.WineHeader .WineResumeItem-header {
+		height: 3em;
+		width: 3em;
+	}
+
+	.WineHeader .WineResumeItem-header span {
+		font-size: 1em;
+	}
+
+}
 
 @media (min-width: 72em) {
+
+	/* Wine Resume */
 
 	.WineResume {
 		margin: 0 0 1em;
 	}
 
-	.WineResumeItem {
+	.WineHeader .WineResume {
+		max-width: 21em;
+	}
+
+	/* Wine Resume Item */
+
+	.WineResumeItem,
+	.WineHeader .WineResumeItem {
 		width: 25%;
+	}
+
+	.WineHeader .WineResumeItem-header {
+		height: 3.75em;
+		width: 3.75em;
+	}
+
+	.WineHeader .WineResumeItem-header span {
+		font-size: 1.125em;
 	}
 
 }

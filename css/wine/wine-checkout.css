@@ -1,6 +1,7 @@
 /* Wine Checkout Button */
 
 .WineCheckout {
+	color: #bdbdbd;
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -9,8 +10,7 @@
 	-webkit-justify-content: flex-end;
 	justify-content: flex-end;
 	height: 3.75em;
-	margin: 0 0 0;
-	padding: 0 1.125em;
+	margin: 0 0 2.25em;
 	width: 100%;
 	-webkit-transition: background .3s ease;
 	-moz-transition: background .3s ease;
@@ -20,7 +20,7 @@
 }
 
 .WineCheckout-select-area:hover {
-	background-color: #f5f5f5;
+	background-color: rgba(255,255,255,.08);
 	cursor: pointer;
 }
 
@@ -150,12 +150,12 @@
 
 /* Wine Checkout Button media */
 
-@media (min-width: 72em) {
+@media (min-width: 48em) {
 
 	/* Wine Checkout Button */
 
 	.WineCheckout {
-		margin: 0 0 1em;
+		margin: 0 0 .75em;
 	}
 
 }
@@ -165,6 +165,7 @@
 	/* Wine Checkout Button */
 
 	.WineCheckout {
+		margin: 0 0 1em;
 		height: 4.5em;
 	}
 

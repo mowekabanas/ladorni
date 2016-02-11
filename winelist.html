@@ -25,32 +25,7 @@
 
 <nav class="WinesNav"></nav>
 
-<article class="Wine">
-
-	<header class="WineHeader red-900">
-
-		<div class="WineHeader-background grey-900"></div>
-
-		<div class="WineHeader-inner">
-
-			<section class="WineHeader-title">
-
-				<h1>
-					<span class="brand">La Dorni</span>
-					<strong>Merlot</strong>
-				</h1>
-
-			</section>
-
-			<div class="WineHeader-description pt-serif-italic">
-
-				<p>possui uma bela cor rubi intensa com notas aromáticas frutadas, com toques de geléia e amora. Em boca apresenta-se seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</p>
-
-			</div>
-
-		</div>
-
-	</header>
+<article class="Wine blue-grey-300">
 
 	<section class="WineContent">
 
@@ -58,23 +33,52 @@
 
 		<div class="WineContent-inner">
 
+			<header class="WineHeader font-grey-800">
+
+				<div class="WineHeader-background grey-100"></div>
+
+				<div class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h2>
+
+							<span class="brand">La Dorni</span>
+							<strong>Merlot</strong>
+
+						</h2>
+
+					</section>
+
+					<section class="WineHeader-description crimson-text-italic">
+
+						<p>possui uma bela cor rubi intensa com notas aromáticas frutadas, com toques de geléia e amora. Em boca apresenta-se seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</div>
+
+			</header>
+
 			<figure class="WineFigure">
 
 				<div class="WineFigure-wrapper">
 
-					<img src="img/merlot.png" alt="Merlot"/>
+					<img class="WineFigure-img" src="img/merlot.png" alt="Merlot"/>
 
 				</div>
 
 			</figure>
 
-			<footer class="WineFooter">
+			<footer class="WineFooter font-grey-900">
 
 				<header class="flex flex-column">
 
 					<section class="WineResume">
 
-						<ul class="WineResumeList font-grey-900">
+						<ul class="WineResumeList">
 
 							<li class="WineResumeItem">
 
@@ -86,11 +90,11 @@
 
 									</header>
 
-								<span class="WineResumeItem-title">
+									<span class="WineResumeItem-title">
 
-									<span>2014</span>
+										<span>2014</span>
 
-								</span>
+									</span>
 
 								</a>
 
@@ -106,11 +110,11 @@
 
 									</header>
 
-								<span class="WineResumeItem-title">
+									<span class="WineResumeItem-title">
 
-									<span>12% Vol</span>
+										<span>12% Vol</span>
 
-								</span>
+									</span>
 
 								</a>
 
@@ -126,11 +130,11 @@
 
 									</header>
 
-								<span class="WineResumeItem-title">
+									<span class="WineResumeItem-title">
 
-									<span>730 ml</span>
+										<span>730 ml</span>
 
-								</span>
+									</span>
 
 								</a>
 
@@ -146,11 +150,11 @@
 
 									</header>
 
-								<span class="WineResumeItem-title">
+									<span class="WineResumeItem-title">
 
-									<span>Varietal</span>
+										<span>Varietal</span>
 
-								</span>
+									</span>
 
 								</a>
 
@@ -164,31 +168,31 @@
 
 						<div class="WineTable-cell WineTable-cell--half">
 
-							<span>Teor alcoólico: 12%</span>
+							<p>Teor alcoólico: 12%</p>
 
 						</div>
 
 						<div class="WineTable-cell WineTable-cell--half">
 
-							<span>Tipo: Vinho varietal</span>
+							<p>Tipo: Vinho varietal</p>
 
 						</div>
 
 						<div class="WineTable-cell WineTable-cell--half">
 
-							<span>Garrafa: 730 ml</span>
+							<p>Garrafa: 730 ml</p>
 
 						</div>
 
 						<div class="WineTable-cell WineTable-cell--half">
 
-							<span>Açúcar residual: 1.5 g/l</span>
+							<p>Açúcar residual: 1.5 g/l</p>
 
 						</div>
 
 						<div class="WineTable-cell WineTable-cell--full">
 
-							<span>Característica: seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</span>
+							<p>Característica: seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</p>
 
 						</div>
 
@@ -230,97 +234,8 @@
 
 </article>
 
-<script>
-
-	var Wine = (function() {
-
-		/**
-		 * Wine Constructor
-		 * @param viewport
-		 * @param options {object|boolean}
-		 * @param init {boolean}
-		 * @constructor
-		 */
-		function Wine(viewport, options, init) {
-
-			this.viewport = viewport;
-
-			this.options = options || {};
-
-			this.header = {};
-			this.content = {};
-			this.footer = {};
-
-			this.active = false;
-
-			if (init) this.init();
-
-		}
-
-		/**
-		 * Init the wine
-		 */
-		Wine.prototype.init = function() {
-
-			this.header.viewport = this.viewport.querySelector('.WineHeader');
-			this.content.viewport = this.viewport.querySelector('.WineContent');
-			this.footer.viewport = this.viewport.querySelector('.WineFooter');
-
-			if (this.viewport.classList.contains('is-active')) this.active = true;
-
-			console.log(this);
-
-		};
-
-		return Wine;
-
-	})();
-
-</script>
-
-<script>
-
-	var WineList = (function() {
-
-		/**
-		 * Constructor of the winelist
-		 * @param viewport {object}
-		 * @param options {object|boolean}
-		 * @param init {boolean}
-		 * @constructor
-		 */
-		function WineList(viewport, options, init) {
-
-			this.viewport = viewport;
-
-			this.options = {} || options;
-			this.options.wineClass = '.Wine';
-
-			this.wines = [];
-
-			if (init)
-				this.init();
-
-		}
-
-		/**
-		 * Init the winelist
-		 * Get all the wines element and get the model of this
-		 */
-		WineList.prototype.init = function() {
-
-			var wines = this.viewport.querySelectorAll(this.options.wineClass);
-
-			for (var i = wines.length; i--; )
-				this.wines.push(new Wine(wines[i], false, true));
-
-		};
-
-		return WineList;
-
-	})();
-
-</script>
+<script src="js/app/wineList.js"></script>
+<script src="js/app/wine.js"></script>
 
 <script>
 
