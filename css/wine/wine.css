@@ -1,21 +1,24 @@
 /* Wine */
 
 .Wine {
+	overflow-x: hidden;
+	padding: 0 1.5em 3.75em;
 	position: relative;
 	width: 100%;
-	overflow-x: hidden;
-	padding: 0 1.5em;
 }
+
+/* Wine media width */
 
 @media (min-width: 48em) {
 
 	/* Wine */
 
 	.Wine {
-		position: relative;
-		width: 100%;
 		height: 100vh;
 		overflow: hidden;
+		padding: 0;
+		position: relative;
+		width: 100%;
 	}
 
 }
