@@ -10,12 +10,13 @@
 	justify-content: space-between;
 	-webkit-flex-flow: column;
 	flex-flow: column;
+	opacity: 1;
 	padding-right: 0;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-ms-transition: all .6s;
-	-o-transition: all .6s;
-	transition: all .6s;
+	-webkit-transition: transform .6s;
+	-moz-transition: transform .6s;
+	-ms-transition: transform .6s;
+	-o-transition: transform .6s;
+	transition: transform .6s;
 	width: 100%;
 }
 
