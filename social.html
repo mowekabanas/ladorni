@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="roboto">
 <meta charset="UTF-8">
 <title>La Dorni | Social</title>
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
@@ -14,4 +15,215 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-</html>
+<style>
+
+    .social {
+
+    }
+
+    .social-wrapper {
+        width: 100%;
+    }
+
+    .info {
+        min-width: 13em;
+        cursor: pointer;
+        flex: 1;
+        color: #616161;
+        padding: 4.5em .5em;
+        background-color: rgba(255,255,255,0);
+        -webkit-transition: background .4s;
+        -moz-transition: background .4s;
+        -ms-transition: background .4s;
+        -o-transition: background .4s;
+        transition: background .4s;
+    }
+    .info:hover {
+        background-color: #f5f5f5;
+        -webkit-transition: background 66s;
+        -moz-transition: background .6s;
+        -ms-transition: background .6s;
+        -o-transition: background .6s;
+        transition: background .6s;
+    }
+
+    .icon {
+        width: 100%;
+        padding-top: 1em;
+    }
+
+    .icon-phone, .icon-facebook, .icon-basket, .icon-instagram, .icon-wordpress {
+        font-size: 3em;
+    }
+
+    .subtitle {
+        font-size: 1.125em;
+        font-weight: 900;
+        padding-bottom: .375em;
+        letter-spacing: 1px;
+
+    }
+    .description {
+        font-size: .75em;
+        padding-bottom: 1.5em;
+        letter-spacing: 1px;
+        color: #9e9e9e;
+    }
+
+    .info:hover,
+    .icon:hover,
+    .subtitle:hover,
+    .description:hover {
+        color: #212121;
+        -webkit-transition: all .4s;
+        -moz-transition: all .4s;
+        -ms-transition: all .4s;
+        -o-transition: all .4s;
+        transition: all .4s;
+    }
+    
+
+
+
+
+</style>
+
+<div class="social flex align-center">
+    
+      <div class="social-wrapper flex justify-around flex-wrap">
+
+          <div class="info flex flex-column red">
+              <div class="icon flex align-center justify-around ">
+                  <span class="icon-phone"></span>
+              </div>
+              <div class="subtitle flex align-center justify-around">
+                  <span class="sub-description">Nosso Telefone</span>
+              </div>
+              <div class="description flex align-center justify-around">
+                  <span class="value-desc">43 3542 4315</span>
+              </div>
+          </div>
+
+
+          <div class="info flex flex-column blue">
+              <a href="http://www.ladornistore.com.br/" target="_blank">
+              <div class="icon flex align-center justify-around ">
+                  <span class="icon-basket"></span>
+              </div>
+              <div class="subtitle flex align-center justify-around">
+                  <span class="sub-description">La Dorni Store</span>
+              </div>
+              <div class="description flex align-center justify-around">
+                  <span class="value-desc">Comodidade Garantida</span>
+              </div>
+              </a>
+          </div>
+
+
+          <div class="info flex flex-column grey">
+              <a href="http://www.fb.com/vinicola.ladorni" target="_blank">
+              <div class="icon flex  align-center justify-around">
+                  <span class="icon-facebook"></span>
+              </div>
+              <div class="subtitle flex align-center justify-around">
+                  <span class="sub-description">Curta nossa Página</span>
+              </div>
+              <div class="description flex align-center justify-around">
+                  <span class="value-desc">fb.com/vinicola.ladorni</span>
+              </div>
+              </a>
+          </div>
+
+
+          <div class="info flex flex-column amber">
+              <a href="http://www.instagram.com" target="_blank">
+              <div class="icon flex  align-center justify-around">
+                  <span class="icon-instagram"></span>
+              </div>
+              <div class="subtitle flex align-center justify-around">
+                  <span class="sub-description">Siga nosso Insta</span>
+              </div>
+              <div class="description flex align-center justify-around">
+                  <span class="value-desc">instagram.com/vinicola.ladorni</span>
+              </div>
+              </a>
+          </div>
+
+
+          <div class="info flex flex-column deep-orange">
+              <a href="https://br.wordpress.org/" target="_blank">
+              <div class="icon flex  align-center justify-around">
+                  <span class="icon-wordpress"></span>
+              </div>
+              <div class="subtitle flex align-center justify-around">
+                  <span class="sub-description">Blog</span>
+              </div>
+              <div class="description flex align-center justify-around">
+                  <span class="value-desc">Por dentro das novidades</span>
+              </div>
+              </a>
+          </div>
+
+
+
+          </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <!-- <div class="info-social flex flex-column justify-between">
+                 <div class="social-content flex align-center justify-start">
+                       <header>
+                             <span class="icon-phone"></span>
+                       </header>
+                       <span class="value-phone">43 3542 4315</span>
+                 </div>
+                 <a href="http://www.ladornistore.com.br/" target="_blank"
+                    class="social-content flex align-center justify-start">
+                       <header>
+                             <span class="icon-basket"></span>
+                       </header>
+                       <span class="value-eshop">La Dorni Store</span>
+                 </a>
+               <a href="http://www.instagram.com" target="_blank"
+                    class="social-content flex align-center justify-start">
+                       <header>
+                             <span class="icon-instagram"></span>
+                       </header>
+                       <span class="value-instagram">instagram.com/vinicola.ladorni</span>
+                 </a>
+                 <a href="http://www.facebook.com" target="_blank"
+                    class="social-content flex align-center justify-start">
+                       <header>
+                             <span class="icon-facebook"></span>
+                       </header>
+                       <span class="value-facebook">facebook.com/vinicola.ladorni</span>
+                 </a>
+                 <a href="https://br.wordpress.org/" target="_blank" class="social-content flex align-center justify-start">
+                       <header>
+                             <span class="icon-wordpress"></span>
+                       </header>
+                       <span class="value-blog">Blog</span>
+                 </a>
+           </div>-->
+     </div>
+</div>
