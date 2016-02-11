@@ -4,6 +4,10 @@
 	margin: 0 0 .5em;
 }
 
+.WineHeader .WineResume {
+	display: none;
+}
+
 /* Wine Resume List */
 
 .WineResumeList {

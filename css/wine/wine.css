@@ -4,6 +4,7 @@
 	position: relative;
 	width: 100%;
 	overflow-x: hidden;
+	padding: 0 1.5em;
 }
 
 @media (min-width: 48em) {

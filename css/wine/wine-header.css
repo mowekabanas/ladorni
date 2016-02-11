@@ -2,6 +2,7 @@
 
 .WineHeader {
 	width: 100%;
+	padding: 1.5em 0 0;
 }
 
 .Wine.is-active .WineHeader {  }
@@ -17,9 +18,7 @@
 
 /* Wine Header inner */
 
-.WineHeader-inner {
-	padding: 1em;
-}
+.WineHeader-inner {  }
 
 /* Wine Header title */
 
@@ -27,14 +26,14 @@
 	margin: 0 0 1em;
 }
 
-.WineHeader-title h1 {
+.WineHeader-title h2 {
 	color: #ffffff;
 	font-size: 2.25em;
 	line-height: 1.2;
 	font-weight: 100;
 }
 
-.WineHeader-title h1 strong {
+.WineHeader-title h2 strong {
 	display: block;
 	font-weight: 900;
 	font-size: 1.5em;
@@ -154,11 +153,11 @@
 		margin: 0 0 1.125em;
 	}
 
-	.WineHeader-title h1 {
+	.WineHeader-title h2 {
 		font-size: 3em;
 	}
 
-	.WineHeader-title h1 strong {
+	.WineHeader-title h2 strong {
 		display: block;
 		font-weight: 900;
 		font-size: 1.5em;
@@ -191,11 +190,11 @@
 		margin: 0 0 1.5em;
 	}
 
-	.WineHeader-title h1 {
+	.WineHeader-title h2 {
 		font-size: 3.75em;
 	}
 
-	.WineHeader-title h1 strong {
+	.WineHeader-title h2 strong {
 		display: block;
 		font-weight: 900;
 		font-size: 1.5em;
@@ -231,11 +230,11 @@
 		margin: 0 0 2.25em;
 	}
 
-	.WineHeader-title h1 {
+	.WineHeader-title h2 {
 		font-size: 4.5em;
 	}
 
-	.WineHeader-title h1 strong {
+	.WineHeader-title h2 strong {
 		display: block;
 		font-weight: 900;
 		font-size: 1.5em;

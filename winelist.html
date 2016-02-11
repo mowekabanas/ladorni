@@ -25,7 +25,7 @@
 
 <nav class="WinesNav"></nav>
 
-<article class="Wine">
+<article class="Wine red-900">
 
 	<section class="WineContent">
 
@@ -41,18 +41,20 @@
 
 					<section class="WineHeader-title">
 
-						<h1>
+						<h2>
 							<span class="brand">La Dorni</span>
 							<strong>Merlot</strong>
-						</h1>
+						</h2>
 
 					</section>
 
-					<div class="WineHeader-description pt-serif-italic">
+					<section class="WineHeader-description pt-serif-italic">
 
 						<p>possui uma bela cor rubi intensa com notas aromáticas frutadas, com toques de geléia e amora. Em boca apresenta-se seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante</p>
 
-					</div>
+					</section>
+
+					<section class="WineResume"></section>
 
 				</div>
 
@@ -74,7 +76,7 @@
 
 					<section class="WineResume">
 
-						<ul class="WineResumeList font-grey-900">
+						<ul class="WineResumeList">
 
 							<li class="WineResumeItem">
 
@@ -247,8 +249,10 @@
 
 			this.options = options || {};
 
-			this.header = {};
 			this.content = {};
+
+			this.header = {};
+			this.figure = {};
 			this.footer = {};
 
 			this.active = false;
@@ -257,18 +261,49 @@
 
 		}
 
+		Wine.prototype.getResume = function() {
+
+			var c, content, empty, i, figure;
+
+			c = '';
+
+			empty = [];
+
+			figure = this.viewport.querySelectorAll('.WineResume');
+
+			for (i = figure.length; i--; ) {
+
+				c = figure[i].querySelectorAll('.WineResumeList');
+
+				if (c.length)
+					content = c[0];
+				else empty.push(figure[i]);
+
+			}
+
+			for (i = empty.length; i--; ) {
+
+				c = content.cloneNode(true);
+				empty[i].appendChild(c);
+
+			}
+
+		};
+
 		/**
 		 * Init the wine
 		 */
 		Wine.prototype.init = function() {
 
-			this.header.viewport = this.viewport.querySelector('.WineHeader');
 			this.content.viewport = this.viewport.querySelector('.WineContent');
+
+			this.header.viewport = this.viewport.querySelector('.WineHeader');
+			this.figure.viewport = this.viewport.querySelector('.WineFigure');
 			this.footer.viewport = this.viewport.querySelector('.WineFooter');
 
 			if (this.viewport.classList.contains('is-active')) this.active = true;
 
-			console.log(this);
+			this.getResume();
 
 		};
 

@@ -18,8 +18,8 @@
 .WineTable-cell {
 	border-style: solid;
 	border-width: 1px;
-	flex: 1;
 	margin: -1px 0 0 -1px;
+	flex: 1;
 	padding: .5em 1em;
 	text-align: left;
 }
@@ -30,18 +30,12 @@
 
 /* Wine Info Table cell alternative sizes */
 
-.WineTable-cell--fourth {
-	min-width: 50%;
-}
-
+.WineTable-cell--fourth,
 .WineTable-cell--third {
 	min-width: 50%;
 }
 
-.WineTable-cell--half {
-	min-width: 100%;
-}
-
+.WineTable-cell--half,
 .WineTable-cell--full {
 	min-width: 100%;
 }

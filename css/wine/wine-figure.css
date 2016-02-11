@@ -1,7 +1,8 @@
 /* Wine Figure */
 
 .WineFigure {
-
+	height: 24em;
+	margin: 0 0 2.25em;
 }
 
 .Wine.is-active .WineFigure { }
@@ -9,8 +10,9 @@
 /* Wine Figure wrappper */
 
 .WineFigure-wrapper {
+	background-color: #eeeeee;
 	height: 100%;
-	padding: 1em 0;
+	padding: 1.5em 0;
 	width: 100%;
 }
 
