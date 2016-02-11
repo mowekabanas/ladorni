@@ -15,7 +15,7 @@ var Wine = (function() {
 
 		this.options = options || {};
 
-		this.content = {};
+		this.inner = {};
 
 		this.header = {};
 		this.figure = {};
@@ -45,8 +45,6 @@ var Wine = (function() {
 				self.footer.viewport.classList.remove('is-hidden');
 
 			}
-
-			console.log(self.active);
 
 		};
 
@@ -95,7 +93,7 @@ var Wine = (function() {
 	 */
 	Wine.prototype.init = function() {
 
-		this.content.viewport = this.viewport.querySelector('.WineContent');
+		this.inner.viewport = this.viewport.querySelector('.Wine-inner');
 
 		this.header.viewport = this.viewport.querySelector('.WineHeader');
 		this.figure.viewport = this.viewport.querySelector('.WineFigure');
