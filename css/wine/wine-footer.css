@@ -29,6 +29,7 @@
 	.WineFooter {
 		height: 100%;
 		left: 100%;
+		overflow-x: hidden;
 		overflow-y: auto;
 		padding: 3em 0 2.25em;
 		position: absolute;

@@ -155,6 +155,7 @@
 	/* Wine Checkout Button */
 
 	.WineCheckout {
+		padding: 0 1em;
 		margin: 0 0 .75em;
 	}
 
