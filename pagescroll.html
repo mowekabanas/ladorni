@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<title>La Dorni - Page Scroll</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<style>
+
+	.debug {
+		font-family: monospace;
+		font-size: .75em;
+		height: 100vh;
+		line-height: 1;
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: fixed;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.ScrollList {
+		height: 100vh;
+		overflow-y: hidden;
+		position: relative;
+		width: 100%;
+	}
+
+	.ScrollList--natural {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: column;
+		flex-flow: column;
+		height: 100%;
+	}
+
+	.ScrollItem {
+		-webkit-align-items: center;
+		align-items: center;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		height: 100%;
+		-webkit-justify-content: center;
+		justify-content: center;
+		left: 0;
+		position: absolute;
+		top: 0;
+		-webkit-transition: transform .6s .025s;
+		-moz-transition: transform .6s .025s;
+		-ms-transition: transform .6s .025s;
+		-o-transition: transform .6s .025s;
+		transition: transform .6s .025s;
+		width: 100%;
+	}
+
+	.ScrollList--natural .ScrollItem {
+		height: 100vh;
+		position: relative;
+		-webkit-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-o-transform: none !important;
+		transform: none !important;
+	}
+
+	.ScrollItem h3 {
+		color: #ffffff;
+		font-size: 4.5em;
+		font-weight: 100;
+	}
+
+</style>
+
+<div id="debug" class="debug"></div>
+
+<section class="ScrollList">
+
+	<article class="ScrollItem red-600"></article>
+	<article class="ScrollItem blue-600 is-active"></article>
+	<article class="ScrollItem green-600"></article>
+	<article class="ScrollItem orange-600"></article>
+	<article class="ScrollItem grey-600"></article>
+	<article class="ScrollItem blue-grey-600"></article>
+	<article class="ScrollItem purple-600"></article>
+	<article class="ScrollItem pink-600"></article>
+	<article class="ScrollItem red-600"></article>
+	<article class="ScrollItem blue-600"></article>
+	<article class="ScrollItem green-600"></article>
+	<article class="ScrollItem orange-600"></article>
+	<article class="ScrollItem grey-600"></article>
+	<article class="ScrollItem blue-grey-600"></article>
+	<article class="ScrollItem purple-600"></article>
+	<article class="ScrollItem pink-600"></article>
+	<article class="ScrollItem red-600"></article>
+	<article class="ScrollItem blue-600"></article>
+	<article class="ScrollItem green-600"></article>
+	<article class="ScrollItem orange-600"></article>
+	<article class="ScrollItem grey-600"></article>
+	<article class="ScrollItem blue-grey-600"></article>
+	<article class="ScrollItem purple-600"></article>
+	<article class="ScrollItem pink-600"></article>
+
+</section>
+
+<script>
+
+	var debug = document.getElementById('debug');
+
+	var activeItem, allow, delta, delay, scrollItems;
+
+	scrollItems = document.getElementsByClassName('ScrollItem');
+
+	activeItem = document.getElementsByClassName('is-active')[0] || scrollItems[0];
+
+	allow = true;
+	delta = 0;
+
+	var init = function() {
+
+		var isTheNext;
+
+		for (var i = scrollItems.length; i--; ) {
+
+			if (!isTheNext) {
+
+				if (scrollItems[i].classList.contains('is-active')) {
+
+					scrollItems[i].style.transform = 'translateY(0)';
+					isTheNext = true;
+
+				} else {
+
+					scrollItems[i].style.transform = 'translateY(100%)';
+
+				}
+
+			} else {
+
+				scrollItems[i].style.transform = 'translateY(-100%)';
+
+			}
+
+			scrollItems[i].innerHTML = "<h3>" + ( i ) + "</h3>"
+
+		}
+
+	};
+
+	init();
+
+	var first = function () {
+
+		// reset current active item
+		activeItem.classList.remove('is-active');
+
+		// load new active item
+		activeItem = scrollItems[0];
+		activeItem.classList.add('is-active');
+
+		init();
+
+	};
+
+	var last = function () {
+
+		// reset current active item
+		activeItem.classList.remove('is-active');
+
+		// load new active item
+		activeItem = scrollItems[scrollItems.length - 1];
+		activeItem.classList.add('is-active');
+
+		init();
+
+	};
+
+	var previous = function () {
+
+ 		var isTheNext = false;
+
+		for (var i = scrollItems.length; i--; ) {
+
+			if (!isTheNext) {
+
+				if (scrollItems[i].classList.contains('is-active'))
+					isTheNext = true;
+
+			} else {
+
+				// reset current active item
+				activeItem.classList.remove('is-active');
+
+				// load new active item
+				activeItem = scrollItems[i];
+				activeItem.classList.add('is-active');
+
+				// reset next
+				isTheNext = false;
+				break;
+
+			}
+
+		}
+
+		init();
+
+	};
+
+	var next = function() {
+
+		var isTheNext = false;
+
+		for (var i = 0; i < scrollItems.length; i++) {
+
+			if (!isTheNext) {
+
+				if (scrollItems[i].classList.contains('is-active'))
+					isTheNext = true;
+
+			} else {
+
+				// reset current active item
+				activeItem.classList.remove('is-active');
+
+				// load new active item
+				activeItem = scrollItems[i];
+				activeItem.classList.add('is-active');
+
+				// reset next
+				isTheNext = false;
+
+				break;
+
+			}
+
+		}
+
+		init();
+
+	};
+
+	var troca = function(state) {
+
+		if (state) { // indo, descendo, scrollDown
+
+			console.log('indo');
+			next();
+
+		} else { // voltando, subindo, scrollUp
+
+			console.log('voltando');
+			previous();
+
+		}
+
+	};
+
+	window.addEventListener('wheel', function(ev) {
+
+		debug.innerHTML = debug.innerHTML + ev.deltaY + ' ';
+
+		if (allow) {
+
+			allow = false;
+
+			debug.innerHTML = debug.innerHTML + 'allow ';
+
+			if (ev.deltaY != 0) {
+
+				debug.innerHTML = debug.innerHTML + 'pass ';
+
+				if (ev.deltaY > 0) {
+					troca(true);
+				} else {
+					troca(false);
+				}
+
+			}
+
+			if (delay)
+				clearTimeout(delay);
+
+			delay = setTimeout(function() {
+
+				allow = true;
+
+			}, 450);
+
+		}
+
+		delta = ev.deltaY;
+
+	}, false);
+
+	window.addEventListener('keydown', function(ev) {
+
+		if (ev.keyCode == 33 || ev.keyCode == 38)
+			troca(false);
+
+		if (ev.keyCode == 34 || ev.keyCode == 40)
+			troca(true);
+
+		if (ev.keyCode == 35)
+			last();
+
+		if (ev.keyCode == 36)
+			first();
+
+	});
+
+</script>
+
+</html>
