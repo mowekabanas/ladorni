@@ -34,6 +34,10 @@
 		overflow-y: hidden;
 		position: relative;
 		width: 100%;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
 
 	.ScrollList--natural {
@@ -91,6 +95,10 @@
 		overflow-y: auto;
 		width: 225px;
 		z-index: 1;
+		-webkit-user-select: text;
+		-moz-user-select: text;
+		-ms-user-select: text;
+		user-select: text;
 	}
 
 </style>
@@ -130,7 +138,7 @@
 
 	var debug = document.getElementById('debug');
 
-	var activeItem, allow, cancelScroll, delta, delay, scrollItems, selectAreas;
+	var activeItem, allow, cancelScroll, cancelTouch, delta, delay, scrollItems, selectAreas;
 
 	scrollItems = document.getElementsByClassName('ScrollItem');
 
@@ -140,7 +148,24 @@
 	cancelScroll = false;
 	delta = 0;
 
+	cancelTouch = false;
+
 	selectAreas = document.getElementsByClassName('ScrollItem-select-area');
+
+	var selectAreaTouchStartCtrl = function() {
+
+		// always turn cancelTouch to false
+		cancelTouch = false;
+
+	};
+
+	var selectAreaTouchEndCtrl = function() {
+
+		// if has scrollBar, turn cancelTouch to true
+		if (this.scrollHeight > this.clientHeight)
+			cancelTouch = true;
+
+	};
 
 	var selectAreaMouseOutCtrl = function() {
 
@@ -220,7 +245,20 @@
 		for (i = selectAreas.length; i--; ) {
 
 			selectAreas[i].addEventListener('mouseover', selectAreaMouseOverCtrl, false);
+			selectAreas[i].addEventListener('touchstart', function() {
+
+				// if has scrollBar, turn cancelScroll to true
+				if (this.scrollHeight > this.clientHeight)
+					cancelTouch = true;
+
+			}, false);
+
 			selectAreas[i].addEventListener('mouseout', selectAreaMouseOutCtrl, false);
+			selectAreas[i].addEventListener('touchend', function() {
+
+				cancelTouch = false;
+
+			}, false);
 
 		}
 
@@ -333,6 +371,8 @@
 
 	};
 
+	// MOUSE WHEEL SCROLL
+
 	window.addEventListener('wheel', function(ev) {
 
 		if (!cancelScroll) {
@@ -374,6 +414,8 @@
 
 	}, false);
 
+	// SCROLL AND DIRECTION KEYS
+
 	window.addEventListener('keydown', function(ev) {
 
 		if (ev.keyCode == 33 || ev.keyCode == 38)
@@ -389,6 +431,125 @@
 			first();
 
 	});
+
+	// MOUSE MOVE (touch on firefox)
+
+	var mouseDown, mouseMove, mouseMoveSum;
+
+	mouseDown = false;
+	mouseMove = [];
+	mouseMoveSum = 0;
+
+	window.addEventListener('mousedown', function() {
+
+		if (!cancelScroll) {
+
+			mouseDown = true;
+			mouseMove = [];
+
+		}
+
+	}, false);
+
+	window.addEventListener('mousemove', function(ev) {
+
+		if (mouseDown)
+			mouseMove.push(ev.movementY);
+
+	}, false);
+
+	window.addEventListener('mouseup', function() {
+
+		if (mouseDown)
+			if (mouseMove.length) {
+
+				mouseMoveSum = 0;
+
+				mouseDown = false;
+
+				for (var i = mouseMove.length; i--; )
+					mouseMoveSum += mouseMove[i];
+
+				if ( Math.abs(mouseMoveSum) > ( window.innerHeight *.075 ) ) {
+
+					if (mouseMoveSum < 0) {
+
+						troca(true);
+
+					} else {
+
+						troca();
+
+					}
+
+				}
+
+			}
+
+	}, false);
+
+	// TOUCH MOVE
+
+	var touchStart, touchLastMove, touchMove, touchMoveSum;
+
+	touchStart = true;
+	touchLastMove = 0;
+	touchMove = [];
+	touchMoveSum = 0;
+
+	window.addEventListener('touchstart', function(ev) {
+
+		if (!cancelTouch) {
+
+			touchLastMove = ev.changedTouches[0].clientY;
+
+			touchStart = true;
+			touchMove = [];
+
+		}
+
+	}, false);
+
+	window.addEventListener('touchmove', function(ev) {
+
+		if (touchStart) {
+
+			touchMove.push(ev.changedTouches[0].clientY - touchLastMove);
+			touchLastMove = ev.changedTouches[0].clientY;
+
+		}
+
+	}, false);
+
+	window.addEventListener('touchend', function(ev) {
+
+		if (touchStart)
+			if (touchMove.length) {
+
+				touchMoveSum = 0;
+				touchStart = false;
+
+				for (var i = touchMove.length; i--; )
+					touchMoveSum += touchMove[i];
+
+				if ( Math.abs(touchMoveSum) > ( window.innerHeight *.075 ) ) {
+
+					if (touchMoveSum < 0) {
+
+						troca(true);
+
+					} else {
+
+						troca();
+
+					}
+
+				}
+
+			}
+
+	}, false);
+
 
 </script>
 
