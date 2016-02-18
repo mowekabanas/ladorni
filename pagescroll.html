@@ -17,6 +17,7 @@
 <style>
 
 	.debug {
+		display: none;
 		font-family: monospace;
 		font-size: .75em;
 		height: 100vh;
@@ -25,7 +26,7 @@
 		overflow-y: auto;
 		position: fixed;
 		width: 100%;
-		z-index: 1;
+		/*z-index: 1;*/
 	}
 
 	.ScrollList {
@@ -55,16 +56,16 @@
 		display: -webkit-flex;
 		display: flex;
 		height: 100%;
-		-webkit-justify-content: center;
-		justify-content: center;
+		-webkit-justify-content: space-around;
+		justify-content: space-around;
 		left: 0;
 		position: absolute;
 		top: 0;
-		-webkit-transition: transform .6s .025s;
-		-moz-transition: transform .6s .025s;
-		-ms-transition: transform .6s .025s;
-		-o-transition: transform .6s .025s;
-		transition: transform .6s .025s;
+		-webkit-transition: transform .6s;
+		-moz-transition: transform .6s;
+		-ms-transition: transform .6s;
+		-o-transition: transform .6s;
+		transition: transform .6s;
 		width: 100%;
 	}
 
@@ -82,6 +83,14 @@
 		color: #ffffff;
 		font-size: 4.5em;
 		font-weight: 100;
+	}
+
+	.ScrollItem-select-area {
+		background-color: rgba(255,255,255,.36);
+		height: 300px;
+		overflow-y: auto;
+		width: 225px;
+		z-index: 1;
 	}
 
 </style>
@@ -121,16 +130,34 @@
 
 	var debug = document.getElementById('debug');
 
-	var activeItem, allow, delta, delay, scrollItems;
+	var activeItem, allow, cancelScroll, delta, delay, scrollItems, selectAreas;
 
 	scrollItems = document.getElementsByClassName('ScrollItem');
 
 	activeItem = document.getElementsByClassName('is-active')[0] || scrollItems[0];
 
 	allow = true;
+	cancelScroll = false;
 	delta = 0;
 
-	var init = function() {
+	selectAreas = document.getElementsByClassName('ScrollItem-select-area');
+
+	var selectAreaMouseOutCtrl = function() {
+
+		// always turn cancelScroll to false
+		cancelScroll = false;
+
+	};
+
+	var selectAreaMouseOverCtrl = function() {
+
+		// if has scrollBar, turn cancelScroll to true
+		if (this.scrollHeight > this.clientHeight)
+			cancelScroll = true;
+
+	};
+
+	var translate = function() {
 
 		var isTheNext;
 
@@ -155,7 +182,45 @@
 
 			}
 
-			scrollItems[i].innerHTML = "<h3>" + ( i ) + "</h3>"
+		}
+
+	};
+
+	var init = function() {
+
+		var i;
+
+		translate();
+
+		for (i = scrollItems.length; i--; ) {
+
+			scrollItems[i].innerHTML = "<h3>" + ( i ) + "</h3>" +
+					"<span class='ScrollItem-select-area'>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"<h1>ai</h1>" +
+					"<h1>oi</h1>" +
+					"</span>";
+
+		}
+
+		for (i = selectAreas.length; i--; ) {
+
+			selectAreas[i].addEventListener('mouseover', selectAreaMouseOverCtrl, false);
+			selectAreas[i].addEventListener('mouseout', selectAreaMouseOutCtrl, false);
 
 		}
 
@@ -172,7 +237,7 @@
 		activeItem = scrollItems[0];
 		activeItem.classList.add('is-active');
 
-		init();
+		translate();
 
 	};
 
@@ -185,7 +250,7 @@
 		activeItem = scrollItems[scrollItems.length - 1];
 		activeItem.classList.add('is-active');
 
-		init();
+		translate();
 
 	};
 
@@ -217,7 +282,7 @@
 
 		}
 
-		init();
+		translate();
 
 	};
 
@@ -250,7 +315,7 @@
 
 		}
 
-		init();
+		translate();
 
 	};
 
@@ -258,12 +323,10 @@
 
 		if (state) { // indo, descendo, scrollDown
 
-			console.log('indo');
 			next();
 
 		} else { // voltando, subindo, scrollUp
 
-			console.log('voltando');
 			previous();
 
 		}
@@ -272,38 +335,42 @@
 
 	window.addEventListener('wheel', function(ev) {
 
-		debug.innerHTML = debug.innerHTML + ev.deltaY + ' ';
+		if (!cancelScroll) {
 
-		if (allow) {
+			debug.innerHTML = debug.innerHTML + ev.deltaY + ' ';
 
-			allow = false;
+			if (allow) {
 
-			debug.innerHTML = debug.innerHTML + 'allow ';
+				allow = false;
 
-			if (ev.deltaY != 0) {
+				debug.innerHTML = debug.innerHTML + 'allow ';
 
-				debug.innerHTML = debug.innerHTML + 'pass ';
+				if (ev.deltaY != 0) {
 
-				if (ev.deltaY > 0) {
-					troca(true);
-				} else {
-					troca(false);
+					debug.innerHTML = debug.innerHTML + 'pass ';
+
+					if (ev.deltaY > 0) {
+						troca(true);
+					} else {
+						troca(false);
+					}
+
 				}
+
+				if (delay)
+					clearTimeout(delay);
+
+				delay = setTimeout(function() {
+
+					allow = true;
+
+				}, 450);
 
 			}
 
-			if (delay)
-				clearTimeout(delay);
-
-			delay = setTimeout(function() {
-
-				allow = true;
-
-			}, 450);
+			delta = ev.deltaY;
 
 		}
-
-		delta = ev.deltaY;
 
 	}, false);
 
