@@ -149,7 +149,7 @@
 
 	var debug = document.getElementById('debug');
 
-	var activeItem, allow, cancelScroll, cancelTouch, delta, delay, scrollItems, selectAreas;
+	var activeItem, allow, cancelScroll, cancelTouch, delay, scrollItems, selectAreas;
 
 	scrollItems = document.getElementsByClassName('ScrollItem');
 
@@ -157,7 +157,6 @@
 
 	allow = true;
 	cancelScroll = false;
-	delta = 0;
 
 	cancelTouch = false;
 
@@ -391,44 +390,107 @@
 
 	// MOUSE WHEEL SCROLL
 
-	window.addEventListener('wheel', function(ev) {
+	const AFTER_THE_FIRST = 450;
+	const FIRST = 900;
 
-		if (!cancelScroll) {
+	var wheelDelay = FIRST;
 
-			debug.innerHTML = debug.innerHTML + ev.deltaY + ' ';
+	var lastTime;
+	var time = 0;
+	var scrollTime = 0;
+	var totalTime = 0;
 
-			if (allow) {
+	var delta = 0;
 
-				allow = false;
+	// setTimeOut
+	var timeReset = 0;
 
-				debug.innerHTML = debug.innerHTML + 'allow ';
+	var theScrollFunction = function(ev) {
 
-				if (ev.deltaY != 0) {
+		if (ev.deltaY != 0) {
 
-					debug.innerHTML = debug.innerHTML + 'pass ';
+			var sum = ev.deltaY / Math.abs(ev.deltaY);
 
-					if (ev.deltaY > 0) {
+			if (!totalTime) { // if totaltime is zero
+
+				if (ev.deltaY > 0) {
+					troca(true);
+				} else {
+					troca(false);
+				}
+
+			} else { // get the delta
+
+				if (delta) {
+
+					if (delta > 0) {
+
+						if (ev.deltaY < 0)
+							delta = -1;
+
+					} else {
+
+						if (ev.deltaY > 1)
+							delta = 1;
+
+					}
+
+				} else {
+
+					delta += sum;
+
+				}
+
+				if (scrollTime > wheelDelay * 1.1) {
+
+					if (delta > 0) {
 						troca(true);
 					} else {
 						troca(false);
 					}
 
+					delta = 0;
+					scrollTime = 0;
+
+					wheelDelay = AFTER_THE_FIRST;
+
 				}
-
-				if (delay)
-					clearTimeout(delay);
-
-				delay = setTimeout(function() {
-
-					allow = true;
-
-				}, 450);
 
 			}
 
-			delta = ev.deltaY;
-
 		}
+
+		// define the timers
+
+		if (lastTime)
+			time = new Date() - lastTime;
+
+		scrollTime += time;
+		totalTime += scrollTime + 1;
+		lastTime = new Date();
+
+		// Reset all when the timer is out
+
+		if (timeReset)
+			clearTimeout(timeReset);
+
+		timeReset = setTimeout(function() {
+
+			delta = 0;
+			lastTime = 0;
+			scrollTime = 0;
+			totalTime = 0;
+
+			wheelDelay = FIRST;
+
+		}, FIRST);
+
+	};
+
+	window.addEventListener('wheel', function(ev) {
+
+		if (!cancelScroll)
+			theScrollFunction(ev);
 
 	}, false);
 
