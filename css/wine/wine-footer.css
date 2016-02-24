@@ -31,7 +31,7 @@
 		left: 100%;
 		overflow-x: hidden;
 		overflow-y: auto;
-		padding: 3em 0 2.25em;
+		padding: 3em 0 0;
 		position: absolute;
 		width: 33.333333333%;
 	}
@@ -49,7 +49,7 @@
 @media (min-width: 60em) {
 
 	.WineFooter {
-		padding: 3em 1em 2.25em;
+		padding: 3em 1em 0;
 	}
 
 }
@@ -57,7 +57,7 @@
 @media (min-width: 72em) {
 
 	.WineFooter {
-		padding: 4.5em 1.5em 3em;
+		padding: 4.5em 1.5em 0;
 	}
 
 }
@@ -65,7 +65,7 @@
 @media (min-width: 96em) {
 
 	.WineFooter {
-		padding: 8em 2.25em 3em;
+		padding: 8em 2.25em 0;
 	}
 
 }

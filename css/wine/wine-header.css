@@ -40,12 +40,12 @@
 
 /* Wine Header description */
 
-.WineHeader-description {
+.WineHeader-short-description {
 	width: 100%;
 	margin: 0 0 3em;
 }
 
-.WineHeader-description p {
+.WineHeader-short-description p {
 	font-size: 1.125em;
 	font-size-adjust: none;
 	font-style: italic;
@@ -53,12 +53,12 @@
 	line-height: 1.8;
 }
 
-.WineHeader-description p:before {
+.WineHeader-short-description p:before {
 	content: '"...';
 	letter-spacing: 2px;
 }
 
-.WineHeader-description p:after {
+.WineHeader-short-description p:after {
 	content: '"';
 	margin-left: 2.25pt;
 }
@@ -136,12 +136,12 @@
 
 	/* Wine Header description */
 
-	.WineHeader-description {
+	.WineHeader-short-description {
 		max-width: 18em;
 		margin: 0 0 3em;
 	}
 
-	.WineHeader-description p {
+	.WineHeader-short-description p {
 		font-size: 1.3125em;
 		line-height: 1.72;
 	}
@@ -188,7 +188,7 @@
 
 	/* Wine Header description */
 
-	.WineHeader-description {
+	.WineHeader-short-description {
 		max-width: 21em;
 		margin: 0 0 1.5em;
 	}
@@ -229,11 +229,11 @@
 
 	/* Wine Header description */
 
-	.WineHeader-description {
+	.WineHeader-short-description {
 		max-width: 24em;
 	}
 
-	.WineHeader-description p {
+	.WineHeader-short-description p {
 		font-size: 1.125em;
 	}
 
@@ -267,13 +267,13 @@
 
 	/* Wine Header description */
 
-	.WineHeader-description {
+	.WineHeader-short-description {
 		padding: 0 3em 0 0;
 		max-width: 36em;
 		margin: 0 0 3em;
 	}
 
-	.WineHeader-description p {
+	.WineHeader-short-description p {
 		font-size: 1.3125em;
 	}
 
