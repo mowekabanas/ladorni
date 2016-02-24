@@ -1,18 +1,115 @@
-@media (min-width: 96em) {
+
+/* Wine Show More button */
+
+/* Wine Show More */
+
+.WineShowMore {
+	display: none;
+}
+
+/* Wine Footer media width */
+
+@media (min-width: 48em) {
+
+	/* Wine Show More */
 
 	.WineShowMore {
-		background-color: red;
 		bottom: 0;
-		right: 1em;
-		padding: 0 0 3.75em;
+		display: block;
+		margin: 0 2.25em 0 0; /* Location */
+		padding: 0 0 3.75em; /* Location */
 		position: absolute;
+		right: 0; /* Location */
+		-webkit-transition: right .6s, margin .6s;
+		-moz-transition: right .6s, margin .6s;
+		-ms-transition: right .6s, margin .6s;
+		-o-transition: right .6s, margin .6s;
+		transition: right .6s, margin .6s;
 	}
 
+	.Wine.is-active .WineShowMore {
+		right: 66.666666666%; /* Location */
+		margin: 0 -3em 0 0; /* Size - a little minor size */
+	}
+
+	/* Wine Show More select area */
+
 	.WineShowMore-select-area {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
+	.WineShowMoreSquare {
 		background-color: #424242;
+		height: 3.75em; /* Size */
+		width: 3.75em; /* Size */
+	}
+
+	.WineShowMoreTitle {
+		visibility: hidden;
+		opacity: 0;
+		margin: 0 1em 0 0;
+		-webkit-transition: visibility .6s, opacity .6s;
+		-moz-transition: visibility .6s, opacity .6s;
+		-ms-transition: visibility .6s, opacity .6s;
+		-o-transition: visibility .6s, opacity .6s;
+		transition: visibility .6s, opacity .6s;
+	}
+
+	.WineShowMore:hover .WineShowMoreTitle {
+		opacity: 1;
+		-webkit-transition: visibility 0s, opacity .6s;
+		-moz-transition: visibility 0s, opacity .6s;
+		-ms-transition: visibility 0s, opacity .6s;
+		-o-transition: visibility 0s, opacity .6s;
+		transition: visibility 0s, opacity .6s;
+		visibility: visible;
+	}
+
+	.WineShowMoreTitle-text {
+		display: none;
+		font-size: .875em;
+		font-weight: 600;
+		letter-spacing: -.375pt;
+		text-transform: uppercase;
+	}
+
+	.WineShowMoreTitle-text--closed {
 		display: block;
-		height: 4.5em;
-		width: 4.5em;
+	}
+
+	.Wine.is-active .WineShowMoreTitle-text--closed {
+		display: none;
+	}
+
+	.Wine.is-active .WineShowMoreTitle-text--opened {
+		display: block;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	/* Wine Show More */
+
+	.WineShowMore {
+		padding: 0 0 3.75em; /* Location */
+		margin: 0 2.25em 0 0; /* Location */
+	}
+
+	.Wine.is-active .WineShowMore {
+		margin: 0 -3.75em 0 0; /* Size - a little minor size */
+	}
+
+	.WineShowMoreSquare {
+		background-color: #424242;
+		height: 4.5em; /* Size */
+		width: 4.5em; /* Size */
 	}
 
 }
