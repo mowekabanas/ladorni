@@ -130,7 +130,7 @@
 	}
 
 	.WineResumeItem-title span {
-		letter-spacing: .3675pt;
+		letter-spacing: .1pt;
 		font-size: .875em;
 		font-weight: 600;
 	}
@@ -170,7 +170,7 @@
 	}
 
 	.WineHeader .WineResume {
-		max-width: 21em;
+		max-width: 18em;
 	}
 
 	/* Wine Resume Item */
@@ -181,8 +181,8 @@
 	}
 
 	.WineHeader .WineResumeItem-header {
-		height: 3.75em;
-		width: 3.75em;
+		height: 3em;
+		width: 3em;
 	}
 
 	.WineHeader .WineResumeItem-header span {

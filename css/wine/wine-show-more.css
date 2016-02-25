@@ -17,65 +17,58 @@
 		bottom: 0;
 		display: block;
 		margin: 0 2.25em 0 0; /* Location */
-		padding: 0 0 3.75em; /* Location */
+		padding: 0 0 2.25em; /* Location */
 		position: absolute;
 		right: 0; /* Location */
-		visibility: visible;
-		-webkit-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
-		-moz-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
-		-ms-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
-		-o-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
-		transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
-	}
-
-	.Wine.is-expanded.is-animated .WineShowMore {
-		/*-webkit-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
-		/*-moz-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
-		/*-ms-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
-		/*-o-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
-		/*transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
 	}
 
 	.Wine.is-expanded .WineShowMore {
-		right: 66.666666666%; /* Location */
 		margin: 0 -3em 0 0; /* Size - a little minor size */
+		right: 66.666666666%; /* Location */
 	}
-
-    .Wine.is-animated .WineShowMore {
-	    opacity: 0;
-	    visibility: hidden;
-    }
 
 	/* Wine Show More select area */
 
 	.WineShowMore-select-area {
+		-webkit-align-items: center;
+		align-items: center;
 		display: -webkit-box;
 		display: -moz-box;
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex;
-		-webkit-align-items: center;
-		align-items: center;
+		height: 3.75em;
+		outline: 0;
+		position: relative;
+		width: 3.75em;
 	}
 
-	.WineShowMoreSquare {
-		background-color: #424242;
-		height: 3.75em; /* Size */
-		width: 3.75em; /* Size */
-	}
+	/* Wine Show More Title */
 
 	.WineShowMoreTitle {
-		visibility: hidden;
+		-webkit-align-items: center;
+		align-items: center;
+		padding: 0 .625em 0 0;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
 		opacity: 0;
-		margin: 0 1em 0 0;
-		-webkit-transition: visibility .6s, opacity .6s;
-		-moz-transition: visibility .6s, opacity .6s;
-		-ms-transition: visibility .6s, opacity .6s;
-		-o-transition: visibility .6s, opacity .6s;
-		transition: visibility .6s, opacity .6s;
+		position: absolute;
+		left: 0;
+		-webkit-transform: translateX(-100%);
+		-moz-transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
+		-o-transform: translateX(-100%);
+		transform: translateX(-100%);
+		top: 0;
+		height: 100%;
+		visibility: hidden;
+		white-space: nowrap;
 	}
 
-	.WineShowMore:hover .WineShowMoreTitle {
+	.WineShowMore-select-area:hover .WineShowMoreTitle {
 		opacity: 1;
 		-webkit-transition: visibility 0s, opacity .6s;
 		-moz-transition: visibility 0s, opacity .6s;
@@ -87,9 +80,9 @@
 
 	.WineShowMoreTitle-text {
 		display: none;
-		font-size: .875em;
+		font-size: .75em;
 		font-weight: 600;
-		letter-spacing: -.375pt;
+		letter-spacing: -.15pt;
 		text-transform: uppercase;
 	}
 
@@ -105,6 +98,124 @@
 		display: block;
 	}
 
+	/* Wine Show More Button */
+
+	.WineShowMoreButton {
+		border-style: solid;
+		border-width: 2px;
+		border-color: rgba(0,0,0,1);
+		background-color: rgba(0,0,0,0);
+		border-radius: 50%;
+		height: 100%; /* Size */
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%; /* Size */
+	}
+
+	.Wine.is-expanded .WineShowMoreButton {
+		border-color: rgba(0,0,0,0);
+		background-color: rgba(0,0,0,0);
+	}
+
+	.Wine.is-animated .WineShowMoreButton {
+		border-color: rgba(0,0,0,0);
+		background-color: rgba(0,0,0,0);
+	}
+
+	.WineShowMore-select-area:hover .WineShowMoreButton {
+		border-color: rgba(0,0,0,1);
+		background-color: rgba(0,0,0,1);
+		opacity: 1;
+	}
+
+	.WineShowMore-select-area:focus .WineShowMoreButton {
+		outline: dotted 1px rgba(0,0,0,.28);
+	}
+
+	/* Wine Show More Icon */
+
+	.WineShowMoreIcon {
+		-webkit-align-items: center;
+		align-items: center;
+		color: #424242;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		height: 100%; /* Size */
+		-webkit-justify-content: center;
+		justify-content: center;
+		left: 0;
+		opacity: 1;
+		position: absolute;
+		top: 0;
+		-webkit-transition: opacity .4s;
+		-moz-transition: opacity .4s;
+		-ms-transition: opacity .4s;
+		-o-transition: opacity .4s;
+		transition: opacity .4s;
+		width: 100%; /* Size */
+	}
+
+	.Wine.is-expanded .WineShowMoreIcon {
+		color: #757575;
+		opacity: 1;
+		-webkit-transition: opacity 4.5s;
+		-moz-transition: opacity 4.5s;
+		-ms-transition: opacity 4.5s;
+		-o-transition: opacity 4.5s;
+		transition: opacity 4.5s;
+	}
+
+	.Wine.is-animated .WineShowMoreIcon {
+		opacity: 0;
+		-webkit-transition: opacity 0s;
+		-moz-transition: opacity 0s;
+		-ms-transition: opacity 0s;
+		-o-transition: opacity 0s;
+		transition: opacity 0s;
+	}
+
+	.WineShowMore-select-area:hover .WineShowMoreIcon {
+		color: #ffffff;
+	}
+
+	/* Wine Show More Icon icon */
+
+	.WineShowMoreIcon-icon {
+		display: none;
+		text-align: center;
+		font-size: 2.25em;
+	}
+
+	/* Wine Show More Icon icon close */
+
+	.Wine.is-expanded .WineShowMoreIcon-icon--close {
+		-webkit-align-items: center;
+		align-items: center;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+
+	/* Wine Show More Icon icon open */
+
+	.WineShowMoreIcon-icon--open {
+		display: block;
+	}
+
+	.Wine.is-expanded .WineShowMoreIcon-icon--open {
+		display: none;
+	}
+
+	.WineShowMoreIcon-icon--open span {
+		margin: 0 3px 0 0;
+	}
+
 }
 
 @media (min-width: 96em) {
@@ -112,7 +223,7 @@
 	/* Wine Show More */
 
 	.WineShowMore {
-		padding: 0 0 3.75em; /* Location */
+		padding: 0 0 3em; /* Location */
 		margin: 0 2.25em 0 0; /* Location */
 	}
 
@@ -120,10 +231,24 @@
 		margin: 0 -3.75em 0 0; /* Size - a little minor size */
 	}
 
-	.WineShowMoreSquare {
-		background-color: #424242;
-		height: 4.5em; /* Size */
-		width: 4.5em; /* Size */
+	/* Wine Show More select area */
+    
+    .WineShowMore-select-area {
+	    height: 4.5em;
+	    width: 4.5em;
+    }
+
+	/* Wine Show More Title */
+
+	.WineShowMoreTitle {
+		padding: 0 1em 0 0;
+	}
+
+	/* Wine Show More Title text */
+
+	.WineShowMoreTitle-text {
+		font-size: .875em;
+		letter-spacing: -.375pt;
 	}
 
 }

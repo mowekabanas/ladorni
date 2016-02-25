@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="css/wine/wine-table.css"/>
 <link rel="stylesheet" href="css/wine/wine-checkout.css"/>
 <link rel="stylesheet" href="css/wine/wine-show-more.css"/>
+<link rel="stylesheet" href="css/wine/wine-description.css"/>
 <link rel="stylesheet" href="css/scroller.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
@@ -194,11 +195,19 @@
 
 				</span>
 
-				<span class="WineShowMoreSquare">
+				<span class="WineShowMoreButton"></span>
 
-					<span class="WineShowMoreIcon">
+				<span class="WineShowMoreIcon">
 
+					<span class="WineShowMoreIcon-icon WineShowMoreIcon-icon--open">
 
+						<span class="icon-angle-left"></span>
+
+					</span>
+
+					<span class="WineShowMoreIcon-icon WineShowMoreIcon-icon--close">
+
+						<span class="icon-angle-right"></span>
 
 					</span>
 
@@ -300,6 +309,25 @@
 
 				</section>
 
+				<section class="WineDescription is-limited">
+
+					<div class="WineDescription-wrapper">
+
+						<div class="WineDescriptionText">
+
+							<p>O Merlot da La Dorni possui uma bela cor rubi intensa com notas aromá&shy;ticas frutadas, com toques de geléia e amora. Em boca apresenta-se seco aveludado, corpo médio sem taninos acentuados com retrogosto elegante.</p>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid autem dolor dolore, dolores ducimus error ex facere, impedit laborum possimus praesentium quaerat quibusdam soluta suscipit vel veritatis, voluptatem voluptates.</p>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet facilis fugiat ipsa quasi velit. Aliquam culpa delectus esse, eum hic id molestias nisi officiis perferendis quas rerum sed vitae voluptatum!</p>
+
+						</div>
+
+					</div>
+
+
+				</section>
+
 				<section class="WineTable border-grey-900">
 
 					<div class="WineTable-cell WineTable-cell--half">
@@ -368,8 +396,9 @@
 
 </article>
 
-<script src="js/app/wineList.js"></script>
+<script src="js/app/wineDescription.js"></script>
 <script src="js/app/wine.js"></script>
+<script src="js/app/wineList.js"></script>
 
 <script>
 

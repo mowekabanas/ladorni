@@ -1,3 +1,6 @@
+
+/* Wine */
+
 var Wine = (function() {
 
 	/**
@@ -27,9 +30,13 @@ var Wine = (function() {
 		this.figure = {};
 		this.footer = {};
 
+		this.showMoreButton = {};
+
+		this.animationTimer = 0;
+
 		this.expanded = false;
 
-		this.onHeaderClick = function() {
+		this.onClickToToggle = function() {
 
 			self.toggle();
 
@@ -50,7 +57,10 @@ var Wine = (function() {
 			this.viewport.classList.add(this.config.expandClass);
 			this.viewport.classList.add(this.config.animateClass);
 
-			setTimeout(function() {
+			if (this.animationTimer)
+				clearTimeout(this.animationTimer);
+
+			this.animationTimer = setTimeout(function() {
 
 				self.viewport.classList.remove(self.config.animateClass);
 
@@ -71,7 +81,10 @@ var Wine = (function() {
 			this.viewport.classList.remove(this.config.expandClass);
 			this.viewport.classList.add(this.config.animateClass);
 
-			setTimeout(function() {
+			if (this.animationTimer)
+				clearTimeout(this.animationTimer);
+
+			this.animationTimer = setTimeout(function() {
 
 				self.viewport.classList.remove(self.config.animateClass);
 
@@ -119,10 +132,19 @@ var Wine = (function() {
 
 	};
 
+	Wine.prototype.getDescription = function() {
+
+		var descriptionViewport = this.viewport.querySelector('.WineDescription');
+
+		if (descriptionViewport)
+			this.description = new WineDescription(descriptionViewport, true);
+
+	};
+
 	Wine.prototype.addListeners = function() {
 
-		if (this.header.viewport)
-			this.header.viewport.addEventListener('click', this.onHeaderClick, false);
+		if (this.showMoreButton)
+			this.showMoreButton.viewport.addEventListener('click', this.onClickToToggle, false);
 
 	};
 
@@ -137,12 +159,14 @@ var Wine = (function() {
 		this.figure.viewport = this.viewport.querySelector('.WineFigure');
 		this.footer.viewport = this.viewport.querySelector('.WineFooter');
 
+		this.showMoreButton.viewport = this.viewport.querySelector('.WineShowMore');
+
 		if (this.viewport.classList.contains('is-expanded'))
 			this.expanded = true;
 
 		this.cloneResume();
-
 		this.addListeners();
+		this.getDescription();
 
 	};
 

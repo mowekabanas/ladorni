@@ -1,0 +1,41 @@
+
+/* Wine Description */
+
+.WineDescription {
+	margin-bottom: 1.3125em;
+}
+
+.WineDescription-wrapper {
+	max-height: 6em;
+	position: relative;
+	overflow: hidden;
+}
+
+.WineDescriptionText {
+	padding: 0 .5em;
+}
+
+.WineDescription p {
+	color: #424242;
+	font-size: .875em;
+	line-height: 1.375;
+	margin-bottom: .5em;
+	text-align: justify;
+}
+
+.WineDescription p:last-of-type {
+
+}
+
+@media (min-width: 96em) {
+
+	.WineDescriptionText {
+		padding: 0 .5em;
+	}
+
+	.WineDescription p {
+		font-size: 1em;
+	}
+
+
+}
