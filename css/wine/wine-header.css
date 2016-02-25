@@ -5,7 +5,7 @@
 	padding: 2.25em 0 0;
 }
 
-.Wine.is-active .WineHeader {  }
+.Wine.is-expanded .WineHeader {  }
 
 /* Wine Header Background and Inner */
 
@@ -83,7 +83,7 @@
 		width: 75%;
 	}
 
-	.Wine.is-active .WineHeader {
+	.Wine.is-expanded .WineHeader {
 		width: 40%;
 	}
 
@@ -116,7 +116,7 @@
 		padding: 3.75em 1.5em 0 6em;
 	}
 
-	.Wine.is-active .WineHeader-inner {
+	.Wine.is-expanded .WineHeader-inner {
 		padding: 3.75em 1.5em 0 3.75em;
 	}
 
@@ -156,7 +156,7 @@
 
 	/* Wine Header */
 
-	.Wine.is-active .WineHeader {
+	.Wine.is-expanded .WineHeader {
 		width: 33.3333333%;
 	}
 
@@ -166,7 +166,7 @@
 		padding: 3em 1.5em 0 6em;
 	}
 
-	.Wine.is-active .WineHeader-inner {
+	.Wine.is-expanded .WineHeader-inner {
 		padding: 3em 1.5em 0 3.75em;
 	}
 
@@ -207,7 +207,7 @@
 		padding: 4.5em 1.5em 0 8em;
 	}
 
-	.Wine.is-active .WineHeader-inner {
+	.Wine.is-expanded .WineHeader-inner {
 		padding: 4.5em 2.25em 0 4.5em;
 	}
 
@@ -247,7 +247,7 @@
 		padding: 4.5em 2.25em 0 16em;
 	}
 
-	.Wine.is-active .WineHeader {
+	.Wine.is-expanded .WineHeader {
 		padding: 4.5em 1.5em 0 3.75em;
 	}
 

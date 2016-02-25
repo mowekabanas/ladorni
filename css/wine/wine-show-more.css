@@ -20,17 +20,31 @@
 		padding: 0 0 3.75em; /* Location */
 		position: absolute;
 		right: 0; /* Location */
-		-webkit-transition: right .6s, margin .6s;
-		-moz-transition: right .6s, margin .6s;
-		-ms-transition: right .6s, margin .6s;
-		-o-transition: right .6s, margin .6s;
-		transition: right .6s, margin .6s;
+		visibility: visible;
+		-webkit-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
+		-moz-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
+		-ms-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
+		-o-transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
+		transition: right 0s .3s, margin 0s .3s, opacity .2s ease-in;
 	}
 
-	.Wine.is-active .WineShowMore {
+	.Wine.is-expanded.is-animated .WineShowMore {
+		/*-webkit-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
+		/*-moz-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
+		/*-ms-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
+		/*-o-transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
+		/*transition: right 0s .3s, margin 0s .3s, opacity .2s;*/
+	}
+
+	.Wine.is-expanded .WineShowMore {
 		right: 66.666666666%; /* Location */
 		margin: 0 -3em 0 0; /* Size - a little minor size */
 	}
+
+    .Wine.is-animated .WineShowMore {
+	    opacity: 0;
+	    visibility: hidden;
+    }
 
 	/* Wine Show More select area */
 
@@ -83,11 +97,11 @@
 		display: block;
 	}
 
-	.Wine.is-active .WineShowMoreTitle-text--closed {
+	.Wine.is-expanded .WineShowMoreTitle-text--closed {
 		display: none;
 	}
 
-	.Wine.is-active .WineShowMoreTitle-text--opened {
+	.Wine.is-expanded .WineShowMoreTitle-text--opened {
 		display: block;
 	}
 
@@ -102,7 +116,7 @@
 		margin: 0 2.25em 0 0; /* Location */
 	}
 
-	.Wine.is-active .WineShowMore {
+	.Wine.is-expanded .WineShowMore {
 		margin: 0 -3.75em 0 0; /* Size - a little minor size */
 	}
 

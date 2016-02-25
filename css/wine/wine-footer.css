@@ -37,7 +37,7 @@
 		width: 33.333333333%;
 	}
 
-	.Wine.is-active .WineFooter {
+	.Wine.is-expanded .WineFooter {
 		-webkit-transform: translateX(-100%);
 		-moz-transform: translateX(-100%);
 		-ms-transform: translateX(-100%);

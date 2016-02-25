@@ -5,7 +5,7 @@
 	margin: 0 0 3.75em;
 }
 
-.Wine.is-active .WineFigure { }
+.Wine.is-expanded .WineFigure { }
 
 /* Wine Figure wrappper */
 
@@ -56,7 +56,7 @@
 		transform: translateX(25%);
 	}
 
-	.Wine.is-active .WineFigure-wrapper {
+	.Wine.is-expanded .WineFigure-wrapper {
 	    -webkit-transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
 	    -moz-transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
 	    -ms-transform: translateX(3.333333333%); /* ( headerWidth − ( 100 ÷ 3 ) ) ÷ 2 */
@@ -74,7 +74,7 @@
 		padding: 8em 0;
 	}
 
-	.Wine.is-active .WineFigure-wrapper {
+	.Wine.is-expanded .WineFigure-wrapper {
 		-webkit-transform: translateX(0%);
 		-moz-transform: translateX(0%);
 		-ms-transform: translateX(0%);

@@ -15,42 +15,80 @@ var Wine = (function() {
 
 		this.options = options || {};
 
+		this.config = {
+			expandClass: 'is-expanded',
+			animateClass: 'is-animated',
+			animateDelay: 400
+		};
+
 		this.inner = {};
 
 		this.header = {};
 		this.figure = {};
 		this.footer = {};
 
-		this.active = false;
+		this.expanded = false;
 
 		this.onHeaderClick = function() {
 
-			self.active = !self.active;
-
-			if (self.active) {
-
-				self.viewport.classList.add('is-active');
-
-				self.footer.viewport.classList.add('is-hidden');
-
-				setTimeout(function() {
-
-					self.footer.viewport.classList.remove('is-hidden');
-
-				}, 10);
-
-			} else {
-
-				self.viewport.classList.remove('is-active');
-				self.footer.viewport.classList.remove('is-hidden');
-
-			}
+			self.toggle();
 
 		};
 
 		if (init) this.init();
 
 	}
+
+	Wine.prototype.expand = function() {
+
+		var self = this;
+
+		if (!this.expanded) {
+
+			this.expanded = true;
+
+			this.viewport.classList.add(this.config.expandClass);
+			this.viewport.classList.add(this.config.animateClass);
+
+			setTimeout(function() {
+
+				self.viewport.classList.remove(self.config.animateClass);
+
+			}, this.config.animateDelay);
+
+		}
+
+	};
+
+	Wine.prototype.close = function() {
+
+		var self = this;
+
+		if (this.expanded) {
+
+			this.expanded = false;
+
+			this.viewport.classList.remove(this.config.expandClass);
+			this.viewport.classList.add(this.config.animateClass);
+
+			setTimeout(function() {
+
+				self.viewport.classList.remove(self.config.animateClass);
+
+			}, this.config.animateDelay);
+
+		}
+
+	};
+
+	Wine.prototype.toggle = function() {
+
+		if (!this.expanded)
+			this.expand();
+		else
+			this.close();
+
+	};
 
 	Wine.prototype.cloneResume = function() {
 
@@ -99,8 +137,8 @@ var Wine = (function() {
 		this.figure.viewport = this.viewport.querySelector('.WineFigure');
 		this.footer.viewport = this.viewport.querySelector('.WineFooter');
 
-		if (this.viewport.classList.contains('is-active'))
-			this.active = true;
+		if (this.viewport.classList.contains('is-expanded'))
+			this.expanded = true;
 
 		this.cloneResume();
 
