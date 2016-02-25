@@ -162,11 +162,11 @@
 	.Wine.is-expanded .WineShowMoreIcon {
 		color: #757575;
 		opacity: 1;
-		-webkit-transition: opacity 4.5s;
-		-moz-transition: opacity 4.5s;
-		-ms-transition: opacity 4.5s;
-		-o-transition: opacity 4.5s;
-		transition: opacity 4.5s;
+		-webkit-transition: opacity 3.75s ease-out;
+		-moz-transition: opacity 3.75s ease-out;
+		-ms-transition: opacity 3.75s ease-out;
+		-o-transition: opacity 3.75s ease-out;
+		transition: opacity 3.75s ease-out;
 	}
 
 	.Wine.is-animated .WineShowMoreIcon {
@@ -212,8 +212,12 @@
 		display: none;
 	}
 
+	.WineShowMoreIcon-icon--close span {
+		margin: 0 -3px 0 0; /* Ajust icon position */
+	}
+
 	.WineShowMoreIcon-icon--open span {
-		margin: 0 3px 0 0;
+		margin: 0 3px 0 0; /* Ajust icon position */
 	}
 
 }
