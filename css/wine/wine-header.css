@@ -137,16 +137,16 @@
 	/* Wine Header description */
 
 	.WineHeader-short-description {
-		max-width: 18em;
+		max-width: 14em;
 		margin: 0 0 3em;
 	}
 
 	.WineHeader-short-description p {
-		font-size: 1.3125em;
-		line-height: 1.72;
+		font-size: 1em;
+		line-height: 1.60;
 	}
 
-    /*.Wine.is-active .WineHeader-description p {*/
+	/*.Wine.is-active .WineHeader-description p {*/
 	    /*line-height: 1.36;*/
     /*}*/
 
@@ -230,7 +230,7 @@
 	/* Wine Header description */
 
 	.WineHeader-short-description {
-		max-width: 24em;
+		max-width: 18em;
 	}
 
 	.WineHeader-short-description p {
@@ -268,17 +268,13 @@
 	/* Wine Header description */
 
 	.WineHeader-short-description {
-		padding: 0 3em 0 0;
-		max-width: 36em;
+		padding: 0;
+		max-width: 24em;
 		margin: 0 0 3em;
 	}
 
 	.WineHeader-short-description p {
 		font-size: 1.3125em;
 	}
-
-	/*.Wine.is-active .WineHeader-description {*/
-		/*max-width: 24em;*/
-	/*}*/
 
 }
