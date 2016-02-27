@@ -6,9 +6,54 @@
 }
 
 .WineDescription-wrapper {
-	max-height: 6em;
 	position: relative;
+}
+
+.WineDescription.is-limited .WineDescription-wrapper {
+	max-height: 8em;
 	overflow: hidden;
+}
+
+.WineDescriptionShowMore {
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,0.96+36,1+100 */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.96) 36%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.96) 36%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.96) 36%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	bottom: 0;
+	color: #000000;
+	cursor: pointer;
+	display: none;
+	-webkit-justify-content: center;
+	justify-content: center;
+	height: 2.25em;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.WineDescription.is-limited .WineDescriptionShowMore {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.WineDescriptionShowMore-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	margin-bottom: .375em;
+}
+
+.WineDescriptionShowMore-text {
+	font-size: .875em;
+	font-weight: 600;
+	letter-spacing: -.375pt;
+	text-transform: uppercase;
 }
 
 .WineDescriptionText {

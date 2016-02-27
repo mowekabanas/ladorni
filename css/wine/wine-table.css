@@ -10,6 +10,7 @@
 	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	margin: 0 0 3em;
+	padding: 1px 1px 2px; /* security padding to show the borders */
 	width: 100%;
 }
 
@@ -46,30 +47,6 @@
 
 	.WineTable {
 		margin: 0 0 1em;
-		padding: 0;
-	}
-
-	.WineFooter .WineTable {
-		opacity: 1;
-		-webkit-transition: opacity .8s 0s, transform .4s 0s;
-		-moz-transition: opacity .8s 0s, transform .4s 0s;
-		-ms-transition: opacity .8s 0s, transform .4s 0s;
-		-o-transition: opacity .8s 0s, transform .4s 0s;
-		transition: opacity .8s 0s, transform .4s 0s;
-	}
-
-	.Wine.is-animated .WineTable {
-		opacity: 0;
-		-webkit-transform: translateX(2.25em);
-		-moz-transform: translateX(2.25em);
-		-ms-transform: translateX(2.25em);
-		-o-transform: translateX(2.25em);
-		transform: translateX(2.25em);
-		-webkit-transition: all 0s 0s;
-		-moz-transition: all 0s 0s;
-		-ms-transition: all 0s 0s;
-		-o-transition: all 0s 0s;
-		transition: all 0s 0s;
 	}
 
 	.WineTable-cell {

@@ -26,6 +26,7 @@ var Wine = (function() {
 
 		this.inner = {};
 
+		this.description = {};
 		this.header = {};
 		this.figure = {};
 		this.footer = {};
@@ -34,7 +35,8 @@ var Wine = (function() {
 
 		this.animationTimer = 0;
 
-		this.expanded = false;
+		this.isExpanded = false;
+		this.isActive = false;
 
 		this.onClickToToggle = function() {
 
@@ -42,7 +44,23 @@ var Wine = (function() {
 
 		};
 
-		if (init) this.init();
+		this.onKeyDownToToggle = function(ev) {
+
+			if (self.isActive) {
+
+				if (ev.keyCode == 13) // return key
+					self.toggle();
+				else if (ev.keyCode == 37) // left arrow key
+					self.expand();
+				else if (ev.keyCode == 39) // right arrow key
+					self.close();
+
+			}
+
+		};
+
+		if (init)
+			this.init();
 
 	}
 
@@ -50,9 +68,9 @@ var Wine = (function() {
 
 		var self = this;
 
-		if (!this.expanded) {
+		if (!this.isExpanded) {
 
-			this.expanded = true;
+			this.isExpanded = true;
 
 			this.viewport.classList.add(this.config.expandClass);
 			this.viewport.classList.add(this.config.animateClass);
@@ -63,6 +81,7 @@ var Wine = (function() {
 			this.animationTimer = setTimeout(function() {
 
 				self.viewport.classList.remove(self.config.animateClass);
+				self.description.focus();
 
 			}, this.config.animateDelay);
 
@@ -74,9 +93,9 @@ var Wine = (function() {
 
 		var self = this;
 
-		if (this.expanded) {
+		if (this.isExpanded) {
 
-			this.expanded = false;
+			this.isExpanded = false;
 
 			this.viewport.classList.remove(this.config.expandClass);
 			this.viewport.classList.add(this.config.animateClass);
@@ -87,6 +106,7 @@ var Wine = (function() {
 			this.animationTimer = setTimeout(function() {
 
 				self.viewport.classList.remove(self.config.animateClass);
+				self.description.addLimit();
 
 			}, this.config.animateDelay);
 
@@ -96,7 +116,7 @@ var Wine = (function() {
 
 	Wine.prototype.toggle = function() {
 
-		if (!this.expanded)
+		if (!this.isExpanded)
 			this.expand();
 		else
 			this.close();
@@ -136,15 +156,23 @@ var Wine = (function() {
 
 		var descriptionViewport = this.viewport.querySelector('.WineDescription');
 
-		if (descriptionViewport)
-			this.description = new WineDescription(descriptionViewport, true);
+		if (descriptionViewport) {
+
+			this.description = new WineDescription(descriptionViewport);
+			this.description.init();
+
+		}
 
 	};
 
 	Wine.prototype.addListeners = function() {
 
+		var self = this;
+
 		if (this.showMoreButton)
 			this.showMoreButton.viewport.addEventListener('click', this.onClickToToggle, false);
+
+		window.addEventListener('keydown', this.onKeyDownToToggle, false);
 
 	};
 
@@ -162,7 +190,10 @@ var Wine = (function() {
 		this.showMoreButton.viewport = this.viewport.querySelector('.WineShowMore');
 
 		if (this.viewport.classList.contains('is-expanded'))
-			this.expanded = true;
+			this.isExpanded = true;
+
+		if (this.viewport.classList.contains('is-active'))
+			this.isActive = true;
 
 		this.cloneResume();
 		this.addListeners();

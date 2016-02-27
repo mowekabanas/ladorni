@@ -32,6 +32,7 @@
 	.WineShowMore-select-area {
 		-webkit-align-items: center;
 		align-items: center;
+		cursor: pointer;
 		display: -webkit-box;
 		display: -moz-box;
 		display: -ms-flexbox;
@@ -62,6 +63,11 @@
 		-ms-transform: translateX(-100%);
 		-o-transform: translateX(-100%);
 		transform: translateX(-100%);
+		-webkit-transition: opacity 0s;
+		-moz-transition: opacity 0s;
+		-ms-transition: opacity 0s;
+		-o-transition: opacity 0s;
+		transition: opacity 0s;
 		top: 0;
 		height: 100%;
 		visibility: hidden;
@@ -70,11 +76,11 @@
 
 	.WineShowMore-select-area:hover .WineShowMoreTitle {
 		opacity: 1;
-		-webkit-transition: visibility 0s, opacity .6s;
-		-moz-transition: visibility 0s, opacity .6s;
-		-ms-transition: visibility 0s, opacity .6s;
-		-o-transition: visibility 0s, opacity .6s;
-		transition: visibility 0s, opacity .6s;
+		-webkit-transition: opacity .6s;
+		-moz-transition: opacity .6s;
+		-ms-transition: opacity .6s;
+		-o-transition: opacity .6s;
+		transition: opacity .6s;
 		visibility: visible;
 	}
 
@@ -179,6 +185,11 @@
 	}
 
 	.WineShowMore-select-area:hover .WineShowMoreIcon {
+		-webkit-transition: color .3s;
+		-moz-transition: color .3s;
+		-ms-transition: color .3s;
+		-o-transition: color .3s;
+		transition: color .3s;
 		color: #ffffff;
 	}
 

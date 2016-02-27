@@ -1,0 +1,43 @@
+
+/* Wine About */
+
+.WineAbout {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	margin: 0 0 1em;
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+
+	.WineAbout {
+		opacity: 1;
+		-webkit-transition: opacity .8s 0s, transform .4s 0s;
+		-moz-transition: opacity .8s 0s, transform .4s 0s;
+		-ms-transition: opacity .8s 0s, transform .4s 0s;
+		-o-transition: opacity .8s 0s, transform .4s 0s;
+		transition: opacity .8s 0s, transform .4s 0s;
+	}
+
+	.Wine.is-animated .WineAbout {
+		opacity: 0;
+		-webkit-transform: translateX(1.5em);
+		-moz-transform: translateX(1.5em);
+		-ms-transform: translateX(1.5em);
+		-o-transform: translateX(1.5em);
+		transform: translateX(1.5em);
+		-webkit-transition: all 0s 0s;
+		-moz-transition: all 0s 0s;
+		-ms-transition: all 0s 0s;
+		-o-transition: all 0s 0s;
+		transition: all 0s 0s;
+	}
+
+}
