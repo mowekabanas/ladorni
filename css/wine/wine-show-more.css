@@ -24,7 +24,7 @@
 
 	.Wine.is-expanded .WineShowMore {
 		margin: 0 -3em 0 0; /* Size - a little minor size */
-		right: 66.666666666%; /* Location */
+		right: 60%; /* Location */
 	}
 
 	/* Wine Show More select area */
@@ -229,6 +229,26 @@
 
 	.WineShowMoreIcon-icon--open span {
 		margin: 0 3px 0 0; /* Ajust icon position */
+	}
+
+}
+
+@media (min-width: 48em) and (max-width: 60em) and (min-height: 60em) {
+
+	/* Wine Show More */
+
+	.Wine.is-expanded .WineShowMore {
+		right: 50%; /* Location */
+	}
+
+}
+
+@media (min-width: 60em) {
+
+	/* Wine Show More */
+
+	.Wine.is-expanded .WineShowMore {
+		right: 66.666666666%; /* Location */
 	}
 
 }

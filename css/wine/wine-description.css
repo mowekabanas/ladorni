@@ -72,6 +72,14 @@
 
 }
 
+@media (min-width: 48em) {
+
+	.WineDescription p {
+		font-size: .875em;
+	}
+
+}
+
 @media (min-width: 96em) {
 
 	.WineDescriptionText {

@@ -146,9 +146,22 @@
 		line-height: 1.60;
 	}
 
-	/*.Wine.is-active .WineHeader-description p {*/
-	    /*line-height: 1.36;*/
-    /*}*/
+}
+
+@media (min-width: 48em) and (max-width: 60em) and (min-height: 60em) {
+
+	/* Wine Header */
+
+	.Wine.is-expanded .WineHeader {
+		width: 50%;
+	}
+
+	/* Wine Header description */
+
+	.WineHeader-short-description {
+		max-width: 18em;
+		margin: 0 0 3em;
+	}
 
 }
 
@@ -189,13 +202,9 @@
 	/* Wine Header description */
 
 	.WineHeader-short-description {
-		max-width: 21em;
+		max-width: 16em;
 		margin: 0 0 1.5em;
 	}
-
-	/*.Wine.is-active .WineHeader-description p {*/
-		/*line-height: 1.48;*/
-	/*}*/
 
 }
 
