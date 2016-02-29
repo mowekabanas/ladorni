@@ -143,7 +143,7 @@
 
 	.WineHeader-short-description p {
 		font-size: 1em;
-		line-height: 1.60;
+		line-height: 1.48;
 	}
 
 }
@@ -204,6 +204,10 @@
 	.WineHeader-short-description {
 		max-width: 16em;
 		margin: 0 0 1.5em;
+	}
+
+	.WineHeader-short-description p {
+		line-height: 1.60;
 	}
 
 }
