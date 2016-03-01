@@ -112,11 +112,11 @@
 		border-color: rgba(0,0,0,1);
 		background-color: rgba(0,0,0,0);
 		border-radius: 50%;
-		height: 100%; /* Size */
+		height: 100%;
 		left: 0;
 		position: absolute;
 		top: 0;
-		width: 100%; /* Size */
+		width: 100%;
 	}
 
 	.Wine.is-expanded .WineShowMoreButton {
@@ -150,7 +150,7 @@
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex;
-		height: 100%; /* Size */
+		height: 100%;
 		-webkit-justify-content: center;
 		justify-content: center;
 		left: 0;
@@ -162,7 +162,7 @@
 		-ms-transition: opacity .4s;
 		-o-transition: opacity .4s;
 		transition: opacity .4s;
-		width: 100%; /* Size */
+		width: 100%;
 	}
 
 	.Wine.is-expanded .WineShowMoreIcon {
