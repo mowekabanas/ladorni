@@ -195,6 +195,8 @@
 
 ###Wine Show More button
 
+Warning: This element are automatically build at every instance from Wine, so you don't need to put this part to html code 
+
 ```html
 <section class="WineShowMore">
 
