@@ -169,10 +169,17 @@ var Wine = (function() {
 
 		var self = this;
 
-		if (this.showMoreButton)
+		if (this.showMoreButton.viewport)
 			this.showMoreButton.viewport.addEventListener('click', this.onClickToToggle, false);
 
 		window.addEventListener('keydown', this.onKeyDownToToggle, false);
+
+	};
+
+	Wine.prototype.appendShowMoreButton = function() {
+
+		this.showMoreButton = new WineShowMore();
+		this.viewport.appendChild(this.showMoreButton.viewport);
 
 	};
 
@@ -187,7 +194,7 @@ var Wine = (function() {
 		this.figure.viewport = this.viewport.querySelector('.WineFigure');
 		this.footer.viewport = this.viewport.querySelector('.WineFooter');
 
-		this.showMoreButton.viewport = this.viewport.querySelector('.WineShowMore');
+		this.appendShowMoreButton();
 
 		if (this.viewport.classList.contains('is-expanded'))
 			this.isExpanded = true;
