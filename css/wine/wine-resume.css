@@ -201,9 +201,8 @@
 		max-width: 24em;
 	}
 
-	.WineResumeItem {
-		margin: 0 0 1.5em;
-		width: 4.5em;
+	.WineHeader .WineResumeItem {
+		width: 6em;
 	}
 
 	.WineResumeItem-header {

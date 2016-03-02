@@ -14,7 +14,7 @@ var WineDescription = (function() {
 			iconClass: 'WineDescriptionShowMore-icon icon-down-dir',
 			showMoreClass: 'WineDescriptionShowMore',
 			text: 'Continuar lendo',
-			textClass: 'WineDescriptionShowMore-text',
+			textClass: 'WineDescriptionShowMore-text Wine-anchor-text',
 			wrapperClass: 'WineDescription-wrapper'
 		};
 

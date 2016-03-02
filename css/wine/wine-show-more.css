@@ -86,10 +86,6 @@
 
 	.WineShowMoreTitle-text {
 		display: none;
-		font-size: .75em;
-		font-weight: 600;
-		letter-spacing: -.15pt;
-		text-transform: uppercase;
 	}
 
 	.WineShowMoreTitle-text--closed {
@@ -277,13 +273,6 @@
 
 	.WineShowMoreTitle {
 		padding: 0 1em 0 0;
-	}
-
-	/* Wine Show More Title text */
-
-	.WineShowMoreTitle-text {
-		font-size: .875em;
-		letter-spacing: -.375pt;
 	}
 
 }

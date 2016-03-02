@@ -51,13 +51,6 @@
 		white-space: nowrap;
 	}
 
-	.WineCheckoutTitle span {
-		font-size: .75em;
-		font-weight: 600;
-		letter-spacing: -.15pt;
-		text-transform: uppercase;
-	}
-
 	/* Wine Show More Button */
 
 	.WineCheckoutButton {
@@ -158,13 +151,6 @@
 
 	.WineCheckoutTitle {
 		padding: 0 1em 0 0;
-	}
-
-	/* Wine Show More Title text */
-
-	.WineCheckoutTitle span {
-		font-size: .875em;
-		letter-spacing: -.375pt;
 	}
 
 }

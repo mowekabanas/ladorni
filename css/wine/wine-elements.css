@@ -1,0 +1,31 @@
+
+/* Wine Elements */
+
+/* Wine anchor text */
+
+.Wine-anchor-text {
+	font-size: .75em;
+	font-weight: 600;
+	letter-spacing: -.15pt;
+	text-transform: uppercase;
+}
+
+@media (min-width: 72em) {
+
+	/* Wine anchor text */
+
+	.Wine-anchor-text {
+		letter-spacing: -.225pt;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	/* Wine anchor text */
+
+	.Wine-anchor-text {
+		font-size: .875em;
+	}
+
+}
