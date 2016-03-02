@@ -16,6 +16,7 @@
         <footer class="WineFooter"...>
 
         <section class="WineShowMore"...>
+        
     </div>
 
 </article>
@@ -26,86 +27,64 @@
 ```html
 <header class="WineHeader">
 
-	<div class="WineHeader-background"></div>
+	<div class="WineHeader-background grey-100"></div>
+    
+    <div class="WineHeader-inner">
 
-	<div class="WineHeader-inner">
+        <section class="WineHeader-title">
 
-		<section class="WineHeader-title">
+            <h2>
 
-			<h1>
-				<span class="brand">...</span>    
-				<strong>...</strong>
-			</h1>
+                <span class="brand"...>
+                <strong...>
 
-		</section>
+            </h2>
 
-		<div class="WineHeader-description pt-serif-italic">
+        </section>
 
-			<p>...</p>
+        <section class="WineHeader-short-description crimson-text-italic">
 
-		</div>
+            <p...>
 
-	</div>
+        </section>
+
+        <section class="WineResume"></section>
+
+    </div>
 
 </header>
 ```
 
-###Content
+###Figure
 
 ```html
-<section class="WineContent">
+<figure class="WineFigure">
 
-	<div class="WineContent-background"></div>
+	<div class="WineFigure-wrapper">
 
-	<div class="WineContent-inner">
-
-		<figure class="WineFigure">
-
-			<div class="WineFigure-wrapper">
-
-				<img src="image.png" alt="Title"/>
-
-			</div>
-
-		</figure>
-
-		<footer class="WineFooter">
-
-			...
-
-		</footer>
+		<img class="WineFigure-img" src="..." alt="..."/>
 
 	</div>
 
-</section>
+</figure>
 ```
 
 ###Footer
 
 ```html
-<footer class="WineFooter">
+<footer class="WineFooter font-grey-900">
 
-	<header class="flex flex-column">
+	<section class="WineAbout">
 
-		<section class="WineResume">
+		<section class="WineResume"...>
 
-			...
+		<section class="WineDescription"...>
 
-		</section>
-
-		<section class="WineTable">
-
-			...
-
-		</section>
-
-	</header>
-
-	<section class="WineCheckout">
-
-		...
-
+		<section class="WineTable"...>
+		
 	</section>
+
+	<section class="WineCheckout"...>
 
 </footer>
 ```
@@ -123,20 +102,24 @@
 
 				<header class="WineResumeItem-header">
 
-					<span class="icon-icon"></span>
+					<span class="icon-..."></span>
 
 				</header>
 
-			<span class="WineResumeItem-title">
+				<span class="WineResumeItem-title">
 
-				<span>Title</span>
+					<span>...</span>
 
-			</span>
+				</span>
 
 			</a>
 
 		</li>
 
+		<li class="WineResumeItem"...>
+		
+		<li class="WineResumeItem"...>
+		
 		...
 
 	</ul>
@@ -184,32 +167,66 @@
 </section>
 ```
 
-###Checkout Button
+###Checkout button
 
 ```html
 <section class="WineCheckout font-grey-900">
 
-	<a class="WineCheckout-select-area" href="#">
+	<a class="WineCheckout-select-area" href="...">
 
-		<header class="WineCheckoutIcon">
+		<span class="WineCheckoutTitle">
 
-			<span class="WineCheckoutIcon-square"></span>
+			<span class="Wine-anchor-text">...</span>
 
-			<span class="WineCheckoutIcon-symbol">
+		</span>
 
-				<span class="icon-basket"></span>
+		<span class="WineCheckoutButton"></span>
 
-			</span>
+		<span class="WineCheckoutIcon">
 
-		</header>
+			<span class="WineCheckoutIcon-icon icon-..."></span>
 
-		<section class="WineCheckout-title">
-
-			<span>Title</span>
-
-		</section>
+		</span>
 
 	</a>
 
+</section>
+```
+
+###Wine Show More button
+
+```html
+<section class="WineShowMore">
+
+	<a class="WineShowMore-select-area">
+	
+		<span class="WineShowMoreTitle">
+	
+			<span class="Wine-anchor-text WineShowMoreTitle-text WineShowMoreTitle-text--opened">Fechar</span>
+	
+			<span class="Wine-anchor-text WineShowMoreTitle-text WineShowMoreTitle-text--closed">Mais Informações</span>
+	
+		</span>
+	
+		<span class="WineShowMoreButton"></span>
+	
+		<span class="WineShowMoreIcon">
+	
+			<span class="WineShowMoreIcon-icon WineShowMoreIcon-icon--open">
+	
+				<span class="icon-angle-left"></span>
+	
+			</span>
+	
+			<span class="WineShowMoreIcon-icon WineShowMoreIcon-icon--close">
+	
+				<span class="icon-angle-right"></span>
+	
+			</span>
+	
+		</span>
+	
+	</a>
+	
 </section>
 ```
