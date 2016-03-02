@@ -3,6 +3,12 @@
 
 var WineCheckout = (function() {
 
+	/**
+	 * Return a normalized checkout button
+	 * @param viewport
+	 * @return {WineCheckout}
+	 * @constructor
+	 */
 	function WineCheckout(viewport) {
 
 		this.viewport = viewport;
@@ -47,14 +53,17 @@ var WineCheckout = (function() {
 
 	};
 
+	/**
+	 * Append and build the title element
+	 */
 	WineCheckout.prototype.appendAndBuildButtonTitle = function() {
 
 		var element = document.createElement('span');
 		element.className = 'WineCheckoutTitle';
 
 		var text = document.createElement('span');
-		text.className = '';
-		text.innerHTML = '';
+		text.className = 'Wine-anchor-text';
+		text.innerHTML = 'Ir para loja online';
 
 		element.appendChild(text);
 
@@ -63,6 +72,9 @@ var WineCheckout = (function() {
 
 	};
 
+	/**
+	 * Append and build the button element
+	 */
 	WineCheckout.prototype.appendAndBuildButton = function() {
 
 		var element = document.createElement('span');
@@ -73,13 +85,16 @@ var WineCheckout = (function() {
 
 	};
 
+	/**
+	 * Append and build the icon element
+	 */
 	WineCheckout.prototype.appendAndBuildIcon = function() {
 
 		var element = document.createElement('span');
 		element.className = 'WineCheckoutIcon';
 
 		var icon = document.createElement('span');
-		icon.className = '';
+		icon.className = 'WineCheckoutIcon-icon icon-basket';
 
 		element.appendChild(icon);
 
@@ -88,6 +103,10 @@ var WineCheckout = (function() {
 
 	};
 
+	/**
+	 * Normalize the anchor
+	 * @return {boolean}
+	 */
 	WineCheckout.prototype.normalizeAnchor = function() {
 
 		var anchorElement = this.viewport.querySelector('.WineCheckout-select-area');
@@ -105,6 +124,9 @@ var WineCheckout = (function() {
 
 	};
 
+	/**
+	 * Normalize the Checkout button
+	 */
 	WineCheckout.prototype.normalize = function() {
 
 		if (this.normalizeAnchor()) {

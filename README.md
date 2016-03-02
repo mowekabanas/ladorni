@@ -172,6 +172,18 @@
 ```html
 <section class="WineCheckout font-grey-900">
 
+	<a class="WineCheckout-select-area" href="http://ladornistore.com.br/produto.php?cod_produto=7002542"></a>
+
+</section>
+```
+
+Warning: This element are automatically normalized at every instance from wine
+
+DOM code:
+
+```html
+<section class="WineCheckout font-grey-900">
+
 	<a class="WineCheckout-select-area" href="...">
 
 		<span class="WineCheckoutTitle">

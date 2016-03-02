@@ -3,6 +3,11 @@
 
 var WineShowMore = (function() {
 
+	/**
+	 * Return the Wine Show More button
+	 * @return {WineShowMore}
+	 * @constructor
+	 */
 	function WineShowMore() {
 
 		this.viewport = this.build();
@@ -11,6 +16,11 @@ var WineShowMore = (function() {
 
 	}
 
+	/**
+	 * Build the spans elements
+	 * @param className
+	 * @return {Element}
+	 */
 	WineShowMore.prototype.buildSpan = function(className) {
 
 		var element = document.createElement('span');
@@ -20,6 +30,10 @@ var WineShowMore = (function() {
 
 	};
 
+	/**
+	 * Build the title element
+	 * @return {Element}
+	 */
 	WineShowMore.prototype.buildTitle = function() {
 
 		var element = document.createElement('span');
@@ -69,6 +83,10 @@ var WineShowMore = (function() {
 
 	};
 
+	/**
+	 * Build the anchor element
+	 * @return {Element}
+	 */
 	WineShowMore.prototype.buildAnchor = function() {
 
 		var element = document.createElement('a');
@@ -78,6 +96,10 @@ var WineShowMore = (function() {
 
 	};
 
+	/**
+	 * Build the Wine Show More button elements
+	 * @return {Element}
+	 */
 	WineShowMore.prototype.build = function () {
 
 		var element = document.createElement('section');
