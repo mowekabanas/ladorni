@@ -3,41 +3,20 @@
 ##Wine
 
 ```html
-<article class="Wine is-active">
+<article class="Wine deep-purple-100 is-active is-expanded">
 
-	<header class="WineHeader">
+	<div class="Wine-background"></div>
+    
+    <div class="Wine-inner">
 
-		<div class="WineHeader-background"></div>
+        <header class="WineHeader"...>
 
-		<div class="WineHeader-inner">
+        <figure class="WineFigure"...>
 
-			...
+        <footer class="WineFooter"...>
 
-		</div>
-
-	</header>
-
-	<section class="WineContent">
-
-		<div class="WineContent-background"></div>
-
-		<div class="WineContent-inner">
-
-			<figure class="WineFigure">
-
-				...
-
-			</figure>
-
-			<footer class="WineFooter">
-			
-				...
-			
-			</footer>
-
-		</div>
-
-	</section>
+        <section class="WineShowMore"...>
+    </div>
 
 </article>
 ```
