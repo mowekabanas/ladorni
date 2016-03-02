@@ -5,8 +5,6 @@ var WineShowMore = (function() {
 
 	function WineShowMore() {
 
-		var self = this;
-
 		this.viewport = this.build();
 
 		return this;
