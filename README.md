@@ -170,9 +170,9 @@
 ###Checkout button
 
 ```html
-<section class="WineCheckout font-grey-900">
+<section class="WineCheckout">
 
-	<a class="WineCheckout-select-area" href="http://ladornistore.com.br/produto.php?cod_produto=7002542"></a>
+	<a class="WineCheckout-select-area" href="..."></a>
 
 </section>
 ```
@@ -182,7 +182,7 @@ Warning: This element are automatically normalized at every instance from wine
 DOM code:
 
 ```html
-<section class="WineCheckout font-grey-900">
+<section class="WineCheckout">
 
 	<a class="WineCheckout-select-area" href="...">
 
