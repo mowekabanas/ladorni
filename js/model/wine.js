@@ -106,6 +106,9 @@ var Wine = (function() {
 				if (self.description)
 					self.description.getAnchor().focus();
 
+				if (self.checkoutButton)
+					self.checkoutButton.getAnchor().enableFocus();
+
 			}, this.config.animateDelay);
 
 		}
@@ -381,6 +384,8 @@ var Wine = (function() {
 
 		if (this.viewport.classList.contains('is-active'))
 			this.active();
+		else
+			this.inactive();
 
 		this.addListeners();
 
