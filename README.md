@@ -127,6 +127,25 @@
 </section>
 ```
 
+###Description
+
+```html
+<section class="WineDescription">
+
+	<div class="WineDescription-wrapper">
+
+		<div class="WineDescriptionText">
+
+			<p>...</p>
+
+		</div>
+
+	</div>
+
+</section>
+```
+
+
 ###Table
 
 ```html
