@@ -1,6 +1,6 @@
 
 /*!
- * Mowe Wine v1.0.0 (http://getvilla.org/)
+ * Mowe Wine v1.4.0 (http://getvilla.org/)
  * Copyright 2013-2015 Kabana's Info & Mowe
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
