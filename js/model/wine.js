@@ -23,6 +23,7 @@ var Wine = (function() {
 		this.options = options || {};
 
 		this.config = {
+			activeClass: 'is-active',
 			expandClass: 'is-expanded',
 			animateClass: 'is-animated',
 			animateDelay: 400
@@ -44,9 +45,21 @@ var Wine = (function() {
 		this.isExpanded = false;
 		this.isActive = false;
 
-		this.onClickToToggle = function() {
+		this.onClickToToggle = function(ev) {
 
+			ev.preventDefault();
 			self.toggle();
+
+		};
+
+		this.onClickToShowDescription = function(ev) {
+
+			ev.preventDefault();
+
+			self.description.toggleLimit();
+
+			if (self.checkoutButton.getAnchor())
+				self.checkoutButton.getAnchor().focus();
 
 		};
 
@@ -54,12 +67,10 @@ var Wine = (function() {
 
 			if (self.isActive) {
 
-				if (ev.keyCode == 13) // return key
-					self.toggle();
-				else if (ev.keyCode == 37) // left arrow key
+				if (ev.keyCode == 37) // left arrow key
 					self.expand();
 				else if (ev.keyCode == 39) // right arrow key
-					self.close();
+					self.unexpand();
 
 			}
 
@@ -71,7 +82,7 @@ var Wine = (function() {
 	}
 
 	/**
-	 * Expands the wine item if this are closed
+	 * Expands the wine item if this are unexpanded
 	 */
 	Wine.prototype.expand = function() {
 
@@ -90,7 +101,10 @@ var Wine = (function() {
 			this.animationTimer = setTimeout(function() {
 
 				self.viewport.classList.remove(self.config.animateClass);
-				self.description.focus();
+				self.description.addLimit();
+
+				if (self.description)
+					self.description.getAnchor().focus();
 
 			}, this.config.animateDelay);
 
@@ -99,9 +113,9 @@ var Wine = (function() {
 	};
 
 	/**
-	 * Close the wine item if this are expanded
+	 * unexpand the wine item if this are expanded
 	 */
-	Wine.prototype.close = function() {
+	Wine.prototype.unexpand = function() {
 
 		var self = this;
 
@@ -120,6 +134,14 @@ var Wine = (function() {
 				self.viewport.classList.remove(self.config.animateClass);
 				self.description.addLimit();
 
+				if (self.description)
+					self.description.getAnchor().disableFocus();
+
+				if (self.checkoutButton)
+					self.checkoutButton.getAnchor().disableFocus();
+
+				self.showMoreButton.getAnchor().focus();
+
 			}, this.config.animateDelay);
 
 		}
@@ -134,7 +156,41 @@ var Wine = (function() {
 		if (!this.isExpanded)
 			this.expand();
 		else
-			this.close();
+			this.unexpand();
+
+	};
+
+	Wine.prototype.active = function() {
+
+		if (!this.isActive) {
+
+			this.isActive = true;
+
+			this.viewport.classList.add(this.config.activeClass);
+
+			this.description.getAnchor().enableFocus();
+
+			if (this.isExpanded)
+				this.description.getAnchor().focus();
+			else
+				this.showMoreButton.getAnchor().focus();
+
+		}
+
+	};
+
+	Wine.prototype.inactive = function() {
+
+		if (this.isActive) {
+
+			this.isActive = false;
+
+			this.viewport.classList.remove(this.config.activeClass);
+
+			this.description.disableFocus();
+			this.showMoreButton.disableFocus();
+
+		}
 
 	};
 
@@ -178,6 +234,9 @@ var Wine = (function() {
 		// keydown listener
 		window.addEventListener('keydown', this.onKeyDownToToggle, false);
 
+		if (this.description)
+			this.description.getAnchor().addListener(this.onClickToShowDescription);
+
 	};
 
 	/**
@@ -215,7 +274,7 @@ var Wine = (function() {
 		}
 
 		// add the click listener
-		this.showMoreButton.viewport.addEventListener('click', this.onClickToToggle, false);
+		this.showMoreButton.anchor.viewport.addEventListener('click', this.onClickToToggle, false);
 
 	};
 
@@ -289,7 +348,7 @@ var Wine = (function() {
 
 		// if has inner element, append the background before
 		if (this.inner.viewport)
-			this.viewport.insertBefore(this.background.viewport, this.inner.viewport)
+			this.viewport.insertBefore(this.background.viewport, this.inner.viewport);
 
 	};
 
@@ -321,7 +380,7 @@ var Wine = (function() {
 			this.isExpanded = true;
 
 		if (this.viewport.classList.contains('is-active'))
-			this.isActive = true;
+			this.active();
 
 		this.addListeners();
 

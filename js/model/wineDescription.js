@@ -19,25 +19,24 @@ var WineDescription = (function() {
 		};
 
 		this.wrapper = {};
-
 		this.showMoreButton = {};
+
+		this.hasFocus = false;
 
 		this.limited = false;
 
 		if (init)
 			this.init();
 
-		this.onClick = function() {
-
-			self.toggleLimit();
-
-		};
-
 	}
 
-	WineDescription.prototype.focus = function() {
+	/**
+	 * Getter to the Anchor
+	 * @return {*|{}}
+	 */
+	WineDescription.prototype.getAnchor = function() {
 
-		this.showMoreButton.button.focus();
+		return this.showMoreButton.anchor;
 
 	};
 
@@ -89,23 +88,27 @@ var WineDescription = (function() {
 
 		var element = {};
 
+		element.anchor = {};
+		element.buttonText = {};
+		element.buttonIcon = {};
+
 		element.viewport = document.createElement('div');
 		element.viewport.className = this.config.showMoreClass;
 
-		element.button = document.createElement('a');
-		element.button.className = this.config.buttonClass;
+		element.anchor = new WineAnchor(document.createElement('a'));
+		element.anchor.viewport.className = this.config.buttonClass;
 
-		element.buttonText = document.createElement('span');
-		element.buttonText.className = this.config.textClass;
-		element.buttonText.innerHTML = this.config.text;
+		element.buttonText.viewport = document.createElement('span');
+		element.buttonText.viewport.className = this.config.textClass;
+		element.buttonText.viewport.innerHTML = this.config.text;
 
-		element.buttonIcon = document.createElement('span');
-		element.buttonIcon.className = this.config.iconClass;
+		element.buttonIcon.viewport = document.createElement('span');
+		element.buttonIcon.viewport.className = this.config.iconClass;
 
-		element.button.appendChild(element.buttonText);
-		element.button.appendChild(element.buttonIcon);
+		element.anchor.viewport.appendChild(element.buttonText.viewport);
+		element.anchor.viewport.appendChild(element.buttonIcon.viewport);
 
-		element.viewport.appendChild(element.button);
+		element.viewport.appendChild(element.anchor.viewport);
 
 		return element;
 
@@ -114,7 +117,6 @@ var WineDescription = (function() {
 	WineDescription.prototype.addShowMoreButton = function() {
 
 		this.showMoreButton = this.buildShowMoreButton();
-		this.showMoreButton.viewport.addEventListener('click', this.onClick);
 
 		var wrapper = this.wrapper.viewport ? this.wrapper : this;
 		wrapper.viewport.appendChild(this.showMoreButton.viewport);

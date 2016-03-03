@@ -5,7 +5,7 @@
 ```html
 <article class="Wine deep-purple-100 is-active is-expanded">
 
-	<div class="Wine-background"></div>
+	<div class="Wine-background"></div> <!-- optional -->
     
     <div class="Wine-inner">
 

@@ -10,11 +10,21 @@ var WineShowMore = (function() {
 	 */
 	function WineShowMore() {
 
-		this.viewport = this.build();
+		this.build();
 
-		return this;
+		this.hasFocus = false;
 
 	}
+
+	/**
+	 * Getter to the Anchor
+	 * @return {{}|*}
+	 */
+	WineShowMore.prototype.getAnchor = function() {
+
+		return this.anchor;
+
+	};
 
 	/**
 	 * Build the spans elements
@@ -91,6 +101,7 @@ var WineShowMore = (function() {
 
 		var element = document.createElement('a');
 		element.className = 'WineShowMore-select-area';
+		element.href = '#';
 
 		return element;
 
@@ -98,31 +109,28 @@ var WineShowMore = (function() {
 
 	/**
 	 * Build the Wine Show More button elements
-	 * @return {Element}
 	 */
 	WineShowMore.prototype.build = function () {
 
-		var element = document.createElement('section');
-		element.className = 'WineShowMore';
+		this.viewport = document.createElement('section');
+		this.viewport.className = 'WineShowMore';
 
-		element.anchor = {};
-		element.buttonTitle = {};
-		element.button = {};
-		element.icon = {};
+		this.anchor = {};
+		this.buttonTitle = {};
+		this.button = {};
+		this.icon = {};
 
-		element.anchor.viewport = this.buildAnchor();
+		this.anchor = new WineAnchor(this.buildAnchor());
 
-		element.buttonTitle.viewport = this.buildTitle();
-		element.button.viewport = this.buildButton();
-		element.icon.viewport = this.buildIcon();
+		this.buttonTitle.viewport = this.buildTitle();
+		this.button.viewport = this.buildButton();
+		this.icon.viewport = this.buildIcon();
 
-		element.anchor.viewport.appendChild(element.buttonTitle.viewport);
-		element.anchor.viewport.appendChild(element.button.viewport);
-		element.anchor.viewport.appendChild(element.icon.viewport);
+		this.anchor.viewport.appendChild(this.buttonTitle.viewport);
+		this.anchor.viewport.appendChild(this.button.viewport);
+		this.anchor.viewport.appendChild(this.icon.viewport);
 
-		element.appendChild(element.anchor.viewport);
-
-		return element;
+		this.viewport.appendChild(this.anchor.viewport);
 
 	};
 

@@ -19,6 +19,8 @@ var WineCheckout = (function() {
 		this.button = {};
 		this.icon = {};
 
+		this.hasFocus = false;
+
 		this.normalize();
 
 		return this;
@@ -26,30 +28,12 @@ var WineCheckout = (function() {
 	}
 
 	/**
-	 * Add focus to element
+	 * Getter to the Anchor
+	 * @return {{}|*}
 	 */
-	WineCheckout.prototype.focus = function() {
+	WineCheckout.prototype.getAnchor = function() {
 
-		this.anchor.viewport.href = this.anchor.url;
-		this.anchor.viewport.focus();
-
-	};
-
-	/**
-	 * Remove focus from element
-	 */
-	WineCheckout.prototype.blur = function() {
-
-		this.anchor.viewport.blur();
-
-	};
-
-	/**
-	 * Avoid to get focus to element
-	 */
-	WineCheckout.prototype.removeFocus = function() {
-
-		this.anchor.viewport.removeAttribute('href');
+		return this.anchor;
 
 	};
 
@@ -113,8 +97,7 @@ var WineCheckout = (function() {
 
 		if (anchorElement) {
 
-			this.anchor.viewport = anchorElement;
-			this.anchor.url = this.anchor.viewport.href;
+			this.anchor = new WineAnchor(anchorElement);
 
 			return true;
 
