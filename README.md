@@ -4,9 +4,9 @@
 
 The Wine instance has support for three types of states:
 
-*is-active
-*is-expanded
-*is-animated (only DOM use)
+* is-active
+* is-expanded
+* is-animated (only DOM use)
 
 ```html
 <article class="Wine deep-purple-100 is-active is-expanded">
