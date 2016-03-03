@@ -2,6 +2,12 @@
 
 ##Wine
 
+The Wine instance has support for three types of states:
+
+* is-active
+* is-expanded
+* is-animated (only DOM use)
+
 ```html
 <article class="Wine deep-purple-100 is-active is-expanded">
 
@@ -126,6 +132,25 @@
 
 </section>
 ```
+
+###Description
+
+```html
+<section class="WineDescription">
+
+	<div class="WineDescription-wrapper">
+
+		<div class="WineDescriptionText">
+
+			<p>...</p>
+
+		</div>
+
+	</div>
+
+</section>
+```
+
 
 ###Table
 
