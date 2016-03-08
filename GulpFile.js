@@ -42,8 +42,12 @@ images.largePhotos = {
 	location: images.location + 'largePhotos/'
 };
 
-gulp.task('resize', function () {
-	console.log(dist.location + images.largePhotos.location);
+gulp.task('distImages', function () {
+	gulp.src(images.location + images.content)
+		.pipe(gulp.dest(dist.location + images.location));
+});
+
+gulp.task('resizeLargePhotos', function () {
 	gulp.src(images.largePhotos.location + images.largePhotos.content)
 		.pipe(imageResize({
 			height : 1080,
@@ -52,6 +56,7 @@ gulp.task('resize', function () {
 		.pipe(gulp.dest(dist.location + images.largePhotos.location));
 });
 
+gulp.task('dist', ['distImages', 'resizeLargePhotos']);
 
 gulp.task('tinyImages', function () {
 	gulp.src(images.location + images.content)
@@ -67,4 +72,4 @@ gulp.task('tinyLargePhotos', function () {
 
 gulp.task('tiny', ['tinyImages', 'tinyLargePhotos']);
 
-gulp.task('default', ['resize']);
+gulp.task('default', ['dist']);
