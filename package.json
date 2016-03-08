@@ -1,0 +1,31 @@
+{
+  "name": "ladorni",
+  "version": "1.0.0",
+  "description": "Mowe Ladorni Project",
+  "main": "GulpFile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-image-resize": "^0.7.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-tinypng": "^1.0.2",
+    "gulp-uglify": "^1.5.3",
+    "jshint": "^2.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mowekabanas/ladorni.git"
+  },
+  "author": "Kabana's Info & Mowe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mowekabanas/ladorni/issues"
+  }
+}
