@@ -55,7 +55,7 @@
 
 .WineHeader-short-description p:before {
 	content: '"...';
-	letter-spacing: 2px;
+	letter-spacing: .5pt;
 }
 
 .WineHeader-short-description p:after {
@@ -218,7 +218,7 @@
 	}
 
 	.WineHeader-short-description p {
-		line-height: 1.60;
+		line-height: 1.96;
 	}
 
 }
@@ -288,7 +288,7 @@
 	}
 
 	.WineHeader-short-description p {
-		font-size: 1.3125em;
+		font-size: 1.125em;
 	}
 
 }

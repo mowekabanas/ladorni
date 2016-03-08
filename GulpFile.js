@@ -26,6 +26,8 @@ var gulp = require('gulp'),
  * http://www.imagemagick.org/script/binary-releases.php
  * */
 
+var tinypngToken = 'tpY_SrTWgniTOP1mYIjhGosNcwY7ieG5';
+
 var dist = {
 	location: 'dist/'
 };
@@ -50,10 +52,19 @@ gulp.task('resize', function () {
 		.pipe(gulp.dest(dist.location + images.largePhotos.location));
 });
 
-gulp.task('tinyPagePhotos', function () {
-	gulp.src(dist.location + images.largePhotos.location + images.largePhotos.content)
-		.pipe(tinypng('8eNoFlUv4wHzam_8GleKHdhH2YFk9xAd'))
-		.pipe(gulp.dest(dist.location + images.largePhotos.location));
+
+gulp.task('tinyImages', function () {
+	gulp.src(images.location + images.content)
+		.pipe(tinypng(tinypngToken))
+		.pipe(gulp.dest(images.location));
 });
+
+gulp.task('tinyLargePhotos', function () {
+	gulp.src(images.largePhotos.location + images.largePhotos.content)
+		.pipe(tinypng(tinypngToken))
+		.pipe(gulp.dest(images.largePhotos.location));
+});
+
+gulp.task('tiny', ['tinyImages', 'tinyLargePhotos']);
 
 gulp.task('default', ['resize']);
