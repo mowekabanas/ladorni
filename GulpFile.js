@@ -37,6 +37,11 @@ var images = {
 	location: 'img/'
 };
 
+images.src = {
+	content: '*',
+	location: images.location + 'src/'
+};
+
 images.largePhotos = {
 	content: '*',
 	location: images.location + 'largePhotos/'
@@ -70,6 +75,13 @@ gulp.task('tinyLargePhotos', function () {
 		.pipe(gulp.dest(images.largePhotos.location));
 });
 
-gulp.task('tiny', ['tinyImages', 'tinyLargePhotos']);
+// tiny the new images at the 'src' folder
+gulp.task('tinySource', function () {
+	gulp.src(images.src.location + images.src.content)
+		.pipe(tinypng(tinypngToken))
+		.pipe(gulp.dest(images.src.location));
+});
+
+gulp.task('tiny', ['tinyImages', 'tinyLargePhotos', 'tinySource']);
 
 gulp.task('default', ['dist']);

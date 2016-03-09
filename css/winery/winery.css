@@ -133,7 +133,7 @@
 	background-position: center;
 	-webkit-background-size: cover;
 	background-size: cover;
-	height: 24em;
+	height: 36em;
 	width: 100%;
 }
 
@@ -149,18 +149,49 @@
 	/*background-image: url('http://uve.info/assets/img/pages/winebar-2.jpg');*/
 	background-image: url('../../dist/img/largePhotos/contraste%204.jpg');
 	background-position: center;
-	height: 18em;
 	width: 100%;
+}
+
+.Photo--front-door {
+	background-image: url('../../dist/img/largePhotos/3.jpg');
+}
+
+.Photo--outside-window-1 {
+	background-image: url('../../dist/img/largePhotos/contraste%205.jpg');
+}
+
+.Photo--outside-window-2 {
+	background-image: url('../../dist/img/largePhotos/10.jpg');
+}
+
+.Photo--inside-view-1 {
+	background-image: url('../../dist/img/largePhotos/pano%205.jpg');
+}
+
+.Photo--inside-view-2 {
+	background-image: url('../../dist/img/largePhotos/pano%203.jpg');
+}
+
+.Photo--tasting-space {
+	background-image: url('../../dist/img/largePhotos/pano%201.jpg');
+}
+
+.Photo--castle-front-view {
+	background-image: url('../../img/largePhotos/11.jpg');
+}
+
+.Photo--internal-builds {
+	background-image: url('../../dist/img/largePhotos/16.jpg');
+}
+
+.Photo--cellar {
+	background-image: url('../../dist/img/largePhotos/14.jpg');
 }
 
 @media (min-width: 48em) and (max-width: 60em) and (min-height: 60em) {
 
 	.Photo--exterior {
-		/*background-image: url('http://uve.info/assets/img/pages/winebar-1.jpg');*/
-		background-image: url('../../dist/img/largePhotos/17-2.jpg');
-		background-position: center 72%;
 		height: 24em;
-		width: 100%;
 	}
 
 }
