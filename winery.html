@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="grey-100 playfair-display">
+<html lang="pt-br" class="grey-100">
 <meta charset="UTF-8">
 <title>La Dorni - Vinicola</title>
 <meta name="viewport"
@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
 <link rel="stylesheet" href="css/icon.css"/>
 <link rel="stylesheet" href="css/winery/winery.css"/>
+<link rel="stylesheet" href="css/winery/winery-photos.css"/>
+<link rel="stylesheet" href="css/winery/winery-photo-article.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
@@ -16,13 +18,17 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<main class="Main">
+<body>
 
-	<header class="Header">
+<div id="debug" style="position: fixed; z-index: 2; top: 0; right: 0;"></div>
+
+<main class="Main playfair-display">
+
+	<header id="header" class="Header">
 
 		<div class="HeaderLogo">
 
-			<div class="Logo">
+			<div id="header-logo" class="Logo">
 
 				<a class="Logo-select-area">
 
@@ -635,17 +641,17 @@
 
 		<nav class="HeaderNav">
 
-			<ul class="HeaderNavMenu">
-
-
-
-			</ul>
-
 			<a class="HeaderNavToggle">
 
 				<span class="icon-menu"></span>
 
 			</a>
+
+			<ul class="HeaderNavMenu">
+
+
+
+			</ul>
 
 		</nav>
 
@@ -653,40 +659,463 @@
 
 	<section class="Content">
 
-		<figure class="Photo Photo--exterior"></figure>
+		<article class="WineryPhotoArticle WineryPhotoArticle--wide-cover grey-300">
 
-		<section class="TextBlock grey-200 font-grey-900">
+			<figure class="WineryPhotoArticle-figure font-white">
 
-			<div class="TextContent">
+				<img src="dist/img/largePhotos/17-2.jpg" alt=""/>
 
-				<p>A vinícola La Dorni do Brasil não traz consigo somente vinhos de alta qualidade. Sua sede em Bandeirantes, no norte paranaense, foi inspirada na baixa idade média e construída com mais de 50 mil pedras, sendo <em>20 mil</em> talhadas a mão.</p>
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+			</figure>
+
+			<div class="WineryPhotoArticleContent WineryPhotoArticleContent--intro">
+
+				<div class="WineryPhotoArticleContent-inner">
+
+					<header class="WineryPhotoArticle-header">
+
+						<h1>Construção e fundação</h1>
+
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>A vinícola La Dorni do Brasil não traz consigo somente vinhos de alta qualidade. Sua sede em Bandeirantes, no norte paranaense, foi inspirada na baixa idade média e construída com mais de 50 mil pedras, sendo 20 mil talhadas a mão.</p>
+
+					</div>
+
+				</div>
 
 			</div>
 
-		</section>
+		</article>
 
-		<figure class="Photo Photo--front-door"></figure>
+		<article class="WineryPhotoArticle grey-100 WineryPhotoArticle--right">
 
-		<figure class="Photo Photo--inside"></figure>
+			<figure class="WineryPhotoArticle-figure">
 
-		<figure class="Photo Photo--outside-window-1"></figure>
+				<img src="dist/img/largePhotos/3.jpg" alt=""/>
 
-		<figure class="Photo Photo--outside-window-2"></figure>
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
 
-		<figure class="Photo Photo--inside-view-1"></figure>
+			</figure>
 
-		<figure class="Photo Photo--inside-view-2"></figure>
+			<div class="WineryPhotoArticleContent grey-200">
 
-		<figure class="Photo Photo--tasting-space"></figure>
+				<div class="WineryPhotoArticleContent-inner">
 
-		<figure class="Photo Photo--castle-front-view"></figure>
+					<header class="WineryPhotoArticle-header">
 
-		<figure class="Photo Photo--internal-builds"></figure>
+						<h1>Fundação</h1>
 
-		<figure class="Photo Photo--cellar"></figure>
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque aut, consequatur cum dolorem facere fugit harum inventore, molestias mollitia nostrum pariatur quae quaerat quis repellat rerum vel voluptatum?</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+		<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--left">
+
+			<figure class="WineryPhotoArticle-figure">
+
+				<img src="dist/img/largePhotos/10.jpg" alt=""/>
+
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+			</figure>
+
+			<div class="WineryPhotoArticleContent grey-200">
+
+				<div class="WineryPhotoArticleContent-inner">
+
+					<header class="WineryPhotoArticle-header">
+
+						<h1>Envelhecimento natural</h1>
+
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque aut, consequatur cum dolorem facere fugit harum inventore, molestias mollitia nostrum pariatur quae quaerat quis repellat rerum vel voluptatum?</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+		<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--wide">
+
+			<figure class="WineryPhotoArticle-figure">
+
+				<img src="dist/img/largePhotos/pano%205.jpg" alt=""/>
+
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+			</figure>
+
+			<div class="WineryPhotoArticleContent grey-200">
+
+				<div class="WineryPhotoArticleContent-inner">
+
+					<header class="WineryPhotoArticle-header">
+
+						<h1>Espaço interno</h1>
+
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque aut, consequatur cum dolorem facere fugit harum inventore, molestias mollitia nostrum pariatur quae quaerat quis repellat rerum vel voluptatum?</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+		<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--wide">
+
+			<figure class="WineryPhotoArticle-figure">
+
+				<img src="dist/img/largePhotos/pano%201.jpg" alt=""/>
+
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+			</figure>
+
+			<div class="WineryPhotoArticleContent grey-200">
+
+				<div class="WineryPhotoArticleContent-inner">
+
+					<header class="WineryPhotoArticle-header">
+
+						<h1>Espaço para degustação</h1>
+
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque aut, consequatur cum dolorem facere fugit harum inventore, molestias mollitia nostrum pariatur quae quaerat quis repellat rerum vel voluptatum?</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+		<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--left">
+
+			<figure class="WineryPhotoArticle-figure">
+
+				<img src="dist/img/largePhotos/11.jpg" alt=""/>
+
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+			</figure>
+
+			<div class="WineryPhotoArticleContent grey-200">
+
+				<div class="WineryPhotoArticleContent-inner">
+
+					<header class="WineryPhotoArticle-header">
+
+						<h1>O Castelo</h1>
+
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque aut, consequatur cum dolorem facere fugit harum inventore, molestias mollitia nostrum pariatur quae quaerat quis repellat rerum vel voluptatum?</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+		<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--wide">
+
+			<figure class="WineryPhotoArticle-figure">
+
+				<img src="dist/img/largePhotos/pano%201.jpg" alt=""/>
+
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+			</figure>
+
+			<div class="WineryPhotoArticleContent grey-200">
+
+				<div class="WineryPhotoArticleContent-inner">
+
+					<header class="WineryPhotoArticle-header">
+
+						<h1>Construções internas e Jardim</h1>
+
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque aut, consequatur cum dolorem facere fugit harum inventore, molestias mollitia nostrum pariatur quae quaerat quis repellat rerum vel voluptatum?</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+		<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--wide">
+
+			<figure class="WineryPhotoArticle-figure">
+
+				<img src="dist/img/largePhotos/14.jpg" alt=""/>
+
+				<figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+			</figure>
+
+			<div class="WineryPhotoArticleContent grey-200">
+
+				<div class="WineryPhotoArticleContent-inner">
+
+					<header class="WineryPhotoArticle-header">
+
+						<h1>Adega Subterrânea</h1>
+
+					</header>
+
+					<div class="WineryPhotoArticle-text">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque aut, consequatur cum dolorem facere fugit harum inventore, molestias mollitia nostrum pariatur quae quaerat quis repellat rerum vel voluptatum?</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
 
 	</section>
 
 </main>
+
+<script>
+
+	var WineryPhotoArticle = (function () {
+
+		/**
+		 * Constructor of Winery Photo Container
+		 * @param viewport {Object}
+		 * @constructor
+		 */
+		function WineryPhotoArticle(viewport) {
+
+			this.viewport = viewport || false;
+
+			this.img = {};
+			this.figcaption = {};
+
+			if (this.viewport)
+				this.init();
+
+		}
+
+		WineryPhotoArticle.prototype.loadImg = function () {
+
+			return this.viewport.querySelector('img') || false;
+
+		};
+
+		WineryPhotoArticle.prototype.init = function () {
+
+			var self = this;
+
+			this.img = this.loadImg();
+
+			this.figure = this.viewport.querySelector('.WineryPhotoArticle-figure');
+
+			this.figure.style.backgroundImage = 'url("' + this.img.src + '")';
+
+			this.viewport.addEventListener('dragenter', noopHandler, false);
+			this.viewport.addEventListener('dragexit', noopHandler, false);
+			this.viewport.addEventListener('dragover', noopHandler, false);
+			this.viewport.addEventListener('drop', drop, false);
+
+			function noopHandler(evt) {
+				evt.stopPropagation();
+				evt.preventDefault();
+			}
+
+			function drop(evt) {
+
+				evt.preventDefault();
+
+				if (window.FileReader) {
+
+					var	oPreviewImg = null;
+					var oFReader = new window.FileReader();
+
+					oFReader.onload = function (oFREvent) {
+
+						console.log(oFREvent);
+
+						if (!oPreviewImg) {
+							oPreviewImg = new Image();
+							self.figure.appendChild(oPreviewImg);
+						}
+
+						self.img.src = oFREvent.target.result;
+
+						console.log(oFREvent.target.result);
+
+					};
+
+					var aFiles = evt.dataTransfer.files;
+					oFReader.readAsDataURL(aFiles[0]);
+
+				}
+
+			}
+
+		};
+
+		return WineryPhotoArticle;
+
+	})();
+
+	var a = document.querySelectorAll('.WineryPhotoArticle');
+
+	var b = [];
+
+	for (var i = a.length; i--; )
+		b.push(new WineryPhotoArticle(a[i]));
+
+</script>
+
+<script>
+
+	var debug = {};
+	debug.viewport = document.getElementById('debug');
+
+	debug.log = function(text) {
+		debug.viewport.innerHTML = text;
+	};
+
+	debug.log('');
+
+	var allow = false;
+	var scrollTop = window.scrollTop;
+
+	var header = document.getElementById('header');
+	var headerLogo = document.getElementById('header-logo');
+
+	var lastTouch = 0;
+	var currentTouch, resultTouch;
+
+	var translate = 0;
+
+	var lockScroll = false;
+
+	var lockScrollDelay;
+
+	window.addEventListener('touchstart', function (ev) {
+
+		scrollTop = document.documentElement.scrollTop;
+		allow = scrollTop < headerLogo.offsetHeight;
+
+		for (var i = ev.touches.length; i--; )
+			lastTouch = ev.touches[i].clientY;
+
+		lockScroll = true;
+
+	});
+
+	window.addEventListener('touchmove', function (ev) {
+
+		for (var i = ev.touches.length; i--; ) {
+
+			currentTouch = ev.touches[i].clientY;
+			resultTouch = currentTouch - lastTouch;
+
+			translate += resultTouch;
+
+			if (translate > 0)
+				translate = 0;
+			else if (Math.abs(translate) > headerLogo.offsetHeight) {
+				translate = - headerLogo.offsetHeight;
+			}
+
+			header.style.transform = 'translateY(' + translate + 'px)';
+
+			lastTouch = currentTouch;
+
+		}
+
+	});
+
+	window.addEventListener('touchend', function (ev) {
+
+		if (lockScrollDelay)
+
+		lockScrollDelay = setTimeout(function () {
+			lockScroll = false;
+		}, 600);
+
+	});
+
+	var lastScroll = document.documentElement.scrollTop;
+	var currentScroll, resultScroll;
+
+	window.addEventListener('scroll', function (ev) {
+
+		if (!lockScroll) {
+
+			currentScroll = ev.pageY;
+			resultScroll = currentScroll - lastScroll;
+
+			translate += resultScroll;
+
+//			console.log(resultScroll);
+//			console.log(translate);
+//
+//			console.log('-------');
+
+			if (translate < 0)
+				translate = 0;
+			else if (Math.abs(translate) > headerLogo.offsetHeight) {
+				translate = headerLogo.offsetHeight;
+			}
+
+			header.style.transform = 'translateY(' + - (translate) + 'px)';
+
+			lastScroll = currentScroll;
+
+		}
+
+	});
+
+</script>
+
+</body>
 
 </html>

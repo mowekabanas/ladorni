@@ -6,7 +6,10 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	uglify = require('gulp-uglify'),
 	imageResize = require('gulp-image-resize'),
-	tinypng = require('gulp-tinypng');
+	tinypng = require('gulp-tinypng'),
+	livereload = require('gulp-livereload'),
+	browserSync = require('browser-sync').create(),
+	reload = browserSync.reload;
 
 /*
  * To use the gulp-image-resize, it needs of some dependencies:
@@ -55,7 +58,7 @@ gulp.task('distImages', function () {
 gulp.task('resizeLargePhotos', function () {
 	gulp.src(images.largePhotos.location + images.largePhotos.content)
 		.pipe(imageResize({
-			height : 1080,
+			height : 536,
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.largePhotos.location));
@@ -84,4 +87,18 @@ gulp.task('tinySource', function () {
 
 gulp.task('tiny', ['tinyImages', 'tinyLargePhotos', 'tinySource']);
 
-gulp.task('default', ['dist']);
+
+// Watch scss AND html files, doing different things with each.
+gulp.task('serve', function () {
+
+	// Serve files from the root of this project
+	browserSync.init({
+		server: "./"
+	});
+
+	gulp.watch("*.html").on("change", reload);
+	gulp.watch("css/winery/*.css").on("change", reload);
+
+});
+
+gulp.task('default', ['serve']);

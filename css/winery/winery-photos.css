@@ -1,0 +1,94 @@
+
+/* Winery Photos */
+
+.Photo {
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	display: block;
+	height: 36em;
+	width: 100%;
+}
+
+.Photo--exterior {
+	/*background-image: url('http://uve.info/assets/img/pages/winebar-1.jpg');*/
+	background-image: url('../../dist/img/largePhotos/17-2.jpg');
+	background-position: center 72%;
+	height: 100vh;
+	width: 100%;
+}
+
+.Photo--inside {
+	/*background-image: url('http://uve.info/assets/img/pages/winebar-2.jpg');*/
+	background-image: url('../../dist/img/largePhotos/contraste%204.jpg');
+	background-position: center;
+	width: 100%;
+}
+
+.Photo--front-door {
+	background-image: url('../../dist/img/largePhotos/3.jpg');
+}
+
+.Photo--outside-window-1 {
+	background-image: url('../../dist/img/largePhotos/contraste%205.jpg');
+}
+
+.Photo--outside-window-2 {
+	background-image: url('../../dist/img/largePhotos/10.jpg');
+}
+
+.Photo--inside-view-1 {
+	background-image: url('../../dist/img/largePhotos/pano%205.jpg');
+}
+
+.Photo--inside-view-2 {
+	background-image: url('../../dist/img/largePhotos/pano%203.jpg');
+}
+
+.Photo--tasting-space {
+	background-image: url('../../dist/img/largePhotos/pano%201.jpg');
+}
+
+.Photo--castle-front-view {
+	background-image: url('../../img/largePhotos/11.jpg');
+	width: 50%;
+	height: 72em;
+}
+
+.Photo--internal-builds {
+	background-image: url('../../dist/img/largePhotos/16.jpg');
+}
+
+.Photo--cellar {
+	background-image: url('../../dist/img/largePhotos/14.jpg');
+	background-position: 0 100%;
+	height: 36em;
+}
+
+/* Winery Photos */
+
+@media (min-width: 48em) and (max-width: 60em) and (min-height: 60em) {
+
+	.Photo--exterior {
+		height: 24em;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	.Photo--front-door {
+		background-position: center 100%;
+		height: 60em;
+		width: 50%;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Photo--inside {
+		height: 36em;
+	}
+
+}
