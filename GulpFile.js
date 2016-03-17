@@ -50,6 +50,11 @@ images.largePhotos = {
 	location: images.location + 'largePhotos/'
 };
 
+images.verticalPhotos = {
+	content: '*',
+	location: images.location + 'verticalPhotos/'
+};
+
 gulp.task('distImages', function () {
 	gulp.src(images.location + images.content)
 		.pipe(gulp.dest(dist.location + images.location));
@@ -62,6 +67,15 @@ gulp.task('resizeLargePhotos', function () {
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.largePhotos.location));
+});
+
+gulp.task('resizeVerticalPhotos', function () {
+	gulp.src(images.verticalPhotos.location + images.verticalPhotos.content)
+		.pipe(imageResize({
+			height : 1400,
+			upscale : false
+		}))
+		.pipe(gulp.dest(dist.location + images.verticalPhotos.location));
 });
 
 gulp.task('dist', ['distImages', 'resizeLargePhotos']);

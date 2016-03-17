@@ -26,7 +26,11 @@
 	flex-flow: row-reverse;
 }
 
-.WineryPhotoArticle--wide,
+.WineryPhotoArticle--wide {
+	-webkit-flex-flow: column-reverse;
+	flex-flow: column-reverse;
+}
+
 .WineryPhotoArticle--wide-cover {
 	-webkit-flex-flow: column;
 	flex-flow: column;
@@ -53,12 +57,13 @@
 
 .WineryPhotoArticle--left .WineryPhotoArticle-figure,
 .WineryPhotoArticle--right .WineryPhotoArticle-figure {
-	height: 140vh;
+	min-height: 140vh;
 }
 
 .WineryPhotoArticle--wide .WineryPhotoArticle-figure {
-	width: 100%;
 	height: auto;
+	min-height: 0;
+	width: 100%;
 }
 
 .WineryPhotoArticle--wide-cover .WineryPhotoArticle-figure {
@@ -126,17 +131,27 @@
 
 /* Winery Photo Article header and text */
 
-.WineryPhotoArticle-header,
+.WineryPhotoArticleContent-header,
 .WineryPhotoArticle-text {
 	width: 30em;
 }
 
-.WineryPhotoArticleContent--intro .WineryPhotoArticle-header,
+.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header,
 .WineryPhotoArticleContent--intro .WineryPhotoArticle-text {
 	width: 100%;
 }
 
+.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header {
+	display: none;
+}
+
 @media (min-width: 72em) {
+
+	/* Winery Photo Article */
+
+	.WineryPhotoArticle h1 {
+		font-size: 3em;
+	}
 
 	/* Winery Photo Article Content inner */
 
@@ -146,14 +161,23 @@
 
 	/* Winery Photo Article header and text */
 
-	.WineryPhotoArticle-header,
+	.WineryPhotoArticleContent-header,
 	.WineryPhotoArticle-text {
-		width: 30em;
+		width: 24em;
 	}
 
-	.WineryPhotoArticleContent--intro .WineryPhotoArticle-header,
+	.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header,
 	.WineryPhotoArticleContent--intro .WineryPhotoArticle-text {
 		max-width: 60em;
+	}
+
+	.WineryPhotoArticleContent-header {
+		margin-bottom: 1.5em;
+	}
+
+	.WineryPhotoArticle-text p {
+		font-size: 1.3125em;
+		line-height: 1.6;
 	}
 
 	.WineryPhotoArticleContent--intro .WineryPhotoArticle-text p {
@@ -166,6 +190,12 @@
 
 @media (min-width: 96em) {
 
+	/* Winery Photo Article */
+
+	.WineryPhotoArticle h1 {
+		font-size: 4.5em;
+	}
+
 	/* Winery Photo Article Content inner */
 
 	.WineryPhotoArticleContent-inner {
@@ -174,12 +204,12 @@
 
 	/* Winery Photo Article header and text */
 
-	.WineryPhotoArticle-header,
+	.WineryPhotoArticleContent-header,
 	.WineryPhotoArticle-text {
 		width: 30em;
 	}
 
-	.WineryPhotoArticleContent--intro .WineryPhotoArticle-header,
+	.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header,
 	.WineryPhotoArticleContent--intro .WineryPhotoArticle-text {
 		max-width: 96em;
 	}
