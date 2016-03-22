@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<title>La Dorni - Navigation</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<style>
+
+	.NavAnchor {
+		display: block;
+	}
+
+</style>
+
+<a href="#home" class="NavAnchor font-light-blue-a700" data-pagename="home">Home</a>
+<a href="#castelo" class="NavAnchor font-light-blue-a700" data-pagename="castelo">O Castelo</a>
+
+<main>
+
+	<section id="home"></section>
+
+	<section id="castelo"></section>
+
+</main>
+
+<script>
+
+	var navAnchorItems = document.querySelectorAll('.NavAnchor');
+
+	for (var i = navAnchorItems.length; i--; ) {
+
+		navAnchorItems[i].addEventListener('click', function(ev) {
+
+			ev.preventDefault();
+
+			console.log(this.dataset.target);
+
+			var stateObj = {
+				pageName: this.dataset.target
+			};
+
+			document.title = site.title.defaultPrefix + this.dataset.target;
+			history.pushState(stateObj, site.title.default + this.dataset.target, this.dataset.target);
+
+		}, false);
+
+	}
+
+	window.onpopstate = function(ev) {
+
+		console.log('--');
+		console.log(history.state);
+
+	};
+
+</script>
+
+<script>
+
+	/* Mowe Anchor */
+
+	var Anchor = (function() {
+
+		function Anchor(rules, fallback) {
+
+			var self = this;
+
+			this.rules = [];
+
+			this.fallback = fallback || false;
+
+			if (rules) this.getRules(rules);
+
+		}
+
+		Anchor.prototype.getRules = function(rules) {
+
+			for (var i = rules.length; i--; )
+				if (rules[i].anchor) {
+
+					var rule = {};
+
+					rule.anchor = rules[i].anchor;
+					rule.fallback = rules[i].fallback;
+
+					this.rules.push(rule);
+
+				}
+
+		};
+
+		Anchor.prototype.matchAnchor = function(anchor) {
+
+			return !!window.location.href.match(new RegExp(anchor, 'g'));
+
+		};
+
+		Anchor.prototype.matchAllAnchors = function() {
+
+			for (var i = this.rules.length; i--; )
+				if (this.matchAnchor(this.rules[i].anchor)) {
+					this.rules[i].fallback();
+					return;
+				}
+
+			if (this.fallback) this.fallback();
+
+		};
+
+		Anchor.prototype.init = function() {
+
+			if (this.rules.length) this.matchAllAnchors();
+
+		};
+
+		return Anchor;
+
+	})();
+
+</script>
+
+<script>
+
+	var Page = (function() {
+
+		/**
+		 * Navigation Item Page constructor
+		 * It normalize the page viewport
+		 * @param viewport {Element}
+		 * @return {*|boolean}
+		 * @constructor
+		 */
+		function Page(viewport) {
+
+			this.viewport = viewport || false;
+
+		}
+
+		return Page;
+
+	})();
+
+	var NavigationItem = (function() {
+
+		/**
+		 * Naviagation Item constructor
+		 * @param parameters {object}
+		 * @param pageViewport {Element}
+		 * @constructor
+		 */
+		function NavigationItem(parameters, pageViewport) {
+
+			this.name = parameters.itemName;
+			this.title = parameters.itemTitle;
+			this.url = parameters.itemURL;
+
+			this.isHome = parameters.isHome || false;
+
+			this.page = this.getPage(pageViewport);
+
+		}
+
+		NavigationItem.prototype.getPage = function(viewport) {
+
+			return new Page(viewport);
+
+		};
+
+		return NavigationItem;
+
+	})();
+
+	var Navigation = (function () {
+
+		function Navigation(viewport) {
+
+			var self = this;
+
+			this.viewport = viewport;
+
+			this.title = {};
+
+			this.title.default = 'La Dorni';
+			this.title.defaultPrefix = 'La Dorni | ';
+			this.title.defaultPostfix = ' | La Dorni';
+
+			this.navigationItems = [];
+
+			this.home = false;
+
+		}
+
+		Navigation.prototype.pushItem = function(item, pageViewport) {
+
+			var navigationItem = new NavigationItem(item, pageViewport);
+
+			if (navigationItem.isHome)
+				this.home = navigationItem;
+
+			this.navigationItems.push(navigationItem);
+
+		};
+
+		Navigation.prototype.init = function() {
+
+			console.log(this.navigationItems);
+
+		};
+
+		return Navigation;
+
+	})();
+
+</script>
+
+<script>
+
+	var navigation = new Navigation(document.documentElement);
+
+	navigation.pushItem({
+		itemName: 'castle',
+		itemTitle: 'O Castelo',
+		itemURL: 'home',
+		isHome: true
+	}, document.getElementById('home'));
+
+	navigation.pushItem({
+		itemName: 'castle',
+		itemTitle: 'O Castelo',
+		itemURL: 'castelo'
+	}, document.getElementById('castelo'));
+
+	navigation.init();
+
+</script>
+
+</html>
