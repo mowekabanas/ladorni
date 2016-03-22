@@ -18,12 +18,26 @@
 
 	.NavAnchor {
 		display: block;
+		padding: 6em;
+	}
+
+	.NavAnchor span {
+		display: block;
 	}
 
 </style>
 
-<a href="#home" class="NavAnchor font-light-blue-a700" data-pagename="home">Home</a>
-<a href="#castelo" class="NavAnchor font-light-blue-a700" data-pagename="castelo">O Castelo</a>
+<nav>
+
+	<a href="#home" class="NavAnchor NavigationItem font-light-blue-a700" data-navigation-target="home">
+		<span>Home</span>
+	</a>
+
+	<a href="#castelo" class="NavAnchor NavigationItem font-light-blue-a700" data-navigation-target="castelo">
+		<span>O Castelo</span>
+	</a>
+
+</nav>
 
 <main>
 
@@ -34,34 +48,6 @@
 </main>
 
 <script>
-
-	var navAnchorItems = document.querySelectorAll('.NavAnchor');
-
-	for (var i = navAnchorItems.length; i--; ) {
-
-		navAnchorItems[i].addEventListener('click', function(ev) {
-
-			ev.preventDefault();
-
-			console.log(this.dataset.target);
-
-			var stateObj = {
-				pageName: this.dataset.target
-			};
-
-			document.title = site.title.defaultPrefix + this.dataset.target;
-			history.pushState(stateObj, site.title.default + this.dataset.target, this.dataset.target);
-
-		}, false);
-
-	}
-
-	window.onpopstate = function(ev) {
-
-		console.log('--');
-		console.log(history.state);
-
-	};
 
 </script>
 
@@ -196,7 +182,24 @@
 
 			this.navigationItems = [];
 
+			// Default pages
 			this.home = false;
+			this.error = false;
+
+			this.onNavigationItemClick = function(ev) {
+
+				if (this.dataset.navigationTarget) {
+					ev.preventDefault();
+					console.log(ev);
+				}
+
+			};
+
+			this.onPopStateCtrl = function (ev) {
+
+				console.log(window.history);
+
+			};
 
 		}
 
@@ -211,9 +214,45 @@
 
 		};
 
-		Navigation.prototype.init = function() {
+		Navigation.prototype.matchURL = function(pageURL) {
+
+			return !!window.location.href.match(new RegExp(pageURL, 'g'));
+
+		};
+
+		Navigation.prototype.findCurrentState = function () {
+
+			for (var i = this.navigationItems.length; i--; )
+				if (this.matchURL(this.navigationItems.url))
+					return this.navigationItems;
+
+			return this.home;
+
+		};
+
+		Navigation.prototype.selectState = function() {
 
 			console.log(this.navigationItems);
+
+		};
+
+		Navigation.prototype.addListeners = function () {
+
+			window.addEventListener('popstate', this.onPopStateCtrl, false);
+
+			var navAnchors = document.querySelectorAll('.NavigationItem');
+
+			for (var i = navAnchors.length; i--; )
+				navAnchors[i].addEventListener('click', this.onNavigationItemClick, false);
+
+		};
+
+		Navigation.prototype.init = function() {
+
+			this.addListeners();
+
+			if (this.navigationItems.length)
+				this.selectState();
 
 		};
 
