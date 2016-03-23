@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <meta charset="UTF-8">
-<title>La Dorni - Navigation</title>
+<title>La Dorni</title>
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <script src="dist/js/villa.min.js"></script>
@@ -18,7 +18,16 @@
 
 	.NavAnchor {
 		display: block;
-		padding: 6em;
+		padding: 3em;
+	}
+
+	.NavAnchor:hover {
+		background-color: #eeeeee;
+	}
+
+	.NavAnchor:active,
+	.NavAnchor:focus {
+		background-color: #e0e0e0;
 	}
 
 	.NavAnchor span {
@@ -29,12 +38,20 @@
 
 <nav>
 
+	<a href="#" class="NavAnchor NavigationItem font-light-blue-a700" data-navigation-target="winery">
+		<span>A vínicola</span>
+	</a>
+
 	<a href="#home" class="NavAnchor NavigationItem font-light-blue-a700" data-navigation-target="home">
 		<span>Home</span>
 	</a>
 
-	<a href="#castelo" class="NavAnchor NavigationItem font-light-blue-a700" data-navigation-target="castelo">
+	<a href="#castelo" class="NavAnchor NavigationItem font-light-blue-a700" data-navigation-target="castle">
 		<span>O Castelo</span>
+	</a>
+
+	<a href="#castelo" class="NavAnchor NavigationItem font-red-a700" data-navigation-target="catle">
+		<span>Bad link</span>
 	</a>
 
 </nav>
@@ -47,230 +64,26 @@
 
 </main>
 
-<script>
-
-</script>
-
-<script>
-
-	/* Mowe Anchor */
-
-	var Anchor = (function() {
-
-		function Anchor(rules, fallback) {
-
-			var self = this;
-
-			this.rules = [];
-
-			this.fallback = fallback || false;
-
-			if (rules) this.getRules(rules);
-
-		}
-
-		Anchor.prototype.getRules = function(rules) {
-
-			for (var i = rules.length; i--; )
-				if (rules[i].anchor) {
-
-					var rule = {};
-
-					rule.anchor = rules[i].anchor;
-					rule.fallback = rules[i].fallback;
-
-					this.rules.push(rule);
-
-				}
-
-		};
-
-		Anchor.prototype.matchAnchor = function(anchor) {
-
-			return !!window.location.href.match(new RegExp(anchor, 'g'));
-
-		};
-
-		Anchor.prototype.matchAllAnchors = function() {
-
-			for (var i = this.rules.length; i--; )
-				if (this.matchAnchor(this.rules[i].anchor)) {
-					this.rules[i].fallback();
-					return;
-				}
-
-			if (this.fallback) this.fallback();
-
-		};
-
-		Anchor.prototype.init = function() {
-
-			if (this.rules.length) this.matchAllAnchors();
-
-		};
-
-		return Anchor;
-
-	})();
-
-</script>
-
-<script>
-
-	var Page = (function() {
-
-		/**
-		 * Navigation Item Page constructor
-		 * It normalize the page viewport
-		 * @param viewport {Element}
-		 * @return {*|boolean}
-		 * @constructor
-		 */
-		function Page(viewport) {
-
-			this.viewport = viewport || false;
-
-		}
-
-		return Page;
-
-	})();
-
-	var NavigationItem = (function() {
-
-		/**
-		 * Naviagation Item constructor
-		 * @param parameters {object}
-		 * @param pageViewport {Element}
-		 * @constructor
-		 */
-		function NavigationItem(parameters, pageViewport) {
-
-			this.name = parameters.itemName;
-			this.title = parameters.itemTitle;
-			this.url = parameters.itemURL;
-
-			this.isHome = parameters.isHome || false;
-
-			this.page = this.getPage(pageViewport);
-
-		}
-
-		NavigationItem.prototype.getPage = function(viewport) {
-
-			return new Page(viewport);
-
-		};
-
-		return NavigationItem;
-
-	})();
-
-	var Navigation = (function () {
-
-		function Navigation(viewport) {
-
-			var self = this;
-
-			this.viewport = viewport;
-
-			this.title = {};
-
-			this.title.default = 'La Dorni';
-			this.title.defaultPrefix = 'La Dorni | ';
-			this.title.defaultPostfix = ' | La Dorni';
-
-			this.navigationItems = [];
-
-			// Default pages
-			this.home = false;
-			this.error = false;
-
-			this.onNavigationItemClick = function(ev) {
-
-				if (this.dataset.navigationTarget) {
-					ev.preventDefault();
-					console.log(ev);
-				}
-
-			};
-
-			this.onPopStateCtrl = function (ev) {
-
-				console.log(window.history);
-
-			};
-
-		}
-
-		Navigation.prototype.pushItem = function(item, pageViewport) {
-
-			var navigationItem = new NavigationItem(item, pageViewport);
-
-			if (navigationItem.isHome)
-				this.home = navigationItem;
-
-			this.navigationItems.push(navigationItem);
-
-		};
-
-		Navigation.prototype.matchURL = function(pageURL) {
-
-			return !!window.location.href.match(new RegExp(pageURL, 'g'));
-
-		};
-
-		Navigation.prototype.findCurrentState = function () {
-
-			for (var i = this.navigationItems.length; i--; )
-				if (this.matchURL(this.navigationItems.url))
-					return this.navigationItems;
-
-			return this.home;
-
-		};
-
-		Navigation.prototype.selectState = function() {
-
-			console.log(this.navigationItems);
-
-		};
-
-		Navigation.prototype.addListeners = function () {
-
-			window.addEventListener('popstate', this.onPopStateCtrl, false);
-
-			var navAnchors = document.querySelectorAll('.NavigationItem');
-
-			for (var i = navAnchors.length; i--; )
-				navAnchors[i].addEventListener('click', this.onNavigationItemClick, false);
-
-		};
-
-		Navigation.prototype.init = function() {
-
-			this.addListeners();
-
-			if (this.navigationItems.length)
-				this.selectState();
-
-		};
-
-		return Navigation;
-
-	})();
-
-</script>
+<script src="js/model/navigation/navigation.js"></script>
+<script src="js/model/navigation/navigationItem.js"></script>
+<script src="js/model/navigation/navigationState.js"></script>
+<script src="js/model/navigation/page.js"></script>
 
 <script>
 
 	var navigation = new Navigation(document.documentElement);
 
 	navigation.pushItem({
-		itemName: 'castle',
-		itemTitle: 'O Castelo',
+		itemName: 'home',
+		itemTitle: false,
 		itemURL: 'home',
 		isHome: true
+	}, document.getElementById('home'));
+
+	navigation.pushItem({
+		itemName: 'winery',
+		itemTitle: 'A vínicola',
+		itemURL: 'vinicola'
 	}, document.getElementById('home'));
 
 	navigation.pushItem({

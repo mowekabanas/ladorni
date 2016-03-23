@@ -35,6 +35,20 @@ var dist = {
 	location: 'dist/'
 };
 
+dist.css = {
+	location: dist.location + 'css/'
+};
+
+var css = {
+	content: '*.css',
+	location: 'css/'
+};
+
+css.menu = {
+	content: css.content,
+	location: css.location + 'menu/'
+};
+
 var images = {
 	content: '*',
 	location: 'img/'
@@ -63,7 +77,7 @@ gulp.task('distImages', function () {
 gulp.task('resizeLargePhotos', function () {
 	gulp.src(images.largePhotos.location + images.largePhotos.content)
 		.pipe(imageResize({
-			height : 536,
+			height : 960,
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.largePhotos.location));
@@ -99,8 +113,21 @@ gulp.task('tinySource', function () {
 		.pipe(gulp.dest(images.src.location));
 });
 
-gulp.task('tiny', ['tinyImages', 'tinyLargePhotos', 'tinySource']);
+gulp.task('css-menu', function() {
+	gulp.src(css.menu.location + css.menu.content)
+		.pipe(concat('menu.css'))
+		.pipe(gulp.dest(dist.css.location));
+	gulp.src(dist.css.location + 'menu.css')
+		.pipe(minifycss())
+		.pipe(rename({
+			extname: '.min.css'
+		}))
+		.pipe(gulp.dest(dist.css.location));
+});
 
+gulp.task('css-watch', ['css-menu'], function () {
+	browserSync.reload();
+});
 
 // Watch scss AND html files, doing different things with each.
 gulp.task('serve', function () {
@@ -110,6 +137,7 @@ gulp.task('serve', function () {
 		server: "./"
 	});
 
+	gulp.watch([css.menu.location + css.menu.content], ['css-watch']);
 	gulp.watch("*.html").on("change", reload);
 	gulp.watch("css/winery/*.css").on("change", reload);
 
