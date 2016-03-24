@@ -1,0 +1,78 @@
+
+
+/* Menu Item */
+
+.MenuItem {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.MainMenu .MenuItem-select-area {
+	padding: .375em 3em .5em 3em;
+	width: 100%;
+}
+
+.MainMenu .MenuItem-select-area:hover {
+	background-color: #f5f5f5;
+	/*color: #ffffff;*/
+}
+
+.MainMenu .MenuItem-select-area span {
+	font-size: 2.25em;
+	font-weight: 700;
+	letter-spacing: -.5pt;
+	line-height: 1.16;
+}
+
+.MainMenu .MenuItem-select-area .slash {
+	color: #ffd740;
+	margin: 0 2pt 0 -8pt;
+	-webkit-transition: color .3s;
+	-moz-transition: color .3s;
+	-ms-transition: color .3s;
+	-o-transition: color .3s;
+	transition: color .3s;
+}
+
+.MainMenu .MenuItem-select-area:hover .slash {
+	color: #ffe57f;
+}
+
+@media (min-width: 21em) {
+
+	.MainMenu .MenuItem-select-area {
+		padding: .375em 3.75em .5em 3.75em;
+	}
+
+	.MainMenu .MenuItem-select-area span {
+		font-size: 2.25em;
+		letter-spacing: -.75pt;
+		line-height: 1.24;
+	}
+
+	.MainMenu .MenuItem-select-area .slash {
+		margin: 0 3pt 0 -8pt;
+	}
+
+}
+
+@media (min-width: 48em) {
+
+	.MainMenu .MenuItem-select-area {
+		padding: .5em 4.5em .625em 3em;
+	}
+
+	.MainMenu .MenuItem-select-area span {
+		font-size: 3em;
+		letter-spacing: -.75pt;
+		line-height: 1.36;
+	}
+
+	.MainMenu .MenuItem-select-area .slash {
+		margin: 0 3pt 0 -8pt;
+	}
+
+}

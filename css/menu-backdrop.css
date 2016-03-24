@@ -1,0 +1,21 @@
+
+/* Menu backdrop */
+
+.Menu.is-animating .Menu-backdrop {
+	background-color: rgba(0,0,0,0);
+}
+
+.Menu-backdrop {
+	background-color: rgba(0,0,0,.48);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	-ms-transition: background .3s;
+	-o-transition: background .3s;
+	transition: background .3s;
+	width: 100%;
+	z-index: 10;
+}
