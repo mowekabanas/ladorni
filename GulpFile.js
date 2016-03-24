@@ -77,7 +77,7 @@ gulp.task('distImages', function () {
 gulp.task('resizeLargePhotos', function () {
 	gulp.src(images.largePhotos.location + images.largePhotos.content)
 		.pipe(imageResize({
-			height : 960,
+			height : 1080,
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.largePhotos.location));

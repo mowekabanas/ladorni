@@ -16,12 +16,11 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<body class="grey">
+<body class="grey-50">
 
 <style>
 
-	.MainNav {
-	}
+	.MainNav {  }
 
 	.MainNav .MenuToggleButton {
 		position: fixed;
@@ -29,6 +28,7 @@
 	}
 
 	.MainMenu .MenuToggleButton-select-area {
+		color: #ffab00;
 		display: -webkit-box;
 		display: -moz-box;
 		display: -ms-flexbox;
@@ -36,18 +36,17 @@
 		display: flex;
 		-webkit-justify-content: center;
 		justify-content: center;
-		padding: 1em 0;
-		-webkit-transition: all .6s;
-		-moz-transition: all .6s;
-		-ms-transition: all .6s;
-		-o-transition: all .6s;
-		transition: all .6s;
-		width: 4.5em;
+		padding: 1.5em 0;
+		-webkit-transition: all .3s .1s;
+		-moz-transition: all .3s .1s;
+		-ms-transition: all .3s .1s;
+		-o-transition: all .3s .1s;
+		transition: all .3s .1s;
+		width: 6em;
 	}
 
 	.MainMenu.is-active .MenuToggleButton-select-area {
-		padding: 1.5em 0;
-		width: 6em;
+		color: #000000;
 	}
 
 	.MainMenu .MenuToggleButton-select-area .icon {
@@ -66,18 +65,24 @@
 	.MainMenu.Menu {
 	}
 
-	.Menu-overlay {
-		background-color: rgba(0,0,0,.48);
-		display: none;
+	.Menu-backdrop {
+		background-color: rgba(0,0,0,.0);
+		/*display: none;*/
 		height: 100%;
 		left: 0;
 		position: fixed;
 		top: 0;
+		-webkit-transition: background .3s;
+		-moz-transition: background .3s;
+		-ms-transition: background .3s;
+		-o-transition: background .3s;
+		transition: background .3s;
 		width: 100%;
 		z-index: 10;
 	}
 
-	.Menu.is-active .Menu-overlay {
+	.Menu.is-active .Menu-backdrop {
+		background-color: rgba(0,0,0,.48);
 		display: block;
 	}
 
@@ -87,6 +92,11 @@
 		-ms-transform: translateX(0);
 		-o-transform: translateX(0);
 		transform: translateX(0);
+		-webkit-transition: transform .6s ease-out;
+		-moz-transition: transform .6s ease-out;
+		-ms-transition: transform .6s ease-out;
+		-o-transition: transform .6s ease-out;
+		transition: transform .6s ease-out;
 	}
 
 	.MainMenu .MenuList {
@@ -99,7 +109,7 @@
 		flex-flow: column;
 		height: 100vh;
 		left: 0;
-		padding: 6em 0 0;
+		padding: 8em 0 0;
 		position: fixed;
 		top: 0;
 		-webkit-transform: translateX(-100%);
@@ -107,11 +117,11 @@
 		-ms-transform: translateX(-100%);
 		-o-transform: translateX(-100%);
 		transform: translateX(-100%);
-		-webkit-transition: transform .6s;
-		-moz-transition: transform .6s;
-		-ms-transition: transform .6s;
-		-o-transition: transform .6s;
-		transition: transform .6s;
+		-webkit-transition: transform .4s;
+		-moz-transition: transform .4s;
+		-ms-transition: transform .4s;
+		-o-transition: transform .4s;
+		transition: transform .4s;
 		z-index: 11;
 	}
 
@@ -151,16 +161,45 @@
 
 	@media (min-width: 21em) {
 
+		.MainMenu .MenuToggleButton-select-area {
+			padding: 1.5em 0;
+			width: 6em;
+		}
+
+		.MainMenu .MenuToggleButton-select-area .icon {
+			font-size: 2.25em;
+		}
+
+		.MainMenu.is-active .MenuList {
+			-webkit-transition: transform .6s ease-out;
+			-moz-transition: transform .6s ease-out;
+			-ms-transition: transform .6s ease-out;
+			-o-transition: transform .6s ease-out;
+			transition: transform .6s ease-out;
+		}
+
 		.MainMenu .MenuList {
-			padding: 4.5em 0 0;
+			padding: 9em 0 0;
+			-webkit-transition: transform .4s;
+			-moz-transition: transform .4s;
+			-ms-transition: transform .4s;
+			-o-transition: transform .4s;
+			transition: transform .4s;
 		}
 
 		.MainMenu .MenuItem-select-area {
-			padding: 1.125em 3.75em 2.25em 3em;
+			padding: .375em 3.75em .5em 3.75em;
+			width: 100%;
 		}
 
 		.MainMenu .MenuItem-select-area span {
-			font-size: 3em;
+			font-size: 2.25em;
+			letter-spacing: -.75pt;
+			line-height: 1.24;
+		}
+
+		.MainMenu .MenuItem-select-area .slash {
+			margin: 0 3pt 0 -8pt;
 		}
 
 	}
@@ -190,8 +229,6 @@
 			</a>
 
 		</div>
-
-		<div class="Menu-overlay"></div>
 
 		<ul class="MenuList white">
 
@@ -241,75 +278,89 @@
 
 </nav>
 
-<style>
-
-	.Home {
-		position: relative;
-		height: 100vh;
-	}
-
-	/* Hero */
-
-	.Hero {
-		height: 100%;
-		left: 0;
-		position: relative;
-		top: 0;
-		width: 100%;
-	}
-
-	/* Hero background */
-
-	.Hero-background {
-		background-image: url("dist/img/largePhotos/hero2.jpg");
-		background-repeat: no-repeat;
-		background-position: center top;
-		-webkit-background-size: cover;
-		background-size: cover;
-		position: absolute;
-		height: 100%;
-		width: 100%;
-	}
-
-</style>
-
-<main>
-
-	<section id="home" class="Home">
-
-		<div class="Hero">
-
-			<div class="Hero-background"></div>
-
-		</div>
-
-	</section>
-
-</main>
-
 <script>
 
 	var Menu = (function () {
 
+		/**
+		 * @param viewport {Element}
+		 */
 		function Menu(viewport) {
 
 			var self = this;
 
 			this.viewport = viewport;
 
+			this.backdrop = {};
+
+			this.isActive = false;
+
 			this.onToggleClick = function (ev) {
 
-				self.viewport.classList.toggle('is-active');
+				ev.preventDefault();
+				self.toggle()
 
 			};
 
+			this.onBackdropClick = function(ev) {
 
+				self.close();
+
+			};
+
+			// auto init the menu instance
 			if (this.viewport)
-				this.getToggleButon();
+				this.init();
 
 		}
 
-		Menu.prototype.getToggleButon = function () {
+		Menu.prototype.close = function () {
+
+			if (this.isActive)
+				this.isActive = false;
+
+			this.viewport.classList.remove('is-active');
+			this.viewport.removeChild(this.backdrop.viewport);
+
+		};
+
+		Menu.prototype.open = function () {
+
+			if (!this.isActive)
+				this.isActive = true;
+
+			this.viewport.classList.add('is-active');
+
+
+		};
+
+		Menu.prototype.toggle = function () {
+
+			if (!this.isActive)
+				this.open();
+			else
+				this.close();
+
+		};
+
+		/**
+		 * Find Menu backdrop element, if it not exists, build it
+		 */
+		Menu.prototype.getBackdrop = function () {
+
+			this.backdrop.viewport = this.viewport.querySelector('.Menu-backdrop') || document.createElement('div');
+
+			if (!this.backdrop.viewport.className)
+				this.backdrop.viewport.className = 'Menu-backdrop';
+
+			this.backdrop.viewport.addEventListener('click', this.onBackdropClick, false);
+
+		};
+
+		/**
+		 * Find Toggle Buttons and add toggle listeners to this
+		 */
+		Menu.prototype.getToggleButton = function () {
 
 			var toggleButton = this.viewport.querySelectorAll('.MenuToggleButton');
 
@@ -318,11 +369,18 @@
 
 		};
 
+		/**
+		 * Init the Menu
+		 */
+		Menu.prototype.init = function () {
 
-//		TODO - criar, amanhã, api universal de Toggle
-//		var toggleButton = document.querySelectorAll('.MenuToggleButton');
-//
-//		for (var i = toggleButton.length; i--; )
+			this.getToggleButton();
+			this.getBackdrop();
+
+			// force menu to close
+			this.close();
+
+		};
 
 		return Menu;
 
