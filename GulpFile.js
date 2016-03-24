@@ -113,11 +113,11 @@ gulp.task('tinySource', function () {
 		.pipe(gulp.dest(images.src.location));
 });
 
-gulp.task('css-menu', function() {
-	gulp.src(css.menu.location + css.menu.content)
-		.pipe(concat('menu.css'))
+gulp.task('css', function() {
+	gulp.src(css.location + css.content)
+		.pipe(concat('ladorni.css'))
 		.pipe(gulp.dest(dist.css.location));
-	gulp.src(dist.css.location + 'menu.css')
+	gulp.src(dist.css.location + 'ladorni.css')
 		.pipe(minifycss())
 		.pipe(rename({
 			extname: '.min.css'
@@ -125,7 +125,7 @@ gulp.task('css-menu', function() {
 		.pipe(gulp.dest(dist.css.location));
 });
 
-gulp.task('css-watch', ['css-menu'], function () {
+gulp.task('css-watch', ['css'], function () {
 	browserSync.reload();
 });
 
@@ -137,7 +137,7 @@ gulp.task('serve', function () {
 		server: "./"
 	});
 
-	gulp.watch([css.menu.location + css.menu.content], ['css-watch']);
+	gulp.watch([css.location + css.content], ['css-watch']);
 	gulp.watch("*.html").on("change", reload);
 	gulp.watch("css/winery/*.css").on("change", reload);
 
