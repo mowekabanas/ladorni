@@ -16,7 +16,7 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<body class="grey-50">
+<body class="grey-200">
 
 <style>
 
@@ -24,6 +24,8 @@
 
 	.MainNav .MenuToggleButton {
 		position: fixed;
+		top: 0;
+		left: 0;
 		z-index: 12;
 	}
 
@@ -62,12 +64,12 @@
 		display: block;
 	}
 
-	.MainMenu.Menu {
+	.Menu.is-animating .Menu-backdrop {
+		background-color: rgba(0,0,0,0);
 	}
 
 	.Menu-backdrop {
-		background-color: rgba(0,0,0,.0);
-		/*display: none;*/
+		background-color: rgba(0,0,0,.48);
 		height: 100%;
 		left: 0;
 		position: fixed;
@@ -79,11 +81,6 @@
 		transition: background .3s;
 		width: 100%;
 		z-index: 10;
-	}
-
-	.Menu.is-active .Menu-backdrop {
-		background-color: rgba(0,0,0,.48);
-		display: block;
 	}
 
 	.MainMenu.is-active .MenuList {
@@ -189,7 +186,6 @@
 
 		.MainMenu .MenuItem-select-area {
 			padding: .375em 3.75em .5em 3.75em;
-			width: 100%;
 		}
 
 		.MainMenu .MenuItem-select-area span {
@@ -203,6 +199,61 @@
 		}
 
 	}
+
+	@media (min-width: 48em) {
+
+		.MainNav .MenuToggleButton {
+			bottom: 0;
+			position: fixed;
+			left: 0;
+			top: auto;
+		}
+
+		.MainMenu .MenuToggleButton-select-area {
+			padding: 1.5em 0;
+			width: 6em;
+		}
+
+		.MainMenu .MenuToggleButton-select-area .icon {
+			font-size: 2.25em;
+		}
+
+		.MainMenu .MenuList {
+			padding-left: 6em;
+		}
+
+		.MainMenu .MenuItem-select-area {
+			padding: .5em 4.5em .625em 3em;
+		}
+
+		.MainMenu .MenuItem-select-area span {
+			font-size: 3em;
+			letter-spacing: -.75pt;
+			line-height: 1.36;
+		}
+
+		.MainMenu .MenuItem-select-area .slash {
+			margin: 0 3pt 0 -8pt;
+		}
+
+	}
+
+	@media (min-height: 36em) {
+
+		.MainMenu .MenuList {
+			padding-top: 8em;
+		}
+
+	}
+
+	@media (min-height: 48em) {
+
+		.MainMenu .MenuList {
+			padding-top: 12em;
+		}
+
+	}
+
 
 </style>
 
@@ -246,7 +297,7 @@
 
 				<a href="./vinicola" class="MenuItem-select-area NavigationItem" data-navigation-target="winery">
 
-					<span class="slash">/</span><span>A Vínicola</span>
+					<span class="slash">/</span><span>A Vinícola</span>
 
 				</a>
 
@@ -292,8 +343,13 @@
 			this.viewport = viewport;
 
 			this.backdrop = {};
+			this.backdrop.defaultClass = 'Menu-backdrop';
+			this.backdrop.isAppended = false;
 
 			this.isActive = false;
+
+			this.closeAnimationTime = 300;
+			this.openAnimationTime = 100;
 
 			this.onToggleClick = function (ev) {
 
@@ -316,21 +372,42 @@
 
 		Menu.prototype.close = function () {
 
+			var self = this;
+
 			if (this.isActive)
 				this.isActive = false;
 
 			this.viewport.classList.remove('is-active');
-			this.viewport.removeChild(this.backdrop.viewport);
+			this.viewport.classList.add('is-animating');
+
+			if (this.animationDelay)
+				clearTimeout(this.animationDelay);
+
+			this.animationDelay = setTimeout(function () {
+				self.viewport.classList.remove('is-animating');
+				self.detachBackdrop();
+			}, this.closeAnimationTime);
 
 		};
 
 		Menu.prototype.open = function () {
 
+			var self = this;
+
 			if (!this.isActive)
 				this.isActive = true;
 
-			this.viewport.classList.add('is-active');
+			this.appendBackdrop();
 
+			this.viewport.classList.add('is-active');
+			this.viewport.classList.add('is-animating');
+
+			if (this.animationDelay)
+				clearTimeout(this.animationDelay);
+
+			this.animationDelay = setTimeout(function () {
+				self.viewport.classList.remove('is-animating');
+			}, this.openAnimationTime);
 
 		};
 
@@ -343,17 +420,47 @@
 
 		};
 
+		Menu.prototype.detachBackdrop = function () {
+
+			if (this.backdrop.viewport)
+				this.backdrop.viewport.remove();
+
+			this.backdrop.isAppended = false;
+
+		};
+
+		Menu.prototype.appendBackdrop = function () {
+
+			if (!this.backdrop.viewport)
+				this.backdrop.viewport = this.buildBackdrop();
+
+			this.viewport.insertBefore(this.backdrop.viewport, this.viewport.firstChild);
+			this.backdrop.isAppended = true;
+
+		};
+
+		Menu.prototype.buildBackdrop = function () {
+
+			var backdrop = document.createElement('div');
+			backdrop.className = this.backdrop.defaultClass;
+
+			backdrop.addEventListener('click', this.onBackdropClick, false);
+
+			return backdrop;
+
+		};
+
 		/**
 		 * Find Menu backdrop element, if it not exists, build it
 		 */
-		Menu.prototype.getBackdrop = function () {
+		Menu.prototype.initBackdrop = function () {
 
-			this.backdrop.viewport = this.viewport.querySelector('.Menu-backdrop') || document.createElement('div');
+			this.backdrop.viewport = this.viewport.querySelector('.Menu-backdrop');
 
-			if (!this.backdrop.viewport.className)
-				this.backdrop.viewport.className = 'Menu-backdrop';
-
-			this.backdrop.viewport.addEventListener('click', this.onBackdropClick, false);
+			if (this.backdrop.viewport) {
+				this.backdrop.defaultClass = this.backdrop.viewport.className;
+				this.backdrop.viewport.addEventListener('click', this.onBackdropClick, false);
+			}
 
 		};
 
@@ -375,7 +482,7 @@
 		Menu.prototype.init = function () {
 
 			this.getToggleButton();
-			this.getBackdrop();
+			this.initBackdrop();
 
 			// force menu to close
 			this.close();
