@@ -36,14 +36,13 @@ var Menu = (function () {
 
 		this.onKeyDown = function (ev) {
 
-			if (self.isActive) {
+			if (self.isActive)
+				if (ev.keyCode == 27) {
 
-				ev.preventDefault();
-
-				if (ev.keyCode == 27)
+					ev.preventDefault();
 					self.close();
 
-			}
+				}
 
 		};
 

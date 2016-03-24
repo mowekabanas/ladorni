@@ -20,7 +20,87 @@
 
 <body>
 
+<nav class="MainNav Navigation">
 
+	<div id="main-menu" class="MainMenu Menu">
+
+		<div class="MenuToggleButton">
+
+			<a href="#" class="MenuToggleButton-select-area">
+
+				<span class="icon icon--open">
+
+					<span class="icon-menu"></span>
+
+				</span>
+
+				<span class="icon icon--close">
+
+					<span class="icon-angle-left"></span>
+
+				</span>
+
+			</a>
+
+		</div>
+
+		<ul class="MenuList white">
+
+			<li class="MenuItem">
+
+				<a href="./" class="MenuItem-select-area NavigationItem" data-navigation-target="home">
+
+					<span>Início</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./vinicola" class="MenuItem-select-area NavigationItem" data-navigation-target="winery">
+
+					<span class="slash">/</span><span>A Vinícola</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./castelo" class="MenuItem-select-area NavigationItem" data-navigation-target="castle">
+
+					<span class="slash">/</span><span>O Castelo</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./vinhos" class="MenuItem-select-area NavigationItem" data-navigation-target="winemenu">
+
+					<span class="slash">/</span><span>Vinhos</span>
+
+				</a>
+
+			</li>
+
+		</ul>
+
+	</div>
+
+</nav>
+
+<!-- The fun init here! o/ -->
+
+<script src="js/menu.js"></script>
+
+<script>
+
+	var mainMenu = new Menu(document.getElementById('main-menu'));
+
+</script>
 
 </body>
 
