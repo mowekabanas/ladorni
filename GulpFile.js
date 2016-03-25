@@ -141,17 +141,7 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
 	gulp.src(js.location + js.content)
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'))
 		.pipe(concat('ladorni.js'))
-		.pipe(gulp.dest(dist.js.location));
-	gulp.src(dist.js.location + 'ladorni.js')
-		.pipe(uglify({
-			preserveComments: 'some'
-		}))
-		.pipe(rename({
-			extname: '.min.js'
-		}))
 		.pipe(gulp.dest(dist.js.location));
 });
 

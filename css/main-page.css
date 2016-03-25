@@ -85,12 +85,42 @@
 
 	.Page {
 		min-width: 0;
+		-webkit-transition: background .6s;
+		-moz-transition: background .6s;
+		-ms-transition: background .6s;
+		-o-transition: background .6s;
+		transition: background .6s;
+	}
+
+	.Page:hover {
+		background-color: rgba(0,0,0,.16);
 	}
 
 	.Page h3 {
 		font-size: 2.25em;
 		line-height: 1.16;
 	}
+
+	.Page-title {
+		-webkit-transform: scale(.8);
+		-moz-transform: scale(.8);
+		-ms-transform: scale(.8);
+		-o-transform: scale(.8);
+		transform: scale(.8);
+		-webkit-transition: transform .2s linear;
+		-moz-transition: transform .2s linear;
+		-ms-transition: transform .2s linear;
+		-o-transition: transform .2s linear;
+		transition: transform .2s linear;
+	}
+
+    .Page:hover .Page-title {
+	    -webkit-transform: scale(1);
+	    -moz-transform: scale(1);
+	    -ms-transform: scale(1);
+	    -o-transform: scale(1);
+	    transform: scale(1);
+    }
 
 }
 

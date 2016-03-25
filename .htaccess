@@ -4,7 +4,7 @@ RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 
-RewriteRule home$ ./navigation.html
-RewriteRule vinhos$ ./navigation.html
-RewriteRule vinicola$ ./navigation.html
-RewriteRule castelo$ ./navigation.html
+RewriteRule home$ ./index.html
+RewriteRule vinhos$ ./index.html
+RewriteRule vinicola$ ./index.html
+RewriteRule castelo$ ./index.html

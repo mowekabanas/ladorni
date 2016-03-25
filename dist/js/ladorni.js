@@ -274,6 +274,8 @@ var Navigation = (function () {
 		this.viewport = viewport;
 		this.document = documentTarget;
 
+		this.transition = {};
+
 		this.title = {};
 
 		this.title.default = 'La Dorni';
@@ -302,6 +304,8 @@ var Navigation = (function () {
 		};
 
 		this.onPopStateCtrl = function (ev) {
+
+			console.log(ev);
 
 			var item = self.queryNavigationItem(history.state.name);
 
@@ -390,6 +394,11 @@ var Navigation = (function () {
 
 		var state = new NavigationState(item);
 
+		if (history.state)
+			if (state.name != history.state.name)
+				if (this.transition)
+					this.transition.start();
+
 		if (state) {
 			this.setTitle(state);
 			if (replace)
@@ -410,6 +419,15 @@ var Navigation = (function () {
 
 	};
 
+	Navigation.prototype.getTransition = function () {
+
+		var transition = this.viewport.querySelector('.Transition');
+
+		if (transition)
+			this.transition = new Transition(transition, this);
+
+	};
+
 	Navigation.prototype.addListeners = function () {
 
 		window.addEventListener('popstate', this.onPopStateCtrl, false);
@@ -424,6 +442,8 @@ var Navigation = (function () {
 	Navigation.prototype.init = function() {
 
 		this.addListeners();
+
+		this.getTransition();
 
 		if (this.navigationItems.length)
 			this.setCurrentState(this.queryCurrentState());
@@ -505,6 +525,41 @@ var Page = (function() {
 	}
 
 	return Page;
+
+})();
+
+/* Transition */
+
+var Transition = (function () {
+
+	function Transition(viewport, navigation) {
+
+		var self = this;
+
+		this.viewport = viewport;
+		this.navigation = navigation;
+
+	}
+
+	Transition.prototype.start = function() {
+
+		var self = this;
+
+		this.navigation.viewport.classList.add('is-transiting');
+
+		setTimeout(function () {
+
+			self.navigation.viewport.classList.remove('is-transiting');
+
+		}, 1600);
+
+	};
+
+	Transition.prototype.init = function () {
+
+	};
+
+	return Transition;
 
 })();
 
