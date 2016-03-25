@@ -57,7 +57,7 @@
 
 .WineryPhotoArticle--left .WineryPhotoArticle-figure,
 .WineryPhotoArticle--right .WineryPhotoArticle-figure {
-	min-height: 140vh;
+	min-height: auto;
 }
 
 .WineryPhotoArticle--wide .WineryPhotoArticle-figure {

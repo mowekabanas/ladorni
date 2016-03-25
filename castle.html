@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="grey-100">
+<meta charset="UTF-8">
+<title>La Dorni - Vinicola</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
+<link rel="stylesheet" href="css/winery/winery.css"/>
+<link rel="stylesheet" href="css/winery/winery-photos.css"/>
+<link rel="stylesheet" href="css/winery/winery-photo-article.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<body>
+
+<div id="debug" style="position: fixed; z-index: 2; top: 0; right: 0;"></div>
+
+<main class="Main playfair-display-italic">
+
+    <header id="header" class="Header">
+
+        <div class="HeaderLogo">
+
+            <div id="header-logo" class="Logo">
+
+                <a class="Logo-select-area">
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <nav class="HeaderNav">
+
+            <a class="HeaderNavToggle">
+
+                <span class="icon-menu"></span>
+
+            </a>
+
+            <ul class="HeaderNavMenu"></ul>
+
+        </nav>
+
+    </header>
+
+    <section class="Content">
+
+        <article class="WineryPhotoArticle WineryPhotoArticle--wide-cover grey-300">
+
+            <figure class="WineryPhotoArticle-figure font-white">
+
+                <img src="img/largePhotos/8.jpg"  alt=""/>
+
+                <figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+            </figure>
+
+            <div class="WineryPhotoArticleContent WineryPhotoArticleContent--intro">
+
+                <div class="WineryPhotoArticleContent-inner">
+
+                    <header class="WineryPhotoArticleContent-header">
+
+                        <h1>Castelo</h1>
+
+                    </header>
+
+                    <div class="WineryPhotoArticle-text">
+
+                        <p>O castelo La Dorni é um pedacinho da Itália no Brasil. Construído de maneira artesanal, cada pedra de arenito da estrutura foi talhada manualmente uma a uma. Visitar-nos é uma experiência única.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article><!--Castelo-->
+
+        <article class="WineryPhotoArticle grey-300 WineryPhotoArticle--right">
+
+            <figure class="WineryPhotoArticle-figure">
+
+                <img src="img/verticalPhotos/11-v.jpg" alt=""/>
+
+                <figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+            </figure>
+
+            <div class="WineryPhotoArticleContent grey-200">
+
+                <div class="WineryPhotoArticleContent-inner">
+
+                    <header class="WineryPhotoArticleContent-header">
+
+                        <h1>Estrutura</h1>
+
+                    </header>
+
+                    <div class="WineryPhotoArticle-text">
+
+                        <p>Abrigando nossos aromas e sabores, o castelo La Dorni, inspirado na baixa idade média e composto por mais de 50 mil pedras, é nosso relicário, guardando nossa mais fina arte; O Vinho.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article><!--Estrutura-->
+
+        <article class="WineryPhotoArticle grey-300 WineryPhotoArticle--wide-cover">
+
+            <figure class="WineryPhotoArticle-figure">
+
+                <img src="img/largePhotos/14.jpg" alt=""/>
+
+                <figcaption>É necessário que esta foto seja vertical e em proporção máxima de 7:5, ou seja, que altura seja, em média, 40% maior que a largura. </figcaption>
+
+            </figure>
+
+            <div class="WineryPhotoArticleContent grey-200">
+
+                <div class="WineryPhotoArticleContent-inner">
+
+                    <header class="WineryPhotoArticleContent-header">
+
+                        <h1>Adega</h1>
+
+                    </header>
+
+                    <div class="WineryPhotoArticle-text">
+
+                        <p>Nossa cave, construída inteiramente com arcos romanos que se entrelaçam é o local onde armazenamos e envelhecemos nossos melhores vinhos. O visitante pode conhecer e apreciar todo o processo de envelhecimento dos vinhos e conhecer mais sobre os métodos de produção.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article><!--Cave-->
+
+
+
+
+
+
+    </section>
+
+</main>
+
+<script>
+
+    var WineryPhotoArticle = (function () {
+
+        /**
+         * Constructor of Winery Photo Container
+         * @param viewport {Object}
+         * @constructor
+         */
+        function WineryPhotoArticle(viewport) {
+
+            this.viewport = viewport || false;
+
+            this.img = {};
+            this.figcaption = {};
+
+            if (this.viewport)
+                this.init();
+
+        }
+
+        WineryPhotoArticle.prototype.loadImg = function () {
+
+            return this.viewport.querySelector('img') || false;
+
+        };
+
+        WineryPhotoArticle.prototype.init = function () {
+
+            var self = this;
+
+            this.img = this.loadImg();
+
+            this.figure = this.viewport.querySelector('.WineryPhotoArticle-figure');
+
+            this.figure.style.backgroundImage = 'url("' + this.img.src + '")';
+
+            this.viewport.addEventListener('dragenter', noopHandler, false);
+            this.viewport.addEventListener('dragexit', noopHandler, false);
+            this.viewport.addEventListener('dragover', noopHandler, false);
+            this.viewport.addEventListener('drop', drop, false);
+
+            function noopHandler(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+            }
+
+            function drop(evt) {
+
+                evt.preventDefault();
+
+                if (window.FileReader) {
+
+                    var	oPreviewImg = null;
+                    var oFReader = new window.FileReader();
+
+                    oFReader.onload = function (oFREvent) {
+
+                        console.log(oFREvent);
+
+                        if (!oPreviewImg) {
+                            oPreviewImg = new Image();
+                            self.figure.appendChild(oPreviewImg);
+                        }
+
+                        self.img.src = oFREvent.target.result;
+
+                        console.log(oFREvent.target.result);
+
+                    };
+
+                    var aFiles = evt.dataTransfer.files;
+                    oFReader.readAsDataURL(aFiles[0]);
+
+                }
+
+            }
+
+        };
+
+        return WineryPhotoArticle;
+
+    })();
+
+    var a = document.querySelectorAll('.WineryPhotoArticle');
+
+    var b = [];
+
+    for (var i = a.length; i--; )
+        b.push(new WineryPhotoArticle(a[i]));
+
+</script>
+
+<script>
+
+    var debug = {};
+    debug.viewport = document.getElementById('debug');
+
+    debug.log = function(text) {
+        debug.viewport.innerHTML = text;
+    };
+
+    debug.log('');
+
+    var allow = false;
+    var scrollTop = window.scrollTop;
+
+    var header = document.getElementById('header');
+    var headerLogo = document.getElementById('header-logo');
+
+    var lastTouch = 0;
+    var currentTouch, resultTouch;
+
+    var translate = 0;
+
+    var lockScroll = false;
+
+    var lockScrollDelay;
+
+    window.addEventListener('touchstart', function (ev) {
+
+        scrollTop = document.documentElement.scrollTop;
+        allow = scrollTop < headerLogo.offsetHeight;
+
+        for (var i = ev.touches.length; i--; )
+            lastTouch = ev.touches[i].clientY;
+
+        lockScroll = true;
+
+    });
+
+    window.addEventListener('touchmove', function (ev) {
+
+        for (var i = ev.touches.length; i--; ) {
+
+            currentTouch = ev.touches[i].clientY;
+            resultTouch = currentTouch - lastTouch;
+
+            translate += resultTouch;
+
+            if (translate > 0)
+                translate = 0;
+            else if (Math.abs(translate) > headerLogo.offsetHeight) {
+                translate = - headerLogo.offsetHeight;
+            }
+
+            header.style.transform = 'translateY(' + translate + 'px)';
+
+            lastTouch = currentTouch;
+
+        }
+
+    });
+
+    window.addEventListener('touchend', function (ev) {
+
+        if (lockScrollDelay)
+
+            lockScrollDelay = setTimeout(function () {
+                lockScroll = false;
+            }, 600);
+
+    });
+
+    var lastScroll = document.documentElement.scrollTop;
+    var currentScroll, resultScroll;
+
+    window.addEventListener('scroll', function (ev) {
+
+        if (!lockScroll) {
+
+            currentScroll = ev.pageY;
+            resultScroll = currentScroll - lastScroll;
+
+            translate += resultScroll;
+
+//			console.log(resultScroll);
+//			console.log(translate);
+//
+//			console.log('-------');
+
+            if (translate < 0)
+                translate = 0;
+            else if (Math.abs(translate) > headerLogo.offsetHeight) {
+                translate = headerLogo.offsetHeight;
+            }
+
+            header.style.transform = 'translateY(' + - (translate) + 'px)';
+
+            lastScroll = currentScroll;
+
+        }
+
+    });
+
+</script>
+
+</body>
+
+</html>
