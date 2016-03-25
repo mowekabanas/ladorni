@@ -1,0 +1,164 @@
+
+/* Page */
+
+.Page {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex: 1;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	-webkit-justify-content: center;
+	justify-content: center;
+	height: 100%;
+	padding: 1em;
+	min-width: 100%;
+}
+
+.Page h3 {
+	font-size: 1.5em;
+	font-weight: 300;
+	line-height: 1.36;
+	text-align: center;
+}
+
+.Page h3 strong {
+	font-weight: 900;
+}
+
+.Page-header {
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+/* Page title */
+
+.Page-title {
+	padding: 1em;
+	position: relative;
+	max-width: 14em;
+}
+
+.Page--winemenu .Page-title:before {
+	border-left: solid .75em #ad1457;
+	border-top: solid .75em #ad1457;
+	content: '';
+	height: 1.5em;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 1.5em;
+}
+
+.Page--winery .Page-title:before {
+	border-top: solid .75em #ffee58;
+	content: '';
+	height: 1.5em;
+	position: absolute;
+	right: 25%;
+	top: 0;
+	width: 4em;
+}
+
+.Page--castle .Page-title:before {
+	border-bottom: solid .75em #ffab00;
+	border-right: solid .75em #ffab00;
+	bottom: 0;
+	content: '';
+	height: 2.25em;
+	right: 0;
+	position: absolute;
+	margin: 0 auto;
+	text-align: center;
+	width: 4.5em;
+}
+
+@media (min-width: 48em) {
+
+	.Page {
+		min-width: 0;
+	}
+
+	.Page h3 {
+		font-size: 2.25em;
+		line-height: 1.16;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	/* Page */
+
+	.Page {
+		-webkit-align-items: center;
+		align-items: center;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: column;
+		flex-flow: column;
+	}
+
+	.Page h3 {
+		line-height: 1.16;
+	}
+
+	.Page-title {
+		padding: 2.25em;
+		max-width: 24em;
+	}
+
+	.Page--winemenu .Page-title:before {
+		border-left: solid 1em #ad1457;
+		border-top: solid 1em #ad1457;
+		content: '';
+		height: 1.5em;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 1.5em;
+	}
+
+	.Page--winery .Page-title:before {
+		border-top: solid 1em #ffee58;
+		content: '';
+		height: 1.5em;
+		position: absolute;
+		right: 25%;
+		top: 0;
+		width: 4em;
+	}
+
+	.Page--castle .Page-title:before {
+		border-bottom: solid 1em #ffab00;
+		border-right: solid 1em #ffab00;
+		bottom: 0;
+		content: '';
+		height: 2.25em;
+		right: 0;
+		position: absolute;
+		margin: 0 auto;
+		text-align: center;
+		width: 4.5em;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Page h3 {
+		font-size: 3em;
+	}
+
+}

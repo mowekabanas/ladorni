@@ -1,0 +1,14 @@
+
+/* Main content */
+
+.Main-content {
+	position: relative;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100vh;
+	padding-left: 6em;
+	width: 100%;
+}

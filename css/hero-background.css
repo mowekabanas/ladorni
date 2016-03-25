@@ -1,0 +1,50 @@
+
+/* Hero background */
+
+.Hero-background {
+	display: none;
+}
+
+@media (min-width: 48em) {
+
+	/* Hero background */
+
+	.Hero-background {
+		display: block;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	.Hero-background img {
+		bottom: 0;
+		max-width: 36em;
+		position: absolute;
+		right: 0;
+		opacity: .36;
+		width: 100%;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	.Hero-background img {
+		bottom: 0;
+		max-width: 48em;
+		position: absolute;
+		right: 0;
+		width: 100%;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Hero-background img {
+		max-width: 60em;
+	}
+
+}

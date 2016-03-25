@@ -1,0 +1,172 @@
+
+/* Logo */
+
+.MainHeader .Logo {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	/*margin-right: .5em;*/
+	-webkit-transition: opacity 1s ease-in;
+	-moz-transition: opacity 1s ease-in;
+	-ms-transition: opacity 1s ease-in;
+	-o-transition: opacity 1s ease-in;
+	transition: opacity 1s ease-in;
+	width: 6em;
+}
+
+.MainHeader .Logo.is-loaded {
+	opacity: 1;
+}
+
+/* Logo select area */
+
+.MainHeader .Logo-select-area {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	padding: 1em 0;
+	width: 4.5em;
+}
+
+.Logo.is-only-winery .Logo-select-area {
+	-webkit-transition: transform .6s;
+	-moz-transition: transform .6s;
+	-ms-transition: transform .6s;
+	-o-transition:  transform .6s;
+	transition: transform .6s;
+	width: 6em;
+}
+
+.Logo.is-only-winery .Logo-select-area:hover {
+	-webkit-transform: scale(0.75);
+	-moz-transform: scale(0.75);
+	-ms-transform: scale(0.75);
+	-o-transform: scale(0.75);
+	transform: scale(0.75);
+}
+
+.MainHeader .Logo svg {
+	fill: #000000;
+	width: 100%;
+	height: 100%;
+}
+
+#LaDorniLogo-border {
+	fill: #000000;
+}
+
+#LaDorniLogo-relief {
+	fill: #ffffff;
+}
+
+/*.MainHeader #LaDorniLogo-stripes,*/
+.MainHeader #LaDorniLogoLions {
+	/*opacity: 0;*/
+	-webkit-transition: opacity .3s;
+	-moz-transition: opacity .3s;
+	-ms-transition: opacity .3s;
+	-o-transition: opacity .3s;
+	transition: opacity .3s;
+}
+
+/*.MainHeader .Logo-select-area:hover #LaDorniLogo-stripes,*/
+.MainHeader .Logo-select-area:hover #LaDorniLogoLions {
+	opacity: 1;
+}
+
+#LaDorniLogoWinery-bricks { display: none }
+/*#LaDorniLogoWinery { display: none }*/
+/*#LaDorniLogo-stripes { display: none }*/
+/*#LaDorniLogoLions { display: none }*/
+/*#LaDorniLogoLions-left { display: none }*/
+/*#LaDorniLogoLions-right { display: none }*/
+#LaDorniLogoEyes { display: none }
+/*#LaDorniLogoEyes-left { display: none }*/
+/*#LaDorniLogoEyes-right { display: none }*/
+/*#LaDorniLogo-relief { display: none }*/
+/*#LaDorniLogo-border { display: none }*/
+#LaDorniLogoSolid { display: none }
+
+/* Logo is only winery */
+
+.Logo.is-only-winery #LaDorniLogoWinery-bricks { display: none }
+.Logo.is-only-winery #LaDorniLogoWinery { display: block; }
+.Logo.is-only-winery #LaDorniLogo-stripes { display: block; }
+.Logo.is-only-winery #LaDorniLogoLions { display: block; }
+.Logo.is-only-winery #LaDorniLogoEyes { display: none }
+.Logo.is-only-winery #LaDorniLogo-relief { display: none }
+.Logo.is-only-winery #LaDorniLogo-border { display: block; }
+.Logo.is-only-winery #LaDorniLogoSolid { display: none }
+
+.Logo.is-only-winery #LaDorniLogo-stripes,
+.Logo.is-only-winery #LaDorniLogoLions,
+.Logo.is-only-winery #LaDorniLogo-border {
+	opacity: 0;
+	-webkit-transition: opacity .6s;
+	-moz-transition: opacity .6s;
+	-ms-transition: opacity .6s;
+	-o-transition: opacity .6s;
+	transition: opacity .6s;
+}
+
+.Logo.is-only-winery #LaDorniLogo-border {
+	-webkit-transition: opacity 0s;
+	-moz-transition: opacity 0s;
+	-ms-transition: opacity 0s;
+	-o-transition: opacity 0s;
+	transition: opacity 0s;
+}
+
+.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoWinery,
+.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-stripes,
+.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoLions,
+.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
+	opacity: 1;
+	-webkit-transition: opacity .6s .3s;
+	-moz-transition: opacity .6s .3s;
+	-ms-transition: opacity .6s .3s;
+	-o-transition: opacity .6s .3s;
+	transition: opacity .6s .3s;
+}
+
+.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
+	opacity: 1;
+	-webkit-transition: opacity .8s .4s;
+	-moz-transition: opacity .8s .4s;
+	-ms-transition: opacity .8s .4s;
+	-o-transition: opacity .8s .4s;
+	transition: opacity .8s .4s;
+}
+
+@media (min-width: 72em) {
+
+	/* Logo */
+
+	.MainHeader .Logo {
+		width: 8em;
+	}
+
+	.MainHeader .Logo.is-loaded {
+		opacity: 1;
+	}
+
+	/* Logo select area */
+
+	.MainHeader .Logo-select-area {
+		padding: 1.5em 0;
+		width: 4.5em;
+	}
+
+	.Logo.is-only-winery .Logo-select-area {
+		width: 8em;
+	}
+
+}

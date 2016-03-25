@@ -24,7 +24,7 @@ var Menu = (function () {
 		this.onToggleClick = function (ev) {
 
 			ev.preventDefault();
-			self.toggle()
+			self.toggle();
 
 		};
 

@@ -1,0 +1,27 @@
+
+/* Hero */
+
+.Hero {
+	position: relative;
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+
+	/* Hero */
+
+	.Hero {
+		height: 100vh;
+	}
+
+	/* Hero-inner */
+
+	.Hero-inner {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+}

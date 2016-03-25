@@ -39,6 +39,10 @@ dist.css = {
 	location: dist.location + 'css/'
 };
 
+dist.js = {
+	location: dist.location + 'js/'
+};
+
 var css = {
 	content: '*.css',
 	location: 'css/'
@@ -47,6 +51,16 @@ var css = {
 css.menu = {
 	content: css.content,
 	location: css.location + 'menu/'
+};
+
+var js = {
+	content: '*.js',
+	location: 'js/'
+};
+
+js.menu = {
+	content: js.content,
+	location: js.location + 'menu/'
 };
 
 var images = {
@@ -125,7 +139,27 @@ gulp.task('css', function() {
 		.pipe(gulp.dest(dist.css.location));
 });
 
+gulp.task('js', function() {
+	gulp.src(js.location + js.content)
+		.pipe(jshint())
+		.pipe(jshint.reporter('default'))
+		.pipe(concat('ladorni.js'))
+		.pipe(gulp.dest(dist.js.location));
+	gulp.src(dist.js.location + 'ladorni.js')
+		.pipe(uglify({
+			preserveComments: 'some'
+		}))
+		.pipe(rename({
+			extname: '.min.js'
+		}))
+		.pipe(gulp.dest(dist.js.location));
+});
+
 gulp.task('css-watch', ['css'], function () {
+	browserSync.reload();
+});
+
+gulp.task('js-watch', ['js'], function () {
 	browserSync.reload();
 });
 
@@ -138,6 +172,7 @@ gulp.task('serve', function () {
 	});
 
 	gulp.watch([css.location + css.content], ['css-watch']);
+	gulp.watch([js.location + js.content], ['js-watch']);
 	gulp.watch("*.html").on("change", reload);
 	gulp.watch("css/winery/*.css").on("change", reload);
 

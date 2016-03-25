@@ -1,0 +1,56 @@
+
+/* Category */
+
+.Category {
+	height: auto;
+	width: 100%;
+}
+
+.Category-content {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	width: 100%;
+	height: 100%;
+}
+
+.Category h2 {
+	display: none;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+@media (min-width: 48em) {
+
+	.Category {
+		height: 100%;
+	}
+
+	.Category--products {
+		width: 33.3333333333%;
+	}
+
+	.Category--institutional {
+		width: 66.6666666666%;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	.Category {
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Category {
+
+	}
+
+}

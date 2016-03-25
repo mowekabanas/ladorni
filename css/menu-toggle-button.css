@@ -2,6 +2,7 @@
 /* Menu Toggle Button */
 
 .MainNav .MenuToggleButton {
+	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -73,7 +74,7 @@
 
 	.MainMenu .MenuToggleButton-select-area {
 		padding: 1.5em 0;
-		width: 6em;
+		width: 8em;
 	}
 
 	.MainMenu .MenuToggleButton-select-area .icon {

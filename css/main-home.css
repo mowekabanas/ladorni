@@ -1,0 +1,17 @@
+
+/* Main Home */
+
+.Home {
+	display: none;
+	position: fixed;
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+
+	.Home {
+		display: block;
+		height: 100%;
+	}
+
+}

@@ -7,14 +7,16 @@ var Logo = (function () {
 	 * SVG Logo request
 	 * @param viewport {Element}
 	 * @param url {string}
+	 * @param fallback {object}
 	 * @constructor
 	 */
-	function Logo(viewport, url) {
+	function Logo(viewport, url, fallback) {
 
 		var self = this;
 
 		this.viewport = viewport;
 		this.url = url;
+		this.fallback = fallback;
 
 		this.get();
 
@@ -46,6 +48,8 @@ var Logo = (function () {
 
 	Logo.prototype.get = function () {
 
+		var self = this;
+
 		if (this.viewport && this.url) {
 
 			var request = new XMLHttpRequest();
@@ -54,9 +58,12 @@ var Logo = (function () {
 			request.onreadystatechange = function() {
 
 				if (this.readyState === 4)
-					if (this.status >= 200)
-						if (this.responseText)
+					if (this.status == 200)
+						if (this.responseText) {
 							self.viewport.innerHTML = this.responseText;
+							if (self.fallback)
+								self.fallback();
+						}
 
 			};
 
@@ -66,5 +73,7 @@ var Logo = (function () {
 		}
 
 	};
+
+	return Logo;
 
 })();

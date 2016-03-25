@@ -1,0 +1,46 @@
+
+/* Main */
+
+.Main {
+	position: relative;
+}
+
+/* Main content */
+
+.Main-content {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	height: 100%;
+	padding: 8em 0 0;
+	position: relative;
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+
+	.Main {
+		min-height: 100vh;
+	}
+
+	.Main-content {
+		-webkit-flex-flow: row;
+		flex-flow: row;
+	}
+
+}
+
+@media (min-width: 72em) {
+
+	.Main-content {
+		height: 100vh;
+		padding: 0 0 0 8em;
+	}
+
+}

@@ -4,6 +4,7 @@
 <title>La Dorni</title>
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<link rel="icon" type="image/png" href="img/favicon256-01.png" />
 <!--[if you are a curious]
 	A another project of Kabana's Info & Mowe
 [endif]-->
@@ -20,7 +21,29 @@
 
 <body>
 
-<nav class="MainNav Navigation">
+<header class="MainHeader playfair-display">
+
+	<div id="main-header-logo" class="Logo is-only-winery">
+
+		<a href="#" class="Logo-select-area">
+
+			<span id="logo"></span>
+
+		</a>
+
+	</div>
+
+	<div class="MainHeader-title">
+
+		<h1>Vinícola <strong><span>L</span>a Dorn<span>i</span></strong></h1>
+
+	</div>
+
+</header>
+
+<nav id="navigation" class="MainNav Navigation playfair-display is-transiting">
+
+	<div class="Transition"></div>
 
 	<div id="main-menu" class="MainMenu Menu">
 
@@ -92,13 +115,172 @@
 
 </nav>
 
+<main class="Main grey-200 lato">
+
+	<section id="home" class="Home">
+
+		<section class="Hero">
+
+			<div class="Hero-background">
+
+				<img src="dist/img/6-curves.png" alt=""/>
+
+			</div>
+
+			<div class="Hero-inner">
+
+				<article class="HeroArticleItem">
+
+					<!--<h1>Vinícola La Dorni</h1>-->
+
+				</article>
+
+			</div>
+
+		</section>
+
+	</section>
+
+	<div class="Main-content">
+
+		<section id="products" class="Category Category--products">
+
+			<header class="CategoryHeader">
+
+				<div class="Page-category">
+
+					<h2>Produtos</h2>
+
+				</div>
+
+			</header>
+
+			<div class="Category-content">
+
+				<section class="Page Page--winemenu">
+
+					<header class="Page-header">
+
+						<div class="Page-title">
+
+							<h3>Nosso menu <br/>de <strong>Vinhos</strong></h3>
+
+						</div>
+
+					</header>
+
+				</section>
+
+			</div>
+
+		</section>
+
+		<section id="institutional" class="Category Category--institutional">
+
+			<header class="CategoryHeader">
+
+				<div class="Page-category">
+
+					<h2>Institucional</h2>
+
+				</div>
+
+			</header>
+
+			<div class="Category-content">
+
+				<section class="Page Page--winery">
+
+					<header class="Page-header">
+
+						<div class="Page-title">
+
+							<h3>Conheça <br/>a <strong>Vinícola</strong></h3>
+
+						</div>
+
+					</header>
+
+				</section>
+
+				<section class="Page Page--castle">
+
+					<a href="#castelo" class="NavAnchor NavigationItem font-light-blue-a700" data-navigation-target="castle">
+
+						<header class="Page-header">
+
+							<div class="Page-title">
+
+								<h3>Faça um <em>Tour</em> <br/>pelo <strong>Castelo</strong></h3>
+
+							</div>
+
+						</header>
+
+					</a>
+
+				</section>
+
+			</div>
+
+		</section>
+
+
+	</div>
+
+</main>
+
 <!-- The fun init here! o/ -->
 
+<script src="js/logo.js"></script>
 <script src="js/menu.js"></script>
+<script src="js/menu.js"></script>
+
+<script src="js/navigation.js"></script>
+<script src="js/navigationItem.js"></script>
+<script src="js/navigationState.js"></script>
+<script src="js/page.js"></script>
 
 <script>
 
+	var headerLogo = document.getElementById('main-header-logo');
+
 	var mainMenu = new Menu(document.getElementById('main-menu'));
+
+	var logo = new Logo(document.getElementById('logo'), 'img/LadorniLogoPure-web.min.svg', function () {
+
+		headerLogo.classList.add('is-loaded');
+
+	});
+
+	var navigation = new Navigation(document.getElementById('navigation'), document.documentElement);
+
+	navigation.pushItem({
+		itemName: 'home',
+		itemTitle: false,
+		itemURL: './',
+		isHome: true
+	}, document.getElementById('home'));
+
+	navigation.pushItem({
+		itemName: 'winery',
+		itemTitle: 'A vínicola',
+		itemURL: 'vinicola/'
+	}, document.getElementById('vinicola'));
+
+	navigation.pushItem({
+		itemName: 'castle',
+		itemTitle: 'O Castelo',
+		itemURL: './castelo'
+	}, document.getElementById('castelo'));
+
+	navigation.pushItem({
+		itemName: 'winemenu',
+		itemTitle: 'O Castelo',
+		itemURL: './vinhos'
+	}, document.getElementById('vinhos'));
+
+	navigation.init();
 
 </script>
 

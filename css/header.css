@@ -1,0 +1,93 @@
+
+/* Header */
+
+.MainHeader {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 13;
+}
+
+.MainHeader-title {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+	padding: 1em 0 1em 0;
+}
+
+.MainHeader h1 {
+	font-size: 1em;
+	font-weight: 300;
+	letter-spacing: -.5pt;
+	line-height: 1;
+	text-align: center;
+	white-space: nowrap;
+	text-transform: uppercase;
+}
+
+.MainHeader h1 strong {
+	font-size: 1.125em;
+	font-weight: 900;
+	letter-spacing: .625pt;
+	-webkit-transition: letter-spacing .3s;
+	-moz-transition: letter-spacing .3s;
+	-ms-transition: letter-spacing .3s;
+	-o-transition: letter-spacing .3s;
+	transition: letter-spacing .3s;
+}
+
+.MainHeader h1 strong span {
+	font-size: 1.05em;
+}
+
+@media (min-width: 48em) {
+
+	/* Header */
+
+	.MainHeader {
+		position: fixed;
+		width: 100%;
+	}
+
+	.MainHeader-title {
+		padding: 1em 0 1em 0;
+	}
+
+    .MainHeader h1 {
+	    font-size: 1.125em;
+	    font-weight: 300;
+	    letter-spacing: -.5pt;
+	    line-height: 1;
+	    white-space: nowrap;
+    }
+
+	.MainHeader h1 strong {
+		font-size: 1.125em;
+		font-weight: 900;
+		letter-spacing: .625pt;
+		-webkit-transition: letter-spacing .3s;
+		-moz-transition: letter-spacing .3s;
+		-ms-transition: letter-spacing .3s;
+		-o-transition: letter-spacing .3s;
+		transition: letter-spacing .3s;
+	}
+
+	.MainHeader h1 strong span {
+		font-size: 1.05em;
+	}
+
+}

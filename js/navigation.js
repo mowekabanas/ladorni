@@ -3,11 +3,12 @@
 
 var Navigation = (function () {
 
-	function Navigation(viewport) {
+	function Navigation(viewport, documentTarget) {
 
 		var self = this;
 
 		this.viewport = viewport;
+		this.document = documentTarget;
 
 		this.title = {};
 
@@ -123,8 +124,6 @@ var Navigation = (function () {
 
 	Navigation.prototype.setCurrentState = function (item, replace) {
 
-		document.documentElement.classList.toggle('grey-100');
-
 		var state = new NavigationState(item);
 
 		if (state) {
@@ -151,7 +150,7 @@ var Navigation = (function () {
 
 		window.addEventListener('popstate', this.onPopStateCtrl, false);
 
-		var navAnchors = this.viewport.querySelectorAll('.NavigationItem');
+		var navAnchors = this.document.querySelectorAll('.NavigationItem');
 
 		for (var i = navAnchors.length; i--; )
 			navAnchors[i].addEventListener('click', this.onNavigationItemClick, false);
