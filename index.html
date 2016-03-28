@@ -21,26 +21,6 @@
 
 <body>
 
-<header class="MainHeader playfair-display">
-
-	<div id="main-header-logo" class="Logo is-only-winery">
-
-		<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
-
-			<span id="logo"></span>
-
-		</a>
-
-	</div>
-
-	<div class="MainHeader-title">
-
-		<h1>Vinícola <strong><span>L</span>a Dorn<span>i</span></strong></h1>
-
-	</div>
-
-</header>
-
 <nav id="navigation" class="MainNav Navigation playfair-display">
 
 	<div class="Transition">
@@ -49,6 +29,26 @@
 		<div class="TransitionScreen TransitionScreen--second grey-900"></div>
 
 	</div>
+
+	<header class="MainHeader playfair-display">
+
+		<div id="main-header-logo" class="Logo is-only-winery">
+
+			<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
+
+				<span id="logo"></span>
+
+			</a>
+
+		</div>
+
+		<div class="MainHeader-title">
+
+			<h1>Vinícola <strong><span>L</span>a Dorn<span>i</span></strong></h1>
+
+		</div>
+
+	</header>
 
 	<div id="main-menu" class="MainMenu Menu">
 
@@ -222,7 +222,7 @@
 
 	});
 
-	var navigation = new Navigation(document.getElementById('navigation'), document.documentElement);
+	var navigation = new Navigation(document.getElementById('navigation'), document.body);
 
 	navigation.pushItem({
 		itemName: 'home',

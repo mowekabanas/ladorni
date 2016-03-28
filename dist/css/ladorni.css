@@ -1,5 +1,5 @@
 /*!
- * La Dorni Website v0.8.9 (http://getvilla.org/)
+ * La Dorni Website v0.9.0 (http://getvilla.org/)
  * Copyright 2013-2015 Kabana's Info & Mowe
  * Licensed under MIT (https://github.com/mowekabanas/ladorni/blob/master/LICENSE)
 */
@@ -342,17 +342,9 @@
 }
 
 .MainHeader .Logo svg {
-	fill: #000000;
+	fill: #212121;
 	width: 100%;
 	height: 100%;
-}
-
-#LaDorniLogo-border {
-	fill: #000000;
-}
-
-#LaDorniLogo-relief {
-	fill: #ffffff;
 }
 
 /*.MainHeader #LaDorniLogo-stripes,*/
@@ -547,7 +539,7 @@
 }
 
 .Page.is-active,
-html.is-home .Page {
+body.is-home .Page {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;

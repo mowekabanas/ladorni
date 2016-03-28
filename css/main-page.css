@@ -14,7 +14,7 @@
 }
 
 .Page.is-active,
-html.is-home .Page {
+body.is-home .Page {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
