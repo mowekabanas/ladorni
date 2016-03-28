@@ -2,11 +2,7 @@
 /* Page */
 
 .Page {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
+	display: none;
 	flex: 1;
 	-webkit-flex-flow: column;
 	flex-flow: column;
@@ -15,6 +11,15 @@
 	height: 100%;
 	padding: 1em;
 	min-width: 100%;
+}
+
+.Page.is-active,
+html.is-home .Page {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 }
 
 .Page h3 {
@@ -27,6 +32,8 @@
 .Page h3 strong {
 	font-weight: 900;
 }
+
+/* Page header */
 
 .Page-header {
 	align-items: center;
@@ -131,11 +138,6 @@
 	.Page {
 		-webkit-align-items: center;
 		align-items: center;
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
 		-webkit-flex-flow: column;
 		flex-flow: column;
 	}

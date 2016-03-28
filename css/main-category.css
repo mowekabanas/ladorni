@@ -30,11 +30,11 @@
 		height: 100%;
 	}
 
-	.Category--products {
+	html.is-home .Category--products {
 		width: 33.3333333333%;
 	}
 
-	.Category--institutional {
+	html.is-home .Category--institutional {
 		width: 66.6666666666%;
 	}
 

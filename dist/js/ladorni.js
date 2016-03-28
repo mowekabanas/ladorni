@@ -563,6 +563,24 @@ var Transition = (function () {
 
 })();
 
+/* Transition State */
+
+var TransitionState = (function () {
+
+	/**
+	 * Transition State constructor
+	 * @constructor
+	 */
+	function TransitionState() {
+
+		var self = this;
+
+	}
+
+	return TransitionState;
+
+})();
+
 /*!
  * Mowe Wine v1.4.0 (http://getvilla.org/)
  * Copyright 2013-2015 Kabana's Info & Mowe
