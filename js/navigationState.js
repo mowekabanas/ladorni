@@ -14,6 +14,8 @@ var NavigationState = (function () {
 		this.title = item.title || false;
 		this.url = item.url || false;
 
+		this.stateClass = item.stateClass || false;
+
 	}
 
 	return NavigationState;

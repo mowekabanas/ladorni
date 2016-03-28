@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="">
+<html lang="pt-br" class="is-home">
 <meta charset="UTF-8">
 <title>La Dorni</title>
 <meta name="viewport"
@@ -148,62 +148,59 @@
 
 	<div class="Main-content">
 
+		<section class="Page Page--winemenu">
 
+			<a href="#vinhos" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winemenu">
 
-				<section class="Page Page--winemenu">
+				<header class="Page-header">
 
-					<a href="#vinhos" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winemenu">
+					<div class="Page-title">
 
-						<header class="Page-header">
+						<h3>Nosso menu <br/>de <strong>Vinhos</strong></h3>
 
-							<div class="Page-title">
+					</div>
 
-								<h3>Nosso menu <br/>de <strong>Vinhos</strong></h3>
+				</header>
 
-							</div>
+			</a>
 
-						</header>
+		</section>
 
-					</a>
+		<section class="Page Page--winery">
 
-				</section>
+			<a href="#vinicola" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winery">
 
-				<section class="Page Page--winery">
+				<header class="Page-header">
 
-					<a href="#vinicola" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winery">
+					<div class="Page-title">
 
-						<header class="Page-header">
+						<h3>Conheça <br/>a <strong>Vinícola</strong></h3>
 
-							<div class="Page-title">
+					</div>
 
-								<h3>Conheça <br/>a <strong>Vinícola</strong></h3>
+				</header>
 
-							</div>
+			</a>
 
-						</header>
+		</section>
 
-					</a>
+		<section class="Page Page--castle">
 
-				</section>
+			<a href="#castelo" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="castle">
 
-				<section class="Page Page--castle">
+				<header class="Page-header">
 
-					<a href="#castelo" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="castle">
+					<div class="Page-title">
 
-						<header class="Page-header">
+						<h3>Faça um <em>Tour</em> <br/>pelo <strong>Castelo</strong></h3>
 
-							<div class="Page-title">
+					</div>
 
-								<h3>Faça um <em>Tour</em> <br/>pelo <strong>Castelo</strong></h3>
+				</header>
 
-							</div>
+			</a>
 
-						</header>
-
-					</a>
-
-				</section>
-
+		</section>
 
 	</div>
 
@@ -231,13 +228,15 @@
 		itemName: 'home',
 		itemTitle: false,
 		itemURL: './',
-		isHome: true
+		isHome: true,
+		stateClass: 'is-home'
 	}, document.getElementById('home'));
 
 	navigation.pushItem({
 		itemName: 'winery',
 		itemTitle: 'A vínicola',
-		itemURL: './vinicola'
+		itemURL: './vinicola',
+		stateClass: 'is-home'
 	}, document.getElementById('vinicola'));
 
 	navigation.pushItem({

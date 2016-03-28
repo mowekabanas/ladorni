@@ -41,8 +41,6 @@ var Navigation = (function () {
 
 		this.onPopStateCtrl = function (ev) {
 
-			console.log(ev);
-
 			var item = self.queryNavigationItem(history.state.name);
 
 			if (item)
@@ -130,17 +128,32 @@ var Navigation = (function () {
 
 		var state = new NavigationState(item);
 
-		if (history.state)
-			if (state.name != history.state.name)
-				if (this.transition)
-					this.transition.start();
-
 		if (state) {
+
+			// test if history is equals the new state
+			if (history.state)
+				if (state.name != history.state.name) {
+
+					if (this.transition)
+						this.transition.start();
+
+					// remove state class
+					if (history.state.stateClass)
+						this.document.classList.remove(history.state.stateClass);
+
+				}
+
 			this.setTitle(state);
+
 			if (replace)
 				history.replaceState(state, state.title, state.url);
 			else
 				history.pushState(state, state.title, state.url);
+
+			// add state class
+			if (history.state.stateClass)
+				this.document.classList.add(history.state.stateClass);
+
 		}
 
 	};

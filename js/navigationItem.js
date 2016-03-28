@@ -17,6 +17,8 @@ var NavigationItem = (function() {
 
 		this.isHome = parameters.isHome || false;
 
+		this.stateClass = parameters.stateClass || false;
+
 		this.page = this.getPage(pageViewport);
 
 	}
