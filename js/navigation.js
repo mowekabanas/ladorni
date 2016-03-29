@@ -11,6 +11,7 @@ var Navigation = (function () {
 		this.document = documentTarget;
 
 		this.transition = {};
+		this.transitionDelay = {};
 
 		this.title = {};
 
@@ -126,6 +127,8 @@ var Navigation = (function () {
 
 	Navigation.prototype.setCurrentState = function (item, replace) {
 
+		var self = this;
+
 		var state = new NavigationState(item);
 
 		if (state) {
@@ -139,7 +142,7 @@ var Navigation = (function () {
 
 					// remove state class
 					if (history.state.stateClass)
-						this.document.classList.remove(history.state.stateClass);
+						self.document.classList.remove(history.state.stateClass);
 
 				}
 
@@ -152,7 +155,7 @@ var Navigation = (function () {
 
 			// add state class
 			if (history.state.stateClass)
-				this.document.classList.add(history.state.stateClass);
+				self.document.classList.add(history.state.stateClass);
 
 		}
 

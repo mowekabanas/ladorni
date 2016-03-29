@@ -333,6 +333,8 @@
 	width: 6em;
 }
 
+.Logo.is-only-winery .Logo-select-area:active,
+.Logo.is-only-winery .Logo-select-area:focus,
 .Logo.is-only-winery .Logo-select-area:hover {
 	-webkit-transform: scale(0.75);
 	-moz-transform: scale(0.75);
@@ -345,6 +347,15 @@
 	fill: #212121;
 	width: 100%;
 	height: 100%;
+	-webkit-transition: fill .6s .1s;
+	-moz-transition: fill .6s .1s;
+	-ms-transition: fill .6s .1s;
+	-o-transition: fill .6s .1s;
+	transition: fill .6s .1s;
+}
+
+body.is-transiting .Logo svg {
+	fill: #eeeeee;
 }
 
 /*.MainHeader #LaDorniLogo-stripes,*/
@@ -405,6 +416,14 @@
 	transition: opacity 0s;
 }
 
+.Logo.is-only-winery .Logo-select-area:active #LaDorniLogoWinery,
+.Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-stripes,
+.Logo.is-only-winery .Logo-select-area:active #LaDorniLogoLions,
+.Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-border,
+.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoWinery,
+.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-stripes,
+.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoLions,
+.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-border,
 .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoWinery,
 .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-stripes,
 .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoLions,
@@ -482,11 +501,11 @@
 		height: 100%;
 	}
 
-	html.is-home .Category--products {
+	body.is-home .Category--products {
 		width: 33.3333333333%;
 	}
 
-	html.is-home .Category--institutional {
+	body.is-home .Category--institutional {
 		width: 66.6666666666%;
 	}
 
@@ -760,7 +779,7 @@ body.is-home .Page {
 
 @media (min-width: 72em) {
 
-	html.is-home .Main-content {
+	body.is-home .Main-content {
 		height: 100vh;
 		padding: 0 0 0 8em;
 	}
@@ -1205,7 +1224,7 @@ body.is-home .Page {
 	transition-delay: .3s;
 }
 
-.Navigation.is-transiting .TransitionScreen {
+body.is-transiting .TransitionScreen {
 	-webkit-transform: translate3D(-100%, 0, 0);
 	-moz-transform: translate3D(-100%, 0, 0);
 	-ms-transform: translate3D(-100%, 0, 0);

@@ -46,7 +46,7 @@
 	transition-delay: .3s;
 }
 
-.Navigation.is-transiting .TransitionScreen {
+body.is-transiting .TransitionScreen {
 	-webkit-transform: translate3D(-100%, 0, 0);
 	-moz-transform: translate3D(-100%, 0, 0);
 	-ms-transform: translate3D(-100%, 0, 0);
