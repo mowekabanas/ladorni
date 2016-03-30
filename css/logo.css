@@ -10,11 +10,11 @@
 	-webkit-justify-content: center;
 	justify-content: center;
 	/*margin-right: .5em;*/
-	-webkit-transition: opacity 1s ease-in;
-	-moz-transition: opacity 1s ease-in;
-	-ms-transition: opacity 1s ease-in;
-	-o-transition: opacity 1s ease-in;
-	transition: opacity 1s ease-in;
+	-webkit-transition: opacity 1s ease-in, width .6s .3s;
+	-moz-transition: opacity 1s ease-in, width .6s .3s;
+	-ms-transition: opacity 1s ease-in, width .6s .3s;
+	-o-transition: opacity 1s ease-in, width .6s .3s;
+	transition: opacity 1s ease-in, width .6s .3s;
 	width: 6em;
 }
 
@@ -33,7 +33,7 @@
 	-webkit-justify-content: center;
 	justify-content: center;
 	padding: 1em 0;
-	width: 4.5em;
+	width: 100%;
 }
 
 .Logo.is-only-winery .Logo-select-area {
@@ -42,7 +42,6 @@
 	-ms-transition: transform .6s;
 	-o-transition:  transform .6s;
 	transition: transform .6s;
-	width: 6em;
 }
 
 .Logo.is-only-winery .Logo-select-area:active,
@@ -162,6 +161,10 @@ body.is-transiting .Logo svg {
 	/* Logo */
 
 	.MainHeader .Logo {
+		width: 6em;
+	}
+
+	body.is-home .MainHeader .Logo {
 		width: 8em;
 	}
 
@@ -172,12 +175,12 @@ body.is-transiting .Logo svg {
 	/* Logo select area */
 
 	.MainHeader .Logo-select-area {
-		padding: 1.5em 0;
-		width: 4.5em;
+		padding: 1em 0;
+		width: 100%;
 	}
 
 	.Logo.is-only-winery .Logo-select-area {
-		width: 8em;
+		width: 100%;
 	}
 
 }
