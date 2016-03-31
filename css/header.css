@@ -27,6 +27,15 @@
 	-webkit-justify-content: flex-start;
 	justify-content: flex-start;
 	padding: 1em 0 1em 0;
+	-webkit-transition: color .6s .1s;
+	-moz-transition: color .6s .1s;
+	-ms-transition: color .6s .1s;
+	-o-transition: color .6s .1s;
+	transition: color .6s .1s;
+}
+
+body.is-transiting .MainHeader-title {
+	color: #eeeeee;
 }
 
 .MainHeader h1 {
