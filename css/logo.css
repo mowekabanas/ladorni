@@ -171,6 +171,20 @@ body.is-transiting .Logo svg {
 
 }
 
+@media (min-width: 60em) {
+
+	/* Logo */
+
+	body.is-winemenu .MainHeader .Logo {
+		width: 6em;
+	}
+
+	body.is-winemenu .Logo.is-only-winery #LaDorniLogo-border {
+		display: block;
+	}
+
+}
+
 @media (min-width: 72em) {
 
 	/* Logo */
@@ -196,20 +210,6 @@ body.is-transiting .Logo svg {
 
 	.Logo.is-only-winery .Logo-select-area {
 		width: 100%;
-	}
-
-}
-
-@media (min-width: 96em) {
-
-	/* Logo */
-
-	body.is-winemenu .MainHeader .Logo {
-		width: 6em;
-	}
-
-	body.is-winemenu .Logo.is-only-winery #LaDorniLogo-border {
-		display: block;
 	}
 
 }
