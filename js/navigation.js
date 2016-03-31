@@ -143,7 +143,7 @@ var Navigation = (function () {
 				this.document.classList.remove(this.navigationItems[i].stateClass);
 
 			// remove 'is-active' class from page
-			this.navigationItems[i].page.viewport.classList.remove('is-active');
+			this.navigationItems[i].page.setActive(false);
 
 		}
 
@@ -157,7 +157,7 @@ var Navigation = (function () {
 		// add 'is-active' class to page
 		if (newPage.item)
 			if (newPage.item.page)
-				newPage.item.page.viewport.classList.add('is-active');
+				newPage.item.page.setActive(true);
 
 		// change title
 		if (newPage)

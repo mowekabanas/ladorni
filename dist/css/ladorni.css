@@ -2100,8 +2100,8 @@ body.is-transiting .TransitionScreen {
 		padding: 4.5em 2.25em 0 16em;
 	}
 
-	.Wine.is-expanded .WineHeader {
-		padding: 4.5em 1.5em 0 3.75em;
+	.Wine.is-expanded .WineHeader-inner {
+		padding: 4.5em 2.25em 0 6em;
 	}
 
 	/* Wine Header title */
