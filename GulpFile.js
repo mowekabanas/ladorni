@@ -157,7 +157,15 @@ gulp.task('serve', function () {
 
 	// Serve files from the root of this project
 	browserSync.init({
-		server: "./"
+		server: {
+			baseDir: "./",
+			index: "index.html",
+			routes: {
+				"/vinhos": "./index.html",
+				"/castelo": "./index.html",
+				"/vinicola": "./index.html"
+			}
+		}
 	});
 
 	gulp.watch([css.location + css.content], ['css-watch']);

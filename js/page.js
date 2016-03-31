@@ -79,6 +79,13 @@ var Page = (function() {
 
 		this.setActive(!!isActive);
 
+		window.addEventListener('scroll', function (ev) {
+
+			if (self.getActive())
+				console.log(ev);
+
+		})
+
 	};
 
 	return Page;

@@ -291,8 +291,6 @@ var Navigation = (function () {
 
 		this.onNavigationItemClick = function(ev) {
 
-			console.log(ev);
-
 			if (this.dataset.navigationTarget) {
 
 				ev.preventDefault();
@@ -411,22 +409,54 @@ var Navigation = (function () {
 
 		}
 
+		// if has oldPage
+		if (oldPage) {
+
+			// if oldPage has item
+			if (oldPage.item) {
+
+				// if has after action function, call this!
+				if (oldPage.item.action)
+					if (oldPage.item.action.after)
+						oldPage.item.action.after();
+
+			}
+
+		}
+
 		/* ADD NEW PAGE */
 
-		// add stateClass to 'document' element
-		if (newPage.state)
-			if (newPage.state.stateClass)
-				this.document.classList.add(newPage.state.stateClass);
+		// if has newPage
+		if (newPage) {
 
-		// add 'is-active' class to page
-		if (newPage.item)
-			if (newPage.item.page)
-				newPage.item.page.setActive(true);
+			// if newPage has state
+			if (newPage.state) {
 
-		// change title
-		if (newPage)
-			if (newPage.state)
+				// add stateClass to 'document' element
+				if (newPage.state.stateClass)
+					this.document.classList.add(newPage.state.stateClass);
+
+				// change title
 				this.setTitle(newPage.state);
+
+			}
+
+
+			// if newPage has item
+			if (newPage.item) {
+
+				// if newPage has before action function, call this!
+				if (oldPage.item.action)
+					if (oldPage.item.action.after)
+						oldPage.item.action.after();
+
+				// add 'is-active' class to page
+				if (newPage.item.page)
+					newPage.item.page.setActive(true);
+
+			}
+
+		}
 
 	};
 
@@ -691,6 +721,13 @@ var Page = (function() {
 		var self = this;
 
 		this.setActive(!!isActive);
+
+		window.addEventListener('scroll', function (ev) {
+
+			if (self.getActive())
+				console.log(ev);
+
+		})
 
 	};
 

@@ -174,7 +174,7 @@
 
 							<header class="WineHeader font-pink-a400">
 
-								<div class="WineHeader-background grey-600"></div>
+								<div class="WineHeader-background grey-900"></div>
 
 								<header class="WineHeader-inner">
 
@@ -2732,6 +2732,18 @@
 	}, document.getElementById('castle'));
 
 	navigation.pushItem({
+		action: {
+			after: function () {
+
+				console.log('before')
+
+			},
+			before: function () {
+
+				console.log('after')
+
+			}
+		},
 		itemName: 'winemenu',
 		itemTitle: 'Vinhos',
 		itemURL: './vinhos'
