@@ -291,6 +291,8 @@ var Navigation = (function () {
 
 		this.onNavigationItemClick = function(ev) {
 
+			console.log(ev);
+
 			if (this.dataset.navigationTarget) {
 
 				ev.preventDefault();
@@ -298,7 +300,7 @@ var Navigation = (function () {
 				var item = self.queryNavigationItem(this.dataset.navigationTarget);
 
 				if (item)
-					self.setCurrentState(item);
+					self.change(item, false);
 
 			}
 
@@ -309,7 +311,7 @@ var Navigation = (function () {
 			var item = self.queryNavigationItem(history.state.name);
 
 			if (item)
-				self.setCurrentState(item, true);
+				self.change(item, true);
 
 		};
 
@@ -332,7 +334,7 @@ var Navigation = (function () {
 
 	};
 
-	Navigation.prototype.queryCurrentState = function () {
+	Navigation.prototype.queryCurrentPage = function () {
 
 		for (var i = this.navigationItems.length; i--; )
 			if (this.matchURL(this.navigationItems[i].url))
@@ -389,39 +391,122 @@ var Navigation = (function () {
 
 	};
 
-	Navigation.prototype.setCurrentState = function (item, replace) {
+	/**
+	 * Set the current Page
+	 * @param oldPage {object}
+	 * @param newPage {object}
+	 */
+	Navigation.prototype.setCurrentPage = function (oldPage, newPage) {
+
+		/* REMOVE OLD PAGE */
+
+		for (var i = this.navigationItems.length; i--; ) {
+
+			// remove stateClass from 'document' element
+			if (this.navigationItems[i].stateClass)
+				this.document.classList.remove(this.navigationItems[i].stateClass);
+
+			// remove 'is-active' class from page
+			this.navigationItems[i].page.viewport.classList.remove('is-active');
+
+		}
+
+		/* ADD NEW PAGE */
+
+		// add stateClass to 'document' element
+		if (newPage.state)
+			if (newPage.state.stateClass)
+				this.document.classList.add(newPage.state.stateClass);
+
+		// add 'is-active' class to page
+		if (newPage.item)
+			if (newPage.item.page)
+				newPage.item.page.viewport.classList.add('is-active');
+
+		// change title
+		if (newPage)
+			if (newPage.state)
+				this.setTitle(newPage.state);
+
+	};
+
+	/**
+	 * Set the current State
+	 * @param state {object}
+	 * @param replace {boolean}
+	 */
+	Navigation.prototype.setCurrentState = function (state, replace) {
+
+		if (replace)
+			history.replaceState(state, state.title, state.url);
+		else
+			history.pushState(state, state.title, state.url);
+
+	};
+
+	/**
+	 * Change the current state/page
+	 * Is based on a Navigation Item object
+	 * The var 'isPop' defines the history 'change state' type (replace or push)
+	 * @param item {object}
+	 * @param isPop {boolean}
+	 */
+	Navigation.prototype.change = function (item, isPop) {
 
 		var self = this;
 
-		var state = new NavigationState(item);
+		var oldPage = {};
+		var newPage = {};
 
-		if (state) {
+		newPage.item = item;
+		newPage.state = new NavigationState(item);
 
-			// test if history is equals the new state
-			if (history.state)
-				if (state.name != history.state.name) {
+		oldPage.item = this.queryCurrentPage();
+		oldPage.state = history.state || false;
 
-					if (this.transition)
-						this.transition.start();
+		if (newPage.state) {
 
-					// remove state class
-					if (history.state.stateClass)
-						self.document.classList.remove(history.state.stateClass);
+			this.setCurrentState(newPage.state, isPop);
+
+			if (!isPop) {
+
+				if (oldPage.state) {
+
+					if (oldPage.state.name != newPage.state.name) {
+
+						if (this.transition) {
+
+							this.transition.start();
+
+							setTimeout(function () {
+
+								self.setCurrentPage(oldPage, newPage);
+
+							}, 700);
+
+						}
+
+					} else {
+
+						self.setCurrentPage(oldPage, newPage);
+
+					}
+
+				} else {
+
+					self.setCurrentPage(oldPage, newPage);
 
 				}
 
-			this.setTitle(state);
 
-			if (replace)
-				history.replaceState(state, state.title, state.url);
-			else
-				history.pushState(state, state.title, state.url);
+			} else {
 
-			// add state class
-			if (history.state.stateClass)
-				self.document.classList.add(history.state.stateClass);
+				this.setCurrentPage(oldPage, newPage);
+
+			}
 
 		}
+
 
 	};
 
@@ -462,7 +547,7 @@ var Navigation = (function () {
 		this.getTransition();
 
 		if (this.navigationItems.length)
-			this.setCurrentState(this.queryCurrentState());
+			this.change(this.queryCurrentPage(), false);
 
 	};
 
@@ -548,6 +633,61 @@ var Page = (function() {
 
 })();
 
+/* Require Elements */
+
+var Require = (function () {
+
+	/**
+	 * Require Elements constructor
+	 * @param elements {Array|object}
+	 * @param listener {Function|object}
+	 * @param range {number}
+	 * @constructor
+	 */
+	function Require(elements, listener, range) {
+
+		var self = this;
+
+		this.elements = elements || [];
+		this.listener = listener || false;
+
+		this.requireRange = range || .5;
+		this.loadCount = 0;
+
+		this.isLoad = false;
+
+		this.onLoadCtrl = function (ev) {
+
+			self.loadCount++;
+
+			if (!self.isLoad)
+				if (self.loadCount >= (self.elements.length * self.requireRange)) {
+
+					if (self.listener)
+						self.listener(self);
+
+					self.isLoad = true;
+
+				}
+
+		};
+
+		if (this.elements.length)
+			this.init();
+
+	}
+
+	Require.prototype.init = function () {
+
+		for (var i = this.elements.length; i--;)
+			this.elements[i].addEventListener('load', this.onLoadCtrl)
+
+	};
+
+	return Require;
+
+})();
+
 /* Transition */
 
 var Transition = (function () {
@@ -598,6 +738,89 @@ var TransitionState = (function () {
 	}
 
 	return TransitionState;
+
+})();
+
+/* Content Unloader Element */
+
+var UnloaderElement = (function () {
+
+	/**
+	 * Content Unloader Element constructor
+	 * @param viewport {object}
+	 * @constructor
+	 */
+	function UnloaderElement(viewport) {
+
+		var self = this;
+
+		this.viewport = viewport || false;
+
+		this.src = '';
+
+		if (this.viewport)
+			this.init();
+
+	}
+
+	UnloaderElement.prototype.load = function () {
+
+		this.viewport.src = this.src;
+
+	};
+
+	UnloaderElement.prototype.removeLink = function () {
+
+		this.src = this.viewport.src;
+		this.viewport.src = '';
+
+	};
+
+	UnloaderElement.prototype.init = function () {
+
+		this.removeLink();
+
+	};
+
+	return UnloaderElement;
+
+})();
+
+/* Content Unloader */
+
+var Unloader = (function () {
+
+	/**
+	 * Content Unloader constructor
+	 * @param elements {Array||object}
+	 * @constructor
+	 */
+	function Unloader(elements) {
+
+		var self = this;
+
+		this.elements = elements || [];
+
+		if (this.elements.length)
+			this.init();
+
+	}
+
+	Unloader.prototype.load = function () {
+
+		for (var i = this.elements.length; i--;)
+			this.elements[i].unloader.load();
+
+	};
+
+	Unloader.prototype.init = function () {
+
+		for (var i = this.elements.length; i--;)
+			this.elements[i].unloader = new UnloaderElement(this.elements[i]);
+
+	};
+
+	return Unloader;
 
 })();
 

@@ -7,7 +7,6 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	imageResize = require('gulp-image-resize'),
 	tinypng = require('gulp-tinypng'),
-	livereload = require('gulp-livereload'),
 	browserSync = require('browser-sync').create(),
 	reload = browserSync.reload;
 
