@@ -2,11 +2,12 @@
 /* Navigation Transition */
 
 .Transition {
+	height: 100%;
+	left: 100%;
+	/*opacity: .72;*/
 	position: fixed;
 	width: 100%;
-	height: 100%;
 	z-index: 12;
-	left: 100%;
 }
 
 .TransitionScreen {

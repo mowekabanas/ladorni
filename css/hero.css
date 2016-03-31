@@ -4,6 +4,11 @@
 .Hero {
 	position: relative;
 	width: 100%;
+	opacity: 0;
+}
+
+body.is-home .Hero {
+	opacity: 1;
 }
 
 @media (min-width: 48em) {
