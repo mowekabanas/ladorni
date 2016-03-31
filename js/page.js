@@ -75,16 +75,7 @@ var Page = (function() {
 	 */
 	Page.prototype.init = function (isActive) {
 
-		var self = this;
-
 		this.setActive(!!isActive);
-
-		window.addEventListener('scroll', function (ev) {
-
-			if (self.getActive())
-				console.log(ev);
-
-		})
 
 	};
 

@@ -25,6 +25,9 @@ var Navigation = (function () {
 		this.home = false;
 		this.error = false;
 
+		this.current = false;
+		this.changePageCount = 0;
+
 		this.onNavigationItemClick = function(ev) {
 
 			if (this.dataset.navigationTarget) {
@@ -115,6 +118,28 @@ var Navigation = (function () {
 	};
 
 	/**
+	 * Remove a state class to document element
+	 * @param state {string}
+	 */
+	Navigation.prototype.removeDocumentState = function (state) {
+
+		if (this.document)
+			this.document.classList.remove(state);
+
+	};
+
+	/**
+	 * Add a state class to document element
+	 * @param state {string}
+	 */
+	Navigation.prototype.addDocumentState = function (state) {
+
+		if (this.document)
+			this.document.classList.add(state);
+
+	};
+
+	/**
 	 * Get the new title and set it
 	 * @param state {object}
 	 */
@@ -154,7 +179,7 @@ var Navigation = (function () {
 				// if has after action function, call this!
 				if (oldPage.item.action)
 					if (oldPage.item.action.after)
-						oldPage.item.action.after();
+						oldPage.item.action.after(this);
 
 			}
 
@@ -182,9 +207,9 @@ var Navigation = (function () {
 			if (newPage.item) {
 
 				// if newPage has before action function, call this!
-				if (oldPage.item.action)
-					if (oldPage.item.action.after)
-						oldPage.item.action.after();
+				if (newPage.item.action)
+					if (newPage.item.action.before)
+						newPage.item.action.before(this);
 
 				// add 'is-active' class to page
 				if (newPage.item.page)
@@ -193,6 +218,9 @@ var Navigation = (function () {
 			}
 
 		}
+
+		// plus one
+		this.changePageCount++;
 
 	};
 
@@ -227,8 +255,18 @@ var Navigation = (function () {
 		newPage.item = item;
 		newPage.state = new NavigationState(item);
 
-		oldPage.item = this.queryCurrentPage();
-		oldPage.state = history.state || false;
+		// Get the 'oldPage' based on 'current' attr or a 'query page' function
+		if (this.current) {
+
+			oldPage = this.current;
+
+		} else {
+
+			oldPage.item = this.queryCurrentPage();
+			oldPage.state = history.state || false;
+
+		}
+
 
 		if (newPage.state) {
 
@@ -273,6 +311,7 @@ var Navigation = (function () {
 
 		}
 
+		this.current = newPage;
 
 	};
 

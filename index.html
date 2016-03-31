@@ -359,8 +359,7 @@
 
 						</div>
 
-					</article>
-					<!-- DE MESA -  La Donna vinho rosado de mesa-->
+					</article><!-- DE MESA -  La Donna vinho rosado de mesa-->
 
 					<article class="Wine">
 
@@ -560,8 +559,7 @@
 
 						</div>
 
-					</article>
-					<!-- DE MESA -  Branco Demi-sec de mesa-->
+					</article><!-- DE MESA -  Branco Demi-sec de mesa-->
 
 					<article class="Wine">
 
@@ -758,8 +756,7 @@
 
 						</div>
 
-					</article>
-					<!-- DE MESA -  Tinto Seco de mesa-->
+					</article><!-- DE MESA -  Tinto Seco de mesa-->
 
 					<article class="Wine">
 
@@ -956,8 +953,7 @@
 
 						</div>
 
-					</article>
-					<!-- DE MESA -  Tinto Suave de mesa-->
+					</article><!-- DE MESA -  Tinto Suave de mesa-->
 
 					<article class="Wine">
 
@@ -1155,8 +1151,7 @@
 
 						</div>
 
-					</article>
-					<!-- DE MESA -  Tinto Suave de mesa BiB-->
+					</article><!-- DE MESA -  Tinto Suave de mesa BiB-->
 
 					<article class="Wine">
 
@@ -1335,8 +1330,7 @@
 
 						</div>
 
-					</article>
-					<!-- SEM ÁLCOOL - Casa Navaronne meio seco sem álcool-->
+					</article><!-- SEM ÁLCOOL - Casa Navaronne meio seco sem álcool-->
 
 					<article class="Wine">
 
@@ -1518,8 +1512,7 @@
 
 						</div>
 
-					</article>
-					<!-- SEM ÁLCOOL - Tinto Seco sem Álcool-->
+					</article><!-- SEM ÁLCOOL - Tinto Seco sem Álcool-->
 
 					<article class="Wine">
 
@@ -1710,8 +1703,7 @@
 
 						</div>
 
-					</article>
-					<!-- SEM ÁLCOOL - Tinto Suave sem Álcool-->
+					</article><!-- SEM ÁLCOOL - Tinto Suave sem Álcool-->
 
 					<article class="Wine">
 
@@ -1910,8 +1902,7 @@
 
 						</div>
 
-					</article>
-					<!-- VARIETAL -  Cabernet Sauvignon-->
+					</article><!-- VÁRIETAL - Cabernet Sauvignon -->
 
 					<article class="Wine">
 
@@ -2102,8 +2093,7 @@
 
 						</div>
 
-					</article>
-					<!-- VARIETAL -  Merlot-->
+					</article><!-- VÁRIETAL - Merlot -->
 
 					<article class="Wine">
 
@@ -2277,8 +2267,7 @@
 
 						</div>
 
-					</article>
-					<!-- VARIETAL - Espumante Branco Demi-Sec-->
+					</article><!-- VÁRIETAL - Espumante Branco Demi-Sec-->
 
 					<article class="Wine">
 
@@ -2303,9 +2292,7 @@
 
 									<section class="WineHeader-short-description crimson-text-italic">
 
-										<p>produzido de acordo com os preceitos canônicos da Igreja Católica para a
-											produção e
-											utilização do vinho nas celebrações eucarísticas</p>
+										<p>produzido de acordo com os preceitos canônicos da Igreja Católica para a produção e utilização do vinho nas celebrações eucarísticas</p>
 
 									</section>
 
@@ -2455,8 +2442,7 @@
 
 						</div>
 
-					</article>
-					<!-- CANÔNICO -  João Paulo II Rosado Suave-->
+					</article><!-- CANÔNICO -  João Paulo II Rosado Suave-->
 
 					<article class="Wine">
 
@@ -2473,7 +2459,7 @@
 										<h2>
 
 											<span class="brand">João Paulo II</span>
-											<strong class="name">Vinho Canônico Tinto Suave</strong>
+											<strong class="name">Vinho Canônico <br/>Tinto Suave</strong>
 
 										</h2>
 
@@ -2545,7 +2531,7 @@
 
 													<div class="WineResumeItem-title">
 
-														<span></span>
+														<span>?</span>
 
 													</div>
 
@@ -2565,7 +2551,7 @@
 
 													<div class="WineResumeItem-title">
 
-														<span></span>
+														<span>?</span>
 
 													</div>
 
@@ -2636,8 +2622,7 @@
 
 						</div>
 
-					</article>
-					<!-- CANÔNICO -  João Paulo II Tinto Suave-->
+					</article><!-- CANÔNICO -  João Paulo II Tinto Suave-->
 
 				</section>
 
@@ -2699,6 +2684,13 @@
 
 <script>
 
+	var welcomeMessage = function (nav) {
+
+		if (!nav.changePageCount)
+			console.log('bem vindo ao site da LaDorni');
+
+	};
+
 	var headerLogo = document.getElementById('main-header-logo');
 
 	var mainMenu = new Menu(document.getElementById('main-menu'));
@@ -2712,6 +2704,9 @@
 	var navigation = new Navigation(document.getElementById('navigation'), document.body);
 
 	navigation.pushItem({
+		action: {
+			before: welcomeMessage
+		},
 		itemName: 'home',
 		itemTitle: false,
 		itemURL: './',
@@ -2735,12 +2730,12 @@
 		action: {
 			after: function () {
 
-				console.log('before')
+				navigation.removeDocumentState('is-winemenu');
 
 			},
 			before: function () {
 
-				console.log('after')
+				navigation.addDocumentState('is-winemenu');
 
 			}
 		},

@@ -65,6 +65,7 @@
 	transition: fill .6s .1s;
 }
 
+body.is-winemenu .Logo svg,
 body.is-transiting .Logo svg {
 	fill: #eeeeee;
 }
@@ -156,6 +157,20 @@ body.is-transiting .Logo svg {
 	transition: opacity .8s .4s;
 }
 
+@media (min-width: 48em) {
+
+	/* Logo */
+
+	body.is-winemenu .MainHeader .Logo {
+		width: 4.5em;
+	}
+
+	body.is-winemenu .Logo.is-only-winery #LaDorniLogo-border {
+		display: none;
+	}
+
+}
+
 @media (min-width: 72em) {
 
 	/* Logo */
@@ -181,6 +196,20 @@ body.is-transiting .Logo svg {
 
 	.Logo.is-only-winery .Logo-select-area {
 		width: 100%;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	/* Logo */
+
+	body.is-winemenu .MainHeader .Logo {
+		width: 6em;
+	}
+
+	body.is-winemenu .Logo.is-only-winery #LaDorniLogo-border {
+		display: block;
 	}
 
 }
