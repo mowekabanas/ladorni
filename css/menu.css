@@ -6,21 +6,28 @@
 .MainMenu.Menu{  }
 
 .Menu--service {
-	display: none;
-	height: 7em;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
 	-webkit-justify-content: flex-end;
 	justify-content: flex-end;
-	width: 100%;
+	opacity: 0;
+	-webkit-transition: visibility 0s, opacity .6s;
+	-moz-transition: visibility 0s, opacity .6s;
+	-ms-transition: visibility 0s, opacity .6s;
+	-o-transition: visibility 0s, opacity .6s;
+	transition: visibility 0s, opacity .6s;
+	visibility: hidden;
 }
 
 @media (min-width: 48em) {
 
 	body.is-home .Menu--service {
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
+		visibility: visible;
+		opacity: 1;
 	}
 
 }

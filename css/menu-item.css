@@ -98,4 +98,8 @@
 		text-decoration: underline;
 	}
 
+	.Menu--service .MenuItem-select-area strong {
+		font-weight: 900;
+	}
+
 }

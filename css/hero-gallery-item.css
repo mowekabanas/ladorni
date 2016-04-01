@@ -1,0 +1,51 @@
+
+/* Hero Gallery Item */
+
+.HeroGalleryItem {  }
+
+.HeroGalleryItem--winemenu {
+	background: url("../img/largePhotos/lp14.jpg");
+}
+
+.HeroGalleryItem--winery {
+	background: url("../img/headerPhotos/torre.jpg");
+}
+
+.HeroGalleryItem--castle {
+	background: url("../img/largePhotos/lp08.jpg");
+}
+
+@media (min-width: 48em) {
+
+	/* Hero Gallery Item */
+
+	.HeroGalleryItem {
+		background-position: 0 0;
+		-webkit-background-size: cover;
+		background-size: cover;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		-webkit-transition: opacity 1s, background 8s, visibility 1s;
+		-moz-transition: opacity 1s, background 8s, visibility 1s;
+		-ms-transition: opacity 1s, background 8s, visibility 1s;
+		-o-transition: opacity 1s, background 8s, visibility 1s;
+		transition: opacity 1s, background 8s, visibility 1s;
+		visibility: hidden;
+		width: 100%;
+	}
+
+	.HeroGalleryItem.is-active {
+		background-position: 100% 100%;
+		opacity: .96;
+		-webkit-transition: opacity 2s, background 10s, visibility 0s;
+		-moz-transition: opacity 2s, background 10s, visibility 0s;
+		-ms-transition: opacity 2s, background 10s, visibility 0s;
+		-o-transition: opacity 2s, background 10s, visibility 0s;
+		transition: opacity 2s, background 10s, visibility 0s;
+		visibility: visible;
+	}
+
+}

@@ -14,6 +14,10 @@ var Page = (function() {
 
 		this.viewport = viewport || false;
 
+		this.header = {};
+		this.header.background = {};
+		this.header.overlay = {};
+
 		this.isActive = false;
 
 		if (this.viewport)
@@ -68,6 +72,34 @@ var Page = (function() {
 
 	};
 
+	Page.prototype.getSlide = function () {
+
+		console.log(this.viewport.hero);
+
+		if (this.viewport.hero)
+			this.slider = new PageSlider(this);
+
+	};
+
+	Page.prototype.getHeader = function () {
+
+		// get the 'header' element
+		this.header.viewport = this.viewport.querySelector('.PageHeader');
+
+		// try get the 'background' and 'overlay' elements
+		if (this.header.viewport) {
+
+			this.header.background.viewport = this.header.viewport.querySelector('.PageHeader-background');
+			this.header.overlay.viewport = this.header.viewport.querySelector('.PageHeader-overlay');
+
+		}
+
+		// try get the hero slider
+		if (this.header.viewport)
+			this.getSlide();
+
+	};
+
 	/**
 	 * It inits and normalize the Page
 	 * By default, it set to false the 'is-active' state
@@ -76,6 +108,8 @@ var Page = (function() {
 	Page.prototype.init = function (isActive) {
 
 		this.setActive(!!isActive);
+
+		this.getHeader();
 
 	};
 

@@ -1,0 +1,96 @@
+
+.MainHeaderBrand {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.MainHeaderBrand-title {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+	-webkit-transition: color .6s .1s, opacity .6s .1s;
+	-moz-transition: color .6s .1s, opacity .6s .1s;
+	-ms-transition: color .6s .1s, opacity .6s .1s;
+	-o-transition: color .6s .1s, opacity .6s .1s;
+	transition: color .6s .1s, opacity .6s .1s;
+}
+
+body.is-transiting .MainHeaderBrand-title {
+	color: #eeeeee;
+	opacity: 0;
+}
+
+.MainHeaderBrand h1 {
+	font-size: 1em;
+	font-weight: 300;
+	letter-spacing: -.5pt;
+	line-height: 1;
+	text-align: center;
+	white-space: nowrap;
+	text-transform: uppercase;
+}
+
+.MainHeaderBrand h1 strong {
+	font-size: 1.125em;
+	font-weight: 900;
+	letter-spacing: .625pt;
+	-webkit-transition: letter-spacing .3s;
+	-moz-transition: letter-spacing .3s;
+	-ms-transition: letter-spacing .3s;
+	-o-transition: letter-spacing .3s;
+	transition: letter-spacing .3s;
+}
+
+.MainHeaderBrand h1 strong span {
+	font-size: 1.05em;
+}
+
+@media (min-width: 48em) {
+
+	/* Header */
+
+	.MainHeaderBrand-title {
+		display: none;
+	}
+
+	body.is-home .MainHeaderBrand-title {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+
+	.MainHeaderBrand h1 {
+		font-size: 1.125em;
+		font-weight: 300;
+		letter-spacing: -.5pt;
+		line-height: 1;
+		white-space: nowrap;
+	}
+
+	.MainHeaderBrand h1 strong {
+		font-size: 1.125em;
+		font-weight: 900;
+		letter-spacing: .625pt;
+		-webkit-transition: letter-spacing .3s;
+		-moz-transition: letter-spacing .3s;
+		-ms-transition: letter-spacing .3s;
+		-o-transition: letter-spacing .3s;
+		transition: letter-spacing .3s;
+	}
+
+	.MainHeaderBrand h1 strong span {
+		font-size: 1.05em;
+	}
+
+}

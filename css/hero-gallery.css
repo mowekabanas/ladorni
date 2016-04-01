@@ -1,0 +1,12 @@
+
+@media (min-width: 48em) {
+
+	.HeroGallery {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+}

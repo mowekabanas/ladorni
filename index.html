@@ -32,19 +32,23 @@
 
 	<header class="MainHeader playfair-display">
 
-		<div id="main-header-logo" class="Logo is-only-winery">
+		<div class="MainHeaderBrand">
 
-			<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
+			<div id="main-header-logo" class="Logo MainHeaderBrand-logo is-only-winery">
 
-				<span id="logo"></span>
+				<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
 
-			</a>
+					<span id="logo"></span>
 
-		</div>
+				</a>
 
-		<div class="MainHeader-title">
+			</div>
 
-			<h1>Vinícola <strong><span>L</span>a Dorn<span>i</span></strong></h1>
+			<div class="MainHeaderBrand-title">
+
+				<h1>Vinícola <strong><span>L</span>a Dorn<span>i</span></strong></h1>
+
+			</div>
 
 		</div>
 
@@ -66,7 +70,7 @@
 
 					<a href="./contato" class="MenuItem-select-area NavigationItem" data-navigation-target="contact">
 
-						<span>A Vinícola</span>
+						<span><strong>Contato</strong></span>
 
 					</a>
 
@@ -162,11 +166,13 @@
 
 			<div class="Hero-inner">
 
-				<article class="HeroArticleItem">
+				<div class="HeroGallery">
 
-					<!--<h1>Vinícola La Dorni</h1>-->
+					<article id="winery-hero" class="HeroGalleryItem HeroGalleryItem--winery"></article>
+					<article id="castle-hero" class="HeroGalleryItem HeroGalleryItem--castle"></article>
+					<article id="winemenu-hero" class="HeroGalleryItem HeroGalleryItem--winemenu"></article>
 
-				</article>
+				</div>
 
 			</div>
 
@@ -178,11 +184,14 @@
 
 		<section id="winemenu" class="Page Page--winemenu">
 
-			<header class="Page-header">
+			<header class="PageHeader">
+
+				<div class="PageHeader-background"></div>
+				<div class="PageHeader-overlay"></div>
 
 				<a href="#vinhos" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winemenu">
 
-					<div class="Page-title">
+					<div class="PageHeader-title">
 
 						<h3>Nosso menu <br/>de <strong>Vinhos</strong></h3>
 
@@ -2660,11 +2669,14 @@
 
 		<section id="winery" class="Page Page--winery">
 
-			<header class="Page-header">
+			<header class="PageHeader">
+
+				<div class="PageHeader-background"></div>
+				<div class="PageHeader-overlay"></div>
 
 				<a href="#vinicola" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winery">
 
-					<div class="Page-title">
+					<div class="PageHeader-title">
 
 						<h3>Conheça <br/>a <strong>Vinícola</strong></h3>
 
@@ -2682,11 +2694,14 @@
 
 		<section id="castle" class="Page Page--castle">
 
-			<header class="Page-header">
+			<header class="PageHeader">
+
+				<div class="PageHeader-background"></div>
+				<div class="PageHeader-overlay"></div>
 
 				<a href="#castelo" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="castle">
 
-					<div class="Page-title">
+					<div class="PageHeader-title">
 
 						<h3>Faça um <em>Tour</em> <br/>pelo <strong>Castelo</strong></h3>
 
@@ -2712,6 +2727,10 @@
 
 <script>
 
+</script>
+
+<script>
+
 	var welcomeMessage = function (nav) {
 
 		if (!nav.changePageCount)
@@ -2734,6 +2753,22 @@
 
 	var navigation = new Navigation(document.getElementById('navigation'), document.body);
 
+	var winery = {
+		viewport: document.getElementById('winery')
+	};
+
+	var castle = {
+		viewport: document.getElementById('castle')
+	};
+
+	var winemenu = {
+		viewport: document.getElementById('winemenu')
+	};
+
+	winery.viewport.hero = document.getElementById('winery-hero');
+	castle.viewport.hero = document.getElementById('castle-hero');
+	winemenu.viewport.hero = document.getElementById('winemenu-hero');
+
 	navigation.pushItem({
 		action: {
 			before: welcomeMessage
@@ -2749,13 +2784,13 @@
 		itemName: 'winery',
 		itemTitle: 'A vínicola',
 		itemURL: './vinicola'
-	}, document.getElementById('winery'));
+	}, winery.viewport);
 
 	navigation.pushItem({
 		itemName: 'castle',
 		itemTitle: 'O Castelo',
 		itemURL: './castelo'
-	}, document.getElementById('castle'));
+	}, castle.viewport);
 
 	navigation.pushItem({
 		action: {
@@ -2767,14 +2802,13 @@
 			before: function () {
 
 				navigation.addDocumentState('is-winemenu');
-				console.log(wineList);
 
 			}
 		},
 		itemName: 'winemenu',
 		itemTitle: 'Vinhos',
 		itemURL: './vinhos'
-	}, document.getElementById('winemenu'));
+	}, winemenu.viewport);
 
 	navigation.init();
 

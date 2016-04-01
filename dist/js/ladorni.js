@@ -698,6 +698,10 @@ var Page = (function() {
 
 		this.viewport = viewport || false;
 
+		this.header = {};
+		this.header.background = {};
+		this.header.overlay = {};
+
 		this.isActive = false;
 
 		if (this.viewport)
@@ -752,6 +756,34 @@ var Page = (function() {
 
 	};
 
+	Page.prototype.getSlide = function () {
+
+		console.log(this.viewport.hero);
+
+		if (this.viewport.hero)
+			this.slider = new PageSlider(this);
+
+	};
+
+	Page.prototype.getHeader = function () {
+
+		// get the 'header' element
+		this.header.viewport = this.viewport.querySelector('.PageHeader');
+
+		// try get the 'background' and 'overlay' elements
+		if (this.header.viewport) {
+
+			this.header.background.viewport = this.header.viewport.querySelector('.PageHeader-background');
+			this.header.overlay.viewport = this.header.viewport.querySelector('.PageHeader-overlay');
+
+		}
+
+		// try get the hero slider
+		if (this.header.viewport)
+			this.getSlide();
+
+	};
+
 	/**
 	 * It inits and normalize the Page
 	 * By default, it set to false the 'is-active' state
@@ -761,9 +793,71 @@ var Page = (function() {
 
 		this.setActive(!!isActive);
 
+		this.getHeader();
+
 	};
 
 	return Page;
+
+})();
+
+/* Page Slider */
+
+var PageSlider = (function () {
+
+	/**
+	 * Page Slider constructor
+	 * The viewport costume to be the '.PageHeader' element
+	 * @constructor
+	 */
+	function PageSlider(page) {
+
+		var self = this;
+
+		this.page = page || false;
+
+		this.onOverlayMouseOver = function (ev) {
+
+			if (self.page.viewport.hero)
+				self.page.viewport.hero.classList.add('is-active');
+
+		};
+
+		this.onOverlayMouseOut = function (ev) {
+
+			if (self.page.viewport.hero)
+				self.page.viewport.hero.classList.remove('is-active');
+
+		};
+
+		if (this.page.viewport)
+			if (this.page.header)
+				this.init();
+
+	}
+
+	PageSlider.prototype.addOverlayListener = function () {
+
+		if (this.page.header.viewport) {
+
+			this.page.header.viewport.addEventListener('mouseover', this.onOverlayMouseOver, false);
+			this.page.header.viewport.addEventListener('mouseout', this.onOverlayMouseOut, false);
+
+		}
+
+	};
+
+	PageSlider.prototype.init = function () {
+
+		console.log('kk');
+
+		if (this.page.viewport.hero)
+			this.addOverlayListener();
+
+
+	};
+
+	return PageSlider;
 
 })();
 
