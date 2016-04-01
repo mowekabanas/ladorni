@@ -75,4 +75,27 @@
 		margin: 0 3pt 0 -8pt;
 	}
 
+    .Menu--service .MenuItem-select-area {
+	    -webkit-align-items: center;
+	    align-items: center;
+	    color: #424242;
+	    display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-justify-content: center;
+	    justify-content: center;
+	    padding: 0 .75em 0;
+    }
+
+	.Menu--service .MenuItem-select-area span {
+		font-weight: 400;
+		font-size: 1em;
+	}
+
+	.Menu--service .MenuItem-select-area:hover span {
+		text-decoration: underline;
+	}
+
 }

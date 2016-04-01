@@ -50,6 +50,34 @@
 
 	</header>
 
+	<div id="service-menu" class="Menu Menu--service">
+
+		<ul class="MenuList roboto">
+
+			<li class="MenuItem">
+
+				<a href="./como-chegar" class="MenuItem-select-area NavigationItem" data-navigation-target="location">
+
+					<span>Como chegar</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./contato" class="MenuItem-select-area NavigationItem" data-navigation-target="contact">
+
+					<span>A Vinícola</span>
+
+				</a>
+
+			</li>
+
+		</ul>
+
+	</div>
+
 	<div id="main-menu" class="MainMenu Menu">
 
 		<div class="MenuToggleButton">
@@ -2701,6 +2729,9 @@
 
 	});
 
+	var wineList = new WineList(document.body);
+	wineList.init();
+
 	var navigation = new Navigation(document.getElementById('navigation'), document.body);
 
 	navigation.pushItem({
@@ -2736,6 +2767,7 @@
 			before: function () {
 
 				navigation.addDocumentState('is-winemenu');
+				console.log(wineList);
 
 			}
 		},
@@ -2745,9 +2777,6 @@
 	}, document.getElementById('winemenu'));
 
 	navigation.init();
-
-	var wineList = new WineList(document.body);
-	wineList.init();
 
 </script>
 

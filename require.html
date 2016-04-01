@@ -30,10 +30,10 @@
 
 	<main id="main">
 
-		<img src="img/11-v.jpg" alt=""/>
-		<img src="img/box.png" alt=""/>
-		<img src="img/cabernet.png" alt=""/>
-		<img src="img/espumante.png" alt=""/>
+		<img src="http://lorempixel.com/400/200/sports/" alt=""/>
+		<img src="http://lorempixel.com/400/200/abstract/" alt=""/>
+		<img src="http://lorempixel.com/400/200/people/" alt=""/>
+		<img src="http://lorempixel.com/400/200/cats/" alt=""/>
 
 	</main>
 
@@ -50,6 +50,7 @@
 	test = function (ev) {
 
 		main.classList.add('is-loaded');
+		console.log('loaded!');
 
 	};
 
@@ -68,6 +69,13 @@
 		main.contentLoad.load();
 
 	}, 2000);
+
+	setTimeout(function () {
+
+		console.log('start again');
+		main.contentLoad.load();
+
+	}, 12000);
 
 </script>
 

@@ -4,3 +4,27 @@
 .Menu {  }
 
 .MainMenu.Menu{  }
+
+.Menu--service {
+	display: none;
+	height: 7em;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+@media (min-width: 48em) {
+
+	body.is-home .Menu--service {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+
+}

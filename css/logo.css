@@ -16,6 +16,7 @@
 	-o-transition: opacity 1s ease-in, width .6s .3s;
 	transition: opacity 1s ease-in, width .6s .3s;
 	width: 6em;
+	z-index: 13;
 }
 
 .MainHeader .Logo.is-loaded {
