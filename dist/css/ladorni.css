@@ -808,6 +808,8 @@ body.is-transiting .Logo svg {
 	z-index: 11;
 }
 
+/* Menu List media width */
+
 @media (min-width: 21em) {
 
 	.MainMenu.is-active .MenuList {
@@ -850,6 +852,24 @@ body.is-transiting .Logo svg {
 
 }
 
+@media (min-width: 72em) {
+
+	.Menu--service .MenuList {
+		padding: 0 3.75em 0 0;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Menu--service .MenuList {
+		padding: 0 4.5em 0 0;
+	}
+
+}
+
+/* Menu List media height */
+
 @media (min-height: 36em) {
 
 	.MainMenu .MenuList {
@@ -865,7 +885,6 @@ body.is-transiting .Logo svg {
 	}
 
 }
-
 
 /* Menu Toggle Button */
 
@@ -962,11 +981,7 @@ body.is-transiting .Logo svg {
 	height: 7em;
 	-webkit-justify-content: flex-end;
 	justify-content: flex-end;
-	position: fixed;
-	right: 0;
-	top: 0;
 	width: 100%;
-	z-index: 1;
 }
 
 @media (min-width: 48em) {

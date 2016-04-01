@@ -40,6 +40,8 @@
 	z-index: 11;
 }
 
+/* Menu List media width */
+
 @media (min-width: 21em) {
 
 	.MainMenu.is-active .MenuList {
@@ -81,6 +83,24 @@
 	}
 
 }
+
+@media (min-width: 72em) {
+
+	.Menu--service .MenuList {
+		padding: 0 3.75em 0 0;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Menu--service .MenuList {
+		padding: 0 4.5em 0 0;
+	}
+
+}
+
+/* Menu List media height */
 
 @media (min-height: 36em) {
 
