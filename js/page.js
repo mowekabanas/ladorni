@@ -107,6 +107,7 @@ var Page = (function() {
 
 		this.setActive(!!isActive);
 
+		// try get connection to Hero Slider and Header
 		this.getHeader();
 
 	};

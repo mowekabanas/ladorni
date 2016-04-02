@@ -16,15 +16,15 @@ var PageSlider = (function () {
 
 		this.onOverlayMouseOver = function (ev) {
 
-			if (self.page.viewport.hero)
-				self.page.viewport.hero.classList.add('is-active');
+			if (self.page.hero)
+				self.page.hero.classList.add('is-active');
 
 		};
 
 		this.onOverlayMouseOut = function (ev) {
 
-			if (self.page.viewport.hero)
-				self.page.viewport.hero.classList.remove('is-active');
+			if (self.page.hero)
+				self.page.hero.classList.remove('is-active');
 
 		};
 

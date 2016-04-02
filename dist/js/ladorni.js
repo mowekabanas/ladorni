@@ -1,4 +1,112 @@
 
+/* File Append 1.0 */
+
+var FileAppend = (function () {
+
+	/**
+	 * File Append request
+	 * @param viewport {Element}
+	 * @param url {string}
+	 * @param fallback {object}
+	 * @constructor
+	 */
+	function FileAppend(viewport, url, fallback) {
+
+		var self = this;
+
+		this.viewport = viewport;
+		this.url = url;
+		this.fallback = fallback;
+
+		this.isLoaded = false;
+
+		this.get();
+
+	}
+
+	/**
+	 * Append to element
+	 * @param toElement {Element}
+	 * @param before {Element}
+	 */
+	FileAppend.prototype.appendTo = function (toElement, before) {
+
+		if (!before)
+			toElement.appendChild(this.viewport);
+		else
+			toElement.insertBefore(this.viewport, before);
+
+	};
+
+	/**
+	 * Clone the logo and append to element
+	 * @param toElement {Element}
+	 */
+	FileAppend.prototype.cloneTo = function (toElement) {
+
+		toElement.appendChild(this.viewport.cloneNode(this.viewport));
+
+	};
+
+	FileAppend.prototype.get = function () {
+
+		var self = this;
+
+		if (this.viewport && this.url) {
+
+			var request = new XMLHttpRequest();
+			request.open('GET', this.url, true);
+
+			request.onreadystatechange = function() {
+
+				if (this.readyState === 4)
+					if (this.status == 200)
+						if (this.responseText) {
+
+							// set 'isLoaded' state to true
+							self.isLoaded = true;
+
+							// auto append the content
+							self.viewport.innerHTML = this.responseText;
+
+							// call the fallback (if exists)
+							if (self.fallback)
+								self.fallback();
+
+						}
+
+			};
+
+			request.send();
+			request = null;
+
+		}
+
+	};
+
+	return FileAppend;
+
+})();
+
+
+/* Hero */
+
+var Hero = (function () {
+
+	/**
+	 * Hero constructor
+	 * @constructor
+	 */
+	function Hero(viewport) {
+
+		this.viewport = viewport || false;
+
+	}
+
+	return Hero;
+
+})();
+
 /* Mowe Logo 1.0 */
 
 var Logo = (function () {
@@ -791,6 +899,7 @@ var Page = (function() {
 
 		this.setActive(!!isActive);
 
+		// try get connection to Hero Slider and Header
 		this.getHeader();
 
 	};
@@ -816,15 +925,15 @@ var PageSlider = (function () {
 
 		this.onOverlayMouseOver = function (ev) {
 
-			if (self.page.viewport.hero)
-				self.page.viewport.hero.classList.add('is-active');
+			if (self.page.hero)
+				self.page.hero.classList.add('is-active');
 
 		};
 
 		this.onOverlayMouseOut = function (ev) {
 
-			if (self.page.viewport.hero)
-				self.page.viewport.hero.classList.remove('is-active');
+			if (self.page.hero)
+				self.page.hero.classList.remove('is-active');
 
 		};
 

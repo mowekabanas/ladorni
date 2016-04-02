@@ -18,6 +18,8 @@ var FileAppend = (function () {
 		this.url = url;
 		this.fallback = fallback;
 
+		this.isLoaded = false;
+
 		this.get();
 
 	}
@@ -60,9 +62,17 @@ var FileAppend = (function () {
 				if (this.readyState === 4)
 					if (this.status == 200)
 						if (this.responseText) {
+
+							// set 'isLoaded' state to true
+							self.isLoaded = true;
+
+							// auto append the content
 							self.viewport.innerHTML = this.responseText;
+
+							// call the fallback (if exists)
 							if (self.fallback)
 								self.fallback();
+
 						}
 
 			};
