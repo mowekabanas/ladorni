@@ -74,8 +74,6 @@ var Page = (function() {
 
 	Page.prototype.getSlide = function () {
 
-		console.log(this.viewport.hero);
-
 		if (this.viewport.hero)
 			this.slider = new PageSlider(this);
 

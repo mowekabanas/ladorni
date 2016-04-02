@@ -47,8 +47,6 @@ var PageSlider = (function () {
 
 	PageSlider.prototype.init = function () {
 
-		console.log('kk');
-
 		if (this.page.viewport.hero)
 			this.addOverlayListener();
 

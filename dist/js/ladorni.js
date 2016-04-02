@@ -758,8 +758,6 @@ var Page = (function() {
 
 	Page.prototype.getSlide = function () {
 
-		console.log(this.viewport.hero);
-
 		if (this.viewport.hero)
 			this.slider = new PageSlider(this);
 
@@ -848,8 +846,6 @@ var PageSlider = (function () {
 	};
 
 	PageSlider.prototype.init = function () {
-
-		console.log('kk');
 
 		if (this.page.viewport.hero)
 			this.addOverlayListener();
@@ -1029,6 +1025,8 @@ var Unloader = (function () {
 
 		this.elements = elements || [];
 
+		this.isLoaded = false;
+
 		if (this.elements.length)
 			this.init();
 
@@ -1038,6 +1036,8 @@ var Unloader = (function () {
 
 		for (var i = this.elements.length; i--;)
 			this.elements[i].unloader.load();
+
+		this.isLoaded = true;
 
 	};
 
