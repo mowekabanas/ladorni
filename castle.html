@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="grey-100">
+<meta charset="UTF-8">
+<title>La Dorni - Castelo</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
+<link rel="stylesheet" href="css/winery.css"/>
+<link rel="stylesheet" href="css/winery-photos.css"/>
+<link rel="stylesheet" href="css/winery-photo-article.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<body>
+
 <style>
 
     figcaption {
@@ -5,166 +27,406 @@
         color: white;
         background-color: rgba(0, 0, 0, 0.7);
         font-size: 1.5em;
+
     }
 
 </style>
 
-<article class="WineryPhotoArticle WineryPhotoArticle--wide-cover grey-300">
+<div id="debug" style="position: fixed; z-index: 2; top: 0; right: 0;"></div>
 
-    <figure class="WineryPhotoArticle-figure font-white">
+<main class="Main playfair-display-italic">
 
-        <img src="img/largePhotos/lp08.jpg"  alt=""/>
+    <header id="header" class="Header">
 
-        <figcaption> Proporção: "16:9" - Para essa parte fotos assim com um enquadramento melhor: algo que seja sutil e demontre a imponência do castelo ao mesmo tempo"</figcaption>
+        <div class="HeaderLogo">
 
-    </figure>
+            <div id="header-logo" class="Logo">
 
-    <div class="WineryPhotoArticleContent WineryPhotoArticleContent--intro">
+                <a class="Logo-select-area">
 
-        <div class="WineryPhotoArticleContent-inner">
-
-            <header class="WineryPhotoArticleContent-header">
-
-                <h1>Castelo</h1>
-
-            </header>
-
-            <div class="WineryPhotoArticle-text">
-
-                <p>O castelo La Dorni é um pedacinho da Itália no Brasil. Construído de maneira artesanal, cada pedra de arenito da estrutura foi talhada manualmente uma a uma. Visitar-nos é uma experiência única.</p>
+                </a>
 
             </div>
 
         </div>
 
-    </div>
+        <nav class="HeaderNav">
 
-</article><!--Castelo-->
+            <a class="HeaderNavToggle">
 
-<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--left">
+                <span class="icon-menu"></span>
 
-    <figure class="WineryPhotoArticle-figure">
+            </a>
 
-        <img src="img/verticalPhotos/v11.jpg" alt=""/>
+            <ul class="HeaderNavMenu"></ul>
 
-        <figcaption>Proporção: "5:7" - Mesma idéia da foto anterior só que com proporções diferentes. Esta foto ilustra é uma boa idéia</figcaption>
+        </nav>
 
-    </figure>
+    </header>
 
-    <div class="WineryPhotoArticleContent grey-200">
+    <section class="Content">
 
-        <div class="WineryPhotoArticleContent-inner">
+        <article class="WineryPhotoArticle WineryPhotoArticle--wide-cover grey-300">
 
-            <header class="WineryPhotoArticleContent-header">
+            <figure class="WineryPhotoArticle-figure font-white">
 
-                <h1>Estrutura</h1>
+                <img src="img/src/modify/lp08.jpg"  alt=""/>
 
-            </header>
+                <figcaption> Proporção: "16:9" - Para essa parte fotos assim com um enquadramento melhor: algo que seja sutil e demontre a imponência do castelo ao mesmo tempo"</figcaption>
 
-            <div class="WineryPhotoArticle-text">
+            </figure>
 
-                <p>Abrigando nossos aromas e sabores, o castelo La Dorni, inspirado na baixa idade média e composto por mais de 50 mil pedras, é nosso relicário, guardando nossa mais fina arte; O Vinho.</p>
+            <div class="WineryPhotoArticleContent WineryPhotoArticleContent--intro">
 
-            </div>
+                <div class="WineryPhotoArticleContent-inner">
 
-        </div>
+                    <header class="WineryPhotoArticleContent-header">
 
-    </div>
+                        <h1>Castelo</h1>
 
-</article><!--Estrutura-->
+                    </header>
 
-<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--right">
+                    <div class="WineryPhotoArticle-text">
 
-    <figure class="WineryPhotoArticle-figure">
+                        <p>O castelo La Dorni é um pedacinho da Itália no Brasil. Construído de maneira artesanal, cada pedra de arenito da estrutura foi talhada manualmente uma a uma. Visitar-nos é uma experiência única.</p>
 
-        <img src="img/verticalPhotos/v11.jpg" alt=""/>
+                    </div>
 
-        <figcaption>Proporção: "5:7" - Algo com foco nas pedras eu pensei, mas aberto a sugestão</figcaption>
-
-    </figure>
-
-    <div class="WineryPhotoArticleContent grey-200">
-
-        <div class="WineryPhotoArticleContent-inner">
-
-            <header class="WineryPhotoArticleContent-header">
-
-                <h1>Construção</h1>
-
-            </header>
-
-            <div class="WineryPhotoArticle-text">
-
-                <p>50 mil pedras de arenito talhadas a mão uma a uma, tudo foi feito para recriar e manter a fidelidade de um castelo medieval. Com mais de 7 anos para ser construído, o castelo pode te guiar a uma verdadeira aula de história...ou talvez você pode somente dizer que já degustou um bom vinho na torre de um castelo.</p>
+                </div>
 
             </div>
 
-        </div>
+        </article><!--Castelo-->
 
-    </div>
+        <article class="WineryPhotoArticle grey-300 WineryPhotoArticle--left">
 
-</article><!--Construção-->
+            <figure class="WineryPhotoArticle-figure">
 
-<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--left">
+                <img src="img/src/modify/v11.jpg" alt=""/>
 
-    <figure class="WineryPhotoArticle-figure">
+                <figcaption>Proporção: "5:7" - Mesma idéia da foto anterior só que com proporções diferentes. Esta foto ilustra é uma boa idéia</figcaption>
 
-        <img src="img/verticalPhotos/v11.jpg" alt=""/>
+            </figure>
 
-        <figcaption>Proporção: "5:7" - Foco na decoração, mobília, objetos interessantes com a construção e as pedras como plano de fundo</figcaption>
+            <div class="WineryPhotoArticleContent grey-200">
 
-    </figure>
+                <div class="WineryPhotoArticleContent-inner">
 
-    <div class="WineryPhotoArticleContent grey-200">
+                    <header class="WineryPhotoArticleContent-header">
 
-        <div class="WineryPhotoArticleContent-inner">
+                        <h1>Estrutura</h1>
 
-            <header class="WineryPhotoArticleContent-header">
+                    </header>
 
-                <h1>Relíquias</h1>
+                    <div class="WineryPhotoArticle-text">
 
-            </header>
+                        <p>Abrigando nossos aromas e sabores, o castelo La Dorni, inspirado na baixa idade média e composto por mais de 50 mil pedras, é nosso relicário, guardando nossa mais fina arte; O Vinho.</p>
 
-            <div class="WineryPhotoArticle-text">
+                    </div>
 
-                <p>Nossa decoração é um capítulo a parte. De armas medievais a móveis que estão na família há gerações, o clima remete ao período mais emblemático do vinho na sociedade. Uma homenagem aos cavaleiros cruzados, que protegiam os peregrinos até a terra santa.</p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</article><!--Reliquias-->
-
-<article class="WineryPhotoArticle grey-300 WineryPhotoArticle--wide-cover">
-
-    <figure class="WineryPhotoArticle-figure">
-
-        <img src="img/largePhotos/lp14.jpg" alt=""/>
-
-        <figcaption>Proporção: "16:9" - Aqui uma foto captando bem a perspectiva da caverna, com um bom enquadramento da entrada pro fundo preferencialmente, porém do contrário seria bom também tomando cuidado para a luz não "estourar" a foto</figcaption>
-
-    </figure>
-
-    <div class="WineryPhotoArticleContent grey-200">
-
-        <div class="WineryPhotoArticleContent-inner">
-
-            <header class="WineryPhotoArticleContent-header">
-
-                <h1>Adega</h1>
-
-            </header>
-
-            <div class="WineryPhotoArticle-text">
-
-                <p>Nossa cave, construída inteiramente com arcos romanos que se entrelaçam é o local onde armazenamos e envelhecemos nossos melhores vinhos. O visitante pode conhecer e apreciar todo o processo de envelhecimento dos vinhos e conhecer mais sobre os métodos de produção.</p>
+                </div>
 
             </div>
 
-        </div>
+        </article><!--Estrutura-->
 
-    </div>
+        <article class="WineryPhotoArticle grey-300 WineryPhotoArticle--right">
 
-</article><!--Cave-->
+            <figure class="WineryPhotoArticle-figure">
+
+                <img src="img/src/modify/v11.jpg" alt=""/>
+
+                <figcaption>Proporção: "5:7" - Algo com foco nas pedras eu pensei, mas aberto a sugestão</figcaption>
+
+            </figure>
+
+            <div class="WineryPhotoArticleContent grey-200">
+
+                <div class="WineryPhotoArticleContent-inner">
+
+                    <header class="WineryPhotoArticleContent-header">
+
+                        <h1>Construção</h1>
+
+                    </header>
+
+                    <div class="WineryPhotoArticle-text">
+
+                        <p>50 mil pedras de arenito talhadas a mão uma a uma, tudo foi feito para recriar e manter a fidelidade de um castelo medieval. Com mais de 7 anos para ser construído, o castelo pode te guiar a uma verdadeira aula de história...ou talvez você pode somente dizer que já degustou um bom vinho na torre de um castelo.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article><!--Construção-->
+
+        <article class="WineryPhotoArticle grey-300 WineryPhotoArticle--left">
+
+            <figure class="WineryPhotoArticle-figure">
+
+                <img src="img/src/modify/v11.jpg" alt=""/>
+
+                <figcaption>Proporção: "5:7" - Foco na decoração, mobília, objetos interessantes com a construção e as pedras como plano de fundo</figcaption>
+
+            </figure>
+
+            <div class="WineryPhotoArticleContent grey-200">
+
+                <div class="WineryPhotoArticleContent-inner">
+
+                    <header class="WineryPhotoArticleContent-header">
+
+                        <h1>Relíquias</h1>
+
+                    </header>
+
+                    <div class="WineryPhotoArticle-text">
+
+                        <p>Nossa decoração é um capítulo a parte. De armas medievais a móveis que estão na família há gerações, o clima remete ao período mais emblemático do vinho na sociedade. Uma homenagem aos cavaleiros cruzados, que protegiam os peregrinos até a terra santa.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article><!--Reliquias-->
+
+        <article class="WineryPhotoArticle grey-300 WineryPhotoArticle--wide-cover">
+
+            <figure class="WineryPhotoArticle-figure">
+
+                <img src="img/src/modify/lp14.jpg" alt=""/>
+
+                <figcaption>Proporção: "16:9" - Aqui uma foto captando bem a perspectiva da caverna, com um bom enquadramento da entrada pro fundo preferencialmente, porém do contrário seria bom também tomando cuidado para a luz não "estourar" a foto</figcaption>
+
+            </figure>
+
+            <div class="WineryPhotoArticleContent grey-200">
+
+                <div class="WineryPhotoArticleContent-inner">
+
+                    <header class="WineryPhotoArticleContent-header">
+
+                        <h1>Adega</h1>
+
+                    </header>
+
+                    <div class="WineryPhotoArticle-text">
+
+                        <p>Nossa cave, construída inteiramente com arcos romanos que se entrelaçam é o local onde armazenamos e envelhecemos nossos melhores vinhos. O visitante pode conhecer e apreciar todo o processo de envelhecimento dos vinhos e conhecer mais sobre os métodos de produção.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article><!--Cave-->
+
+    </section>
+
+</main>
+
+<script>
+
+    var WineryPhotoArticle = (function () {
+
+        /**
+         * Constructor of Winery Photo Container
+         * @param viewport {Object}
+         * @constructor
+         */
+        function WineryPhotoArticle(viewport) {
+
+            this.viewport = viewport || false;
+
+            this.img = {};
+            this.figcaption = {};
+
+            if (this.viewport)
+                this.init();
+
+        }
+
+        WineryPhotoArticle.prototype.loadImg = function () {
+
+            return this.viewport.querySelector('img') || false;
+
+        };
+
+        WineryPhotoArticle.prototype.init = function () {
+
+            var self = this;
+
+            this.img = this.loadImg();
+
+            this.figure = this.viewport.querySelector('.WineryPhotoArticle-figure');
+
+            this.figure.style.backgroundImage = 'url("' + this.img.src + '")';
+
+            this.viewport.addEventListener('dragenter', noopHandler, false);
+            this.viewport.addEventListener('dragexit', noopHandler, false);
+            this.viewport.addEventListener('dragover', noopHandler, false);
+            this.viewport.addEventListener('drop', drop, false);
+
+            function noopHandler(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+            }
+
+            function drop(evt) {
+
+                evt.preventDefault();
+
+                if (window.FileReader) {
+
+                    var	oPreviewImg = null;
+                    var oFReader = new window.FileReader();
+
+                    oFReader.onload = function (oFREvent) {
+
+                        console.log(oFREvent);
+
+                        if (!oPreviewImg) {
+                            oPreviewImg = new Image();
+                            self.figure.appendChild(oPreviewImg);
+                        }
+
+                        self.img.src = oFREvent.target.result;
+
+                        console.log(oFREvent.target.result);
+
+                    };
+
+                    var aFiles = evt.dataTransfer.files;
+                    oFReader.readAsDataURL(aFiles[0]);
+
+                }
+
+            }
+
+        };
+
+        return WineryPhotoArticle;
+
+    })();
+
+    var a = document.querySelectorAll('.WineryPhotoArticle');
+
+    var b = [];
+
+    for (var i = a.length; i--; )
+        b.push(new WineryPhotoArticle(a[i]));
+
+</script>
+
+<script>
+
+    var debug = {};
+    debug.viewport = document.getElementById('debug');
+
+    debug.log = function(text) {
+        debug.viewport.innerHTML = text;
+    };
+
+    debug.log('');
+
+    var allow = false;
+    var scrollTop = window.scrollTop;
+
+    var header = document.getElementById('header');
+    var headerLogo = document.getElementById('header-logo');
+
+    var lastTouch = 0;
+    var currentTouch, resultTouch;
+
+    var translate = 0;
+
+    var lockScroll = false;
+
+    var lockScrollDelay;
+
+    window.addEventListener('touchstart', function (ev) {
+
+        scrollTop = document.documentElement.scrollTop;
+        allow = scrollTop < headerLogo.offsetHeight;
+
+        for (var i = ev.touches.length; i--; )
+            lastTouch = ev.touches[i].clientY;
+
+        lockScroll = true;
+
+    });
+
+    window.addEventListener('touchmove', function (ev) {
+
+        for (var i = ev.touches.length; i--; ) {
+
+            currentTouch = ev.touches[i].clientY;
+            resultTouch = currentTouch - lastTouch;
+
+            translate += resultTouch;
+
+            if (translate > 0)
+                translate = 0;
+            else if (Math.abs(translate) > headerLogo.offsetHeight) {
+                translate = - headerLogo.offsetHeight;
+            }
+
+            header.style.transform = 'translateY(' + translate + 'px)';
+
+            lastTouch = currentTouch;
+
+        }
+
+    });
+
+    window.addEventListener('touchend', function (ev) {
+
+        if (lockScrollDelay)
+
+            lockScrollDelay = setTimeout(function () {
+                lockScroll = false;
+            }, 600);
+
+    });
+
+    var lastScroll = document.documentElement.scrollTop;
+    var currentScroll, resultScroll;
+
+    window.addEventListener('scroll', function (ev) {
+
+        if (!lockScroll) {
+
+            currentScroll = ev.pageY;
+            resultScroll = currentScroll - lastScroll;
+
+            translate += resultScroll;
+
+//			console.log(resultScroll);
+//			console.log(translate);
+//
+//			console.log('-------');
+
+            if (translate < 0)
+                translate = 0;
+            else if (Math.abs(translate) > headerLogo.offsetHeight) {
+                translate = headerLogo.offsetHeight;
+            }
+
+            header.style.transform = 'translateY(' + - (translate) + 'px)';
+
+            lastScroll = currentScroll;
+
+        }
+
+    });
+
+</script>
+
+</body>
+
+</html>
