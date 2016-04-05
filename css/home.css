@@ -10,8 +10,11 @@
 @media (min-width: 48em) {
 
 	.Home {
-		display: block;
 		height: 100%;
+	}
+
+	body.is-home .Home {
+		display: block;
 	}
 
 }

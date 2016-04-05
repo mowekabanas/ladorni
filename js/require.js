@@ -43,10 +43,48 @@ var Require = (function () {
 
 	}
 
+	Require.prototype.addListener = function (element) {
+
+		element.addEventListener('load', this.onLoadCtrl, false);
+
+	};
+
+	/**
+	 * Build a ghost element with the same src and append this to document body
+	 * This ensures that always will return the fallback function
+	 * @param element
+	 * @return {Node}
+	 */
+	Require.prototype.buildGhostElement = function (element) {
+
+		element.ghostElement = document.createElement('img');
+		element.ghostElement.style.display = 'none';
+		element.ghostElement.src = element.src;
+
+		element.ghostElement.isLoaded = element.isLoaded;
+		element.ghostElement.originElement = element;
+
+		document.body.appendChild(element.ghostElement);
+
+		return element.ghostElement;
+
+	};
+
+	Require.prototype.normalizeElement = function (element) {
+
+		element.isLoaded = false;
+
+		if (element.getAttribute('src'))
+			this.addListener(this.buildGhostElement(element));
+		else
+			this.addListener(element);
+
+	};
+
 	Require.prototype.init = function () {
 
 		for (var i = this.elements.length; i--;)
-			this.elements[i].addEventListener('load', this.onLoadCtrl)
+			this.normalizeElement(this.elements[i]);
 
 	};
 

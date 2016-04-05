@@ -40,6 +40,14 @@
 
 <body class="is-loading">
 
+<div id="hero-photos">
+
+	<!--<img src="img/largePhotos/lp14.jpg" style="display: none" />-->
+	<!--<img src="img/headerPhotos/torre.jpg" style="display: none" />-->
+	<!--<img src="img/largePhotos/lp08.jpg" style="display: none" />-->
+
+</div>
+
 <nav id="navigation" class="MainNav Navigation">
 
 	<div class="Transition">
@@ -476,6 +484,8 @@
 
 		LaDorni.prototype.init = function() {
 
+			var self = this;
+
 			this.getLogo();
 
 			/* Init pages */
@@ -495,7 +505,13 @@
 
 			this.navigation.init();
 
-			var background = fileAppend
+//			this.requireContent = document.getElementById('hero-photos').querySelectorAll('img');
+//
+//			this.require = new Require(this.requireContent, function () {
+//
+//				self.viewport.classList.remove('is-loading');
+//
+//			}, 1);
 
 		};
 
@@ -524,7 +540,7 @@
 
 	var ladorni = new LaDorni(document.body);
 
-	ladorni.navigation = new Navigation(document.getElementById('navigation'), document.body);
+	ladorni.navigation = new Navigation(document.getElementById('navigation'), ladorni.viewport);
 
 	ladorni.navigation.pushItem({
 		action: {

@@ -274,6 +274,26 @@ body.is-home .Hero {
 	}
 
 }
+
+/* Main Home */
+
+.Home {
+	display: none;
+	position: fixed;
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+
+	.Home {
+		height: 100%;
+	}
+
+	body.is-home .Home {
+		display: block;
+	}
+
+}
 @font-face {
 	font-family: 'ladorni';
 	src: url('../font/ladorni.eot?41974464');
@@ -656,23 +676,6 @@ body.is-transiting .Logo svg {
 
 	.Category {
 
-	}
-
-}
-
-/* Main Home */
-
-.Home {
-	display: none;
-	position: fixed;
-	width: 100%;
-}
-
-@media (min-width: 48em) {
-
-	.Home {
-		display: block;
-		height: 100%;
 	}
 
 }
