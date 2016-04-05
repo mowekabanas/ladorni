@@ -47,7 +47,7 @@ var WineCheckout = (function() {
 
 		var text = document.createElement('span');
 		text.className = 'Wine-anchor-text';
-		text.innerHTML = 'Ir para loja online';
+		text.innerHTML = 'Comprar';
 
 		element.appendChild(text);
 

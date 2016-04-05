@@ -1,5 +1,5 @@
 
-/* File Append 1.0 */
+/* File Append 1.1 */
 
 var FileAppend = (function () {
 
@@ -14,13 +14,14 @@ var FileAppend = (function () {
 
 		var self = this;
 
-		this.viewport = viewport;
+		this.viewport = viewport || false;
 		this.url = url;
 		this.fallback = fallback;
 
 		this.isLoaded = false;
 
-		this.get();
+		if (this.viewport || this.url)
+			this.init();
 
 	}
 
@@ -81,6 +82,13 @@ var FileAppend = (function () {
 			request = null;
 
 		}
+
+	};
+
+	FileAppend.prototype.init = function () {
+
+		if (this.viewport)
+			this.get();
 
 	};
 
@@ -1086,10 +1094,48 @@ var Require = (function () {
 
 	}
 
+	Require.prototype.addListener = function (element) {
+
+		element.addEventListener('load', this.onLoadCtrl, false);
+
+	};
+
+	/**
+	 * Build a ghost element with the same src and append this to document body
+	 * This ensures that always will return the fallback function
+	 * @param element
+	 * @return {Node}
+	 */
+	Require.prototype.buildGhostElement = function (element) {
+
+		element.ghostElement = document.createElement('img');
+		element.ghostElement.style.display = 'none';
+		element.ghostElement.src = element.src;
+
+		element.ghostElement.isLoaded = element.isLoaded;
+		element.ghostElement.originElement = element;
+
+		document.body.appendChild(element.ghostElement);
+
+		return element.ghostElement;
+
+	};
+
+	Require.prototype.normalizeElement = function (element) {
+
+		element.isLoaded = false;
+
+		if (element.getAttribute('src'))
+			this.addListener(this.buildGhostElement(element));
+		else
+			this.addListener(element);
+
+	};
+
 	Require.prototype.init = function () {
 
 		for (var i = this.elements.length; i--;)
-			this.elements[i].addEventListener('load', this.onLoadCtrl)
+			this.normalizeElement(this.elements[i]);
 
 	};
 
@@ -1790,7 +1836,7 @@ var WineCheckout = (function() {
 
 		var text = document.createElement('span');
 		text.className = 'Wine-anchor-text';
-		text.innerHTML = 'Ir para loja online';
+		text.innerHTML = 'Comprar';
 
 		element.appendChild(text);
 
