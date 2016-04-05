@@ -95,6 +95,7 @@ var Hero = (function () {
 
 	/**
 	 * Hero constructor
+	 * Get the Hero Gallery Item (slider) of the Page
 	 * @constructor
 	 */
 	function Hero(viewport) {
@@ -723,6 +724,8 @@ var Navigation = (function () {
 
 		this.getTransition();
 
+		// query the current page and change this
+		// here we really start the page
 		if (this.navigationItems.length)
 			this.change(this.queryCurrentPage(), false);
 
@@ -739,10 +742,10 @@ var NavigationItem = (function() {
 	/**
 	 * Naviagation Item constructor
 	 * @param parameters {object}
-	 * @param pageViewport {Element}
+	 * @param page {Element}
 	 * @constructor
 	 */
-	function NavigationItem(parameters, pageViewport) {
+	function NavigationItem(parameters, page) {
 
 		this.name = parameters.itemName;
 		this.title = parameters.itemTitle;
@@ -754,15 +757,9 @@ var NavigationItem = (function() {
 
 		this.action = parameters.action || false;
 
-		this.page = this.getPage(pageViewport);
+		this.page = page;
 
 	}
-
-	NavigationItem.prototype.getPage = function(viewport) {
-
-		return new Page(viewport);
-
-	};
 
 	return NavigationItem;
 
@@ -810,7 +807,12 @@ var Page = (function() {
 		this.header.background = {};
 		this.header.overlay = {};
 
+		this.content = {};
+
+		this.hero = {};
+
 		this.isActive = false;
+		this.isLoaded = false;
 
 		if (this.viewport)
 			this.init(false);
@@ -866,7 +868,7 @@ var Page = (function() {
 
 	Page.prototype.getSlide = function () {
 
-		if (this.viewport.hero)
+		if (this.hero.viewport)
 			this.slider = new PageSlider(this);
 
 	};
@@ -882,11 +884,10 @@ var Page = (function() {
 			this.header.background.viewport = this.header.viewport.querySelector('.PageHeader-background');
 			this.header.overlay.viewport = this.header.viewport.querySelector('.PageHeader-overlay');
 
-		}
-
-		// try get the hero slider
-		if (this.header.viewport)
+			// get the hero slider
 			this.getSlide();
+
+		}
 
 	};
 
@@ -908,6 +909,82 @@ var Page = (function() {
 
 })();
 
+/* Page Load Actions */
+
+var PageAction = (function () {
+
+	/**
+	 * Page Load Actions constructor
+	 * @constructor
+	 */
+	function PageAction(navigation, page, stateClass) {
+
+		this.navigation = navigation || false;
+		this.page = page || false;
+		this.stateClass = stateClass || false;
+
+	}
+
+	PageAction.prototype.after = function () {
+
+		// remove document state
+		ladorni.navigation.removeDocumentState(this.stateClass);
+
+	};
+
+	PageAction.prototype.before = function () {
+
+		// put document state
+		this.navigation.addDocumentState(this.stateClass);
+
+		// if page is not loaded, try load it
+		if (!this.page.isLoaded) {
+
+			// if has file append
+			if (this.page.fileAppend) {
+
+				// if has not load, set it to be auto loaded when it is done
+				if (this.page.load) {
+
+					if (this.page.fileAppend.isLoaded)
+						this.page.load();
+					else
+						this.page.autoLoad = true;
+
+				}
+
+			} else if (this.page.requireContent) {
+
+				this.page.requireContent();
+
+			}
+
+		}
+
+	};
+
+	return PageAction;
+
+})();
+
+/* Page Content */
+
+var PageContent = (function () {
+
+	/**
+	 * Page Content constructor
+	 * @constructor
+	 */
+	function PageContent(viewport) {
+
+		this.viewport = viewport || false;
+
+	}
+
+	return PageContent;
+
+})();
+
 /* Page Slider */
 
 var PageSlider = (function () {
@@ -925,15 +1002,15 @@ var PageSlider = (function () {
 
 		this.onOverlayMouseOver = function (ev) {
 
-			if (self.page.hero)
-				self.page.hero.classList.add('is-active');
+			if (self.page.hero.viewport)
+				self.page.hero.viewport.classList.add('is-active');
 
 		};
 
 		this.onOverlayMouseOut = function (ev) {
 
-			if (self.page.hero)
-				self.page.hero.classList.remove('is-active');
+			if (self.page.hero.viewport)
+				self.page.hero.viewport.classList.remove('is-active');
 
 		};
 
@@ -956,9 +1033,8 @@ var PageSlider = (function () {
 
 	PageSlider.prototype.init = function () {
 
-		if (this.page.viewport.hero)
+		if (this.page.hero)
 			this.addOverlayListener();
-
 
 	};
 
@@ -987,19 +1063,19 @@ var Require = (function () {
 		this.requireRange = range || .5;
 		this.loadCount = 0;
 
-		this.isLoad = false;
+		this.isLoaded = false;
 
 		this.onLoadCtrl = function (ev) {
 
 			self.loadCount++;
 
-			if (!self.isLoad)
+			if (!self.isLoaded)
 				if (self.loadCount >= (self.elements.length * self.requireRange)) {
 
 					if (self.listener)
 						self.listener(self);
 
-					self.isLoad = true;
+					self.isLoaded = true;
 
 				}
 

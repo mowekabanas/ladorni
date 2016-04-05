@@ -351,6 +351,8 @@ var Navigation = (function () {
 
 		this.getTransition();
 
+		// query the current page and change this
+		// here we really start the page
 		if (this.navigationItems.length)
 			this.change(this.queryCurrentPage(), false);
 

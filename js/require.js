@@ -20,19 +20,19 @@ var Require = (function () {
 		this.requireRange = range || .5;
 		this.loadCount = 0;
 
-		this.isLoad = false;
+		this.isLoaded = false;
 
 		this.onLoadCtrl = function (ev) {
 
 			self.loadCount++;
 
-			if (!self.isLoad)
+			if (!self.isLoaded)
 				if (self.loadCount >= (self.elements.length * self.requireRange)) {
 
 					if (self.listener)
 						self.listener(self);
 
-					self.isLoad = true;
+					self.isLoaded = true;
 
 				}
 

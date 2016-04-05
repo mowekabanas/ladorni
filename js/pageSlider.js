@@ -16,15 +16,15 @@ var PageSlider = (function () {
 
 		this.onOverlayMouseOver = function (ev) {
 
-			if (self.page.hero)
-				self.page.hero.classList.add('is-active');
+			if (self.page.hero.viewport)
+				self.page.hero.viewport.classList.add('is-active');
 
 		};
 
 		this.onOverlayMouseOut = function (ev) {
 
-			if (self.page.hero)
-				self.page.hero.classList.remove('is-active');
+			if (self.page.hero.viewport)
+				self.page.hero.viewport.classList.remove('is-active');
 
 		};
 
@@ -47,9 +47,8 @@ var PageSlider = (function () {
 
 	PageSlider.prototype.init = function () {
 
-		if (this.page.viewport.hero)
+		if (this.page.hero)
 			this.addOverlayListener();
-
 
 	};
 

@@ -310,32 +310,29 @@
 			this.winery = {};
 			this.castle = {};
 
-			ladorni.navigation = false;
+			this.navigation = false;
 
 			/* Get Pages viewports */
 
+			// Home
+			this.home = new Page();
+			this.home.viewport = document.getElementById('home');
+
+			// WineMenu
 			this.winemenu = new Page();
 			this.winemenu.viewport = document.getElementById('winemenu');
 			this.winemenu.hero = new Hero(document.getElementById('winemenu-hero'));
+			this.winemenu.content.viewport = document.getElementById('vinhos');
 
+			// Winery
 			this.winery = new Page();
 			this.winery.viewport = document.getElementById('winery');
 			this.winery.hero = new Hero(document.getElementById('winery-hero'));
 
+			// Castle
 			this.castle = new Page();
 			this.castle.viewport = document.getElementById('castle');
 			this.castle.hero = new Hero(document.getElementById('castle-hero'));
-
-			/* Init pages */
-
-			if (this.winemenu.viewport)
-				this.winemenu.init();
-
-			if (this.winery.viewport)
-				this.winery.init();
-
-			if (this.castle.viewport)
-				this.castle.init();
 
 		}
 
@@ -355,9 +352,14 @@
 
 			if (this.winemenu.viewport) {
 
-				this.winemenu.init();
-
 				this.winemenu.autoLoad = false;
+
+				this.winemenu.done = function () {
+
+					self.navigation.removeDocumentState('is-loading');
+					self.winemenu.isLoaded = true;
+
+				};
 
 				this.winemenu.load = function() {
 
@@ -365,7 +367,7 @@
 					if (!self.winemenu.contentLoad.isLoaded) {
 
 						self.winemenu.contentLoad.load();
-						self.navigation.addDocumentState('is-loading');
+						ladorni.navigation.addDocumentState('is-loading');
 
 						var wineList = new WineList(document.documentElement);
 						wineList.init();
@@ -374,22 +376,25 @@
 
 				};
 
-				this.winemenu.normalizeContent = function (autoLoad) {
+				// unload, require and load the content
+				this.winemenu.requireContent = function (autoLoad) {
 
-					self.winemenu.requiredContent = self.winemenu.viewport.querySelectorAll('.WineFigure-img');
-					self.winemenu.contentLoad = new Unloader(self.winemenu.requiredContent);
-					self.winemenu.require = new Require(self.winemenu.requiredContent, test, .5);
+					if (!self.winemenu.isLoaded) {
 
-					if (autoLoad || self.winemenu.autoLoad)
-						self.winemenu.load();
+						self.winemenu.requiredContent = self.winemenu.viewport.querySelectorAll('.WineFigure-img');
+						self.winemenu.contentLoad = new Unloader(self.winemenu.requiredContent);
+						self.winemenu.require = new Require(self.winemenu.requiredContent, self.winemenu.done, .5);
+
+						if (autoLoad || self.winemenu.autoLoad)
+							self.winemenu.load();
+
+					}
 
 				};
 
-				this.winemenu.content = {};
-				this.winemenu.content.viewport = document.getElementById('vinhos');
 				this.winemenu.fileAppend = new FileAppend(this.winemenu.content.viewport, 'winemenu.html', function () {
 
-					self.winemenu.normalizeContent(self.winemenu.autoLoad);
+					self.winemenu.requireContent(self.winemenu.autoLoad);
 
 				});
 
@@ -403,8 +408,6 @@
 
 			if (this.winery.viewport) {
 
-				this.winery.init();
-
 				this.winery.autoLoad = false;
 
 				this.winery.load = function() {
@@ -413,7 +416,7 @@
 
 				};
 
-				this.winery.normalizeContent = function (autoLoad) {
+				this.winery.requireContent = function (autoLoad) {
 
 					if (autoLoad || self.winery.autoLoad)
 						self.winery.load();
@@ -424,7 +427,7 @@
 				this.winery.content.viewport = document.getElementById('vinicola');
 				this.winery.fileAppend = new FileAppend(this.winery.content.viewport, 'winery.html', function () {
 
-					self.winery.normalizeContent(self.winery.autoLoad);
+					self.winery.requireContent(self.winery.autoLoad);
 
 				});
 
@@ -438,8 +441,6 @@
 
 			if (this.castle.viewport) {
 
-				this.castle.init();
-
 				this.castle.autoLoad = false;
 
 				this.castle.load = function() {
@@ -448,7 +449,7 @@
 
 				};
 
-				this.castle.normalizeContent = function (autoLoad) {
+				this.castle.requireContent = function (autoLoad) {
 
 					if (autoLoad || self.winery.autoLoad)
 						self.winery.load();
@@ -459,7 +460,7 @@
 				this.castle.content.viewport = document.getElementById('castelo');
 				this.castle.fileAppend = new FileAppend(this.castle.content.viewport, 'castle.html', function () {
 
-					self.castle.normalizeContent(self.castle.autoLoad);
+					self.castle.requireContent(self.castle.autoLoad);
 
 				});
 
@@ -471,9 +472,22 @@
 
 			this.getLogo();
 
+			/* Init pages */
+
+			if (this.winemenu.viewport)
+				this.winemenu.init();
+
+			if (this.winery.viewport)
+				this.winery.init();
+
+			if (this.castle.viewport)
+				this.castle.init();
+
 			this.getWineMenu();
 			this.getWinery();
 			this.getCastle();
+
+			this.navigation.init();
 
 		};
 
@@ -484,64 +498,6 @@
 </script>
 
 <script>
-
-	var headerLogo = document.getElementById('main-header-logo');
-
-	var ladorni = new LaDorni(document.body);
-	ladorni.init();
-
-	ladorni.navigation = new Navigation(document.getElementById('navigation'), document.body);
-
-	ladorni.navigation.pushItem({
-		action: {
-			before: welcomeMessage
-		},
-		itemName: 'home',
-		itemTitle: false,
-		itemURL: './',
-		isHome: true,
-		stateClass: 'is-home'
-	}, document.getElementById('home'));
-
-	ladorni.navigation.pushItem({
-		itemName: 'winery',
-		itemTitle: 'A vínicola',
-		itemURL: './vinicola'
-	}, ladorni.winery.viewport);
-
-	ladorni.navigation.pushItem({
-		itemName: 'castle',
-		itemTitle: 'O Castelo',
-		itemURL: './castelo'
-	}, ladorni.castle.viewport);
-
-	ladorni.navigation.pushItem({
-		action: {
-			after: function () {
-
-				// remove document state
-				self.navigation.removeDocumentState('is-winemenu');
-
-			},
-			before: function () {
-
-				// put document state
-				self.navigation.addDocumentState('is-winemenu');
-
-				// if has not load, set it to be auto loaded when it is done
-				if (self.winemenu.fileAppend.isLoaded)
-					self.winemenu.load();
-				else
-					self.winemenu.autoLoad = true;
-
-			}
-		},
-		itemName: 'winemenu',
-		itemTitle: 'Vinhos',
-		itemURL: './vinhos'
-	}, ladorni.winemenu.viewport);
-
-	ladorni.navigation.init();
 
 	var welcomeMessage = function (nav) {
 
@@ -554,9 +510,45 @@
 
 	var test = function () {
 
-		ladorni.navigation.removeDocumentState('is-loading');
-
 	};
+
+	var headerLogo = document.getElementById('main-header-logo');
+
+	var ladorni = new LaDorni(document.body);
+
+	ladorni.navigation = new Navigation(document.getElementById('navigation'), document.body);
+
+	ladorni.navigation.pushItem({
+		action: {
+			before: welcomeMessage
+		},
+		itemName: 'home',
+		itemTitle: false,
+		itemURL: './',
+		isHome: true,
+		stateClass: 'is-home'
+	}, ladorni.home);
+
+	ladorni.navigation.pushItem({
+		itemName: 'winery',
+		itemTitle: 'A vínicola',
+		itemURL: './vinicola'
+	}, ladorni.winery);
+
+	ladorni.navigation.pushItem({
+		itemName: 'castle',
+		itemTitle: 'O Castelo',
+		itemURL: './castelo'
+	}, ladorni.castle);
+
+	ladorni.navigation.pushItem({
+		action: new PageAction(ladorni.navigation, ladorni.winemenu, 'is-winemenu'),
+		itemName: 'winemenu',
+		itemTitle: 'Vinhos',
+		itemURL: './vinhos'
+	}, ladorni.winemenu);
+
+	ladorni.init();
 
 </script>
 

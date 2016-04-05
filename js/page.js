@@ -18,7 +18,12 @@ var Page = (function() {
 		this.header.background = {};
 		this.header.overlay = {};
 
+		this.content = {};
+
+		this.hero = {};
+
 		this.isActive = false;
+		this.isLoaded = false;
 
 		if (this.viewport)
 			this.init(false);
@@ -74,7 +79,7 @@ var Page = (function() {
 
 	Page.prototype.getSlide = function () {
 
-		if (this.viewport.hero)
+		if (this.hero.viewport)
 			this.slider = new PageSlider(this);
 
 	};
@@ -90,11 +95,10 @@ var Page = (function() {
 			this.header.background.viewport = this.header.viewport.querySelector('.PageHeader-background');
 			this.header.overlay.viewport = this.header.viewport.querySelector('.PageHeader-overlay');
 
-		}
-
-		// try get the hero slider
-		if (this.header.viewport)
+			// get the hero slider
 			this.getSlide();
+
+		}
 
 	};
 

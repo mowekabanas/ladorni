@@ -6,10 +6,10 @@ var NavigationItem = (function() {
 	/**
 	 * Naviagation Item constructor
 	 * @param parameters {object}
-	 * @param pageViewport {Element}
+	 * @param page {Element}
 	 * @constructor
 	 */
-	function NavigationItem(parameters, pageViewport) {
+	function NavigationItem(parameters, page) {
 
 		this.name = parameters.itemName;
 		this.title = parameters.itemTitle;
@@ -21,15 +21,9 @@ var NavigationItem = (function() {
 
 		this.action = parameters.action || false;
 
-		this.page = this.getPage(pageViewport);
+		this.page = page;
 
 	}
-
-	NavigationItem.prototype.getPage = function(viewport) {
-
-		return new Page(viewport);
-
-	};
 
 	return NavigationItem;
 
