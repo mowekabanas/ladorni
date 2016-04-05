@@ -1,5 +1,5 @@
 
-/* File Append 1.0 */
+/* File Append 1.1 */
 
 var FileAppend = (function () {
 
@@ -14,13 +14,14 @@ var FileAppend = (function () {
 
 		var self = this;
 
-		this.viewport = viewport;
+		this.viewport = viewport || false;
 		this.url = url;
 		this.fallback = fallback;
 
 		this.isLoaded = false;
 
-		this.get();
+		if (this.viewport || this.url)
+			this.init();
 
 	}
 
@@ -81,6 +82,13 @@ var FileAppend = (function () {
 			request = null;
 
 		}
+
+	};
+
+	FileAppend.prototype.init = function () {
+
+		if (this.viewport)
+			this.get();
 
 	};
 

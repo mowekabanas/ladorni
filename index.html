@@ -38,7 +38,7 @@
 
 </style>
 
-<body class="">
+<body class="is-loading">
 
 <nav id="navigation" class="MainNav Navigation">
 
@@ -334,6 +334,12 @@
 			this.castle.viewport = document.getElementById('castle');
 			this.castle.hero = new Hero(document.getElementById('castle-hero'));
 
+			this.onLoad = function (ev) {
+
+				console.log('ksdfasjdf');
+
+			};
+
 		}
 
 		LaDorni.prototype.getLogo = function () {
@@ -488,6 +494,8 @@
 			this.getCastle();
 
 			this.navigation.init();
+
+			var background = fileAppend
 
 		};
 
