@@ -86,12 +86,12 @@ var Page = (function() {
 
 					self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
 
-					self.unloader.isLoaded = self.requiredContent;
+					self.unloader.elements = self.requiredContent;
 					self.unloader.init();
 
 					self.require.elements = self.requiredContent;
 					self.require.listener = self.done;
-					self.require.init();
+					//self.require.init();
 
 				}
 

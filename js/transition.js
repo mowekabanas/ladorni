@@ -16,11 +16,11 @@ var Transition = (function () {
 
 		var self = this;
 
-		this.navigation.document.classList.add('is-transiting');
+		this.navigation.document.viewport.classList.add('is-transiting');
 
 		setTimeout(function () {
 
-			self.navigation.document.classList.remove('is-transiting');
+			self.navigation.document.viewport.classList.remove('is-transiting');
 
 		}, 1600);
 

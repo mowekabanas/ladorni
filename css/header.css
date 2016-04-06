@@ -9,6 +9,7 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	font-family: 'Playfair Display', serif;
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
 	position: absolute;

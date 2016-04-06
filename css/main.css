@@ -3,6 +3,26 @@
 
 .Main {
 	position: relative;
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+	-webkit-transition: opacity .8s, transform .8s;
+	-moz-transition: opacity .8s, transform .8s;
+	-ms-transition: opacity .8s, transform .8s;
+	-o-transition: opacity .8s, transform .8s;
+	transition: opacity .8s, transform .8s;
+}
+
+body.is-starting .Main {
+	opacity: 0;
+	-webkit-transform: translateY(1em);
+	-moz-transform: translateY(1em);
+	-ms-transform: translateY(1em);
+	-o-transform: translateY(1em);
+	transform: translateY(1em);
 }
 
 /* Main content */

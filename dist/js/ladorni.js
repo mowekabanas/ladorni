@@ -116,6 +116,321 @@ var Hero = (function () {
 
 })();
 
+/* LaDorni Site */
+
+var LaDorni = (function () {
+
+	/**
+	 * LaDorni Site constructor
+	 * @constructor
+	 */
+	function LaDorni(viewport) {
+
+		this.viewport = viewport;
+
+		this.logo = false;
+
+		this.winemenu = {};
+		this.winery = {};
+		this.castle = {};
+
+		this.navigation = false;
+
+		/* Get Pages viewports */
+
+		// Home
+		this.home = new Page();
+
+		// Winemenu
+		this.winemenu = new Page();
+
+		// Winery
+		this.winery = new Page();
+
+		// Castle
+		this.castle = new Page();
+
+	}
+
+	/**
+	 * This is the MAIN function to start the page
+	 * ANY ERRORS and all the page doesn't OPEN
+	 * It remove the states 'is-biting' and 'is-starting'
+	 * It init the navigation
+	 */
+	LaDorni.prototype.start = function () {
+
+		console.log('HEEEEEEEY! I" HERE BITCHES');
+
+		// hide all, show the '.TransitionScreen--start' element, start the loadBar
+		document.body.classList.remove('is-biting');
+		document.body.classList.remove('is-starting');
+
+		// init the navigation
+		this.navigation.init();
+
+	};
+
+	LaDorni.prototype.getHome = function () {
+
+		var self = this;
+
+		if (this.home) {
+
+			this.home.viewport = document.getElementById('home');
+			this.home.content.viewport = document.getElementById('hero-photos');
+			this.home.requiredContentQueryString = 'img';
+
+			this.home.afterDone = function () {
+
+				//console.log('carregado');
+
+			};
+
+			this.home.afterLoad = function () {
+
+				//console.log('baixando');
+
+			};
+
+		}
+
+	};
+
+	LaDorni.prototype.getWineList = function () {
+
+		this.winemenu.wineList = new WineList(document.documentElement);
+		this.winemenu.wineList.init();
+
+	};
+
+	LaDorni.prototype.getWineMenu = function() {
+
+		var self = this;
+
+		if (this.winemenu) {
+
+			this.winemenu.viewport = document.getElementById('winemenu');
+			this.winemenu.url = 'winemenu.html';
+			this.winemenu.hero = new Hero(document.getElementById('winemenu-hero'));
+			this.winemenu.content.viewport = document.getElementById('vinhos');
+			this.winemenu.requiredContentQueryString = '.WineFigure-img';
+
+			this.winemenu.afterDone = function () {
+
+				if (document.body.classList.contains('is-winemenu'))
+					self.navigation.removeDocumentState('is-loading');
+
+			};
+
+			this.winemenu.afterLoad = function () {
+
+				self.getWineList();
+
+			};
+
+		}
+
+	};
+
+	LaDorni.prototype.getWinery = function () {
+
+		var self = this;
+
+		if (this.winery) {
+
+			this.winery.viewport = document.getElementById('winery');
+			this.winery.url = 'winery.html';
+			this.winery.hero = new Hero(document.getElementById('winery-hero'));
+			this.winery.content.viewport = document.getElementById('vinicola');
+			this.winemenu.requiredContentQueryString = '.WineFigure-img';
+
+		}
+
+	};
+
+	LaDorni.prototype.getCastle = function() {
+
+		var self = this;
+
+		if (this.castle) {
+
+			this.castle.viewport = document.getElementById('castle');
+			this.castle.url = 'castle.html';
+			this.castle.hero = new Hero(document.getElementById('castle-hero'));
+			this.castle.content.viewport = document.getElementById('castelo');
+
+		}
+
+	};
+
+	LaDorni.prototype.init = function(autoNavigationInit) {
+
+		this.getHome();
+		this.getWineMenu();
+		this.getWinery();
+		this.getCastle();
+
+		/* Init pages */
+
+		if (this.home.viewport)
+			this.home.init();
+
+		if (this.winemenu.viewport)
+			this.winemenu.init();
+
+		if (this.winery.viewport)
+			this.winery.init();
+
+		if (this.castle.viewport)
+			this.castle.init();
+
+		/* Init navigation */
+
+		if (autoNavigationInit)
+			this.navigation.init();
+
+	};
+
+	return LaDorni;
+
+})();
+
+/* Load Bar */
+
+var LoadBar = (function () {
+
+	/**
+	 * Load Bar constructor
+	 * @param {Node} viewport
+	 * @param {number} interval
+	 * @param {Array} steps
+	 * @param {number} progress
+	 * @constructor
+	 */
+	function LoadBar(viewport, interval, progress, steps, maxprogress) {
+
+		this.viewport = viewport;
+		this.interval = interval || 500;
+		this.progress = progress || 0;
+		this.steps = steps || false;
+		this.maxprogress = maxprogress || 100;
+
+		this.progressBar = {};
+
+		this.timer = false;
+
+		if (this.viewport)
+			this.init();
+
+	}
+
+	/**
+	 * Build the steps Array
+	 * The steps array is a time
+	 * @param pass
+	 * @return {Array}
+	 */
+	LoadBar.prototype.buildSteps = function (pass) {
+
+		var steps = [];
+		var eachStep = ( this.maxprogress - this.progress ) / pass;
+		var lastStep = 0;
+
+		for (var i = pass; i--; ) {
+
+			if (!steps.length)
+				lastStep = this.progress + eachStep;
+			else
+				lastStep = lastStep + eachStep;
+
+			steps.push(lastStep);
+
+		}
+
+		return steps;
+
+	};
+
+	/**
+	 * Change the progress bar (change the width of 'progress bar' element)
+	 * @param progress
+	 */
+	LoadBar.prototype.changeProgress = function (progress) {
+
+		if (this.progressBar.viewport)
+			this.progressBar.viewport.style.width = progress + '%';
+
+	};
+
+	/**
+	 * Stop de loadBar
+	 * @param {Function} next
+	 */
+	LoadBar.prototype.stop = function (progress) {
+
+		if (this.timer)
+			clearTimeout(this.timer);
+
+		if (progress)
+			this.changeProgress(progress);
+
+	};
+
+	/**
+	 * Start the loadBar
+	 */
+	LoadBar.prototype.start = function () {
+
+		var self = this;
+
+		var count = 0;
+
+		this.timer = setInterval(function () {
+
+			self.changeProgress(self.steps[count++]);
+
+			if (self.steps.length <= count)
+				self.stop();
+
+		}, this.interval);
+
+	};
+
+	/**
+	 * Get the ProgressBar element
+	 * @return {boolean}
+	 */
+	LoadBar.prototype.getProgresBar = function () {
+
+		this.progressBar.viewport = this.viewport.querySelector('.LoadBar-progress');
+
+		return !!this.progressBar.viewport;
+
+	};
+
+	/**
+	 * Check the elements, build the steps array and start!
+	 */
+	LoadBar.prototype.init = function () {
+
+		if (this.viewport)
+			if (this.getProgresBar())
+				if (this.steps) {
+
+					if (this.steps.constructor !== Array)
+						this.steps = this.buildSteps(this.steps);
+
+					this.start();
+
+				}
+
+	};
+
+	return LoadBar;
+
+})();
+
 /* Mowe Logo 1.0 */
 
 var Logo = (function () {
@@ -504,8 +819,8 @@ var Navigation = (function () {
 	 */
 	Navigation.prototype.removeDocumentState = function (state) {
 
-		if (this.document)
-			this.document.classList.remove(state);
+		if (this.document.viewport)
+			this.document.viewport.classList.remove(state);
 
 	};
 
@@ -515,8 +830,8 @@ var Navigation = (function () {
 	 */
 	Navigation.prototype.addDocumentState = function (state) {
 
-		if (this.document)
-			this.document.classList.add(state);
+		if (this.document.viewport)
+			this.document.viewport.classList.add(state);
 
 	};
 
@@ -544,7 +859,7 @@ var Navigation = (function () {
 
 			// remove stateClass from 'document' element
 			if (this.navigationItems[i].stateClass)
-				this.document.classList.remove(this.navigationItems[i].stateClass);
+				this.document.viewport.classList.remove(this.navigationItems[i].stateClass);
 
 			// remove 'is-active' class from page
 			this.navigationItems[i].page.setActive(false);
@@ -576,7 +891,7 @@ var Navigation = (function () {
 
 				// add stateClass to 'document' element
 				if (newPage.state.stateClass)
-					this.document.classList.add(newPage.state.stateClass);
+					this.document.viewport.classList.add(newPage.state.stateClass);
 
 				// change title
 				this.setTitle(newPage.state);
@@ -719,7 +1034,7 @@ var Navigation = (function () {
 
 		window.addEventListener('popstate', this.onPopStateCtrl, false);
 
-		var navAnchors = this.document.querySelectorAll('.NavigationItem');
+		var navAnchors = this.document.viewport.querySelectorAll('.NavigationItem');
 
 		for (var i = navAnchors.length; i--; )
 			navAnchors[i].addEventListener('click', this.onNavigationItemClick, false);
@@ -803,24 +1118,102 @@ var Page = (function() {
 	/**
 	 * Navigation Item Page constructor
 	 * It normalize the page viewport
-	 * @param viewport {Element}
+	 * @param viewport {Node}
+	 * @param url {string}
 	 * @return {*|boolean}
 	 * @constructor
 	 */
-	function Page(viewport) {
+	function Page(viewport, url) {
+
+		var self = this;
 
 		this.viewport = viewport || false;
+		this.url = url || false;
+
+		this.content = {};
+		this.requiredContentQueryString = '';
 
 		this.header = {};
 		this.header.background = {};
 		this.header.overlay = {};
 
-		this.content = {};
-
 		this.hero = {};
 
+		this.require = new Require();
+		this.unloader = new Unloader();
+
+		this.afterDone = false;
+		this.afterLoad = false;
+
+		this.autoLoad = false;
 		this.isActive = false;
 		this.isLoaded = false;
+
+		this.state = {
+			active: 'is-active',
+			loading: 'is-loading'
+		};
+
+		/**
+		 * Done event
+		 * It calls when the required content is loaded
+		 */
+		this.done = function () {
+
+			self.isLoaded = true;
+
+			if (self.afterDone)
+				self.afterDone();
+
+		};
+
+		/**
+		 * Load the content
+		 */
+		this.load = function () {
+
+			if (!self.unloader.isLoaded) {
+
+				self.unloader.load();
+
+				if (self.afterLoad)
+					self.afterLoad();
+
+			}
+
+			self.isLoaded = true;
+
+		};
+
+		/**
+		 * Unload, require and load the content
+		 * @param autoLoad {boolean}
+		 * @return {boolean}
+		 */
+		this.requireContent = function (autoLoad) {
+
+			if (self.requiredContentQueryString) {
+
+				if (!self.isLoaded) {
+
+					self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
+
+					self.unloader.elements = self.requiredContent;
+					self.unloader.init();
+
+					self.require.elements = self.requiredContent;
+					self.require.listener = self.done;
+					//self.require.init();
+
+				}
+
+				return !!autoLoad;
+
+			}
+
+			return false;
+
+		};
 
 		if (this.viewport)
 			this.init(false);
@@ -828,7 +1221,7 @@ var Page = (function() {
 	}
 
 	/**
-	 * Based on 'active' param, it set the 'is-active' state from the viewport
+	 * Based on 'active' param, it set the 'active' state state from the viewport
 	 * @param active
 	 * @return {boolean}
 	 */
@@ -837,9 +1230,9 @@ var Page = (function() {
 		if (this.viewport) {
 
 			if (this.isActive = !!active)
-				this.viewport.classList.add('is-active');
+				this.viewport.classList.add(this.state.active);
 			else
-				this.viewport.classList.remove('is-active');
+				this.viewport.classList.remove(this.state.active);
 
 			return true;
 
@@ -851,7 +1244,7 @@ var Page = (function() {
 
 	/**
 	 * Get the current active state
-	 * By default, it fix the 'is-active' class state
+	 * By default, it fix the 'active' class state
 	 * @param preserveState {boolean}
 	 * @return {boolean}
 	 */
@@ -899,16 +1292,37 @@ var Page = (function() {
 
 	};
 
+	Page.prototype.getPageFile = function () {
+
+		var self = this;
+
+		if (this.content.viewport)
+			this.fileAppend = new FileAppend(this.content.viewport, this.url, function () {
+
+				if (self.requireContent(self.autoLoad))
+					self.load();
+
+			});
+
+	};
+
 	/**
 	 * It inits and normalize the Page
-	 * By default, it set to false the 'is-active' state
+	 * By default, it set to false the 'active' state
 	 * @param isActive {boolean}
 	 */
 	Page.prototype.init = function (isActive) {
 
+		// if this has url, append the file to 'this.content.viewport'
+		if (this.url)
+			this.getPageFile();
+		else if (this.requireContent(this.autoLoad))
+			this.load();
+
+		// normalize the 'active' state
 		this.setActive(!!isActive);
 
-		// try get connection to Hero Slider and Header
+		// try get relationship to Hero Slider and Header
 		this.getHeader();
 
 	};
@@ -927,6 +1341,8 @@ var PageAction = (function () {
 	 */
 	function PageAction(navigation, page, stateClass) {
 
+		var self = this;
+
 		this.navigation = navigation || false;
 		this.page = page || false;
 		this.stateClass = stateClass || false;
@@ -940,32 +1356,27 @@ var PageAction = (function () {
 
 	};
 
-	PageAction.prototype.before = function () {
+	PageAction.prototype.before = function (ev) {
 
 		// put document state
 		this.navigation.addDocumentState(this.stateClass);
 
-		// if page is not loaded, try load it
-		if (!this.page.isLoaded) {
+		// if has file append
+		if (this.page.fileAppend) {
 
-			// if has file append
-			if (this.page.fileAppend) {
+			// if has not load, set it to be auto loaded when it is done
+			if (this.page.load) {
 
-				// if has not load, set it to be auto loaded when it is done
-				if (this.page.load) {
-
-					if (this.page.fileAppend.isLoaded)
-						this.page.load();
-					else
-						this.page.autoLoad = true;
-
-				}
-
-			} else if (this.page.requireContent) {
-
-				this.page.requireContent();
+				if (this.page.fileAppend.isLoaded)
+					this.page.load();
+				else
+					this.page.autoLoad = true;
 
 			}
+
+		} else if (this.page.requireContent(true)) {
+
+			this.page.load();
 
 		}
 
@@ -1075,7 +1486,8 @@ var Require = (function () {
 
 		this.onLoadCtrl = function (ev) {
 
-			self.loadCount++;
+			if (!this.isLoaded)
+				self.loadCount++;
 
 			if (!self.isLoaded)
 				if (self.loadCount >= (self.elements.length * self.requireRange)) {
@@ -1160,11 +1572,11 @@ var Transition = (function () {
 
 		var self = this;
 
-		this.navigation.document.classList.add('is-transiting');
+		this.navigation.document.viewport.classList.add('is-transiting');
 
 		setTimeout(function () {
 
-			self.navigation.document.classList.remove('is-transiting');
+			self.navigation.document.viewport.classList.remove('is-transiting');
 
 		}, 1600);
 
@@ -1256,7 +1668,7 @@ var Unloader = (function () {
 
 		this.elements = elements || [];
 
-		this.isLoaded = false;
+		this.isLoaded = true;
 
 		if (this.elements.length)
 			this.init();
@@ -1273,6 +1685,8 @@ var Unloader = (function () {
 	};
 
 	Unloader.prototype.init = function () {
+
+		this.isLoaded = false;
 
 		for (var i = this.elements.length; i--;)
 			this.elements[i].unloader = new UnloaderElement(this.elements[i]);

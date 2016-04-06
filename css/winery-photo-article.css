@@ -82,12 +82,12 @@
 }
 
 .WineryPhotoArticle--wide-cover .WineryPhotoArticle-figure img {
-	display: none;
-	visibility: hidden;
+	/*display: none;*/
+	/*visibility: hidden;*/
 }
 
 .WineryPhotoArticle--wide-cover.show-image .WineryPhotoArticle-figure img {
-	display: block;
+	/*display: block;*/
 }
 
 /* Winery Photo Article figure img */

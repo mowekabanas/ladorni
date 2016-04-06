@@ -123,8 +123,8 @@ var Navigation = (function () {
 	 */
 	Navigation.prototype.removeDocumentState = function (state) {
 
-		if (this.document)
-			this.document.classList.remove(state);
+		if (this.document.viewport)
+			this.document.viewport.classList.remove(state);
 
 	};
 
@@ -134,8 +134,8 @@ var Navigation = (function () {
 	 */
 	Navigation.prototype.addDocumentState = function (state) {
 
-		if (this.document)
-			this.document.classList.add(state);
+		if (this.document.viewport)
+			this.document.viewport.classList.add(state);
 
 	};
 
@@ -163,7 +163,7 @@ var Navigation = (function () {
 
 			// remove stateClass from 'document' element
 			if (this.navigationItems[i].stateClass)
-				this.document.classList.remove(this.navigationItems[i].stateClass);
+				this.document.viewport.classList.remove(this.navigationItems[i].stateClass);
 
 			// remove 'is-active' class from page
 			this.navigationItems[i].page.setActive(false);
@@ -195,7 +195,7 @@ var Navigation = (function () {
 
 				// add stateClass to 'document' element
 				if (newPage.state.stateClass)
-					this.document.classList.add(newPage.state.stateClass);
+					this.document.viewport.classList.add(newPage.state.stateClass);
 
 				// change title
 				this.setTitle(newPage.state);
@@ -338,7 +338,7 @@ var Navigation = (function () {
 
 		window.addEventListener('popstate', this.onPopStateCtrl, false);
 
-		var navAnchors = this.document.querySelectorAll('.NavigationItem');
+		var navAnchors = this.document.viewport.querySelectorAll('.NavigationItem');
 
 		for (var i = navAnchors.length; i--; )
 			navAnchors[i].addEventListener('click', this.onNavigationItemClick, false);

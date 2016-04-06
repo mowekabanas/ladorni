@@ -1,0 +1,12 @@
+
+/* LoadBar */
+
+.LoadBar {
+
+}
+
+/* LoadBar progress */
+
+body.is-starting .LoadBar-progress {
+	width: 100%;
+}

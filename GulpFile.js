@@ -87,6 +87,16 @@ images.headerPhotos = {
 	location: images.location + 'headerPhotos/'
 };
 
+images.widePhotos = {
+	content: '*',
+	location: images.location + 'widePhotos/'
+};
+
+images.winePhotos = {
+	content: '*',
+	location: images.location + 'winePhotos/'
+};
+
 gulp.task('distImages', function () {
 	gulp.src(images.location + images.content)
 		.pipe(gulp.dest(dist.location + images.location));
@@ -95,7 +105,7 @@ gulp.task('distImages', function () {
 gulp.task('resizeLargePhotos', function () {
 	gulp.src(images.largePhotos.location + images.largePhotos.content)
 		.pipe(imageResize({
-			height : 960,
+			height : 768,
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.largePhotos.location));
@@ -104,7 +114,7 @@ gulp.task('resizeLargePhotos', function () {
 gulp.task('resizeVerticalPhotos', function () {
 	gulp.src(images.verticalPhotos.location + images.verticalPhotos.content)
 		.pipe(imageResize({
-			height : 1400,
+			height : 960,
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.verticalPhotos.location));
@@ -117,6 +127,24 @@ gulp.task('resizeHeaderPhotos', function () {
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.headerPhotos.location));
+});
+
+gulp.task('resizeWidePhotos', function () {
+	gulp.src(images.widePhotos.location + images.widePhotos.content)
+		.pipe(imageResize({
+			height : 576,
+			upscale : false
+		}))
+		.pipe(gulp.dest(dist.location + images.widePhotos.location));
+});
+
+gulp.task('resizeWinePhotos', function () {
+	gulp.src(images.winePhotos.location + images.winePhotos.content)
+		.pipe(imageResize({
+			height : 768,
+			upscale : false
+		}))
+		.pipe(gulp.dest(dist.location + images.winePhotos.location));
 });
 
 gulp.task('dist', ['distImages', 'resizeLargePhotos']);

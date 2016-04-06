@@ -9,6 +9,8 @@ var PageAction = (function () {
 	 */
 	function PageAction(navigation, page, stateClass) {
 
+		var self = this;
+
 		this.navigation = navigation || false;
 		this.page = page || false;
 		this.stateClass = stateClass || false;
@@ -22,7 +24,7 @@ var PageAction = (function () {
 
 	};
 
-	PageAction.prototype.before = function () {
+	PageAction.prototype.before = function (ev) {
 
 		// put document state
 		this.navigation.addDocumentState(this.stateClass);

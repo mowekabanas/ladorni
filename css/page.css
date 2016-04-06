@@ -42,6 +42,11 @@ body.is-home .Page {
 	display: block;
 }
 
+.Page--winery .Page-content,
+.Page--castle .Page-content {
+	font-family: 'Playfair Display', serif;
+}
+
 @media (min-width: 48em) {
 
 	.Page {

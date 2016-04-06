@@ -1,7 +1,7 @@
 
 /* Logo */
 
-.MainHeader .Logo {
+.Logo {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -9,7 +9,9 @@
 	display: flex;
 	-webkit-justify-content: center;
 	justify-content: center;
-	/*margin-right: .5em;*/
+}
+
+.MainHeader .Logo {
 	-webkit-transition: opacity 1s ease-in, width .6s .3s;
 	-moz-transition: opacity 1s ease-in, width .6s .3s;
 	-ms-transition: opacity 1s ease-in, width .6s .3s;
@@ -21,6 +23,33 @@
 
 .MainHeader .Logo.is-loading {
 	opacity: 0;
+}
+
+.TransitionScreen--start .Logo {
+	height: 6em;
+	-webkit-transition: opacity .6s .6s, transform 1.2s .6s;
+	-moz-transition: opacity .6s .6s, transform 1.2s .6s;
+	-ms-transition: opacity .6s .6s, transform 1.2s .6s;
+	-o-transition: opacity .6s .6s, transform 1.2s .6s;
+	transition: opacity .6s .6s, transform 1.2s .6s;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+body.is-biting .TransitionScreen--start .Logo {
+	opacity: 0;
+}
+
+body.is-starting .TransitionScreen--start .Logo {
+	-webkit-transform: translateY(-2.25em);
+	-moz-transform: translateY(-2.25em);
+	-ms-transform: translateY(-2.25em);
+	-o-transform: translateY(-2.25em);
+	transform: translateY(-2.25em);
+	opacity: 1;
 }
 
 /* Logo select area */
@@ -45,9 +74,9 @@
 	transition: transform .6s;
 }
 
-.Logo.is-only-winery .Logo-select-area:active,
-.Logo.is-only-winery .Logo-select-area:focus,
-.Logo.is-only-winery .Logo-select-area:hover {
+.MainHeader .Logo.is-only-winery .Logo-select-area:active,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover {
 	-webkit-transform: scale(0.75);
 	-moz-transform: scale(0.75);
 	-ms-transform: scale(0.75);
@@ -55,16 +84,24 @@
 	transform: scale(0.75);
 }
 
+.Logo svg {
+	width: 100%;
+	height: 100%;
+}
+
 .MainHeader .Logo svg {
 	fill: #212121;
 	max-width: 8em;
-	width: 100%;
-	height: 100%;
 	-webkit-transition: fill .6s .1s;
 	-moz-transition: fill .6s .1s;
 	-ms-transition: fill .6s .1s;
 	-o-transition: fill .6s .1s;
 	transition: fill .6s .1s;
+}
+
+.TransitionScreen--start .Logo svg {
+	fill: #eee;
+	max-width: 8em;
 }
 
 body.is-winemenu .Logo svg,
@@ -130,18 +167,18 @@ body.is-transiting .Logo svg {
 	transition: opacity 0s;
 }
 
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogoWinery,
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-stripes,
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogoLions,
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-border,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoWinery,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-stripes,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoLions,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-border,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoWinery,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-stripes,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoLions,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogoWinery,
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-stripes,
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogoLions,
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-border,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoWinery,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-stripes,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoLions,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-border,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoWinery,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-stripes,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoLions,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
 	opacity: 1;
 	-webkit-transition: opacity .6s .3s;
 	-moz-transition: opacity .6s .3s;
@@ -150,7 +187,7 @@ body.is-transiting .Logo svg {
 	transition: opacity .6s .3s;
 }
 
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
 	opacity: 1;
 	-webkit-transition: opacity .8s .4s;
 	-moz-transition: opacity .8s .4s;

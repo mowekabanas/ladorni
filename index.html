@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="">
+<html lang="pt-br" class="playfair-display roboto crimson-text-italic">
 <meta charset="UTF-8">
 <title>La Dorni</title>
 <meta name="viewport"
@@ -11,6 +11,7 @@
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
 <link rel="stylesheet" href="dist/css/ladorni.css"/>
+<!--<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Playfair+Display:400,400italic,900' rel='stylesheet' type='text/css'>-->
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
@@ -21,11 +22,15 @@
 
 <style>
 
-	body.is-loading .TransitionScreen--start {
+	body {
+		font-family: 'Roboto', sans-serif;
+	}
+
+	body.is-biting .TransitionScreen--start {
 		height: 100%;
 		position: fixed;
 		width: 100%;
-		background-color: #eeeeee;
+		background-color: #757575;
 		top: 0;
 		left: 0;
 		display: -webkit-box;
@@ -34,6 +39,50 @@
 		display: -webkit-flex;
 		display: flex;
 		z-index: 99;
+		-webkit-transition: background 1s;
+		-moz-transition: background 1s;
+		-ms-transition: background 1s;
+		-o-transition: background 1s;
+		transition: background 1s;
+	}
+
+	body.is-starting .TransitionScreen--start {
+		background-color: #424242;
+	}
+
+	/* Load Bar */
+
+	body.is-biting .LoadBar {
+		background-color: #ffab00;
+		height: 6px;
+		-webkit-transition: opacity .6s .4s;
+		-moz-transition: opacity .6s .4s;
+		-ms-transition: opacity .6s .4s;
+		-o-transition: opacity .6s .4s;
+		transition: opacity .6s .4s;
+		width: 16em;
+	}
+
+	body.is-starting .LoadBar {
+		opacity: 0;
+	}
+
+	body.is-biting .LoadBar-progress {
+		background-color: #ffd740;
+		-webkit-animation: load-bar-animate 1.6s ease forwards;
+		-o-animation: load-bar-animate 1.6s ease forwards;
+		animation: load-bar-animate 1.6s ease forwards;
+		-webkit-transition: width .8s;
+		-moz-transition: width .8s;
+		-ms-transition: width .8s;
+		-o-transition: width .8s;
+		transition: width .8s;
+		height: 100%;
+		width: 8%;
+	}
+
+	.TransitionScreen--start .Logo {
+		height: 6em;
 	}
 
 	.MainHeader {
@@ -45,18 +94,18 @@
 		transition: opacity 1s 1s ease;
 	}
 
-	body.is-loading .MainHeader {
+	body.is-biting .MainHeader {
 		opacity: 0;
 	}
 
 </style>
 
-<body class="is-loading">
+<body class="is-biting">
 
 <div id="hero-photos">
 
 	<img src="dist/img/largePhotos/lp-cave.jpg" style="display: none" />
-	<img src="dist/img/headerPhotos/torre.jpg" style="display: none" />
+	<img src="dist/img/headerPhotos/hp-torre.jpg" style="display: none" />
 	<img src="dist/img/largePhotos/lp-08.jpg" style="display: none" />
 
 </div>
@@ -65,9 +114,23 @@
 
 	<div class="Transition">
 
-		<div class="TransitionScreen TransitionScreen--start flex justify-center align-center">
+		<div class="TransitionScreen TransitionScreen--start flex justify-center align-center flex-column">
 
-			<p>Carregando...</p>
+			<div id="loadbar" class="LoadBar">
+
+				<div class="LoadBar-progress"></div>
+
+			</div>
+
+			<div id="start-screen-logo" class="Logo is-only-winery is-loading">
+
+				<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
+
+					<span id="start-logo"></span>
+
+				</a>
+
+			</div>
 
 		</div>
 
@@ -82,11 +145,11 @@
 
 	</div>
 
-	<header class="MainHeader playfair-display">
+	<header class="MainHeader">
 
 		<div class="MainHeaderBrand">
 
-			<div id="main-header-logo" class="Logo MainHeaderBrand-logo is-only-winery is-loading">
+			<div id="main-header-logo" class="Logo MainHeaderBrand-logo is-only-winery is-biting">
 
 				<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
 
@@ -104,7 +167,7 @@
 
 		</div>
 
-		<div id="service-menu" class="Menu Menu--service">
+		<div id="service-menu" class="Menu Menu--service roboto">
 
 			<ul class="MenuList roboto">
 
@@ -156,7 +219,7 @@
 
 		</div>
 
-		<ul class="MenuList playfair-display white">
+		<ul class="MenuList white">
 
 			<li class="MenuItem">
 
@@ -276,7 +339,7 @@
 
 			</header>
 
-			<section id="vinicola" class="Page-content playfair-display">
+			<section id="vinicola" class="Page-content">
 
 			</section>
 
@@ -301,7 +364,7 @@
 
 			</header>
 
-			<section id="castelo" class="Page-content playfair-display">
+			<section id="castelo" class="Page-content">
 
 			</section>
 
@@ -317,6 +380,9 @@
 
 <script>
 
+	// this loadbar has 7 * 600 miliseconds of life
+	var loadbar = new LoadBar(document.getElementById('loadbar'), 600, 8, 4, 90);
+
 	var welcomeMessage = function (nav) {
 
 		if (!nav.changePageCount)
@@ -330,25 +396,26 @@
 
 	var logo = new Logo(document.getElementById('logo'), 'img/LadorniLogoPure-web.min.svg', function () {
 
+		this.cloneTo(document.getElementById('start-logo'));
+
 		setTimeout(function () {
 
-			headerLogo.classList.remove('is-loading');
+			// stop the loadBar
+			loadbar.stop(100);
 
-			setTimeout(function () {
+			// hide the loadBar and show the Logo
+			document.body.classList.add('is-starting');
 
-				document.body.classList.remove('is-loading');
+			// init the document instance and the navigation
+			ladorni.init(true);
 
-				ladorni.init();
-
-			}, 1000);
-
-		}, 1000);
+		}, 1200);
 
 	});
 
 	var ladorni = new LaDorni(document.body);
 
-	ladorni.navigation = new Navigation(document.getElementById('navigation'), ladorni.viewport);
+	ladorni.navigation = new Navigation(document.getElementById('navigation'), ladorni);
 
 	ladorni.navigation.pushItem({
 		action: new PageAction(ladorni.navigation, ladorni.home, 'is-home'),
@@ -379,8 +446,6 @@
 		itemTitle: 'Vinhos',
 		itemURL: './vinhos'
 	}, ladorni.winemenu);
-
-
 
 </script>
 

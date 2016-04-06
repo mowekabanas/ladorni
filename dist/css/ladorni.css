@@ -110,6 +110,7 @@ body.is-transiting .MainHeaderBrand-title {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	font-family: 'Playfair Display', serif;
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
 	position: absolute;
@@ -185,15 +186,15 @@ body.is-transiting .MainHeaderBrand-title {
 .HeroGalleryItem {  }
 
 .HeroGalleryItem--winemenu {
-	background: url("../img/largePhotos/lp14.jpg");
+	background: url("../img/largePhotos/lp-cave.jpg");
 }
 
 .HeroGalleryItem--winery {
-	background: url("../img/headerPhotos/torre.jpg");
+	background: url("../img/headerPhotos/hp-torre.jpg");
 }
 
 .HeroGalleryItem--castle {
-	background: url("../img/largePhotos/lp08.jpg");
+	background: url("../img/largePhotos/lp-08.jpg");
 }
 
 @media (min-width: 48em) {
@@ -408,9 +409,21 @@ body.is-home .Hero {
 .icon-bag:before { content: '\e837'; } /* '' */
 .icon-box:before { content: '\e838'; } /* '' */
 
+/* LoadBar */
+
+.LoadBar {
+
+}
+
+/* LoadBar progress */
+
+body.is-starting .LoadBar-progress {
+	width: 100%;
+}
+
 /* Logo */
 
-.MainHeader .Logo {
+.Logo {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -418,7 +431,9 @@ body.is-home .Hero {
 	display: flex;
 	-webkit-justify-content: center;
 	justify-content: center;
-	/*margin-right: .5em;*/
+}
+
+.MainHeader .Logo {
 	-webkit-transition: opacity 1s ease-in, width .6s .3s;
 	-moz-transition: opacity 1s ease-in, width .6s .3s;
 	-ms-transition: opacity 1s ease-in, width .6s .3s;
@@ -428,7 +443,34 @@ body.is-home .Hero {
 	z-index: 13;
 }
 
-.MainHeader .Logo.is-loaded {
+.MainHeader .Logo.is-loading {
+	opacity: 0;
+}
+
+.TransitionScreen--start .Logo {
+	height: 6em;
+	-webkit-transition: opacity .6s .6s, transform 1.2s .6s;
+	-moz-transition: opacity .6s .6s, transform 1.2s .6s;
+	-ms-transition: opacity .6s .6s, transform 1.2s .6s;
+	-o-transition: opacity .6s .6s, transform 1.2s .6s;
+	transition: opacity .6s .6s, transform 1.2s .6s;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+body.is-biting .TransitionScreen--start .Logo {
+	opacity: 0;
+}
+
+body.is-starting .TransitionScreen--start .Logo {
+	-webkit-transform: translateY(-2.25em);
+	-moz-transform: translateY(-2.25em);
+	-ms-transform: translateY(-2.25em);
+	-o-transform: translateY(-2.25em);
+	transform: translateY(-2.25em);
 	opacity: 1;
 }
 
@@ -454,9 +496,9 @@ body.is-home .Hero {
 	transition: transform .6s;
 }
 
-.Logo.is-only-winery .Logo-select-area:active,
-.Logo.is-only-winery .Logo-select-area:focus,
-.Logo.is-only-winery .Logo-select-area:hover {
+.MainHeader .Logo.is-only-winery .Logo-select-area:active,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover {
 	-webkit-transform: scale(0.75);
 	-moz-transform: scale(0.75);
 	-ms-transform: scale(0.75);
@@ -464,15 +506,24 @@ body.is-home .Hero {
 	transform: scale(0.75);
 }
 
-.MainHeader .Logo svg {
-	fill: #212121;
+.Logo svg {
 	width: 100%;
 	height: 100%;
+}
+
+.MainHeader .Logo svg {
+	fill: #212121;
+	max-width: 8em;
 	-webkit-transition: fill .6s .1s;
 	-moz-transition: fill .6s .1s;
 	-ms-transition: fill .6s .1s;
 	-o-transition: fill .6s .1s;
 	transition: fill .6s .1s;
+}
+
+.TransitionScreen--start .Logo svg {
+	fill: #eee;
+	max-width: 8em;
 }
 
 body.is-winemenu .Logo svg,
@@ -538,18 +589,18 @@ body.is-transiting .Logo svg {
 	transition: opacity 0s;
 }
 
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogoWinery,
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-stripes,
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogoLions,
-.Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-border,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoWinery,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-stripes,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoLions,
-.Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-border,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoWinery,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-stripes,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoLions,
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogoWinery,
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-stripes,
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogoLions,
+.MainHeader .Logo.is-only-winery .Logo-select-area:active #LaDorniLogo-border,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoWinery,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-stripes,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogoLions,
+.MainHeader .Logo.is-only-winery .Logo-select-area:focus #LaDorniLogo-border,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoWinery,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-stripes,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogoLions,
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
 	opacity: 1;
 	-webkit-transition: opacity .6s .3s;
 	-moz-transition: opacity .6s .3s;
@@ -558,7 +609,7 @@ body.is-transiting .Logo svg {
 	transition: opacity .6s .3s;
 }
 
-.Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
+.MainHeader .Logo.is-only-winery .Logo-select-area:hover #LaDorniLogo-border {
 	opacity: 1;
 	-webkit-transition: opacity .8s .4s;
 	-moz-transition: opacity .8s .4s;
@@ -575,6 +626,10 @@ body.is-transiting .Logo svg {
 		width: 4.5em;
 	}
 
+	body.is-winemenu .MainHeader .Logo svg {
+		max-width: 4.5em;
+	}
+
 	body.is-winemenu .Logo.is-only-winery #LaDorniLogo-border {
 		display: none;
 	}
@@ -587,6 +642,10 @@ body.is-transiting .Logo svg {
 
 	body.is-winemenu .MainHeader .Logo {
 		width: 6em;
+	}
+
+	body.is-winemenu .MainHeader .Logo svg {
+		max-width: 6em;
 	}
 
 	body.is-winemenu .Logo.is-only-winery #LaDorniLogo-border {
@@ -603,8 +662,16 @@ body.is-transiting .Logo svg {
 		width: 6em;
 	}
 
+	.MainHeader .Logo svg {
+		max-width: 6em;
+	}
+
 	body.is-home .MainHeader .Logo {
 		width: 8em;
+	}
+
+	body.is-home .MainHeader .Logo svg {
+		max-width: 8em;
 	}
 
 	.MainHeader .Logo.is-loaded {
@@ -684,6 +751,26 @@ body.is-transiting .Logo svg {
 
 .Main {
 	position: relative;
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+	-webkit-transition: opacity .8s, transform .8s;
+	-moz-transition: opacity .8s, transform .8s;
+	-ms-transition: opacity .8s, transform .8s;
+	-o-transition: opacity .8s, transform .8s;
+	transition: opacity .8s, transform .8s;
+}
+
+body.is-starting .Main {
+	opacity: 0;
+	-webkit-transform: translateY(1em);
+	-moz-transform: translateY(1em);
+	-ms-transform: translateY(1em);
+	-o-transform: translateY(1em);
+	transform: translateY(1em);
 }
 
 /* Main content */
@@ -876,6 +963,7 @@ body.is-transiting .Logo svg {
 	display: flex;
 	-webkit-flex-flow: column;
 	flex-flow: column;
+	font-family: 'Playfair Display', serif;
 	height: 100vh;
 	left: 0;
 	padding: 8em 0 0;
@@ -1315,6 +1403,11 @@ body.is-home .Page {
 
 .Page.is-active .Page-content {
 	display: block;
+}
+
+.Page--winery .Page-content,
+.Page--castle .Page-content {
+	font-family: 'Playfair Display', serif;
 }
 
 @media (min-width: 48em) {
@@ -3142,12 +3235,12 @@ body.is-winemenu.is-loading .TransitionScreen--winemenu {
 }
 
 .WineryPhotoArticle--wide-cover .WineryPhotoArticle-figure img {
-	display: none;
-	visibility: hidden;
+	/*display: none;*/
+	/*visibility: hidden;*/
 }
 
 .WineryPhotoArticle--wide-cover.show-image .WineryPhotoArticle-figure img {
-	display: block;
+	/*display: block;*/
 }
 
 /* Winery Photo Article figure img */
