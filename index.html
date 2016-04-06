@@ -36,15 +36,28 @@
 		z-index: 99;
 	}
 
+	.MainHeader {
+		opacity: 1;
+		-webkit-transition: opacity 1s 1s ease;
+		-moz-transition: opacity 1s 1s ease;
+		-ms-transition: opacity 1s 1s ease;
+		-o-transition: opacity 1s 1s ease;
+		transition: opacity 1s 1s ease;
+	}
+
+	body.is-loading .MainHeader {
+		opacity: 0;
+	}
+
 </style>
 
 <body class="is-loading">
 
 <div id="hero-photos">
 
-	<!--<img src="img/largePhotos/lp14.jpg" style="display: none" />-->
-	<!--<img src="img/headerPhotos/torre.jpg" style="display: none" />-->
-	<!--<img src="img/largePhotos/lp08.jpg" style="display: none" />-->
+	<img src="dist/img/largePhotos/lp-cave.jpg" style="display: none" />
+	<img src="dist/img/headerPhotos/torre.jpg" style="display: none" />
+	<img src="dist/img/largePhotos/lp-08.jpg" style="display: none" />
 
 </div>
 
@@ -52,7 +65,11 @@
 
 	<div class="Transition">
 
-		<div class="TransitionScreen TransitionScreen--start"></div>
+		<div class="TransitionScreen TransitionScreen--start flex justify-center align-center">
+
+			<p>Carregando...</p>
+
+		</div>
 
 		<div class="TransitionScreen TransitionScreen--first indigo-900"></div>
 		<div class="TransitionScreen TransitionScreen--second grey-900"></div>
@@ -69,7 +86,7 @@
 
 		<div class="MainHeaderBrand">
 
-			<div id="main-header-logo" class="Logo MainHeaderBrand-logo is-only-winery">
+			<div id="main-header-logo" class="Logo MainHeaderBrand-logo is-only-winery is-loading">
 
 				<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
 
@@ -300,229 +317,6 @@
 
 <script>
 
-	/* LaDorni Site */
-
-	var LaDorni = (function () {
-
-		/**
-		 * LaDorni Site constructor
-		 * @constructor
-		 */
-		function LaDorni(viewport) {
-
-			this.viewport = viewport;
-
-			this.logo = false;
-
-			this.winemenu = {};
-			this.winery = {};
-			this.castle = {};
-
-			this.navigation = false;
-
-			/* Get Pages viewports */
-
-			// Home
-			this.home = new Page();
-			this.home.viewport = document.getElementById('home');
-
-			// WineMenu
-			this.winemenu = new Page();
-			this.winemenu.viewport = document.getElementById('winemenu');
-			this.winemenu.hero = new Hero(document.getElementById('winemenu-hero'));
-			this.winemenu.content.viewport = document.getElementById('vinhos');
-
-			// Winery
-			this.winery = new Page();
-			this.winery.viewport = document.getElementById('winery');
-			this.winery.hero = new Hero(document.getElementById('winery-hero'));
-
-			// Castle
-			this.castle = new Page();
-			this.castle.viewport = document.getElementById('castle');
-			this.castle.hero = new Hero(document.getElementById('castle-hero'));
-
-			this.onLoad = function (ev) {
-
-				console.log('ksdfasjdf');
-
-			};
-
-		}
-
-		LaDorni.prototype.getLogo = function () {
-
-			this.logo = new Logo(document.getElementById('logo'), 'img/LadorniLogoPure-web.min.svg', function () {
-
-				headerLogo.classList.add('is-loaded');
-
-			});
-
-		};
-
-		LaDorni.prototype.getWineMenu = function() {
-
-			var self = this;
-
-			if (this.winemenu.viewport) {
-
-				this.winemenu.autoLoad = false;
-
-				this.winemenu.done = function () {
-
-					self.navigation.removeDocumentState('is-loading');
-					self.winemenu.isLoaded = true;
-
-				};
-
-				this.winemenu.load = function() {
-
-					// if it has not downloaded
-					if (!self.winemenu.contentLoad.isLoaded) {
-
-						self.winemenu.contentLoad.load();
-						ladorni.navigation.addDocumentState('is-loading');
-
-						var wineList = new WineList(document.documentElement);
-						wineList.init();
-
-					}
-
-				};
-
-				// unload, require and load the content
-				this.winemenu.requireContent = function (autoLoad) {
-
-					if (!self.winemenu.isLoaded) {
-
-						self.winemenu.requiredContent = self.winemenu.viewport.querySelectorAll('.WineFigure-img');
-						self.winemenu.contentLoad = new Unloader(self.winemenu.requiredContent);
-						self.winemenu.require = new Require(self.winemenu.requiredContent, self.winemenu.done, .5);
-
-						if (autoLoad || self.winemenu.autoLoad)
-							self.winemenu.load();
-
-					}
-
-				};
-
-				this.winemenu.fileAppend = new FileAppend(this.winemenu.content.viewport, 'winemenu.html', function () {
-
-					self.winemenu.requireContent(self.winemenu.autoLoad);
-
-				});
-
-			}
-
-		};
-
-		LaDorni.prototype.getWinery = function () {
-
-			var self = this;
-
-			if (this.winery.viewport) {
-
-				this.winery.autoLoad = false;
-
-				this.winery.load = function() {
-
-					console.log('baixando o conteúdo');
-
-				};
-
-				this.winery.requireContent = function (autoLoad) {
-
-					if (autoLoad || self.winery.autoLoad)
-						self.winery.load();
-
-				};
-
-				this.winery.content = {};
-				this.winery.content.viewport = document.getElementById('vinicola');
-				this.winery.fileAppend = new FileAppend(this.winery.content.viewport, 'winery.html', function () {
-
-					self.winery.requireContent(self.winery.autoLoad);
-
-				});
-
-			}
-
-		};
-
-		LaDorni.prototype.getCastle = function() {
-
-			var self = this;
-
-			if (this.castle.viewport) {
-
-				this.castle.autoLoad = false;
-
-				this.castle.load = function() {
-
-					console.log('baixando o conteúdo');
-
-				};
-
-				this.castle.requireContent = function (autoLoad) {
-
-					if (autoLoad || self.winery.autoLoad)
-						self.winery.load();
-
-				};
-
-				this.castle.content = {};
-				this.castle.content.viewport = document.getElementById('castelo');
-				this.castle.fileAppend = new FileAppend(this.castle.content.viewport, 'castle.html', function () {
-
-					self.castle.requireContent(self.castle.autoLoad);
-
-				});
-
-			}
-
-		};
-
-		LaDorni.prototype.init = function() {
-
-			var self = this;
-
-			this.getLogo();
-
-			/* Init pages */
-
-			if (this.winemenu.viewport)
-				this.winemenu.init();
-
-			if (this.winery.viewport)
-				this.winery.init();
-
-			if (this.castle.viewport)
-				this.castle.init();
-
-			this.getWineMenu();
-			this.getWinery();
-			this.getCastle();
-
-			this.navigation.init();
-
-//			this.requireContent = document.getElementById('hero-photos').querySelectorAll('img');
-//
-//			this.require = new Require(this.requireContent, function () {
-//
-//				self.viewport.classList.remove('is-loading');
-//
-//			}, 1);
-
-		};
-
-		return LaDorni;
-
-	})();
-
-</script>
-
-<script>
-
 	var welcomeMessage = function (nav) {
 
 		if (!nav.changePageCount)
@@ -532,20 +326,32 @@
 
 	var mainMenu = new Menu(document.getElementById('main-menu'));
 
-	var test = function () {
-
-	};
-
 	var headerLogo = document.getElementById('main-header-logo');
+
+	var logo = new Logo(document.getElementById('logo'), 'img/LadorniLogoPure-web.min.svg', function () {
+
+		setTimeout(function () {
+
+			headerLogo.classList.remove('is-loading');
+
+			setTimeout(function () {
+
+				document.body.classList.remove('is-loading');
+
+				ladorni.init();
+
+			}, 1000);
+
+		}, 1000);
+
+	});
 
 	var ladorni = new LaDorni(document.body);
 
 	ladorni.navigation = new Navigation(document.getElementById('navigation'), ladorni.viewport);
 
 	ladorni.navigation.pushItem({
-		action: {
-			before: welcomeMessage
-		},
+		action: new PageAction(ladorni.navigation, ladorni.home, 'is-home'),
 		itemName: 'home',
 		itemTitle: false,
 		itemURL: './',
@@ -554,12 +360,14 @@
 	}, ladorni.home);
 
 	ladorni.navigation.pushItem({
+		action: new PageAction(ladorni.navigation, ladorni.winery, 'is-winery'),
 		itemName: 'winery',
 		itemTitle: 'A vínicola',
 		itemURL: './vinicola'
 	}, ladorni.winery);
 
 	ladorni.navigation.pushItem({
+		action: new PageAction(ladorni.navigation, ladorni.castle, 'is-castle'),
 		itemName: 'castle',
 		itemTitle: 'O Castelo',
 		itemURL: './castelo'
@@ -572,7 +380,7 @@
 		itemURL: './vinhos'
 	}, ladorni.winemenu);
 
-	ladorni.init();
+
 
 </script>
 

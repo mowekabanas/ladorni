@@ -57,7 +57,7 @@
 	// [pt-br] A classe Unloader evita que o conteúdo dos elementos
 	// [pt-br] seja baixado. Só será permitido o download do conteúdo
 	// [pt-br] quando o método 'load' da instancia ser chamado
-	main.contentLoad = new Unloader(main.content);
+	main.unloader = new Unloader(main.content);
 
 	// [pt-br] A classe Require cria um evento para quando um
 	// [pt-br] parte (range) dos elementos tem o seu conteúdo (src)
@@ -66,14 +66,14 @@
 
 	setTimeout(function () {
 
-		main.contentLoad.load();
+		main.unloader.load();
 
 	}, 2000);
 
 	setTimeout(function () {
 
 		console.log('start again');
-		main.contentLoad.load();
+		main.unloader.load();
 
 	}, 12000);
 

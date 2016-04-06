@@ -6,24 +6,102 @@ var Page = (function() {
 	/**
 	 * Navigation Item Page constructor
 	 * It normalize the page viewport
-	 * @param viewport {Element}
+	 * @param viewport {Node}
+	 * @param url {string}
 	 * @return {*|boolean}
 	 * @constructor
 	 */
-	function Page(viewport) {
+	function Page(viewport, url) {
+
+		var self = this;
 
 		this.viewport = viewport || false;
+		this.url = url || false;
+
+		this.content = {};
+		this.requiredContentQueryString = '';
 
 		this.header = {};
 		this.header.background = {};
 		this.header.overlay = {};
 
-		this.content = {};
-
 		this.hero = {};
 
+		this.require = new Require();
+		this.unloader = new Unloader();
+
+		this.afterDone = false;
+		this.afterLoad = false;
+
+		this.autoLoad = false;
 		this.isActive = false;
 		this.isLoaded = false;
+
+		this.state = {
+			active: 'is-active',
+			loading: 'is-loading'
+		};
+
+		/**
+		 * Done event
+		 * It calls when the required content is loaded
+		 */
+		this.done = function () {
+
+			self.isLoaded = true;
+
+			if (self.afterDone)
+				self.afterDone();
+
+		};
+
+		/**
+		 * Load the content
+		 */
+		this.load = function () {
+
+			if (!self.unloader.isLoaded) {
+
+				self.unloader.load();
+
+				if (self.afterLoad)
+					self.afterLoad();
+
+			}
+
+			self.isLoaded = true;
+
+		};
+
+		/**
+		 * Unload, require and load the content
+		 * @param autoLoad {boolean}
+		 * @return {boolean}
+		 */
+		this.requireContent = function (autoLoad) {
+
+			if (self.requiredContentQueryString) {
+
+				if (!self.isLoaded) {
+
+					self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
+
+					self.unloader.isLoaded = self.requiredContent;
+					self.unloader.init();
+
+					self.require.elements = self.requiredContent;
+					self.require.listener = self.done;
+					self.require.init();
+
+				}
+
+				return !!autoLoad;
+
+			}
+
+			return false;
+
+		};
 
 		if (this.viewport)
 			this.init(false);
@@ -31,7 +109,7 @@ var Page = (function() {
 	}
 
 	/**
-	 * Based on 'active' param, it set the 'is-active' state from the viewport
+	 * Based on 'active' param, it set the 'active' state state from the viewport
 	 * @param active
 	 * @return {boolean}
 	 */
@@ -40,9 +118,9 @@ var Page = (function() {
 		if (this.viewport) {
 
 			if (this.isActive = !!active)
-				this.viewport.classList.add('is-active');
+				this.viewport.classList.add(this.state.active);
 			else
-				this.viewport.classList.remove('is-active');
+				this.viewport.classList.remove(this.state.active);
 
 			return true;
 
@@ -54,7 +132,7 @@ var Page = (function() {
 
 	/**
 	 * Get the current active state
-	 * By default, it fix the 'is-active' class state
+	 * By default, it fix the 'active' class state
 	 * @param preserveState {boolean}
 	 * @return {boolean}
 	 */
@@ -102,16 +180,37 @@ var Page = (function() {
 
 	};
 
+	Page.prototype.getPageFile = function () {
+
+		var self = this;
+
+		if (this.content.viewport)
+			this.fileAppend = new FileAppend(this.content.viewport, this.url, function () {
+
+				if (self.requireContent(self.autoLoad))
+					self.load();
+
+			});
+
+	};
+
 	/**
 	 * It inits and normalize the Page
-	 * By default, it set to false the 'is-active' state
+	 * By default, it set to false the 'active' state
 	 * @param isActive {boolean}
 	 */
 	Page.prototype.init = function (isActive) {
 
+		// if this has url, append the file to 'this.content.viewport'
+		if (this.url)
+			this.getPageFile();
+		else if (this.requireContent(this.autoLoad))
+			this.load();
+
+		// normalize the 'active' state
 		this.setActive(!!isActive);
 
-		// try get connection to Hero Slider and Header
+		// try get relationship to Hero Slider and Header
 		this.getHeader();
 
 	};

@@ -24,7 +24,8 @@ var Require = (function () {
 
 		this.onLoadCtrl = function (ev) {
 
-			self.loadCount++;
+			if (!this.isLoaded)
+				self.loadCount++;
 
 			if (!self.isLoaded)
 				if (self.loadCount >= (self.elements.length * self.requireRange)) {

@@ -27,27 +27,22 @@ var PageAction = (function () {
 		// put document state
 		this.navigation.addDocumentState(this.stateClass);
 
-		// if page is not loaded, try load it
-		if (!this.page.isLoaded) {
+		// if has file append
+		if (this.page.fileAppend) {
 
-			// if has file append
-			if (this.page.fileAppend) {
+			// if has not load, set it to be auto loaded when it is done
+			if (this.page.load) {
 
-				// if has not load, set it to be auto loaded when it is done
-				if (this.page.load) {
-
-					if (this.page.fileAppend.isLoaded)
-						this.page.load();
-					else
-						this.page.autoLoad = true;
-
-				}
-
-			} else if (this.page.requireContent) {
-
-				this.page.requireContent();
+				if (this.page.fileAppend.isLoaded)
+					this.page.load();
+				else
+					this.page.autoLoad = true;
 
 			}
+
+		} else if (this.page.requireContent(true)) {
+
+			this.page.load();
 
 		}
 

@@ -4,7 +4,7 @@
 .HeroGalleryItem {  }
 
 .HeroGalleryItem--winemenu {
-	background: url("../img/largePhotos/lp14.jpg");
+	background: url("../img/largePhotos/lp-cave.jpg");
 }
 
 .HeroGalleryItem--winery {
@@ -12,7 +12,7 @@
 }
 
 .HeroGalleryItem--castle {
-	background: url("../img/largePhotos/lp08.jpg");
+	background: url("../img/largePhotos/lp-08.jpg");
 }
 
 @media (min-width: 48em) {

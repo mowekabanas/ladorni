@@ -14,7 +14,7 @@ var Unloader = (function () {
 
 		this.elements = elements || [];
 
-		this.isLoaded = false;
+		this.isLoaded = true;
 
 		if (this.elements.length)
 			this.init();
@@ -31,6 +31,8 @@ var Unloader = (function () {
 	};
 
 	Unloader.prototype.init = function () {
+
+		this.isLoaded = false;
 
 		for (var i = this.elements.length; i--;)
 			this.elements[i].unloader = new UnloaderElement(this.elements[i]);
