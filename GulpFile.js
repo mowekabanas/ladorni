@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
 	concat = require('gulp-concat'),
-	concatCss = require('gulp-concat-css'),
+	cleanCss = require('gulp-clean-css'),
 	jshint = require('gulp-jshint'),
 	minifycss = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
