@@ -1453,15 +1453,29 @@ var PageSlider = (function () {
 
 		this.onOverlayMouseOver = function (ev) {
 
-			if (self.page.hero.viewport)
+			if (self.page.hero.viewport) {
+
 				self.page.hero.viewport.classList.add('is-active');
+
+				if (self.page.hero.viewport.dataset.documentState)
+					if (self.page.document.viewport)
+						self.page.document.viewport.classList.add(self.page.hero.viewport.dataset.documentState);
+
+			}
 
 		};
 
 		this.onOverlayMouseOut = function (ev) {
 
-			if (self.page.hero.viewport)
+			if (self.page.hero.viewport) {
+
 				self.page.hero.viewport.classList.remove('is-active');
+
+				if (self.page.hero.viewport.dataset.documentState)
+					if (self.page.document.viewport)
+						self.page.document.viewport.classList.remove(self.page.hero.viewport.dataset.documentState);
+
+			}
 
 		};
 

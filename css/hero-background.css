@@ -33,7 +33,7 @@
 
 	.Hero-background img {
 		bottom: 0;
-		max-width: 48em;
+		max-width: 60em;
 		position: absolute;
 		right: 0;
 		width: 100%;
@@ -44,7 +44,7 @@
 @media (min-width: 96em) {
 
 	.Hero-background img {
-		max-width: 60em;
+		max-width: 72em;
 	}
 
 }

@@ -37,9 +37,6 @@
 	-ms-transform: translateY(0);
 	-o-transform: translateY(0);
 	transform: translateY(0);
-}
-
-body.is-biting .TransitionScreen--start .Logo {
 	opacity: 0;
 }
 
@@ -100,13 +97,17 @@ body.is-starting .TransitionScreen--start .Logo {
 }
 
 .TransitionScreen--start .Logo svg {
-	fill: #eee;
+	fill: #eeeeee;
 	max-width: 8em;
 }
 
 body.is-winemenu .Logo svg,
 body.is-transiting .Logo svg {
 	fill: #eeeeee;
+}
+
+body.is-home.is-accent .Logo svg {
+	fill: #e0e0e0;
 }
 
 /*.MainHeader #LaDorniLogo-stripes,*/

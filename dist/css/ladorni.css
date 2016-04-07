@@ -34,6 +34,10 @@ body.is-transiting .MainHeaderBrand-title {
 	opacity: 0;
 }
 
+body.is-home.is-accent .MainHeaderBrand-title {
+	color: #e0e0e0;
+}
+
 .MainHeaderBrand h1 {
 	font-size: 1em;
 	font-weight: 300;
@@ -165,7 +169,7 @@ body.is-transiting .MainHeaderBrand-title {
 
 	.Hero-background img {
 		bottom: 0;
-		max-width: 48em;
+		max-width: 60em;
 		position: absolute;
 		right: 0;
 		width: 100%;
@@ -176,7 +180,7 @@ body.is-transiting .MainHeaderBrand-title {
 @media (min-width: 96em) {
 
 	.Hero-background img {
-		max-width: 60em;
+		max-width: 72em;
 	}
 
 }
@@ -459,9 +463,6 @@ body.is-starting .LoadBar-progress {
 	-ms-transform: translateY(0);
 	-o-transform: translateY(0);
 	transform: translateY(0);
-}
-
-body.is-biting .TransitionScreen--start .Logo {
 	opacity: 0;
 }
 
@@ -522,13 +523,17 @@ body.is-starting .TransitionScreen--start .Logo {
 }
 
 .TransitionScreen--start .Logo svg {
-	fill: #eee;
+	fill: #eeeeee;
 	max-width: 8em;
 }
 
 body.is-winemenu .Logo svg,
 body.is-transiting .Logo svg {
 	fill: #eeeeee;
+}
+
+body.is-home.is-accent .Logo svg {
+	fill: #e0e0e0;
 }
 
 /*.MainHeader #LaDorniLogo-stripes,*/
@@ -1203,9 +1208,10 @@ body.is-starting .Main {
 /* Page title */
 
 .PageHeader-title {
+	margin-bottom: 1.125em;
+	max-width: 14em;
 	padding: 1em;
 	position: relative;
-	max-width: 14em;
 }
 
 .Page--winemenu .PageHeader-title:before {
@@ -1242,7 +1248,46 @@ body.is-starting .Main {
 	width: 4.5em;
 }
 
+/* Page Header secondary title */
+
+.PageHeader-secondary-title {
+	display: block;
+	position: relative;
+	text-align: center;
+}
+
+.PageHeader-secondary-title .icon {
+	background-color: #212121;
+	border-radius: 50%;
+	color: #eeeeee;
+	margin-left: 2pt;
+	text-align: center;
+	padding: 2px 1px 2px 2px;
+}
+
+.PageHeader-secondary-title .icon span {
+	font-size: .875em;
+}
+
+/* Page Header h3 */
+
+.Page h3 {
+	font-size: 1.5em;
+	font-weight: 300;
+	line-height: 1.36;
+	text-align: center;
+}
+
+.PageHeader h3 strong {
+	font-weight: 900;
+}
+
 @media (min-width: 48em) {
+
+	.PageHeader h3 {
+		font-size: 2.25em;
+		line-height: 1.16;
+	}
 
 	.PageHeader {
 		height: 100vh;
@@ -1304,8 +1349,19 @@ body.is-starting .Main {
 		transition: transform .6s, color .6s;
 	}
 
-	.PageHeader:hover .PageHeader-title {
-		color: #ffffff;
+	body.is-home.is-accent .PageHeader-title {
+		color: #757575;
+	}
+
+	body.is-home.is-header-accent .PageHeader-title {
+		color: #616161;
+	}
+
+	body.is-home.is-accent .PageHeader:hover .PageHeader-title,
+	body.is-home.is-header-accent .PageHeader:hover .PageHeader-title,
+	.PageHeader:hover .PageHeader-title,
+	.PageHeader:hover .PageHeader-secondary-title {
+		color: #eeeeee;
 		-webkit-transform: scale(1);
 		-moz-transform: scale(1);
 		-ms-transform: scale(1);
@@ -1313,11 +1369,15 @@ body.is-starting .Main {
 		transform: scale(1);
 	}
 
+	body.is-home.is-accent .PageHeader:hover .PageHeader-secondary-title {
+		color: #bdbdbd;
+	}
+
 }
 
 @media (min-width: 72em) {
 
-	.Page h3 {
+	.PageHeader h3 {
 		line-height: 1.16;
 	}
 
@@ -1362,6 +1422,14 @@ body.is-starting .Main {
 
 }
 
+@media (min-width: 96em) {
+
+	.PageHeader h3 {
+		font-size: 3em;
+	}
+
+}
+
 /* Page */
 
 .Page {
@@ -1381,17 +1449,6 @@ body.is-home .Page {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-}
-
-.Page h3 {
-	font-size: 1.5em;
-	font-weight: 300;
-	line-height: 1.36;
-	text-align: center;
-}
-
-.Page h3 strong {
-	font-weight: 900;
 }
 
 /* Page content */
@@ -1416,11 +1473,6 @@ body.is-home .Page {
 		min-width: 0;
 	}
 
-	.Page h3 {
-		font-size: 2.25em;
-		line-height: 1.16;
-	}
-
 }
 
 @media (min-width: 72em) {
@@ -1432,18 +1484,6 @@ body.is-home .Page {
 		align-items: center;
 		-webkit-flex-flow: column;
 		flex-flow: column;
-	}
-
-	.Page h3 {
-		line-height: 1.16;
-	}
-
-}
-
-@media (min-width: 96em) {
-
-	.Page h3 {
-		font-size: 3em;
 	}
 
 }

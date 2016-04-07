@@ -20,17 +20,6 @@ body.is-home .Page {
 	display: flex;
 }
 
-.Page h3 {
-	font-size: 1.5em;
-	font-weight: 300;
-	line-height: 1.36;
-	text-align: center;
-}
-
-.Page h3 strong {
-	font-weight: 900;
-}
-
 /* Page content */
 
 .Page-content {
@@ -53,11 +42,6 @@ body.is-home .Page {
 		min-width: 0;
 	}
 
-	.Page h3 {
-		font-size: 2.25em;
-		line-height: 1.16;
-	}
-
 }
 
 @media (min-width: 72em) {
@@ -69,18 +53,6 @@ body.is-home .Page {
 		align-items: center;
 		-webkit-flex-flow: column;
 		flex-flow: column;
-	}
-
-	.Page h3 {
-		line-height: 1.16;
-	}
-
-}
-
-@media (min-width: 96em) {
-
-	.Page h3 {
-		font-size: 3em;
 	}
 
 }

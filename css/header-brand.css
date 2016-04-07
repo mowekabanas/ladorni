@@ -29,6 +29,10 @@ body.is-transiting .MainHeaderBrand-title {
 	opacity: 0;
 }
 
+body.is-home.is-accent .MainHeaderBrand-title {
+	color: #e0e0e0;
+}
+
 .MainHeaderBrand h1 {
 	font-size: 1em;
 	font-weight: 300;
