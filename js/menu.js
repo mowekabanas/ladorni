@@ -16,10 +16,18 @@ var Menu = (function () {
 		this.backdrop.defaultClass = 'Menu-backdrop';
 		this.backdrop.isAppended = false;
 
+		this.items = [];
+
 		this.isActive = false;
 
 		this.closeAnimationTime = 300;
 		this.openAnimationTime = 100;
+
+		this.onMenuItemClick = function (ev) {
+
+			self.close();
+
+		};
 
 		this.onToggleClick = function (ev) {
 
@@ -136,6 +144,19 @@ var Menu = (function () {
 
 		window.addEventListener('keydown', this.onKeyDown, false);
 
+		if (this.items.length)
+			for (var i = this.items.length; i--; )
+				this.items[i].addEventListener('click', this.onMenuItemClick, false);
+
+	};
+
+	/**
+	 * Find Menu items based on 'MenuItem-select-area' class
+	 */
+	Menu.prototype.getItems = function () {
+
+		this.items = this.viewport.querySelectorAll('.MenuItem-select-area');
+
 	};
 
 	/**
@@ -171,6 +192,8 @@ var Menu = (function () {
 
 		this.getToggleButton();
 		this.initBackdrop();
+
+		this.getItems();
 
 		this.addListeners();
 

@@ -12,6 +12,7 @@
 	-ms-transition: transform .6s ease-out;
 	-o-transition: transform .6s ease-out;
 	transition: transform .6s ease-out;
+	visibility: visible;
 }
 
 .MainMenu .MenuList {
@@ -38,6 +39,7 @@
 	-ms-transition: transform .4s;
 	-o-transition: transform .4s;
 	transition: transform .4s;
+	visibility: hidden;
 	z-index: 11;
 }
 
@@ -51,6 +53,7 @@
 		-ms-transition: transform .6s ease-out;
 		-o-transition: transform .6s ease-out;
 		transition: transform .6s ease-out;
+
 	}
 
 	.MainMenu .MenuList {

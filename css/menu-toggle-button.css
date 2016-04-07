@@ -2,11 +2,18 @@
 /* Menu Toggle Button */
 
 .MainNav .MenuToggleButton {
-	display: none;
+	visibility: visible;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 12;
+}
+
+body.is-home .MainNav .MenuToggleButton,
+body.is-transition .MainNav .MenuToggleButton,
+body.is-biting .MainNav .MenuToggleButton,
+body.is-starting .MainNav .MenuToggleButton {
+	visibility: hidden;
 }
 
 /* Menu Toggle Button select area */
