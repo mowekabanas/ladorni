@@ -23,7 +23,30 @@
 <style>
 
 	body {
+		background-color: #ffffff;
 		font-family: 'Roboto', sans-serif;
+		-webkit-transition: background 1.2s;
+		-moz-transition: background 1.2s;
+		-ms-transition: background 1.2s;
+		-o-transition: background 1.2s;
+		transition: background 1.2s;
+	}
+
+	body.is-biting,
+	body.is-loading {
+		overflow: hidden;
+	}
+
+	body.is-biting {
+		background-color: #757575;
+	}
+
+	@media (min-width: 48em) {
+
+		body.is-home {
+			overflow: hidden;
+		}
+
 	}
 
 	body.is-biting .TransitionScreen--start {
@@ -406,8 +429,12 @@
 			// hide the loadBar and show the Logo
 			document.body.classList.add('is-starting');
 
-			// init the document instance and the navigation
-			ladorni.init(true);
+			setTimeout(function () {
+
+				// init the document instance and the navigation
+				ladorni.init(true);
+
+			}, 1000);
 
 		}, 1200);
 

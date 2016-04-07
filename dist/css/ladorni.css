@@ -757,11 +757,11 @@ body.is-transiting .Logo svg {
 	-ms-transform: translateY(0);
 	-o-transform: translateY(0);
 	transform: translateY(0);
-	-webkit-transition: opacity .8s, transform .8s;
-	-moz-transition: opacity .8s, transform .8s;
-	-ms-transition: opacity .8s, transform .8s;
-	-o-transition: opacity .8s, transform .8s;
-	transition: opacity .8s, transform .8s;
+	-webkit-transition: opacity 1.2s, transform .8s;
+	-moz-transition: opacity 1.2s, transform .8s;
+	-ms-transition: opacity 1.2s, transform .8s;
+	-o-transition: opacity 1.2s, transform .8s;
+	transition: opacity 1.2s, transform .8s;
 }
 
 body.is-starting .Main {
