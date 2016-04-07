@@ -536,6 +536,10 @@ body.is-home.is-accent .Logo svg {
 	fill: #e0e0e0;
 }
 
+body.has-menu .Logo svg {
+	fill: #212121;
+}
+
 /*.MainHeader #LaDorniLogo-stripes,*/
 .MainHeader #LaDorniLogoLions {
 	/*opacity: 0;*/

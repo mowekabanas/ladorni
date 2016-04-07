@@ -71,6 +71,8 @@ var Menu = (function () {
 		this.viewport.classList.remove('is-active');
 		this.viewport.classList.add('is-animating');
 
+		document.body.classList.remove('has-menu');
+
 		if (this.animationDelay)
 			clearTimeout(this.animationDelay);
 
@@ -92,6 +94,8 @@ var Menu = (function () {
 
 		this.viewport.classList.add('is-active');
 		this.viewport.classList.add('is-animating');
+
+		document.body.classList.add('has-menu');
 
 		if (this.animationDelay)
 			clearTimeout(this.animationDelay);
