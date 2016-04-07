@@ -25,7 +25,8 @@ var Menu = (function () {
 
 		this.onMenuItemClick = function (ev) {
 
-			self.close();
+			if (self.isActive)
+				self.close();
 
 		};
 
