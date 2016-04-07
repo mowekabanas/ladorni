@@ -134,7 +134,7 @@ var LaDorni = (function () {
 			this.winery.url = 'winery.html';
 			this.winery.hero = new Hero(document.getElementById('winery-hero'));
 			this.winery.content.viewport = document.getElementById('vinicola');
-			this.winemenu.requiredContentQueryString = '.WineFigure-img';
+			this.winery.requiredContentQueryString = '.WineryPhotoArticle-figure img';
 
 		}
 
@@ -150,6 +150,7 @@ var LaDorni = (function () {
 			this.castle.url = 'castle.html';
 			this.castle.hero = new Hero(document.getElementById('castle-hero'));
 			this.castle.content.viewport = document.getElementById('castelo');
+			this.castle.requiredContentQueryString = '.WineryPhotoArticle-figure img';
 
 		}
 
