@@ -184,8 +184,7 @@
 		color: #757575;
 	}
 
-	body.is-home.is-accent .PageHeader-secondary-title,
-	body.is-home.is-header-accent .PageHeader-secondary-title {
+	.PageHeader-secondary-title {
 		opacity: 0;
 	}
 
@@ -195,8 +194,6 @@
 
 	body.is-home.is-accent .PageHeader:hover .PageHeader-title,
 	body.is-home.is-header-accent .PageHeader:hover .PageHeader-title,
-	body.is-home.is-accent .PageHeader:hover .PageHeader-secondary-title,
-	body.is-home.is-header-accent .PageHeader:hover .PageHeader-secondary-title,
 	.PageHeader:hover .PageHeader-title,
 	.PageHeader:hover .PageHeader-secondary-title {
 		color: #eeeeee;

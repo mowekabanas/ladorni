@@ -65,7 +65,7 @@ body.is-starting .MainNav .MenuToggleButton {
 	}
 
 	.MainMenu .MenuToggleButton-select-area .icon {
-		font-size: 2.25em;
+		font-size: 1.125em;
 	}
 
 }
@@ -81,11 +81,11 @@ body.is-starting .MainNav .MenuToggleButton {
 
 	.MainMenu .MenuToggleButton-select-area {
 		padding: 1.5em 0;
-		width: 8em;
+		width: 6em;
 	}
 
 	.MainMenu .MenuToggleButton-select-area .icon {
-		font-size: 2.25em;
+		font-size: 1.5em;
 	}
 
 }

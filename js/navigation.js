@@ -3,12 +3,13 @@
 
 var Navigation = (function () {
 
-	function Navigation(viewport, documentTarget) {
+	function Navigation(viewport, documentTarget, menu) {
 
 		var self = this;
 
 		this.viewport = viewport;
 		this.document = documentTarget;
+		this.menu = menu || false;
 
 		this.transition = {};
 		this.transitionDelay = {};
@@ -31,6 +32,10 @@ var Navigation = (function () {
 		this.onNavigationItemClick = function(ev) {
 
 			if (this.dataset.navigationTarget) {
+
+				if (self.menu)
+					if (self.menu.isActive)
+						self.menu.close();
 
 				ev.preventDefault();
 

@@ -953,11 +953,11 @@ body.is-starting .Main {
 	-ms-transform: translateX(0);
 	-o-transform: translateX(0);
 	transform: translateX(0);
-	-webkit-transition: transform .6s ease-out;
-	-moz-transition: transform .6s ease-out;
-	-ms-transition: transform .6s ease-out;
-	-o-transition: transform .6s ease-out;
-	transition: transform .6s ease-out;
+	-webkit-transition: transform .6s ease-out, visibility 0s;
+	-moz-transition: transform .6s ease-out, visibility 0s;
+	-ms-transition: transform .6s ease-out, visibility 0s;
+	-o-transition: transform .6s ease-out, visibility 0s;
+	transition: transform .6s ease-out, visibility 0s;
 	visibility: visible;
 }
 
@@ -980,11 +980,11 @@ body.is-starting .Main {
 	-ms-transform: translateX(-100%);
 	-o-transform: translateX(-100%);
 	transform: translateX(-100%);
-	-webkit-transition: transform .4s;
-	-moz-transition: transform .4s;
-	-ms-transition: transform .4s;
-	-o-transition: transform .4s;
-	transition: transform .4s;
+	-webkit-transition: transform .6s .2s, visibility 0s .8s;
+	-moz-transition: transform .6s .2s, visibility 0s .8s;
+	-ms-transition: transform .6s .2s, visibility 0s .8s;
+	-o-transition: transform .6s .2s, visibility 0s .8s;
+	transition: transform .6s .2s, visibility 0s .8s;
 	visibility: hidden;
 	z-index: 11;
 }
@@ -993,22 +993,10 @@ body.is-starting .Main {
 
 @media (min-width: 21em) {
 
-	.MainMenu.is-active .MenuList {
-		-webkit-transition: transform .6s ease-out;
-		-moz-transition: transform .6s ease-out;
-		-ms-transition: transform .6s ease-out;
-		-o-transition: transform .6s ease-out;
-		transition: transform .6s ease-out;
-
-	}
+	.MainMenu.is-active .MenuList {  }
 
 	.MainMenu .MenuList {
 		padding: 9em 0 0;
-		-webkit-transition: transform .4s;
-		-moz-transition: transform .4s;
-		-ms-transition: transform .4s;
-		-o-transition: transform .4s;
-		transition: transform .4s;
 	}
 
 }
@@ -1134,7 +1122,7 @@ body.is-starting .MainNav .MenuToggleButton {
 	}
 
 	.MainMenu .MenuToggleButton-select-area .icon {
-		font-size: 2.25em;
+		font-size: 1.125em;
 	}
 
 }
@@ -1150,11 +1138,11 @@ body.is-starting .MainNav .MenuToggleButton {
 
 	.MainMenu .MenuToggleButton-select-area {
 		padding: 1.5em 0;
-		width: 8em;
+		width: 6em;
 	}
 
 	.MainMenu .MenuToggleButton-select-area .icon {
-		font-size: 2.25em;
+		font-size: 1.5em;
 	}
 
 }
@@ -1381,8 +1369,7 @@ body.is-starting .MainNav .MenuToggleButton {
 		color: #757575;
 	}
 
-	body.is-home.is-accent .PageHeader-secondary-title,
-	body.is-home.is-header-accent .PageHeader-secondary-title {
+	.PageHeader-secondary-title {
 		opacity: 0;
 	}
 
@@ -1392,8 +1379,6 @@ body.is-starting .MainNav .MenuToggleButton {
 
 	body.is-home.is-accent .PageHeader:hover .PageHeader-title,
 	body.is-home.is-header-accent .PageHeader:hover .PageHeader-title,
-	body.is-home.is-accent .PageHeader:hover .PageHeader-secondary-title,
-	body.is-home.is-header-accent .PageHeader:hover .PageHeader-secondary-title,
 	.PageHeader:hover .PageHeader-title,
 	.PageHeader:hover .PageHeader-secondary-title {
 		color: #eeeeee;

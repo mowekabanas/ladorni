@@ -157,7 +157,7 @@
 
 		</div>
 
-		<div class="TransitionScreen TransitionScreen--first indigo-900"></div>
+		<div class="TransitionScreen TransitionScreen--first amber-a700"></div>
 		<div class="TransitionScreen TransitionScreen--second grey-900"></div>
 
 		<div class="TransitionScreen TransitionScreen--winemenu grey-900 font-grey-400">
@@ -327,7 +327,7 @@
 				<div class="PageHeader-background"></div>
 				<div class="PageHeader-overlay"></div>
 
-				<a href="#vinhos" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winemenu">
+				<a href="#vinhos" class="PageHeader-select-area NavAnchor NavigationItem font-grey-800" data-navigation-target="winemenu">
 
 					<div class="PageHeader-title">
 
@@ -356,7 +356,7 @@
 				<div class="PageHeader-background"></div>
 				<div class="PageHeader-overlay"></div>
 
-				<a href="#vinicola" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="winery">
+				<a href="#vinicola" class="PageHeader-select-area NavAnchor NavigationItem font-grey-800" data-navigation-target="winery">
 
 					<div class="PageHeader-title">
 
@@ -387,7 +387,7 @@
 				<div class="PageHeader-background"></div>
 				<div class="PageHeader-overlay"></div>
 
-				<a href="#castelo" class="NavAnchor NavigationItem font-grey-800" data-navigation-target="castle">
+				<a href="#castelo" class="PageHeader-select-area NavAnchor NavigationItem font-grey-800" data-navigation-target="castle">
 
 					<div class="PageHeader-title">
 
@@ -460,7 +460,7 @@
 
 	var ladorni = new LaDorni(document.body);
 
-	ladorni.navigation = new Navigation(document.getElementById('navigation'), ladorni);
+	ladorni.navigation = new Navigation(document.getElementById('navigation'), ladorni, mainMenu);
 
 	ladorni.navigation.pushItem({
 		action: new PageAction(ladorni.navigation, ladorni.home, 'is-home'),
