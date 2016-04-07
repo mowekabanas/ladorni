@@ -30,10 +30,10 @@ var Require = (function () {
 			if (!self.isLoaded)
 				if (self.loadCount >= (self.elements.length * self.requireRange)) {
 
+					self.isLoaded = true;
+
 					if (self.listener)
 						self.listener(self);
-
-					self.isLoaded = true;
 
 				}
 

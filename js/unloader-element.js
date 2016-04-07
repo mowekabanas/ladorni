@@ -29,7 +29,7 @@ var UnloaderElement = (function () {
 
 	UnloaderElement.prototype.removeLink = function () {
 
-		this.src = this.viewport.src;
+		this.src = this.viewport.getAttribute('src').toString();
 		this.viewport.src = '';
 
 	};

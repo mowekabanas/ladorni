@@ -140,15 +140,21 @@ var LaDorni = (function () {
 
 		// Home
 		this.home = new Page();
+		this.home.document = this;
 
 		// Winemenu
 		this.winemenu = new Page();
+		this.winemenu.document = this;
 
 		// Winery
 		this.winery = new Page();
+		this.winery.document = this;
 
 		// Castle
 		this.castle = new Page();
+		this.castle.document = this;
+
+		this.isStarted = false;
 
 	}
 
@@ -160,7 +166,9 @@ var LaDorni = (function () {
 	 */
 	LaDorni.prototype.start = function () {
 
-		console.log('HEEEEEEEY! I" HERE BITCHES');
+		this.isStarted = true;
+
+		console.log('HEEEEEEEY! STARTEEEDD');
 
 		// hide all, show the '.TransitionScreen--start' element, start the loadBar
 		document.body.classList.remove('is-biting');
@@ -183,13 +191,13 @@ var LaDorni = (function () {
 
 			this.home.afterDone = function () {
 
-				//console.log('carregado');
+				console.log('carregado (done)');
 
 			};
 
 			this.home.afterLoad = function () {
 
-				//console.log('baixando');
+				console.log('baixando');
 
 			};
 
@@ -1130,6 +1138,8 @@ var Page = (function() {
 		this.viewport = viewport || false;
 		this.url = url || false;
 
+		this.document = false;
+
 		this.content = {};
 		this.requiredContentQueryString = '';
 
@@ -1155,6 +1165,17 @@ var Page = (function() {
 		};
 
 		/**
+		 * When this Page is the first to load
+		 * It calls the main function of the page
+		 */
+		this.onFirstPageLoad = function () {
+
+			if (self.document.start)
+				self.document.start();
+
+		};
+
+		/**
 		 * Done event
 		 * It calls when the required content is loaded
 		 */
@@ -1162,8 +1183,17 @@ var Page = (function() {
 
 			self.isLoaded = true;
 
-			if (self.afterDone)
-				self.afterDone();
+			if (self.require.isLoaded) {
+
+				if (self.document)
+					if (self.document.navigation)
+						if (self.document.navigation.changePageCount == 1)
+							self.onFirstPageLoad();
+
+				if (self.afterDone)
+					self.afterDone();
+
+			}
 
 		};
 
@@ -1194,18 +1224,19 @@ var Page = (function() {
 
 			if (self.requiredContentQueryString) {
 
-				if (!self.isLoaded) {
+				if (!self.isLoaded)
+					if (!self.unloader.elements.length) {
 
-					self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
+						self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
 
-					self.unloader.elements = self.requiredContent;
-					self.unloader.init();
+						self.unloader.elements = self.requiredContent;
+						self.unloader.init();
 
-					self.require.elements = self.requiredContent;
-					self.require.listener = self.done;
-					//self.require.init();
+						self.require.elements = self.requiredContent;
+						self.require.listener = self.done;
+						self.require.init();
 
-				}
+					}
 
 				return !!autoLoad;
 
@@ -1492,10 +1523,10 @@ var Require = (function () {
 			if (!self.isLoaded)
 				if (self.loadCount >= (self.elements.length * self.requireRange)) {
 
+					self.isLoaded = true;
+
 					if (self.listener)
 						self.listener(self);
-
-					self.isLoaded = true;
 
 				}
 
@@ -1638,7 +1669,7 @@ var UnloaderElement = (function () {
 
 	UnloaderElement.prototype.removeLink = function () {
 
-		this.src = this.viewport.src;
+		this.src = this.viewport.getAttribute('src').toString();
 		this.viewport.src = '';
 
 	};

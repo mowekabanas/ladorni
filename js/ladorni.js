@@ -23,15 +23,21 @@ var LaDorni = (function () {
 
 		// Home
 		this.home = new Page();
+		this.home.document = this;
 
 		// Winemenu
 		this.winemenu = new Page();
+		this.winemenu.document = this;
 
 		// Winery
 		this.winery = new Page();
+		this.winery.document = this;
 
 		// Castle
 		this.castle = new Page();
+		this.castle.document = this;
+
+		this.isStarted = false;
 
 	}
 
@@ -43,7 +49,9 @@ var LaDorni = (function () {
 	 */
 	LaDorni.prototype.start = function () {
 
-		console.log('HEEEEEEEY! I" HERE BITCHES');
+		this.isStarted = true;
+
+		console.log('HEEEEEEEY! STARTEEEDD');
 
 		// hide all, show the '.TransitionScreen--start' element, start the loadBar
 		document.body.classList.remove('is-biting');
@@ -66,13 +74,13 @@ var LaDorni = (function () {
 
 			this.home.afterDone = function () {
 
-				//console.log('carregado');
+				console.log('carregado (done)');
 
 			};
 
 			this.home.afterLoad = function () {
 
-				//console.log('baixando');
+				console.log('baixando');
 
 			};
 

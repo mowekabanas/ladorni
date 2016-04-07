@@ -18,6 +18,8 @@ var Page = (function() {
 		this.viewport = viewport || false;
 		this.url = url || false;
 
+		this.document = false;
+
 		this.content = {};
 		this.requiredContentQueryString = '';
 
@@ -43,6 +45,17 @@ var Page = (function() {
 		};
 
 		/**
+		 * When this Page is the first to load
+		 * It calls the main function of the page
+		 */
+		this.onFirstPageLoad = function () {
+
+			if (self.document.start)
+				self.document.start();
+
+		};
+
+		/**
 		 * Done event
 		 * It calls when the required content is loaded
 		 */
@@ -50,8 +63,17 @@ var Page = (function() {
 
 			self.isLoaded = true;
 
-			if (self.afterDone)
-				self.afterDone();
+			if (self.require.isLoaded) {
+
+				if (self.document)
+					if (self.document.navigation)
+						if (self.document.navigation.changePageCount == 1)
+							self.onFirstPageLoad();
+
+				if (self.afterDone)
+					self.afterDone();
+
+			}
 
 		};
 
@@ -82,18 +104,19 @@ var Page = (function() {
 
 			if (self.requiredContentQueryString) {
 
-				if (!self.isLoaded) {
+				if (!self.isLoaded)
+					if (!self.unloader.elements.length) {
 
-					self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
+						self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
 
-					self.unloader.elements = self.requiredContent;
-					self.unloader.init();
+						self.unloader.elements = self.requiredContent;
+						self.unloader.init();
 
-					self.require.elements = self.requiredContent;
-					self.require.listener = self.done;
-					//self.require.init();
+						self.require.elements = self.requiredContent;
+						self.require.listener = self.done;
+						self.require.init();
 
-				}
+					}
 
 				return !!autoLoad;
 
