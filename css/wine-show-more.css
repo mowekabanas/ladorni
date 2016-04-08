@@ -81,8 +81,7 @@
 	}
 
 	.WineShowMoreTitle-text--opened {
-		opacity: 0;
-		visibility: hidden;
+		display: none;
 	}
 
 	.Wine.is-expanded .WineShowMoreTitle-text--closed {
@@ -91,6 +90,8 @@
 
 	.Wine.is-expanded .WineShowMoreTitle-text--opened {
 		display: block;
+		opacity: 0;
+		visibility: hidden;
 	}
 
     .WineShowMore-select-area:hover .WineShowMoreTitle-text--opened {
@@ -242,7 +243,7 @@
 
 }
 
-@media (min-width: 60em) {
+@media (min-width: 72em) {
 
 	/* Wine Show More */
 

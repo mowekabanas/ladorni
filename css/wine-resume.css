@@ -27,7 +27,7 @@
 /* Wine Resume Item */
 
 .WineResumeItem {
-	width: 50%;
+	width: 33.3333333333%;
 	margin: 0 0 2.25em;
 }
 
@@ -61,11 +61,11 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	height: 3.75em;
+	height: 3em;
 	-webkit-justify-content: center;
 	justify-content: center;
 	margin-bottom: .75em;
-	width: 3.75em;
+	width: 3em;
 }
 
 .WineResumeItem-header span {
