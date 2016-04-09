@@ -4,6 +4,339 @@
  * Licensed under MIT (https://github.com/mowekabanas/ladorni/blob/master/LICENSE)
 */
 
+/* Contact Form */
+
+.ContactForm {
+	max-width: 800px;
+	width: 100%;
+	padding: 1em 0 0;
+}
+
+/* Contact Form Block*/
+
+.ConcatFormBlock {
+	padding: 4.5em 0;
+}
+
+/* Form Title */
+
+.ContactForm-title {
+	font-size: 1em;
+	width: 100%;
+	padding: 0 3.75em;
+	margin: 1em 0 .5em;
+}
+
+.ContactForm-title span {
+	color: #4e342e;
+	font-size: 1.5em;
+	font-weight: 300;
+}
+
+/* Form Wrapper and Field */
+
+.ContactForm-wrapper,
+.ContactForm-field {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.ContactForm-wrapper {
+	padding: 0 1em;
+	width: 100%;
+}
+
+/* Form Field */
+
+.ContactForm-field {
+	padding: 0 1.5em;
+	width: 100%;
+}
+
+.ContactFormFooter .ContactForm-field {
+	width: auto;
+}
+
+.ContactForm-field--submit {
+	padding: 0;
+}
+
+.ContactForm-field ::-webkit-input-placeholder {
+	color: #607d8b;
+}
+
+.ContactForm-field :-moz-placeholder {
+	color: #607d8b;
+}
+
+.ContactForm-field ::-moz-placeholder {
+	color: #607d8b;
+}
+
+.ContactForm-field :focus::-webkit-input-placeholder {
+	color: #b0bec5;
+}
+
+.ContactForm-field :focus:-moz-placeholder {
+	color: #b0bec5;
+}
+
+.ContactForm-field :focus::-moz-placeholder {
+	color: #b0bec5;
+}
+
+.ContactForm-field input,
+.ContactForm-field label,
+.ContactForm-field textarea {
+	color: #4e342e;
+	border: none;
+	background: none;
+	width: 100%;
+}
+
+.ContactForm-field input,
+.ContactForm-field textarea {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #e0e0e0;
+	margin: 1px 0 .5em;
+	order: 2;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	-ms-transition: background .3s;
+	-o-transition: background .3s;
+	transition: background .3s;
+}
+
+.ContactForm-field input:focus,
+.ContactForm-field textarea:focus {
+	border-bottom-width: 2px;
+	border-bottom-color: #ffab00;
+	margin-top: 0;
+}
+
+.ContactForm-field input:invalid,
+.ContactForm-field textarea:invalid {
+	border-bottom-width: 2px;
+	border-bottom-color: red;
+	background: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.ContactForm-field input {
+	font-size: 1em;
+	line-height: 1;
+	padding: 1em 0 .5em;
+}
+
+.ContactForm-field--name input {
+	font-weight: 500;
+}
+
+.ContactForm-field label {
+	color: #ffab00;
+	display: none;
+	font-size: .75em;
+	padding: 1.333333333em 0 0;
+}
+
+.ContactForm-field textarea + label {
+	order: 1;
+	display: block;
+}
+
+.ContactForm-field textarea:focus + label {
+	color: #ffab00;
+}
+
+.ContactForm-field textarea {
+	font-size: 1em;
+	line-height: 1.5;
+	min-height: 4em;
+	min-width: 100%;
+	padding: .5em 0;
+}
+
+/* Contact Form Footer */
+
+.ContactFormFooter {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+/* Contact Form Status */
+
+.ContactFormStatus {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	padding: 0 1em;
+}
+
+/* Contact Form Status text */
+
+.ContactFormStatus-text {
+	display: none;
+	font-size: .875em;
+	font-weight: 900;
+	letter-spacing: -.5pt;
+}
+
+.ContactForm.is-success .ContactFormStatus-text--success,
+.ContactForm.is-sending .ContactFormStatus-text--sending,
+.ContactForm.is-error .ContactFormStatus-text--error,
+.ContactForm.is-fail .ContactFormStatus-text--fail {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.ContactForm.is-sending .ContactFormStatus-text--sending {
+	-webkit-animation: sendAnimation infinite .6s ease;
+	-o-animation: sendAnimation infinite .6s ease;
+	animation: sendAnimation infinite .6s ease;
+}
+
+.ContactForm-field .ContactForm-submit {
+	color: #ffab00;
+	cursor: pointer;
+	border: none;
+	padding: .625em .5em;
+	margin: .5em;
+	font-weight: 600;
+	text-transform: uppercase;
+	width: 6em;
+}
+
+.ContactForm-field .ContactForm-submit:hover,
+.ContactForm-field .ContactForm-submit:focus {
+	background-color: #e0e0e0;
+	margin: .5em;
+}
+
+@media (min-width: 72em) {
+
+	.ContactForm-field textarea {
+		font-size: 1em;
+		line-height: 1.5;
+		min-height: 6em;
+		min-width: 100%;
+		padding: .5em 0;
+	}
+
+}
+
+@media (min-width: 36em) {
+
+	.ContactForm-wrapper {
+		padding: 0 2.25em;
+		width: 100%;
+	}
+
+}
+
+@-webkit-keyframes loadAnimation {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: .48;
+	}
+
+	100% {
+		opacity: 1;
+	}
+
+}
+
+@-o-keyframes loadAnimation {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: .48;
+	}
+
+	100% {
+		opacity: 1;
+	}
+
+}
+
+@-moz-keyframes sendAnimation {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: .48;
+	}
+
+	100% {
+		opacity: 1;
+	}
+
+}
+
+@keyframes loadAnimation {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: .48;
+	}
+
+	100% {
+		opacity: 1;
+	}
+
+}
+
+.Contact-inner {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 100vh;
+}
+
 .MainHeaderBrand {
 	display: -webkit-box;
 	display: -moz-box;
@@ -32,6 +365,11 @@
 body.is-transiting .MainHeaderBrand-title {
 	color: #eeeeee;
 	opacity: 0;
+}
+
+body.is-local .MainHeaderBrand-title,
+body.is-contact .MainHeaderBrand-title {
+	visibility: hidden;
 }
 
 body.is-home.is-accent .MainHeaderBrand-title {
@@ -190,15 +528,15 @@ body.is-home.is-accent .MainHeaderBrand-title {
 .HeroGalleryItem {  }
 
 .HeroGalleryItem--winemenu {
-	background: url("../img/largePhotos/lp-cave.jpg");
+	background: url("../img/widePhotos/wp-cave.jpg");
 }
 
 .HeroGalleryItem--winery {
-	background: url("../img/headerPhotos/hp-torre.jpg");
+	background: url("../img/headerPhotos/hp-torre-02.jpg");
 }
 
 .HeroGalleryItem--castle {
-	background: url("../img/largePhotos/lp-08.jpg");
+	background: url("../img/largePhotos/lp-torre-01.jpg");
 }
 
 @media (min-width: 48em) {
@@ -425,6 +763,77 @@ body.is-starting .LoadBar-progress {
 	width: 100%;
 }
 
+/* Local */
+
+.Local .Page-content {
+	background-color: #212121;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Local Info */
+
+.LocalInfo {
+	bottom: 0;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	padding: 1em 1em 2.25em;
+	position: absolute;
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	-o-transform: translateY(100%);
+	transform: translateY(100%);
+	width: 100%;
+}
+
+.Local.is-active .LocalInfo {
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	-o-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+.LocalInfo-inner {
+	background-color: #ffffff;
+	color: #424242;
+	border-radius: 4px;
+	-webkit-box-shadow: 1px 1px 6px rgba(0,0,0,.72);
+	-moz-box-shadow: 1px 1px 6px rgba(0,0,0,.72);
+	box-shadow: 1px 1px 6px rgba(0,0,0,.72);
+	padding: 1.125em;
+	width: 100%;
+	max-width: 24em;
+}
+
+.LocalInfo h2 {
+	font-size: 1.125em;
+	margin-bottom: .5em;
+	text-transform: uppercase;
+}
+
+/* Local Map */
+
+.LocalMap {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.LocalMap-canvas {
+	background-color: #212121 !important;
+	width: 100%;
+	height: 100%;
+}
+
 /* Logo */
 
 .Logo {
@@ -527,6 +936,7 @@ body.is-starting .TransitionScreen--start .Logo {
 	max-width: 8em;
 }
 
+body.is-local .Logo svg,
 body.is-winemenu .Logo svg,
 body.is-transiting .Logo svg {
 	fill: #eeeeee;
@@ -800,6 +1210,10 @@ body.is-starting .Main {
 	width: 100%;
 }
 
+body.is-local .Main-content {
+	padding: 0;
+}
+
 @media (min-width: 48em) {
 
 	.Main {
@@ -856,7 +1270,7 @@ body.is-starting .Main {
 }
 
 .MainMenu .MenuItem-select-area {
-	padding: .375em 3em .5em 3em;
+	padding: .375em 3.75em .5em 3em;
 	width: 100%;
 }
 
@@ -934,6 +1348,11 @@ body.is-starting .Main {
 	    padding: 0 .75em 0;
     }
 
+	body.is-home.is-accent .Menu--service .MenuItem-select-area,
+	body.is-local .Menu--service .MenuItem-select-area {
+		color: #eeeeee;
+	}
+
 	.Menu--service .MenuItem-select-area span {
 		font-weight: 400;
 		font-size: 1em;
@@ -976,7 +1395,7 @@ body.is-starting .Main {
 	font-family: 'Playfair Display', serif;
 	height: 100vh;
 	left: 0;
-	padding: 8em 0 0;
+	padding: 10em 0 0;
 	position: fixed;
 	top: 0;
 	-webkit-transform: translateX(-100%);
@@ -1065,7 +1484,7 @@ body.is-starting .Main {
 .MainNav .MenuToggleButton {
 	visibility: visible;
 	position: fixed;
-	top: 0;
+	top: 4.5em;
 	left: 0;
 	z-index: 12;
 }
@@ -1173,10 +1592,13 @@ body.is-starting .MainNav .MenuToggleButton {
 	-o-transition: visibility 0s, opacity .6s;
 	transition: visibility 0s, opacity .6s;
 	visibility: hidden;
+	width: 100%;
 }
 
 @media (min-width: 48em) {
 
+	body.is-contact .Menu--service,
+	body.is-local .Menu--service,
 	body.is-home .Menu--service {
 		visibility: visible;
 		opacity: 1;
@@ -1474,6 +1896,10 @@ body.is-home .Page {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+}
+
+body.is-home .Page--modal {
+	display: none;
 }
 
 /* Page content */
@@ -2374,6 +2800,16 @@ body.is-winemenu.is-loading .TransitionScreen--winemenu {
 
 /* Wine Header media width */
 
+@media (max-width: 36em) {
+
+	.WineHeader {
+		color: inherit;
+		width: 100%;
+		padding: 2.25em 0 0;
+	}
+
+}
+
 @media (min-width: 48em) {
 
 	/* Wine Header */
@@ -2922,6 +3358,22 @@ body.is-winemenu.is-loading .TransitionScreen--winemenu {
 	.WineShowMore-select-area:hover .WineShowMoreTitle {
 		opacity: 1;
 		visibility: visible;
+	}
+
+	.Wine--ladonna .WineShowMoreTitle {
+		color: #f50057;
+	}
+
+	.Wine--demi-sec .WineShowMoreTitle {
+		color: #ffab00;
+	}
+
+	.Wine--suave-de-mesa .WineShowMoreTitle {
+		color: #f50057;
+	}
+
+	.Wine--seco-de-mesa .WineShowMoreTitle {
+		color: #304ffe;
 	}
 
 	.WineShowMoreTitle-text {

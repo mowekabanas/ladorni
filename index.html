@@ -11,7 +11,6 @@
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
 <link rel="stylesheet" href="dist/css/ladorni.css"/>
-<!--<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Playfair+Display:400,400italic,900' rel='stylesheet' type='text/css'>-->
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
@@ -127,9 +126,9 @@
 
 <div id="hero-photos">
 
-	<img src="dist/img/largePhotos/lp-cave.jpg" style="display: none" />
-	<img src="dist/img/headerPhotos/hp-torre.jpg" style="display: none" />
-	<img src="dist/img/largePhotos/lp-08.jpg" style="display: none" />
+	<img src="dist/img/widePhotos/wp-cave.jpg" style="display: none" />
+	<img src="dist/img/headerPhotos/hp-torre-02.jpg" style="display: none" />
+	<img src="dist/img/largePhotos/lp-torre-01.jpg" style="display: none" />
 
 </div>
 
@@ -196,7 +195,7 @@
 
 				<li class="MenuItem">
 
-					<a href="./como-chegar" class="MenuItem-select-area NavigationItem" data-navigation-target="location">
+					<a href="./como-chegar" class="MenuItem-select-area NavigationItem LocalTrigger" data-navigation-target="local">
 
 						<span>Como chegar</span>
 
@@ -256,6 +255,16 @@
 
 			<li class="MenuItem">
 
+				<a href="./vinhos" class="MenuItem-select-area NavigationItem" data-navigation-target="winemenu">
+
+					<span class="slash">/</span><span>Vinhos</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
 				<a href="./vinicola" class="MenuItem-select-area NavigationItem" data-navigation-target="winery">
 
 					<span class="slash">/</span><span>A Vinícola</span>
@@ -276,9 +285,19 @@
 
 			<li class="MenuItem">
 
-				<a href="./vinhos" class="MenuItem-select-area NavigationItem" data-navigation-target="winemenu">
+				<a href="./como-chegar" class="MenuItem-select-area NavigationItem LocalTrigger" data-navigation-target="local">
 
-					<span class="slash">/</span><span>Vinhos</span>
+					<span>Como chegar</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./contato" class="MenuItem-select-area NavigationItem" data-navigation-target="contact">
+
+					<span><strong>Contato</strong></span>
 
 				</a>
 
@@ -411,6 +430,126 @@
 
 		</section>
 
+		<div id="contact" class="Page Page--modal Contact">
+
+			<section id="contato" class="Page-content">
+
+				<div class="Contact-inner">
+
+					<form id="cForm" class="ContactForm flex flex-column">
+
+						<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+							<div class="ContactForm-field ContactForm-field--name">
+								<input class="name-text" type="text" size="26" name="tNome" id="cName" maxlength="50"
+								       placeholder="Nome"
+								       title="Ops, o campo nome deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo nome deve ser preenchido corretamente :)"/>
+								<label class="name" for="cName">Nome</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--phone">
+								<input class="phone-text" type="text" size="26" name="tPhone" id="cPhone" maxlength="14"
+								       placeholder="Telefone"
+								       title="Ops, o campo telefone deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo telefone deve ser preenchido corretamente :)"/>
+								<label class="email" for="cEmail">Telefone</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--email">
+								<input class="email-text" type="email" size="26" name="tEmail" id="cEmail" maxlength="60"
+								       placeholder="E-mail"
+								       title="Ops, o campo deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"/>
+								<label class="email" for="cEmail">Email</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--address">
+								<input class="phone-text" type="text" size="26" name="tAddress" id="cAddress" maxlength="90"
+								       placeholder="Endereço Completo"
+								       title="Ops, o campo deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"/>
+								<label class="address" for="cAddress">Endereço</label>
+							</div>
+
+							<div class="ContactForm-field ContactForm-field--address">
+								<input class="phone-text" type="text" size="26" name="tCity" id="cCity" maxlength="25"
+								       placeholder="Cidade"
+								       title="Ops, o campo cidade deve ser preenchido corretamente :)"
+								       x-moz-errormessage="Ops, o campo cidade deve ser preenchido corretamente :)"/>
+								<label class="city" for="cCity">Cidade</label>
+							</div>
+
+						</div>
+
+						<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+							<div class="ContactForm-field ContactForm-field--message">
+								<textarea class="lato" name="tMensagem" id="cMessage" cols="36"
+								          placeholder="Digite a sua mensagem"
+								          title="Ops, o campo mensagem deve ser preenchido corretamente :)"
+								          x-moz-errormessage="Ops, o campo mensagem deve ser preenchido corretamente :)"></textarea>
+								<label class="text-message" for="cMessage">Mensagem</label>
+							</div>
+
+							<div class="ContactFormFooter">
+
+								<div class="ContactFormStatus">
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--sending font-light-blue-a700">Enviando...</span>
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700">Enviado com sucesso!</span>
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700">Não foi possível enviar, verifique os campos e tente novamente</span>
+
+									<span class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700">Houve algum problema, tentando novamente...</span>
+
+								</div>
+
+								<div class="ContactForm-field ContactForm-field--submit">
+
+									<input id="cSubmit" class="ContactForm-submit red-400" name="ir" type="submit" value="Enviar"/>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</section>
+
+		</div>
+
+		<div id="local" class="Page Page--modal Local">
+
+			<section id="como-chegar" class="Page-content">
+
+				<div id="local-map" class="LocalMap">
+
+					<div id="local-map-canvas" class="LocalMap-canvas"></div>
+
+				</div>
+
+				<div class="LocalInfo">
+
+					<div class="LocalInfo-inner">
+
+						<h2>Vínicola La Dorni</h2>
+
+						<p>Rua Sebastião D. do Nascimento, 0 <br/>Pq. Ind. Bela Vista <br/> CEP 86360-000 <br/> Bandeirantes, Paraná</p>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+
 	</div>
 
 </main>
@@ -491,6 +630,182 @@
 		itemTitle: 'Vinhos',
 		itemURL: './vinhos'
 	}, ladorni.winemenu);
+
+	ladorni.navigation.pushItem({
+		action: new PageAction(ladorni.navigation, ladorni.contact, 'is-contact'),
+		itemName: 'contact',
+		itemTitle: 'Contato',
+		itemURL: './contato'
+	}, ladorni.contact);
+
+	ladorni.navigation.pushItem({
+		action: new PageAction(ladorni.navigation, ladorni.local, 'is-local'),
+		itemName: 'local',
+		itemTitle: 'Como Chegar',
+		itemURL: './como-chegar'
+	}, ladorni.local);
+
+</script>
+
+<script id="jquery" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+
+	var formSentCount = 0;
+	var formSentCountLimit = 2;
+
+	var requestURL = 'http://mailman.letsmowe.com/ladorni/';
+
+	var formLocked = false;
+
+	var form = {
+		viewport: document.getElementById('cForm')
+	};
+
+	form.fields = {};
+	form.sendButton = {};
+
+	form.fields.cName = document.getElementById('cName');
+	form.fields.cPhone = document.getElementById('cPhone');
+	form.fields.cEmail = document.getElementById('cEmail');
+	form.fields.cAddress = document.getElementById('cAddress');
+	form.fields.cCity = document.getElementById('cCity');
+	form.fields.cMessage = document.getElementById('cMessage');
+
+	form.sendButton.viewport = document.getElementById('cSubmit');
+
+	form.states = [
+		'is-error',
+		'is-fail',
+		'is-sending',
+		'is-success'
+	];
+
+	form.changeState = function (state) {
+
+		if (form.viewport) {
+
+			for (var i = form.states.length; i--; )
+				form.viewport.classList.remove(form.states[i])
+
+			form.viewport.classList.add(state);
+
+		}
+
+	};
+
+	// send the ajax request
+	form.sendRequest = function(requestData) {
+
+		if (requestData) {
+
+			// ajax request
+			$.ajax({
+				cache: false,
+				crossDomain: true,
+				data: requestData,
+				method: 'get',
+				beforeSend: function() {
+
+					formLocked = true;
+					form.changeState('is-sending');
+
+				},
+				error: function (data) {
+
+					console.log(data);
+
+					form.changeState('is-fail');
+					form.send(requestData, 5000);
+
+				},
+				success: function (data) {
+
+					console.log(data);
+
+					if (data.sent)
+						form.changeState('is-success');
+					else
+						form.changeState('is-error');
+
+					formLocked = false;
+
+				},
+				timeout: 12000,
+				url: requestURL
+			});
+
+		}
+
+	};
+
+	// control the time delay to init the ajax request
+	form.send = function(requestData, delay) {
+
+		if (requestData) {
+
+			if (delay) {
+
+				setTimeout(function() {
+
+					form.sendRequest(requestData);
+
+				}, delay)
+
+			} else {
+
+				form.sendRequest(requestData);
+
+			}
+
+		}
+
+	};
+
+	// form submit button listener
+	form.sendButton.viewport.addEventListener('click', function (ev) {
+
+		ev.preventDefault();
+
+		if (!formLocked) {
+
+			if (formSentCount < formSentCountLimit) {
+
+				var allow = !!(form.fields.cName.value && (form.fields.cPhone.value || form.fields.cEmail.value) && (form.fields.cAddress.value || form.fields.cCity.value) && form.fields.cMessage.value);
+
+				if (allow) {
+
+					// lock the form
+					formLocked = true;
+
+					// count the request
+					formSentCount++;
+
+					// get object data
+					var requestData = {
+						cName: form.fields.cName.value,
+						cPhone: form.fields.cPhone.value,
+						cEmail: form.fields.cEmail.value,
+						cAddress: form.fields.cAddress.value,
+						cCity: form.fields.cCity.value,
+						cMessage: form.fields.cMessage.value
+					};
+
+					// send
+					form.send(requestData, false);
+
+
+				} else {
+
+					form.changeState('is-error');
+
+				}
+
+			}
+
+		}
+
+	});
 
 </script>
 

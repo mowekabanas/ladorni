@@ -37,6 +37,14 @@ var LaDorni = (function () {
 		this.castle = new Page();
 		this.castle.document = this;
 
+		// Contact
+		this.contact = new Page();
+		this.contact.document = this;
+
+		// Local
+		this.local = new Page();
+		this.local.document = this;
+
 		this.isStarted = false;
 
 	}
@@ -156,12 +164,52 @@ var LaDorni = (function () {
 
 	};
 
+	LaDorni.prototype.getContact = function() {
+
+		var self = this;
+
+		if (this.contact) {
+
+			this.contact.viewport = document.getElementById('contact');
+
+		}
+
+	};
+
+	LaDorni.prototype.getLocal = function() {
+
+		var self = this;
+
+		if (this.local) {
+
+			this.local.viewport = document.getElementById('local');
+			this.local.content.viewport = document.getElementById('como-chegar');
+
+			// Maps instance
+			this.map = new Maps(document.getElementById('local-map-canvas'), false, {
+				scrollwheel: false,
+				center: false,
+				zoom: 15
+			});
+
+			this.local.afterDone = function () {
+
+				self.map.init();
+
+			};
+
+		}
+
+	};
+
 	LaDorni.prototype.init = function(autoNavigationInit) {
 
 		this.getHome();
 		this.getWineMenu();
 		this.getWinery();
 		this.getCastle();
+		this.getContact();
+		this.getLocal();
 
 		/* Init pages */
 
@@ -176,6 +224,12 @@ var LaDorni = (function () {
 
 		if (this.castle.viewport)
 			this.castle.init();
+
+		if (this.contact.viewport)
+			this.contact.init();
+
+		if (this.local.viewport)
+			this.local.init();
 
 		/* Init navigation */
 

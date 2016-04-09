@@ -72,6 +72,22 @@
 		visibility: visible;
 	}
 
+	.Wine--ladonna .WineShowMoreTitle {
+		color: #f50057;
+	}
+
+	.Wine--demi-sec .WineShowMoreTitle {
+		color: #ffab00;
+	}
+
+	.Wine--suave-de-mesa .WineShowMoreTitle {
+		color: #f50057;
+	}
+
+	.Wine--seco-de-mesa .WineShowMoreTitle {
+		color: #304ffe;
+	}
+
 	.WineShowMoreTitle-text {
 		display: none;
 	}

@@ -43,6 +43,10 @@ body.is-starting .Main {
 	width: 100%;
 }
 
+body.is-local .Main-content {
+	padding: 0;
+}
+
 @media (min-width: 48em) {
 
 	.Main {

@@ -205,7 +205,9 @@ gulp.task('serve', function () {
 			routes: {
 				"/vinhos": "./index.html",
 				"/castelo": "./index.html",
-				"/vinicola": "./index.html"
+				"/vinicola": "./index.html",
+				"/contato": "./index.html",
+				"/como-chegar": "./index.html"
 			}
 		}
 	});

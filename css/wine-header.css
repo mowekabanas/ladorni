@@ -80,6 +80,16 @@
 
 /* Wine Header media width */
 
+@media (max-width: 36em) {
+
+	.WineHeader {
+		color: inherit;
+		width: 100%;
+		padding: 2.25em 0 0;
+	}
+
+}
+
 @media (min-width: 48em) {
 
 	/* Wine Header */

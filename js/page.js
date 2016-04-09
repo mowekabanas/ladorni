@@ -67,7 +67,7 @@ var Page = (function() {
 
 				if (self.document)
 					if (self.document.navigation)
-						if (self.document.navigation.changePageCount == 1)
+						if (self.document.navigation.changePageCount == 1 || self.document.navigation.changePageCount == 0)
 							self.onFirstPageLoad();
 
 				if (self.afterDone)
@@ -119,6 +119,15 @@ var Page = (function() {
 					}
 
 				return !!autoLoad;
+
+			} else {
+
+				if (!self.isLoaded) {
+
+					self.require.isLoaded = true;
+					self.done();
+
+				}
 
 			}
 
@@ -227,8 +236,6 @@ var Page = (function() {
 		// if this has url, append the file to 'this.content.viewport'
 		if (this.url)
 			this.getPageFile();
-		else if (this.requireContent(this.autoLoad))
-			this.load();
 
 		// normalize the 'active' state
 		this.setActive(!!isActive);

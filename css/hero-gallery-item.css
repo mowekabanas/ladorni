@@ -4,15 +4,15 @@
 .HeroGalleryItem {  }
 
 .HeroGalleryItem--winemenu {
-	background: url("../img/largePhotos/lp-cave.jpg");
+	background: url("../img/widePhotos/wp-cave.jpg");
 }
 
 .HeroGalleryItem--winery {
-	background: url("../img/headerPhotos/hp-torre.jpg");
+	background: url("../img/headerPhotos/hp-torre-02.jpg");
 }
 
 .HeroGalleryItem--castle {
-	background: url("../img/largePhotos/lp-08.jpg");
+	background: url("../img/largePhotos/lp-torre-01.jpg");
 }
 
 @media (min-width: 48em) {

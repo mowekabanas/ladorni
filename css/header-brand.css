@@ -29,6 +29,11 @@ body.is-transiting .MainHeaderBrand-title {
 	opacity: 0;
 }
 
+body.is-local .MainHeaderBrand-title,
+body.is-contact .MainHeaderBrand-title {
+	visibility: hidden;
+}
+
 body.is-home.is-accent .MainHeaderBrand-title {
 	color: #e0e0e0;
 }

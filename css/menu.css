@@ -21,10 +21,13 @@
 	-o-transition: visibility 0s, opacity .6s;
 	transition: visibility 0s, opacity .6s;
 	visibility: hidden;
+	width: 100%;
 }
 
 @media (min-width: 48em) {
 
+	body.is-contact .Menu--service,
+	body.is-local .Menu--service,
 	body.is-home .Menu--service {
 		visibility: visible;
 		opacity: 1;

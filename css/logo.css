@@ -101,6 +101,7 @@ body.is-starting .TransitionScreen--start .Logo {
 	max-width: 8em;
 }
 
+body.is-local .Logo svg,
 body.is-winemenu .Logo svg,
 body.is-transiting .Logo svg {
 	fill: #eeeeee;

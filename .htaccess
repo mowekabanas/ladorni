@@ -8,3 +8,5 @@ RewriteRule home$ ./index.html
 RewriteRule vinhos$ ./index.html
 RewriteRule vinicola$ ./index.html
 RewriteRule castelo$ ./index.html
+RewriteRule contato$ ./index.html
+RewriteRule como-chegar$ ./index.html

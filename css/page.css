@@ -20,6 +20,10 @@ body.is-home .Page {
 	display: flex;
 }
 
+body.is-home .Page--modal {
+	display: none;
+}
+
 /* Page content */
 
 .Page-content {
