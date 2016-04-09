@@ -7,7 +7,7 @@
 /* Contact Form */
 
 .ContactForm {
-	max-width: 800px;
+	max-width: 48em;
 	width: 100%;
 	padding: 1em 0 0;
 }
@@ -323,7 +323,23 @@
 
 }
 
-.Contact-inner {
+/* Contact Info */
+
+.ContactInfo {
+	margin: 1em 0;
+}
+
+@media (min-width: 48em) {
+
+	.ContactInfo {
+		margin: 1.5em 0;
+	}
+
+}
+
+/* Contact Line */
+
+.ContactLine {
 	-webkit-align-items: center;
 	align-items: center;
 	display: -webkit-box;
@@ -333,8 +349,107 @@
 	display: flex;
 	-webkit-justify-content: center;
 	justify-content: center;
+	max-width: 48em;
+	width: 100%;
+}
+
+.ContactLine-stroke {
+	border-bottom: dashed 1px #9e9e9e;
+	height: 0;
+	width: 8em;
+}
+
+.ContactLine-text {
+	font-family: 'Playfair Display', 'Roboto', sans-serif;
+	color: #424242;
+	font-style: italic;
+	margin: 0 1em;
+}
+
+@media (min-width: 48em) {
+
+	.ContactLine-stroke {
+		width: 21em;
+	}
+
+}
+
+/* Contact */
+
+.Contact-title {
+	margin-bottom: 1em;
+	max-width: 48em;
+	padding: 0 1em;
+	width: 100%;
+}
+
+.Contact h2 {
+	line-height: .96;
+	font-size: 2.25em;
+	font-weight: 900;
+	text-align: center;
+}
+
+.Contact h3 {
+	font-size: 1.125em;
+}
+
+.Contact p {
+	font-size: 1.5em;
+	font-weight: 900;
+	line-height: 2.25;
+	text-align: center;
+}
+
+.Contact-inner {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	-webkit-justify-content: center;
+	justify-content: center;
 	width: 100%;
 	min-height: 100vh;
+}
+
+@media (min-width: 48em) {
+
+	.Contact-title {
+		margin-bottom: 1.5em;
+	}
+
+	.Contact h2 {
+		line-height: 1.1;
+		font-size: 3.75em;
+		font-weight: 900;
+		text-align: center;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Contact h2 {
+		font-size: 4.5em;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.Contact-title {
+		margin-bottom: 2.25em;
+	}
+
+	.Contact h2 {
+		font-size: 6em;
+	}
+
 }
 
 .MainHeaderBrand {
@@ -1489,13 +1604,6 @@ body.is-local .Main-content {
 	z-index: 12;
 }
 
-body.is-home .MainNav .MenuToggleButton,
-body.is-transition .MainNav .MenuToggleButton,
-body.is-biting .MainNav .MenuToggleButton,
-body.is-starting .MainNav .MenuToggleButton {
-	visibility: hidden;
-}
-
 /* Menu Toggle Button select area */
 
 .MainMenu .MenuToggleButton-select-area {
@@ -1551,6 +1659,13 @@ body.is-starting .MainNav .MenuToggleButton {
 }
 
 @media (min-width: 48em) {
+
+	body.is-home .MainNav .MenuToggleButton,
+	body.is-transition .MainNav .MenuToggleButton,
+	body.is-biting .MainNav .MenuToggleButton,
+	body.is-starting .MainNav .MenuToggleButton {
+		visibility: hidden;
+	}
 
 	.MainNav .MenuToggleButton {
 		bottom: 0;

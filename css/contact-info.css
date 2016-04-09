@@ -1,0 +1,14 @@
+
+/* Contact Info */
+
+.ContactInfo {
+	margin: 1em 0;
+}
+
+@media (min-width: 48em) {
+
+	.ContactInfo {
+		margin: 1.5em 0;
+	}
+
+}

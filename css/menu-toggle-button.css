@@ -9,13 +9,6 @@
 	z-index: 12;
 }
 
-body.is-home .MainNav .MenuToggleButton,
-body.is-transition .MainNav .MenuToggleButton,
-body.is-biting .MainNav .MenuToggleButton,
-body.is-starting .MainNav .MenuToggleButton {
-	visibility: hidden;
-}
-
 /* Menu Toggle Button select area */
 
 .MainMenu .MenuToggleButton-select-area {
@@ -71,6 +64,13 @@ body.is-starting .MainNav .MenuToggleButton {
 }
 
 @media (min-width: 48em) {
+
+	body.is-home .MainNav .MenuToggleButton,
+	body.is-transition .MainNav .MenuToggleButton,
+	body.is-biting .MainNav .MenuToggleButton,
+	body.is-starting .MainNav .MenuToggleButton {
+		visibility: hidden;
+	}
 
 	.MainNav .MenuToggleButton {
 		bottom: 0;
