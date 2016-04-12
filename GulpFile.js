@@ -158,7 +158,7 @@ gulp.task('resizeWinePhotos', function () {
 gulp.task('resizeThumbs', function () {
 	gulp.src(images.thumbs.location + images.thumbs.content)
 		.pipe(imageResize({
-			height : 275,
+			height : 630,
 			upscale : false
 		}))
 		.pipe(gulp.dest(dist.location + images.thumbs.location));
