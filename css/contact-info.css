@@ -5,10 +5,20 @@
 	margin: 1em 0;
 }
 
+.ContactInfo-text {
+	font-family: 'Roboto', sans-serif;
+}
+
 @media (min-width: 48em) {
 
 	.ContactInfo {
 		margin: 1.5em 0;
+	}
+
+	.ContactInfo-text {
+		font-weight: 900;
+		line-height: 2.25;
+		font-size: 2.25em;
 	}
 
 }

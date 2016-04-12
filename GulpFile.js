@@ -97,6 +97,11 @@ images.winePhotos = {
 	location: images.location + 'winePhotos/'
 };
 
+images.thumbs = {
+	content: '*',
+	location: images.location + 'thumbs/'
+};
+
 gulp.task('distImages', function () {
 	gulp.src(images.location + images.content)
 		.pipe(gulp.dest(dist.location + images.location));
@@ -147,18 +152,16 @@ gulp.task('resizeWinePhotos', function () {
 		.pipe(gulp.dest(dist.location + images.winePhotos.location));
 });
 
-gulp.task('dist', ['distImages', 'resizeLargePhotos']);
-
-gulp.task('tinyImages', function () {
-	gulp.src(images.location + images.content)
-		.pipe(tinypng(tinypngToken))
-		.pipe(gulp.dest(images.location));
-});
-
-gulp.task('tinyLargePhotos', function () {
-	gulp.src(images.largePhotos.location + images.largePhotos.content)
-		.pipe(tinypng(tinypngToken))
-		.pipe(gulp.dest(images.largePhotos.location));
+/**
+ * The original image need to be 1200x600 (1:2)
+ */
+gulp.task('resizeThumbs', function () {
+	gulp.src(images.thumbs.location + images.thumbs.content)
+		.pipe(imageResize({
+			height : 275,
+			upscale : false
+		}))
+		.pipe(gulp.dest(dist.location + images.thumbs.location));
 });
 
 // tiny the new images at the 'src' folder

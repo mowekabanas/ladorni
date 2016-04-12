@@ -329,10 +329,20 @@
 	margin: 1em 0;
 }
 
+.ContactInfo-text {
+	font-family: 'Roboto', sans-serif;
+}
+
 @media (min-width: 48em) {
 
 	.ContactInfo {
 		margin: 1.5em 0;
+	}
+
+	.ContactInfo-text {
+		font-weight: 900;
+		line-height: 2.25;
+		font-size: 2.25em;
 	}
 
 }
@@ -376,6 +386,11 @@
 
 /* Contact */
 
+.Contact {
+	font-family: 'Playfair Display', 'Roboto', serif;
+	text-align: center;
+}
+
 .Contact-title {
 	margin-bottom: 1em;
 	max-width: 48em;
@@ -392,13 +407,6 @@
 
 .Contact h3 {
 	font-size: 1.125em;
-}
-
-.Contact p {
-	font-size: 1.5em;
-	font-weight: 900;
-	line-height: 2.25;
-	text-align: center;
 }
 
 .Contact-inner {
@@ -425,17 +433,17 @@
 
 	.Contact h2 {
 		line-height: 1.1;
-		font-size: 3.75em;
+		font-size: 3em;
 		font-weight: 900;
 		text-align: center;
 	}
 
 }
 
-@media (min-width: 96em) {
+@media (min-width: 72em) {
 
 	.Contact h2 {
-		font-size: 4.5em;
+		font-size: 3em;
 	}
 
 }
@@ -447,7 +455,7 @@
 	}
 
 	.Contact h2 {
-		font-size: 6em;
+		font-size: 3.75em;
 	}
 
 }
