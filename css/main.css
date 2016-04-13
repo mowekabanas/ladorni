@@ -25,6 +25,15 @@ body.is-starting .Main {
 	transform: translateY(1em);
 }
 
+html.is-debug .Main {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
 /* Main content */
 
 .Main-content {
@@ -43,6 +52,8 @@ body.is-starting .Main {
 	width: 100%;
 }
 
+body.is-castle .Main-content,
+body.is-winery .Main-content,
 body.is-local .Main-content {
 	padding: 0;
 }

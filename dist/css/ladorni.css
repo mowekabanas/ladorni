@@ -1315,6 +1315,15 @@ body.is-starting .Main {
 	transform: translateY(1em);
 }
 
+html.is-debug .Main {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
 /* Main content */
 
 .Main-content {
@@ -1333,6 +1342,8 @@ body.is-starting .Main {
 	width: 100%;
 }
 
+body.is-castle .Main-content,
+body.is-winery .Main-content,
 body.is-local .Main-content {
 	padding: 0;
 }
@@ -1610,6 +1621,18 @@ body.is-local .Main-content {
 	top: 4.5em;
 	left: 0;
 	z-index: 12;
+	-webkit-transition: opacity 1.2s 1.2s;
+	-moz-transition: opacity 1.2s 1.2s;
+	-ms-transition: opacity 1.2s 1.2s;
+	-o-transition: opacity 1.2s 1.2s;
+	transition: opacity 1.2s 1.2s;
+}
+
+body.is-transition .MainNav .MenuToggleButton,
+body.is-biting .MainNav .MenuToggleButton,
+body.is-starting .MainNav .MenuToggleButton {
+	opacity: 0;
+	visibility: hidden;
 }
 
 /* Menu Toggle Button select area */
@@ -1668,10 +1691,7 @@ body.is-local .Main-content {
 
 @media (min-width: 48em) {
 
-	body.is-home .MainNav .MenuToggleButton,
-	body.is-transition .MainNav .MenuToggleButton,
-	body.is-biting .MainNav .MenuToggleButton,
-	body.is-starting .MainNav .MenuToggleButton {
+	body.is-home .MainNav .MenuToggleButton {
 		visibility: hidden;
 	}
 
@@ -2064,18 +2084,416 @@ body.is-home .Page--modal {
 
 /* Photo Article Cover */
 
+.PhotoArticleCoverContent,
+.PhotoArticleCoverHeader {
+	position: relative;
+	width: 100%;
+}
+
+/* Photo Article Cover Content */
+
+.PhotoArticleCoverContent {
+	text-align: center;
+}
+
+/* Photo Article Cover Header */
+
+.PhotoArticleCoverHeader {
+	height: 100vh;
+}
+
+/* Photo Article Cover inner */
+
+.PhotoArticleCoverContent-inner,
+.PhotoArticleCoverHeader-inner {
+	padding: 1em;
+}
+
+/* Photo Article Cover background */
+
+.PhotoArticleCover-background {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+/* Photo Article Cover overlay */
+
+.PhotoArticleCover-overlay {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.18+72,0.36+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.36) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.18) 72%,rgba(0,0,0,0.36) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.18) 72%,rgba(0,0,0,0.36) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#5c000000',GradientType=0 ); /* IE6-9 */
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+/* Photo Article Cover Header h3 */
+
+.PhotoArticleCoverHeader h3 {
+	font-size: 3.75em;
+	font-weight: 700;
+}
+
+/* Photo Article Cover Header inner */
+
+.PhotoArticleCoverHeader-inner {
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	-webkit-justify-content: center;
+	justify-content: center;
+	padding-bottom: 8em;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+/* Photo Article Cover Header figure */
+
+.PhotoArticleCoverHeader-figure {
+	/*background-attachment: fixed;*/
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+}
+
+.PhotoArticleCover--winery .PhotoArticleCoverHeader-figure {
+	background-image: url("../img/largePhotos/lp-brasao.jpg");
+	background-position: center 100%;
+}
+
+.PhotoArticleCover--castle .PhotoArticleCoverHeader-figure {
+	background-image: url("../img/widePhotos/wp-castle-02.jpg");
+	background-position: 36% 0;
+}
+
+/* Photo Article Cover Header figure img */
+
+.PhotoArticleCoverHeader-figure img {
+	display: none;
+}
+
 @media (min-width: 48em) {
 
-	.PhotoArticleCover--winery {
+	/* Photo Article Cover Header h3 */
 
+	.PhotoArticleCoverHeader h3 {
+		font-size: 8em;
 	}
 
-	.PhotoArticleCover--castle {
+	/* Photo Article Cover Header inner */
 
+	.PhotoArticleCoverHeader-inner {
+		padding-bottom: 8em;
+	}
+
+
+}
+
+
+/* Photo Article */
+
+.PhotoArticle {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	position: relative;
+	width: 100%;
+}
+
+.PhotoArticle-figure {
+	width: 100%;
+}
+
+.PhotoArticle-figure img {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+/* Photo Article Content */
+
+.PhotoArticleContent {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	width: 100%;
+}
+
+.PhotoArticleCover .PhotoArticleContent {
+	text-align: center;
+}
+
+/* Photo Article Content h3 */
+
+.PhotoArticleContent h4 {
+	font-size: 2.25em;
+	font-weight: 400;
+	line-height: 1.36;
+	margin-bottom: .75em;
+}
+
+/* Photo Article Content p */
+
+.PhotoArticleContent p {
+	font-size: 1.125em;
+	line-height: 1.6;
+	margin-bottom: 1em;
+}
+
+/* Photo Article Content inner */
+
+.PhotoArticleContent-inner {
+	padding: 2.25em;
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+
+	/* Photo Article */
+
+	.PhotoArticle {
+		-webkit-align-items: stretch;
+		align-items: stretch;
+		-webkit-flex-flow: row;
+		flex-flow: row;
+	}
+
+	.PhotoArticle--left {
+		-webkit-flex-flow: row;
+		flex-flow: row;
+	}
+
+	.PhotoArticle--right {
+		-webkit-flex-flow: row-reverse;
+		flex-flow: row-reverse;
+	}
+
+	.PhotoArticle--wide {
+		-webkit-flex-flow: column-reverse;
+		flex-flow: column-reverse;
+	}
+
+	.PhotoArticle--wide-cover {
+		-webkit-flex-flow: column;
+		flex-flow: column;
+	}
+
+	/* Winery Photo Article figure */
+
+	.PhotoArticle-figure {
+		-webkit-align-items: center;
+		align-items: center;
+		background-size: 0;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-flex-flow: column;
+		flex-flow: column;
+		position: relative;
+		width: 50%;
+	}
+
+	.PhotoArticle--left .PhotoArticle-figure,
+	.PhotoArticle--right .PhotoArticle-figure {
+		min-height: 0;
+	}
+
+	.PhotoArticle--wide .PhotoArticle-figure {
+		height: auto;
+		min-height: 0;
+		width: 100%;
+	}
+
+	.PhotoArticle--wide-cover .PhotoArticle-figure {
+		background-position: center;
+		-webkit-background-size: cover;
+		background-size: cover;
+		height: 100vh;
+		width: 100%;
+	}
+
+	/* Winery Photo Article figure img */
+
+	.PhotoArticle-figure img {
+		display: block;
+		width: 100%;
+	}
+
+	.PhotoArticle--wide-cover .PhotoArticle-figure img {
+		/*display: none;*/
+		/*visibility: hidden;*/
+	}
+
+	.PhotoArticle--wide-cover.show-image .PhotoArticle-figure img {
+		/*display: block;*/
+	}
+
+	/* Winery Photo Article figure img */
+
+	.PhotoArticle-figure figcaption {
+		bottom: 0;
+		left: 0;
+		margin: 0 0 1em;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+
+	/* Winery Photo Article Content */
+
+	.PhotoArticleContent {
+		-webkit-align-items: center;
+		align-items: center;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-flex-flow: column;
+		flex-flow: column;
+		width: 50%;
+	}
+
+	.PhotoArticle--wide .PhotoArticleContent,
+	.PhotoArticle--wide-cover .PhotoArticleContent {
+		width: 100%;
+	}
+
+	/* Winery Photo Article Content inner */
+
+	.PhotoArticleContent-inner {
+		padding: 1em 0;
+	}
+
+	/* Winery Photo Article header and text */
+
+	.PhotoArticleContent-header,
+	.PhotoArticle-text {
+		width: 30em;
+	}
+
+	.PhotoArticleContent--intro .PhotoArticleContent-header,
+	.PhotoArticleContent--intro .PhotoArticle-text {
+		width: 100%;
+	}
+
+	.PhotoArticleContent--intro .PhotoArticleContent-header {
+		display: none;
 	}
 
 }
 
+@media (min-width: 72em) {
+
+	/* Winery Photo Article */
+
+	.PhotoArticle h1 {
+		font-size: 3em;
+	}
+
+	/* Winery Photo Article Content inner */
+
+	.PhotoArticleContent-inner {
+		padding: 8em 0;
+	}
+
+	/* Winery Photo Article header and text */
+
+	.PhotoArticleContent-header,
+	.PhotoArticle-text {
+		width: 24em;
+	}
+
+	.PhotoArticleContent--intro .PhotoArticleContent-header,
+	.PhotoArticleContent--intro .PhotoArticle-text {
+		max-width: 60em;
+	}
+
+	.PhotoArticleContent-header {
+		margin-bottom: 1.5em;
+	}
+
+	.PhotoArticle-text p {
+		font-size: 1.3125em;
+		line-height: 1.6;
+	}
+
+	.PhotoArticleContent--intro .PhotoArticle-text p {
+		text-align: center;
+		font-size: 1.5em;
+		line-height: 1.6;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	/* Winery Photo Article */
+
+	.PhotoArticle h1 {
+		font-size: 4.5em;
+	}
+
+	/* Winery Photo Article Content inner */
+
+	.PhotoArticleContent-inner {
+		padding: 8em 0;
+	}
+
+	/* Winery Photo Article header and text */
+
+	.PhotoArticleContent-header,
+	.PhotoArticle-text {
+		width: 30em;
+	}
+
+	.PhotoArticleContent--intro .PhotoArticleContent-header,
+	.PhotoArticleContent--intro .PhotoArticle-text {
+		max-width: 96em;
+	}
+
+	.PhotoArticleContent--intro .PhotoArticle-text p {
+		font-size: 2.25em;
+		line-height: 1.72;
+	}
+
+}
 .Scroller {
 	display: none;
 }
@@ -3847,228 +4265,6 @@ body.is-winemenu.is-loading .TransitionScreen--winemenu {
     .Wine-background {
 	    z-index: -2;
     }
-
-}
-
-/* Winery Photo Article */
-
-.WineryPhotoArticle {
-	-webkit-align-items: stretch;
-	align-items: stretch;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row;
-	flex-flow: row;
-	position: relative;
-	width: 100%;
-	/*height: 96em;*/
-}
-
-.WineryPhotoArticle--left {
-	-webkit-flex-flow: row;
-	flex-flow: row;
-}
-
-.WineryPhotoArticle--right {
-	-webkit-flex-flow: row-reverse;
-	flex-flow: row-reverse;
-}
-
-.WineryPhotoArticle--wide {
-	-webkit-flex-flow: column-reverse;
-	flex-flow: column-reverse;
-}
-
-.WineryPhotoArticle--wide-cover {
-	-webkit-flex-flow: column;
-	flex-flow: column;
-}
-
-/* Winery Photo Article figure */
-
-.WineryPhotoArticle-figure {
-	-webkit-align-items: center;
-	align-items: center;
-	background-size: 0;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-flex-flow: column;
-	flex-flow: column;
-	position: relative;
-	width: 50%;
-}
-
-.WineryPhotoArticle--left .WineryPhotoArticle-figure,
-.WineryPhotoArticle--right .WineryPhotoArticle-figure {
-	min-height: auto;
-}
-
-.WineryPhotoArticle--wide .WineryPhotoArticle-figure {
-	height: auto;
-	min-height: 0;
-	width: 100%;
-}
-
-.WineryPhotoArticle--wide-cover .WineryPhotoArticle-figure {
-	background-position: center;
-	-webkit-background-size: cover;
-	background-size: cover;
-	height: 100vh;
-	width: 100%;
-}
-
-/* Winery Photo Article figure img */
-
-.WineryPhotoArticle-figure img {
-	display: block;
-	width: 100%;
-}
-
-.WineryPhotoArticle--wide-cover .WineryPhotoArticle-figure img {
-	/*display: none;*/
-	/*visibility: hidden;*/
-}
-
-.WineryPhotoArticle--wide-cover.show-image .WineryPhotoArticle-figure img {
-	/*display: block;*/
-}
-
-/* Winery Photo Article figure img */
-
-.WineryPhotoArticle-figure figcaption {
-	bottom: 0;
-	left: 0;
-	margin: 0 0 1em;
-	position: absolute;
-	text-align: center;
-	width: 100%;
-}
-
-/* Winery Photo Article Content */
-
-.WineryPhotoArticleContent {
-	-webkit-align-items: center;
-	align-items: center;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-flex-flow: column;
-	flex-flow: column;
-	width: 50%;
-}
-
-.WineryPhotoArticle--wide .WineryPhotoArticleContent,
-.WineryPhotoArticle--wide-cover .WineryPhotoArticleContent {
-	width: 100%;
-}
-
-/* Winery Photo Article Content inner */
-
-.WineryPhotoArticleContent-inner {
-	padding: 1em 0;
-}
-
-/* Winery Photo Article header and text */
-
-.WineryPhotoArticleContent-header,
-.WineryPhotoArticle-text {
-	width: 30em;
-}
-
-.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header,
-.WineryPhotoArticleContent--intro .WineryPhotoArticle-text {
-	width: 100%;
-}
-
-.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header {
-	display: none;
-}
-
-@media (min-width: 72em) {
-
-	/* Winery Photo Article */
-
-	.WineryPhotoArticle h1 {
-		font-size: 3em;
-	}
-
-	/* Winery Photo Article Content inner */
-
-	.WineryPhotoArticleContent-inner {
-		padding: 8em 0;
-	}
-
-	/* Winery Photo Article header and text */
-
-	.WineryPhotoArticleContent-header,
-	.WineryPhotoArticle-text {
-		width: 24em;
-	}
-
-	.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header,
-	.WineryPhotoArticleContent--intro .WineryPhotoArticle-text {
-		max-width: 60em;
-	}
-
-	.WineryPhotoArticleContent-header {
-		margin-bottom: 1.5em;
-	}
-
-	.WineryPhotoArticle-text p {
-		font-size: 1.3125em;
-		line-height: 1.6;
-	}
-
-	.WineryPhotoArticleContent--intro .WineryPhotoArticle-text p {
-		text-align: center;
-		font-size: 1.5em;
-		line-height: 1.6;
-	}
-
-}
-
-@media (min-width: 96em) {
-
-	/* Winery Photo Article */
-
-	.WineryPhotoArticle h1 {
-		font-size: 4.5em;
-	}
-
-	/* Winery Photo Article Content inner */
-
-	.WineryPhotoArticleContent-inner {
-		padding: 8em 0;
-	}
-
-	/* Winery Photo Article header and text */
-
-	.WineryPhotoArticleContent-header,
-	.WineryPhotoArticle-text {
-		width: 30em;
-	}
-
-	.WineryPhotoArticleContent--intro .WineryPhotoArticleContent-header,
-	.WineryPhotoArticleContent--intro .WineryPhotoArticle-text {
-		max-width: 96em;
-	}
-
-	.WineryPhotoArticleContent--intro .WineryPhotoArticle-text p {
-		font-size: 2.25em;
-		line-height: 1.72;
-	}
 
 }
 

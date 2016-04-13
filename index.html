@@ -81,6 +81,10 @@
 		background-color: #424242;
 	}
 
+	html.is-debug .TransitionScreen--start {
+		display: none;
+	}
+
 	/* Load Bar */
 
 	body.is-biting .LoadBar {
@@ -619,6 +623,17 @@
 
 	var logo = new Logo(document.getElementById('logo'), 'dist/img/LadorniLogoPure-web.min.svg', function () {
 
+		var delay = {
+			biting: 1000,
+			starting: 1200
+		};
+
+		if (document.documentElement.classList.contains('is-debug'))
+			delay = {
+				biting: 10,
+				starting: 100
+			};
+
 		this.cloneTo(document.getElementById('start-logo'));
 
 		setTimeout(function () {
@@ -634,9 +649,9 @@
 				// init the document instance and the navigation
 				ladorni.init(true);
 
-			}, 1000);
+			}, delay.biting);
 
-		}, 1200);
+		}, delay.starting);
 
 	});
 
@@ -691,7 +706,6 @@
 </script>
 
 <script id="jquery" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 <script>
 
 	var formSentCount = 0;

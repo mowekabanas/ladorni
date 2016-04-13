@@ -7,6 +7,18 @@
 	top: 4.5em;
 	left: 0;
 	z-index: 12;
+	-webkit-transition: opacity 1.2s 1.2s;
+	-moz-transition: opacity 1.2s 1.2s;
+	-ms-transition: opacity 1.2s 1.2s;
+	-o-transition: opacity 1.2s 1.2s;
+	transition: opacity 1.2s 1.2s;
+}
+
+body.is-transition .MainNav .MenuToggleButton,
+body.is-biting .MainNav .MenuToggleButton,
+body.is-starting .MainNav .MenuToggleButton {
+	opacity: 0;
+	visibility: hidden;
 }
 
 /* Menu Toggle Button select area */
@@ -65,10 +77,7 @@
 
 @media (min-width: 48em) {
 
-	body.is-home .MainNav .MenuToggleButton,
-	body.is-transition .MainNav .MenuToggleButton,
-	body.is-biting .MainNav .MenuToggleButton,
-	body.is-starting .MainNav .MenuToggleButton {
+	body.is-home .MainNav .MenuToggleButton {
 		visibility: hidden;
 	}
 
