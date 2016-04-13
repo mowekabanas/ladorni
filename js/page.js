@@ -212,6 +212,9 @@ var Page = (function() {
 
 	};
 
+	/**
+	 * Get the content file of the Page (winery.html, castle.html, winemenu.html)
+	 */
 	Page.prototype.getPageFile = function () {
 
 		var self = this;

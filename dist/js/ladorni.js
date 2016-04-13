@@ -1697,6 +1697,9 @@ var Page = (function() {
 
 	};
 
+	/**
+	 * Get the content file of the Page (winery.html, castle.html, winemenu.html)
+	 */
 	Page.prototype.getPageFile = function () {
 
 		var self = this;
@@ -1875,6 +1878,25 @@ var PageSlider = (function () {
 	};
 
 	return PageSlider;
+
+})();
+
+
+/* Photo Article Cover */
+
+var PhotoArticleCover = (function () {
+
+	/**
+	 * Photo Article Cover constructor
+	 * @constructor
+	 */
+	function PhotoArticleCover() {
+
+
+
+	}
+
+	return PhotoArticleCover;
 
 })();
 

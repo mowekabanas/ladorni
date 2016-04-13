@@ -2061,6 +2061,21 @@ body.is-home .Page--modal {
 	}
 
 }
+
+/* Photo Article Cover */
+
+@media (min-width: 48em) {
+
+	.PhotoArticleCover--winery {
+
+	}
+
+	.PhotoArticleCover--castle {
+
+	}
+
+}
+
 .Scroller {
 	display: none;
 }
