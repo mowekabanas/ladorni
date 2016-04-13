@@ -2204,9 +2204,33 @@ body.is-home .Page--modal {
 		padding-bottom: 8em;
 	}
 
+}
+
+@media (min-width: 72em) {
+
+	/* Photo Article Cover Header inner */
+
+	.PhotoArticleCoverHeader-inner {
+		padding-bottom: 3em;
+	}
 
 }
 
+@media (min-width: 96em) {
+
+	/* Photo Article Cover Header h3 */
+
+	.PhotoArticleCoverHeader h3 {
+		font-size: 10em;
+	}
+
+	/* Photo Article Cover Header inner */
+
+	.PhotoArticleCoverHeader-inner {
+		padding-bottom: 6em;
+	}
+
+}
 
 /* Photo Article */
 
@@ -2253,7 +2277,7 @@ body.is-home .Page--modal {
 	text-align: center;
 }
 
-/* Photo Article Content h3 */
+/* Photo Article Content h4 */
 
 .PhotoArticleContent h4 {
 	font-size: 2.25em;
@@ -2299,16 +2323,16 @@ body.is-home .Page--modal {
 	}
 
 	.PhotoArticle--wide {
-		-webkit-flex-flow: column-reverse;
-		flex-flow: column-reverse;
-	}
-
-	.PhotoArticle--wide-cover {
 		-webkit-flex-flow: column;
 		flex-flow: column;
 	}
 
-	/* Winery Photo Article figure */
+    .PhotoArticle--wide-reverse {
+	    -webkit-flex-flow: column-reverse;
+	    flex-flow: column-reverse;
+    }
+
+	/* Photo Article figure */
 
 	.PhotoArticle-figure {
 		-webkit-align-items: center;
@@ -2332,37 +2356,21 @@ body.is-home .Page--modal {
 		min-height: 0;
 	}
 
-	.PhotoArticle--wide .PhotoArticle-figure {
+	.PhotoArticle--wide .PhotoArticle-figure,
+	.PhotoArticle--wide-reverse .PhotoArticle-figure {
 		height: auto;
 		min-height: 0;
 		width: 100%;
 	}
 
-	.PhotoArticle--wide-cover .PhotoArticle-figure {
-		background-position: center;
-		-webkit-background-size: cover;
-		background-size: cover;
-		height: 100vh;
-		width: 100%;
-	}
-
-	/* Winery Photo Article figure img */
+	/* Photo Article figure img */
 
 	.PhotoArticle-figure img {
 		display: block;
 		width: 100%;
 	}
 
-	.PhotoArticle--wide-cover .PhotoArticle-figure img {
-		/*display: none;*/
-		/*visibility: hidden;*/
-	}
-
-	.PhotoArticle--wide-cover.show-image .PhotoArticle-figure img {
-		/*display: block;*/
-	}
-
-	/* Winery Photo Article figure img */
+	/* Photo Article figure img */
 
 	.PhotoArticle-figure figcaption {
 		bottom: 0;
@@ -2373,11 +2381,13 @@ body.is-home .Page--modal {
 		width: 100%;
 	}
 
-	/* Winery Photo Article Content */
+	/* Photo Article Content */
 
 	.PhotoArticleContent {
 		-webkit-align-items: center;
 		align-items: center;
+		background-color: inherit;
+		color: inherit;
 		display: -webkit-box;
 		display: -moz-box;
 		display: -ms-flexbox;
@@ -2390,22 +2400,43 @@ body.is-home .Page--modal {
 		width: 50%;
 	}
 
+	.PhotoArticleCover .PhotoArticleContent,
 	.PhotoArticle--wide .PhotoArticleContent,
-	.PhotoArticle--wide-cover .PhotoArticleContent {
+	.PhotoArticle--wide-reverse .PhotoArticleContent {
 		width: 100%;
 	}
 
-	/* Winery Photo Article Content inner */
-
-	.PhotoArticleContent-inner {
-		padding: 1em 0;
+	.PhotoArticleContent--bridge {
+		text-align: center;
 	}
 
-	/* Winery Photo Article header and text */
+	/* Photo Article Content inner */
+
+	.PhotoArticleContent-inner {
+		padding: 2.25em;
+	}
+
+	.PhotoArticleCover .PhotoArticleContent-inner,
+	.PhotoArticleContent--bridge .PhotoArticleContent-inner {
+		padding: 3em 2.25em;
+	}
+
+	/* Photo Article header and text */
 
 	.PhotoArticleContent-header,
 	.PhotoArticle-text {
-		width: 30em;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 18em;
+	}
+
+	.PhotoArticleCover .PhotoArticleContent-header,
+	.PhotoArticleCover .PhotoArticle-text,
+	.PhotoArticle--wide .PhotoArticleContent-header,
+	.PhotoArticle--wide .PhotoArticle-text,
+	.PhotoArticle--wide-reverse .PhotoArticleContent-header,
+	.PhotoArticle--wide-reverse .PhotoArticle-text {
+		max-width: 36em;
 	}
 
 	.PhotoArticleContent--intro .PhotoArticleContent-header,
@@ -2417,80 +2448,110 @@ body.is-home .Page--modal {
 		display: none;
 	}
 
+	/* Photo Article Content h4 */
+
+	.PhotoArticleContent h4 {
+		font-size: 3em;
+		line-height: 1.36;
+	}
+
 }
 
 @media (min-width: 72em) {
 
-	/* Winery Photo Article */
+	/* Photo Article */
 
 	.PhotoArticle h1 {
 		font-size: 3em;
 	}
 
-	/* Winery Photo Article Content inner */
+	/* Photo Article Content inner */
 
 	.PhotoArticleContent-inner {
-		padding: 8em 0;
+
 	}
 
-	/* Winery Photo Article header and text */
+	/* Photo Article header and text */
 
 	.PhotoArticleContent-header,
 	.PhotoArticle-text {
-		width: 24em;
+		max-width: 24em;
 	}
 
-	.PhotoArticleContent--intro .PhotoArticleContent-header,
-	.PhotoArticleContent--intro .PhotoArticle-text {
-		max-width: 60em;
+	.PhotoArticleCover .PhotoArticleContent-header,
+	.PhotoArticleCover .PhotoArticle-text,
+	.PhotoArticle--wide .PhotoArticleContent-header,
+	.PhotoArticle--wide .PhotoArticle-text,
+	.PhotoArticle--wide-reverse .PhotoArticleContent-header,
+	.PhotoArticle--wide-reverse .PhotoArticle-text {
+		max-width: 48em;
 	}
 
 	.PhotoArticleContent-header {
 		margin-bottom: 1.5em;
 	}
 
-	.PhotoArticle-text p {
-		font-size: 1.3125em;
-		line-height: 1.6;
+	/* Photo Article Content h4 */
+
+	.PhotoArticleContent h4 {
+		font-size: 3.75em;
+		line-height: 1.36;
 	}
 
-	.PhotoArticleContent--intro .PhotoArticle-text p {
-		text-align: center;
-		font-size: 1.5em;
-		line-height: 1.6;
+	/* Photo Article Content p */
+
+	.PhotoArticleContent p {
+		font-size: 1.3125em;
+		line-height: 1.96;
 	}
 
 }
 
 @media (min-width: 96em) {
 
-	/* Winery Photo Article */
-
-	.PhotoArticle h1 {
-		font-size: 4.5em;
-	}
-
-	/* Winery Photo Article Content inner */
-
-	.PhotoArticleContent-inner {
-		padding: 8em 0;
-	}
-
-	/* Winery Photo Article header and text */
+	/* Photo Article header and text */
 
 	.PhotoArticleContent-header,
 	.PhotoArticle-text {
-		width: 30em;
+		max-width: 30em;
 	}
 
-	.PhotoArticleContent--intro .PhotoArticleContent-header,
-	.PhotoArticleContent--intro .PhotoArticle-text {
-		max-width: 96em;
+	.PhotoArticleCover .PhotoArticleContent-header,
+	.PhotoArticleCover .PhotoArticle-text,
+	.PhotoArticle--wide .PhotoArticleContent-header,
+	.PhotoArticle--wide .PhotoArticle-text,
+	.PhotoArticle--wide-reverse .PhotoArticleContent-header,
+	.PhotoArticle--wide-reverse .PhotoArticle-text {
+		max-width: 60em;
 	}
 
-	.PhotoArticleContent--intro .PhotoArticle-text p {
-		font-size: 2.25em;
-		line-height: 1.72;
+
+
+	.PhotoArticleContent-header {
+		margin-bottom: 1.5em;
+	}
+
+	/* Photo Article Content h4 */
+
+	.PhotoArticleContent h4 {
+		font-size: 3.75em;
+		line-height: 1.36;
+	}
+
+	/* Photo Article Content p */
+
+	.PhotoArticleContent p {
+		font-size: 1.5em;
+		line-height: 2.1;
+	}
+
+	/* Photo Article Content inner */
+
+	.PhotoArticleCover .PhotoArticleContent-inner,
+	.PhotoArticleContent--bridge .PhotoArticleContent-inner,
+	.PhotoArticle--wide .PhotoArticleContent-inner,
+	.PhotoArticle--wide-reverse .PhotoArticleContent-inner {
+		padding: 4.5em 2.25em;
 	}
 
 }

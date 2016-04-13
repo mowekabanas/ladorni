@@ -121,5 +121,30 @@
 		padding-bottom: 8em;
 	}
 
+}
+
+@media (min-width: 72em) {
+
+	/* Photo Article Cover Header inner */
+
+	.PhotoArticleCoverHeader-inner {
+		padding-bottom: 3em;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	/* Photo Article Cover Header h3 */
+
+	.PhotoArticleCoverHeader h3 {
+		font-size: 10em;
+	}
+
+	/* Photo Article Cover Header inner */
+
+	.PhotoArticleCoverHeader-inner {
+		padding-bottom: 6em;
+	}
 
 }
