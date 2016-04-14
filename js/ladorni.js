@@ -68,6 +68,17 @@ var LaDorni = (function () {
 		// init the navigation
 		this.navigation.init();
 
+		try {
+
+			ga('send', 'event', {
+				eventCategory: 'Entrada no site',
+				eventAction: 'focus',
+				eventLabel: window.location.href,
+				eventValue: 100
+			});
+
+		} catch ( e ) {  }
+
 	};
 
 	LaDorni.prototype.getHome = function () {
@@ -113,7 +124,7 @@ var LaDorni = (function () {
 			this.winemenu.url = 'winemenu.html';
 			this.winemenu.hero = new Hero(document.getElementById('winemenu-hero'));
 			this.winemenu.content.viewport = document.getElementById('vinhos');
-			this.winemenu.requiredContentQueryString = '.WineFigure-img';
+			this.winemenu.requiredContentQueryString = '.is-required';
 
 			this.winemenu.afterDone = function () {
 
@@ -143,12 +154,6 @@ var LaDorni = (function () {
 			this.winery.hero = new Hero(document.getElementById('winery-hero'));
 			this.winery.content.viewport = document.getElementById('vinicola');
 			this.winery.requiredContentQueryString = '.is-required';
-
-			this.winery.afterDone = function () {
-
-				console.log(self.viewport.querySelectorAll('.PhotoArticleCover'));
-
-			};
 
 		}
 

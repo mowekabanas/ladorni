@@ -50,6 +50,18 @@ var Wine = (function() {
 			ev.preventDefault();
 			self.toggle();
 
+			try {
+
+				if (self.isExpanded)
+					ga('send', 'event', {
+						eventCategory: 'Exibir mais informações de Vinho',
+						eventAction: 'click',
+						eventLabel: self.name,
+						eventValue: 103
+					});
+
+			} catch ( e ) {  }
+
 		};
 
 		this.onClickToShowDescription = function(ev) {
@@ -359,6 +371,16 @@ var Wine = (function() {
 	 * Normalize all the things and clone the resume
 	 */
 	Wine.prototype.normalize = function() {
+
+		try {
+
+			this.name = this.viewport.dataset.wineName;
+
+		} catch ( e ) {
+
+			this.name = '';
+
+		}
 
 		this.normalizeWine();
 		this.normalizeHeader();

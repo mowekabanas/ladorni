@@ -37,6 +37,7 @@
 	justify-content: center;
 	-webkit-flex-flow: column;
 	flex-flow: column;
+	text-align: justify;
 	width: 100%;
 }
 
@@ -173,7 +174,9 @@
 		width: 100%;
 	}
 
-	.PhotoArticleContent--bridge {
+	.PhotoArticleContent--bridge,
+	.PhotoArticle--wide .PhotoArticleContent,
+	.PhotoArticle--wide-reverse .PhotoArticleContent {
 		text-align: center;
 	}
 
@@ -219,7 +222,14 @@
 
 	.PhotoArticleContent h4 {
 		font-size: 3em;
+		font-weight: 700;
 		line-height: 1.36;
+	}
+
+	/* Photo Article Content p */
+
+	.PhotoArticleContent p {
+		line-height: 1.8;
 	}
 
 }
@@ -291,8 +301,6 @@
 	.PhotoArticle--wide-reverse .PhotoArticle-text {
 		max-width: 60em;
 	}
-
-
 
 	.PhotoArticleContent-header {
 		margin-bottom: 1.5em;

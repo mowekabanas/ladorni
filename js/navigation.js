@@ -44,6 +44,17 @@ var Navigation = (function () {
 				if (item)
 					self.change(item, false);
 
+				try {
+
+					ga('send', 'event', {
+						eventCategory: 'Click em item de navegação',
+						eventAction: 'click',
+						eventLabel: this.href,
+						eventValue: 101
+					});
+
+				} catch ( e ) {  }
+
 			}
 
 		};
@@ -54,6 +65,17 @@ var Navigation = (function () {
 
 			if (item)
 				self.change(item, true);
+
+			try {
+
+				ga('send', 'event', {
+					eventCategory: 'Ação de avançar ou voltar',
+					eventAction: 'popstate',
+					eventLabel: window.location.href,
+					eventValue: 102
+				});
+
+			} catch ( e ) {  }
 
 		};
 

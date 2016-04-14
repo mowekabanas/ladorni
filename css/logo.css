@@ -102,13 +102,8 @@ body.is-starting .TransitionScreen--start .Logo {
 }
 
 body.is-local .Logo svg,
-body.is-winemenu .Logo svg,
 body.is-transiting .Logo svg {
 	fill: #eeeeee;
-}
-
-body.is-home.is-accent .Logo svg {
-	fill: #e0e0e0;
 }
 
 body.has-menu .Logo svg {
@@ -212,6 +207,16 @@ body.has-menu .Logo svg {
 
 	body.is-winemenu .MainHeader .Logo svg {
 		max-width: 4.5em;
+	}
+
+	body.is-local .Logo svg,
+	body.is-winemenu .Logo svg,
+	body.is-transiting .Logo svg {
+		fill: #eeeeee;
+	}
+
+	body.is-home.is-accent .Logo svg {
+		fill: #e0e0e0;
 	}
 
 	body.is-winemenu .Logo.is-only-winery #LaDorniLogo-border {

@@ -34,10 +34,6 @@ body.is-contact .MainHeaderBrand-title {
 	visibility: hidden;
 }
 
-body.is-home.is-accent .MainHeaderBrand-title {
-	color: #e0e0e0;
-}
-
 .MainHeaderBrand h1 {
 	font-size: 1em;
 	font-weight: 300;
@@ -77,6 +73,10 @@ body.is-home.is-accent .MainHeaderBrand-title {
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex;
+	}
+
+	body.is-home.is-accent .MainHeaderBrand-title {
+		color: #e0e0e0;
 	}
 
 	.MainHeaderBrand h1 {
