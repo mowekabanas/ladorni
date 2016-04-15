@@ -24,7 +24,8 @@ var Unloader = (function () {
 	Unloader.prototype.load = function () {
 
 		for (var i = this.elements.length; i--;)
-			this.elements[i].unloader.load();
+			if (this.elements[i].unloader)
+				this.elements[i].unloader.load();
 
 		this.isLoaded = true;
 
@@ -35,7 +36,8 @@ var Unloader = (function () {
 		this.isLoaded = false;
 
 		for (var i = this.elements.length; i--;)
-			this.elements[i].unloader = new UnloaderElement(this.elements[i]);
+			if (!this.elements[i].unloader)
+				this.elements[i].unloader = new UnloaderElement(this.elements[i]);
 
 	};
 

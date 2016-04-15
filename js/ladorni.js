@@ -89,7 +89,7 @@ var LaDorni = (function () {
 
 			this.home.viewport = document.getElementById('home');
 			this.home.content.viewport = document.getElementById('hero-photos');
-			this.home.requiredContentQueryString = 'img';
+			this.home.content.required.queryString = 'img';
 
 			this.home.afterDone = function () {
 
@@ -124,7 +124,8 @@ var LaDorni = (function () {
 			this.winemenu.url = 'winemenu.html';
 			this.winemenu.hero = new Hero(document.getElementById('winemenu-hero'));
 			this.winemenu.content.viewport = document.getElementById('vinhos');
-			this.winemenu.requiredContentQueryString = '.is-required';
+			this.winemenu.content.required.queryString = '.is-required';
+			this.winemenu.content.unloaded.queryString = 'img';
 
 			this.winemenu.afterDone = function () {
 
@@ -153,7 +154,8 @@ var LaDorni = (function () {
 			this.winery.url = 'winery.html';
 			this.winery.hero = new Hero(document.getElementById('winery-hero'));
 			this.winery.content.viewport = document.getElementById('vinicola');
-			this.winery.requiredContentQueryString = '.is-required';
+			this.winery.content.required.queryString = '.is-required';
+			this.winery.content.unloaded.queryString = 'img';
 
 		}
 
@@ -169,7 +171,8 @@ var LaDorni = (function () {
 			this.castle.url = 'castle.html';
 			this.castle.hero = new Hero(document.getElementById('castle-hero'));
 			this.castle.content.viewport = document.getElementById('castelo');
-			this.castle.requiredContentQueryString = '.is-required';
+			this.castle.content.required.queryString = '.is-required';
+			this.castle.content.unloaded.queryString = 'img';
 
 		}
 

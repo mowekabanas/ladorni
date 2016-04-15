@@ -36,6 +36,7 @@ var UnloaderElement = (function () {
 
 	UnloaderElement.prototype.init = function () {
 
+		this.viewport.unloader = this;
 		this.removeLink();
 
 	};

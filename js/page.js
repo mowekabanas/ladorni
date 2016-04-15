@@ -21,7 +21,6 @@ var Page = (function() {
 		this.document = false;
 
 		this.content = {};
-		this.requiredContentQueryString = '';
 
 		this.header = {};
 		this.header.background = {};
@@ -29,8 +28,17 @@ var Page = (function() {
 
 		this.hero = {};
 
-		this.require = new Require();
-		this.unloader = new Unloader();
+		// it loads with a FURY emergency
+		// the page just loads when it load
+		this.content.required = {};
+		this.content.required.require = new Require();
+		this.content.required.unloader = new Unloader();
+		this.content.required.queryString = '';
+
+		// it loads without emergency
+		this.content.unloaded = {};
+		this.content.unloaded.unloader = new Unloader();
+		this.content.unloaded.queryString = '';
 
 		this.afterDone = false;
 		this.afterLoad = false;
@@ -63,7 +71,10 @@ var Page = (function() {
 
 			self.isLoaded = true;
 
-			if (self.require.isLoaded) {
+			if (self.content.required.require.isLoaded) {
+
+ 				if (self.content.unloaded.unloader)
+					self.content.unloaded.unloader.load();
 
 				if (self.document)
 					if (self.document.navigation)
@@ -82,9 +93,9 @@ var Page = (function() {
 		 */
 		this.load = function () {
 
-			if (!self.unloader.isLoaded) {
+			if (!self.content.required.unloader.isLoaded) {
 
-				self.unloader.load();
+				self.content.required.unloader.load();
 
 				if (self.afterLoad)
 					self.afterLoad();
@@ -102,19 +113,30 @@ var Page = (function() {
 		 */
 		this.requireContent = function (autoLoad) {
 
-			if (self.requiredContentQueryString) {
+			if (self.content.unloaded.queryString)
+				if (!self.isLoaded)
+					if (!self.content.unloaded.unloader.elements.length) {
+
+						self.content.unloaded.elements = self.content.viewport.querySelectorAll(self.content.unloaded.queryString);
+
+						self.content.unloaded.unloader.elements = self.content.unloaded.elements;
+						self.content.unloaded.unloader.init();
+
+					}
+
+			if (self.content.required.queryString) {
 
 				if (!self.isLoaded)
-					if (!self.unloader.elements.length) {
+					if (!self.content.required.unloader.elements.length) {
 
-						self.requiredContent = self.content.viewport.querySelectorAll(self.requiredContentQueryString);
+						self.content.required.elements = self.content.viewport.querySelectorAll(self.content.required.queryString);
 
-						self.unloader.elements = self.requiredContent;
-						self.unloader.init();
+						self.content.required.unloader.elements = self.content.required.elements;
+						self.content.required.unloader.init();
 
-						self.require.elements = self.requiredContent;
-						self.require.listener = self.done;
-						self.require.init();
+						self.content.required.require.elements = self.content.required.elements;
+						self.content.required.require.listener = self.done;
+						self.content.required.require.init();
 
 					}
 
@@ -124,7 +146,7 @@ var Page = (function() {
 
 				if (!self.isLoaded) {
 
-					self.require.isLoaded = true;
+					self.content.required.require.isLoaded = true;
 					self.done();
 
 				}
