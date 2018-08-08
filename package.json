@@ -4,7 +4,6 @@
   "description": "Mowe Ladorni Project",
   "main": "GulpFile.js",
   "dependencies": {
-    "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.4",
     "gulp-concat": "^2.6.0",
     "gulp-image-resize": "^0.7.1",
@@ -17,6 +16,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.11.2",
+    "gulp": "^3.9.1",
     "gulp-livereload": "^3.8.1"
   },
   "scripts": {

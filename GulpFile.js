@@ -31,7 +31,7 @@ var gulp = require('gulp'),
 var tinypngToken = 'tpY_SrTWgniTOP1mYIjhGosNcwY7ieG5';
 
 var dist = {
-	location: 'dist/'
+	location: './public/dist/'
 };
 
 dist.css = {
@@ -203,14 +203,14 @@ gulp.task('serve', function () {
 	// Serve files from the root of this project
 	browserSync.init({
 		server: {
-			baseDir: "./",
+			baseDir: "./public/",
 			index: "index.html",
 			routes: {
-				"/vinhos": "./index.html",
-				"/castelo": "./index.html",
-				"/vinicola": "./index.html",
-				"/contato": "./index.html",
-				"/como-chegar": "./index.html"
+				"/vinhos": "./public/index.html",
+				"/castelo": "./public/index.html",
+				"/vinicola": "./public/index.html",
+				"/contato": "./public/index.html",
+				"/como-chegar": "./public/index.html"
 			}
 		}
 	});

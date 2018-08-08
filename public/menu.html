@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="playfair-display">
+<meta charset="UTF-8">
+<title>La Dorni - Menu</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="../dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="../dist/css/villa.min.css"/>
+<link rel="stylesheet" href="dist/css/icon.css"/>
+<link rel="stylesheet" href="../dist/css/ladorni.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<body class="grey-200">
+
+<nav class="MainNav">
+
+	<div id="main-menu" class="MainMenu Menu">
+
+		<div class="MenuToggleButton">
+
+			<a href="#" class="MenuToggleButton-select-area">
+
+				<span class="icon icon--open">
+
+					<span class="icon-menu"></span>
+
+				</span>
+
+				<span class="icon icon--close">
+
+					<span class="icon-angle-left"></span>
+
+				</span>
+
+			</a>
+
+		</div>
+
+		<ul class="MenuList white">
+
+			<li class="MenuItem">
+
+				<a href=".." class="MenuItem-select-area NavigationItem" data-navigation-target="home">
+
+					<span>Início</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./vinicola" class="MenuItem-select-area NavigationItem" data-navigation-target="winery">
+
+					<span class="slash">/</span><span>A Vinícola</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./castelo" class="MenuItem-select-area NavigationItem" data-navigation-target="castle">
+
+					<span class="slash">/</span><span>O Castelo</span>
+
+				</a>
+
+			</li>
+
+			<li class="MenuItem">
+
+				<a href="./vinhos" class="MenuItem-select-area NavigationItem" data-navigation-target="winemenu">
+
+					<span class="slash">/</span><span>Vinhos</span>
+
+				</a>
+
+			</li>
+
+		</ul>
+
+	</div>
+
+</nav>
+
+<script src="../js/menu.js"></script>
+
+<script>
+
+	var mainMenu = new Menu(document.getElementById('main-menu'));
+
+</script>
+
+</body>
+
+</html>

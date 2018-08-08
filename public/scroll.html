@@ -1,0 +1,2473 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="roboto crimson-text-italic">
+<meta charset="UTF-8">
+<title>Scroll</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="../dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="../dist/css/villa.min.css"/>
+<link rel="stylesheet" href="../dist/css/ladorni.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<style>
+
+	.WineItemProjection {
+		position: relative;
+		height: 100vh;
+	}
+
+	.WineList {
+		/*padding: 1em;*/
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100%;
+	}
+
+	.Wine {
+		height: 100vh;
+		padding: 2.25em;
+		position: absolute;
+		-webkit-transition: transform .6s, opacity .4s;
+		-moz-transition: transform .6s, opacity .4s;
+		-ms-transition: transform .6s, opacity .4s;
+		-o-transition: transform .6s, opacity .4s;
+		transition: transform .6s, opacity .4s;
+		opacity: 0;
+		/*visibility: hidden;*/
+	}
+
+	.Wine.is-active {
+		opacity: 1;
+		/*visibility: visible;*/
+	}
+
+	.Wine-inner {
+		border-radius: 4px;
+		box-shadow: 1px 2px 8px 0 rgba(0,0,0,.24);
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.Wine-inner > * {
+		background-color: #bdbdbd;
+		max-height: 100%;
+	}
+
+	.WineHeader-background {
+		/*border-radius: 6px 0 0 6px;*/
+	}
+
+</style>
+
+<body>
+
+<div id="projection" class="WineListProjection"></div>
+
+<section class="WineList grey-600">
+
+	<article class="Wine Wine--ladonna" data-document-state="is-ladonna" data-wine-name="ladonna">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-white">
+
+				<div class="WineHeader-background grey-900"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Donna</span>
+							<strong class="name">Vinho <br> Rosado <br> de Mesa</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>um vinho leve, suave, rosado, aprovado por 90% das mulheres que o
+							degustaram.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/ladonna.png" alt="La Donna Rosado de Mesa" class="WineFigure-img is-required"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Rosado</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>10,6% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O La Donna é o primeiro vinho desenvolvido especialmente para o
+									paladar feminino.</p>
+
+								<p>O vinho foi elaborado com base nas informações colhidas através de
+									pesquisas
+									mercadológicas com mulheres de todas as faixas etárias a partir dos
+									18 anos e níveis
+									sociais das principais capitais do Brasil e da região norte do
+									Paraná, onde se situa
+									a Vinícola La Dorni, produtora do La Donna. As mulheres analisaram
+									cor, aroma,
+									graduação alcoólica, paladar e ainda opinaram sobre o design da
+									garrafa e do
+									rótulo.</p>
+
+								<p>O La Donna é um vinho leve, suave, rosado, aprovado por 90% das
+									mulheres que o
+									degustaram. Além disso, o La Donna é uma forma de homenagear as
+									lutas e conquistas
+									da mulher, cada vez mais fundamental no equilíbrio e no
+									desenvolvimento social.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 10,6%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Rosado</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 12ºC a 14ºC</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003018"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- DE MESA -  La Donna vinho rosado de mesa-->
+
+	<article class="Wine Wine--demi-sec" data-document-state="is-demi-sec" data-wine-name="demi-sec">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader">
+
+				<div class="WineHeader-background grey-100"></div>
+
+				<header class="WineHeader-inner font-grey-900">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Vinho Branco Demi-Sec</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>caracterizam-se pela coloração amarelo-palha, translúcido com aroma floral e
+							frutado
+							característico, de paladar macio e agradável com corpo harmonioso.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/branco_dem_sec.png" alt="Branco Demi Sec" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Branco</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>10,1% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>Essa variedade de vinho é elaborada a partir de uvas niágara.</p>
+
+								<p>Os vinhos brancos de mesa demi sec La Dorni caracterizam-se pela
+									coloração
+									amarelo-palha, translúcido com aroma floral e frutado
+									característico, de paladar
+									macio e agradável com corpo harmonioso.</p>
+
+								<p>Sua denominação demi sec refere-se a sua classificação, não
+									pertencendo à classe dos
+									vinhos suaves, nem a dos secos, sendo um vinho intermediário
+									justamente buscando o
+									equilíbrio de suas propriedades gustativas e aromáticas.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 10,1%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Branco</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 8ºC a 10ºC</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Harmonização: Esse tipo de vinho é ideal para acompanhar pratos leves,
+								como frangos
+								grelhados, peixes e molhos brancos.</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003013"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- DE MESA -  Branco Demi-sec de mesa-->
+
+	<article class="Wine Wine--seco-de-mesa" data-document-state="is-seco-de-mesa" data-wine-name="seco-de-mesa">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-white">
+
+				<div class="WineHeader-background grey-900"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Vinho Tinto Seco de Mesa</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>caracterizam-se pela cor vermelho-rubi intenso, aroma marcante, sabor
+							frutado, de corpo médio
+							e paladar harmonioso.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/tinto_mesa_seco.png" alt="Tinto Mesa Seco" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Tinto</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>10,1% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>Vinho elaborado a partir de selecionadas uvas tintas, bordô, sem
+									cortes na sua
+									elaboração, ou seja, nenhum outro tipo de uva é adicionada à
+									composição do
+									vinho.</p>
+
+								<p>Os vinhos tintos de mesa seco La Dorni, caracterizam-se pela cor
+									vermelho-rubi
+									intenso, aroma marcante, sabor frutado, de corpo médio e paladar
+									harmonioso.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 10,1%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Tinto</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conservação: 12ºC a 14ºC</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Harmonização: Acompanha carnes e massas, além de entradas fortes como
+								queijos, salames e
+								defumados.</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003126"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- DE MESA -  Tinto Seco de mesa-->
+
+	<article class="Wine Wine--suave-de-mesa" data-document-state="is-suave-de-mesa" data-wine-name="suave-de-mesa">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader">
+
+				<div class="WineHeader-background grey-100"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Vinho Tinto Suave de Mesa</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>caracterizam-se pela cor vermelho rubi-intenso, aroma marcante, sabor frutado
+							delicado e
+							paladar equilibrado.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/tinto_mesa_suave.png" alt="Tinto Mesa Suave" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Tinto</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>10,1% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>Vinho elaborado a partir de selecionadas uvas tintas, bordô, sem
+									cortes na sua
+									elaboração, ou seja, nenhum outro tipo de uva é adicionada à
+									composição do
+									vinho. </p>
+
+								<p>Os vinhos tintos de mesa suave La Dorni caracterizam-se pela cor
+									vermelho
+									rubi-intenso, aroma marcante, sabor frutado delicado e paladar
+									equilibrado.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 10,1%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Tinto</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conservação: 12ºC a 14ºC</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Harmonização: Acompanha carnes e massas, além de entradas fortes como
+								queijos, salames e
+								defumados.</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003012"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- DE MESA -  Tinto Suave de mesa-->
+
+	<article class="Wine Wine--bag-in-box" data-document-state="is-bag-in-box" data-wine-name="bag-in-box">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-white">
+
+				<div class="WineHeader-background red-900"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Vinho Tinto Suave de Mesa</strong>
+
+							<span>(Bag in Box)</span>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>é ideal para festas, confraternizações, reuniões com os amigos, eventos e
+							para aquela
+							macarronada de domingo na casa da nona.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/box.png" alt="Bag in Box" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Tinto</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>4,6L</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>10,1% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O vinho Tinto de Mesa La Dorni também se apresenta na moderníssima
+									embalagem BIB
+									(Bag-in-Box). Dentro da caixa, o vinho vai embalado a vácuo numa
+									bolsa elaborada em
+									filme transparente multicamada (nylon, EVOH e polietileno) que forma
+									uma alta
+									barreira para o vinho, resistente à degradação provocada pelo
+									oxigênio. Uma torneira
+									VITOP lacrada vai conectada à bolsa e para degustar o vinho, basta
+									destacar a área
+									serrilhada localizada na frente da embalagem e encaixar a
+									torneira.</p>
+
+								<p>O Bag é ideal para festas, confraternizações, reuniões com os amigos,
+									eventos e para
+									aquela macarronada de domingo na casa da nona. Pode ser guardado
+									facilmente na
+									geladeira e tem uma durabilidade por tempo indeterminado se
+									armazenado em local
+									fresco, arejado e ao abrigo da luz. Uma vez aberto, não ocorre
+									contato entre
+									oxigênio e vinho internamente na embalagem, com isso o vinho mantém
+									a qualidade da
+									primeira até a última taça.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 10,1%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Tinto</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Bag in Box</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 4,6L</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: Em local fresco e ao abrigo da luz</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003124"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- DE MESA -  Tinto Suave de mesa BiB-->
+
+	<article class="Wine Wine--navaronne" data-document-state="is-navaronne" data-wine-name="navaronne">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader">
+
+				<div class="WineHeader-background grey-100"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">Casa Navaronne</span>
+							<strong class="name">Vinho Meio Seco sem Álcool</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>Sua estrutura se apresenta de maneira delicada, equilibrada. Em boca é macio, agradável, com taninos equilibrados e retrogosto leve de mascavo.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/navaronne.png" alt="Casa Navarrone Meio Seco sem Álcool " class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Tinto</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>0% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O Casa Navaronne é um vinho sem álcool meio seco, produzido com uvas bordô, de corpo e paladar fino. Sua estrutura se apresenta de maneira delicada, equilibrada. Em boca é macio, agradável, com taninos equilibrados e retrogosto leve de mascavo. Possui também grande concentração de polifenóis</p>
+
+								<p>É feito com tecnologia 100% nacional.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 0%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Tinto</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 6ºC a 8ºC</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7383769"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- SEM ÁLCOOL - Casa Navaronne meio seco sem álcool-->
+
+	<article class="Wine Wine--seco-sem-alcool" data-document-state="is-seco-sem-alcool" data-wine-name="seco-sem-alcool">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-white">
+
+				<div class="WineHeader-background grey-900"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Vinho Tinto Seco sem Álcool</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>possui alta concentração de flavonóides, substâncias benéficas ao
+							organismo.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/saseco.png" alt="Tinto Seco sem Álcool" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Tinto</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>0% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O La Dorni tinto seco sem álcool, não possui álcool e nem açúcar em
+									sua composição.
+									De corpo forte e rascante, busca atender um seleto grupo de
+									consumidores em dietas
+									específicas ou apreciadores de vinhos desalcoolizados
+									encorpados.</p>
+
+								<p>Possui alta concentração de flavonóides, substâncias benéficas ao
+									organismo.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 0%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Tinto</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 6ºC a 8ºC</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003611"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- SEM ÁLCOOL - Tinto Seco sem Álcool-->
+
+	<article class="Wine Wine--suave-sem-alcool" data-document-state="is-suave-sem-alcool" data-wine-name="suave-sem-alcool">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader">
+
+				<div class="WineHeader-background grey-100"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Vinho Tinto Suave sem Álcool</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>a elaboração começa pelo processo normal de fermentação, envelhecimento e
+							desalcoolização,
+							mantendo assim todas suas propriedades benéficas, como os flavonóides,
+							substâncias benéficas
+							ao organismo.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/satinto.png" alt="Tinto Suave sem Álcool" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Tinto</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>0%</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O La Dorni tinto suave sem álcool é leve, adocicado, de paladar agradável. Elaborado a partir de selecionadas uvas bordô, possui alta concentração de flavonoides, substâncias benéficas ao organismo, antioxidantes.  </p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 0%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Tinto</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 6º a 8ºC</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003216"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- SEM ÁLCOOL - Tinto Suave sem Álcool-->
+
+	<article class="Wine Wine--cabernet" data-document-state="is-cabernet" data-wine-name="cabernet">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-white">
+
+				<div class="WineHeader-background grey-900"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Cabernet Sauvignon</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>apresenta seu tanino característico, corpo médio e equlibrado, álcool bem
+							integrado e um
+							retrogosto amadeirado.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/cabernet.png" alt="Cabernet Sauvignon" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Varietal</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>750mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>12,5% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O Cabernet Sauvigon La Dorni possui uma bela cor vermelha com
+									reflexos marrons que se
+									intensificam com o passar dos anos, em guarda. Seu aroma tem toques
+									de frutas
+									vermelhas, amoras silvestres, cereja, cassis, morango, ameixa,
+									especiarias como
+									cravo e por fim, madeira. Em boca, apresenta seu tanino
+									característico, corpo médio
+									e equlibrado, álcool bem integrado e um retrogosto amadeirado.</p>
+
+								<p>O La Dorni Cabernet Sauvignon permite-se apreciação tanto jovem
+									quanto
+									envelhecido.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 12,5%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Varietal</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 750mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 13ºC</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Harmonização: Pode-se harmonizar o vinho com carnes assadas ou
+								cozidas.</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7003015"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- VÁRIETAL - Cabernet Sauvignon -->
+
+	<article class="Wine Wine--merlot" data-document-state="is-merlot" data-wine-name="merlot">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-grey-900">
+
+				<div class="WineHeader-background grey-100"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Merlot</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>possui uma bela cor rubi intensa com notas aromáticas frutadas, com toques de
+							geléia e
+							amora.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/merlot.png" alt="Merlot" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Varietal</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>750mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>12% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O Merlot da La Dorni possui uma bela cor rubi intensa com notas
+									aromáticas frutadas,
+									com toques de geléia e amora. Em boca apresenta-se seco aveludado,
+									corpo médio sem
+									taninos acentuados com retrogosto elegante.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 12%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Varietal</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 750mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 13ºC</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Harmonização: Pode-se harmonizar o vinho com carnes assadas ou
+								cozidas.</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section class="WineCheckout">
+
+					<a href="http://www.ladornistore.com.br/produto.php?cod_produto=7002542"
+					   class="WineCheckout-select-area"></a>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- VÁRIETAL - Merlot -->
+
+	<article class="Wine Wine--canonico-rosado" data-document-state="is-canonico-rosado" data-wine-name="canonico-rosado">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-white">
+
+				<div class="WineHeader-background red-a700"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">João Paulo II</span>
+							<strong class="name">Vinho Canônico Rosado Suave</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p>produzido de acordo com os preceitos canônicos da Igreja Católica para a produção e utilização do vinho nas celebrações eucarísticas</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/canonico-rose.png" alt="João Paulo II Rosado Suave" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Canônico</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720mL</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>10,3% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O vinho canônico João Paulo II é produzido de acordo com os preceitos
+									canônicos da
+									Igreja Católica para a produção e utilização do vinho nas
+									celebrações eucarísticas.
+									Autorizado pelo Bispo Diocesano (agora Emérito) Dom Fernando José
+									Penteado, a La
+									Dorni se orgulha de ser uma das poucas vinícolas a possuir tal
+									honraria, pois
+									sabemos a importância da eucaristia na vida dos sacerdotes e
+									cristãos que buscam na
+									comunhão não só um rito, mas entendimento e salvação!</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 10,6%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Canônico</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720mL</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--full">
+
+							<p>Conservação: 12º a 14ºC</p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- CANÔNICO -  João Paulo II Rosado Suave-->
+
+	<article class="Wine Wine--canonico-sem-alcool" data-document-state="is-canonico-sem-alcool" data-wine-name="canonico-sem-alcool">
+
+		<div class="Wine-inner">
+
+			<header class="WineHeader font-indigo-700">
+
+				<div class="WineHeader-background grey-100"></div>
+
+				<header class="WineHeader-inner">
+
+					<section class="WineHeader-title">
+
+						<h4>
+
+							<span class="brand">La Dorni</span>
+							<strong class="name">Tinto Canônico <br/>Sem Álcool Suave</strong>
+
+						</h4>
+
+					</section>
+
+					<section class="WineHeader-short-description">
+
+						<p> Autorizado pelo Bispo Diocesano Dom Fernando José Penteado (agora Emérito), a La Dorni se orgulha de produzir um vinho sem álcool para aqueles religiosos que optaram por uma rotina sem álcool.</p>
+
+					</section>
+
+					<section class="WineResume"></section>
+
+				</header>
+
+			</header>
+
+			<figure class="WineFigure">
+
+				<div class="WineFigure-wrapper">
+
+					<img src="../dist/img/winePhotos/canonico-tinto.png" alt="João Paulo II Tinto Suave" class="WineFigure-img"/>
+
+				</div>
+
+			</figure>
+
+			<footer class="WineFooter">
+
+				<section class="WineAbout">
+
+					<section class="WineResume">
+
+						<ul class="WineResumeList">
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-glass"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>Canônico</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-box"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>720ML</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+							<li class="WineResumeItem">
+
+								<a class="WineResumeItem-select-area">
+
+									<header class="WineResumeItem-header">
+
+										<span class="icon-wine"></span>
+
+									</header>
+
+									<div class="WineResumeItem-title">
+
+										<span>0% VOL.</span>
+
+									</div>
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</section>
+
+					<section class="WineDescription">
+
+						<div class="WineDescription-wrapper">
+
+							<div class="WineDescriptionText">
+
+								<p>O vinho La Dorni tinto canônico sem álcool suave foi criado para os sacerdotes que preferem não consumir álcool durante as celebrações.  Tinto, leve e sem graduação alcoólica é ideal para os padres que praticam uma rotina sem a presença do álcool ou que por motivos de saúde não podem mais consumir outros vinhos canônicos com graduação alcoólica. Possui o documento canônico e está de acordo com o código canônico.</p>
+
+							</div>
+
+						</div>
+
+					</section>
+
+					<section class="WineTable">
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Teor alcoólico: 0%</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Tipo: Vinho Canônico</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Embalagem: Garrafa</p>
+
+						</div>
+
+						<div class="WineTable-cell WineTable-cell--half">
+
+							<p>Conteúdo: 720ML </p>
+
+						</div>
+
+					</section>
+
+				</section>
+
+			</footer>
+
+		</div>
+
+	</article><!-- CANÔNICO -  Sem Alcool Tinto Suave-->
+
+</section>
+
+<script src="../dist/js/ladorni.js"></script>
+
+<script>
+
+	var wineList = new WineList(document.documentElement);
+	wineList.init();
+
+	var projection = document.getElementById('projection');
+
+	var items = document.querySelectorAll('.Wine');
+
+	for (var i = 0; i < items.length; i++)
+		projection.appendChild(function () {
+
+			items[i].childElement = document.createElement('div');
+			items[i].childElement.className = 'WineItemProjection';
+			items[i].childElement.fatherElement = items[i];
+
+			return items[i].childElement;
+
+		}());
+
+	var choosed = function () {
+
+		var choose = false;
+
+		for (var i = 0; i < items.length; i++)
+			if (items[i].childElement.offsetTop < window.scrollY + 1)
+				if (choose.childElement) {
+
+					if (items[i].childElement.offsetTop > choose.childElement.offsetTop)
+						choose = items[i];
+
+				} else {
+
+					choose = items[i];
+
+				}
+
+		return choose;
+
+	}();
+
+	choosed.classList.add('is-active');
+
+	cY = choosed.offsetTop;
+
+	for (var j = items.length; j--; )
+	{
+
+		if (items[j].childElement.offsetTop < cY)
+			items[j].style.transform = 'translate3D(0,-100%,0)';
+		else if (items[j].childElement.offsetTop > cY)
+			items[j].style.transform = 'translate3D(0,100%,0)';
+
+	}
+
+	choosed.style.transform = 'translate3D(0,0,0)';
+
+	window.addEventListener('scroll', function (ev) {
+
+		var cY = window.scrollY + 1;
+
+		var choose = {
+			offsetTop: 0
+		};
+
+		for (var i = 0; i < items.length; i++)
+			if (items[i].childElement.offsetTop < cY) {
+
+				if (choose.childElement) {
+
+					if (items[i].childElement.offsetTop > choose.childElement.offsetTop)
+						choose = items[i];
+
+				} else {
+
+					choose = items[i];
+
+				}
+
+			}
+
+		if (choosed.dataset.wineName != choose.dataset.wineName) {
+
+			choosed.classList.remove('is-active');
+			choosed = choose;
+			choosed.classList.add('is-active');
+
+			cY = choosed.childElement.offsetTop;
+
+			for (var j = items.length; j--; )
+			{
+
+				if (items[j].childElement.offsetTop < cY)
+					items[j].style.transform = 'translateY(-100%)';
+				else if (items[j].childElement.offsetTop > cY)
+					items[j].style.transform = 'translateY(100%)';
+
+			}
+
+			choosed.style.transform = 'translateY(0)';
+
+		}
+
+	});
+
+</script>
+
+</body>
+
+</html>
