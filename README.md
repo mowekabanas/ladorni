@@ -75,7 +75,7 @@ The Wine instance has support for three types of states:
 </figure>
 ```
 
-###Footer
+### Footer
 
 ```html
 <footer class="WineFooter font-grey-900">
@@ -152,7 +152,7 @@ The Wine instance has support for three types of states:
 ```
 
 
-###Table
+### Table
 
 ```html
 <section class="WineTable border-grey-900">
