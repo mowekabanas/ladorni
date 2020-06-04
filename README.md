@@ -1,6 +1,6 @@
-#Mowe La Dorni Project 
+# Mowe La Dorni Project 
 
-##Wine
+## Wine
 
 The Wine instance has support for three types of states:
 
@@ -28,7 +28,7 @@ The Wine instance has support for three types of states:
 </article>
 ```
 
-###Header
+### Header
 
 ```html
 <header class="WineHeader">
@@ -61,7 +61,7 @@ The Wine instance has support for three types of states:
 </header>
 ```
 
-###Figure
+### Figure
 
 ```html
 <figure class="WineFigure">
@@ -75,7 +75,7 @@ The Wine instance has support for three types of states:
 </figure>
 ```
 
-###Footer
+### Footer
 
 ```html
 <footer class="WineFooter font-grey-900">
@@ -95,7 +95,7 @@ The Wine instance has support for three types of states:
 </footer>
 ```
 
-###Resume
+### Resume
 
 ```html
 <section class="WineResume">
@@ -133,7 +133,7 @@ The Wine instance has support for three types of states:
 </section>
 ```
 
-###Description
+### Description
 
 ```html
 <section class="WineDescription">
@@ -152,7 +152,7 @@ The Wine instance has support for three types of states:
 ```
 
 
-###Table
+### Table
 
 ```html
 <section class="WineTable border-grey-900">
@@ -192,7 +192,7 @@ The Wine instance has support for three types of states:
 </section>
 ```
 
-###Checkout button
+### Checkout button
 
 ```html
 <section class="WineCheckout">
@@ -230,7 +230,7 @@ DOM code:
 </section>
 ```
 
-###Wine Show More button
+### Wine Show More button
 
 Warning: This element are automatically build at every instance from Wine, so you don't need to put this part to html code 
 
