@@ -969,6 +969,13 @@
       .whatsapp-button:focus::before {
         opacity: 0.24;
       }
+
+      @media (max-width: 36em) {
+        .whatsapp-button.show,
+        .is-winemenu .whatsapp-button.show {
+          transform: scale(1);
+        }
+      }
     </style>
   </body>
 </html>
