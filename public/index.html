@@ -1,872 +1,974 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="playfair-display roboto crimson-text-italic">
-<meta charset="UTF-8">
-<title>La Dorni</title>
-<meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-<link rel="shortcut icon" type="image/png" href="dist/img/favicon256-01.png"/>
-<meta property="og:title" content="Vinícola La Dorni" />
-<meta property="og:description" content="Vinhos feitos semi-artesanalmente em um castelo medieval. Não, você não está na idade média e sim no website da Vinícola La Dorni." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://www.ladorni.com.br/" />
-<meta property="og:image" content="http://www.ladorni.com.br/dist/img/thumbs/thumb-home.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:locale" content="pt_BR" />
-<!--[if you are a curious]
+  <meta charset="UTF-8" />
+  <title>La Dorni</title>
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="dist/img/favicon256-01.png"
+  />
+  <meta property="og:title" content="Vinícola La Dorni" />
+  <meta
+    property="og:description"
+    content="Vinhos feitos semi-artesanalmente em um castelo medieval. Não, você não está na idade média e sim no website da Vinícola La Dorni."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.ladorni.com.br/" />
+  <meta
+    property="og:image"
+    content="http://www.ladorni.com.br/dist/img/thumbs/thumb-home.png"
+  />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <!--[if you are a curious]
 	A another project of Kabana's Info & Mowe
 [endif]-->
-<script src="dist/js/villa.min.js"></script>
-<link rel="stylesheet" href="dist/css/villa.min.css"/>
-<link rel="stylesheet" href="dist/css/ladorni.css"/>
-<!--[if lt IE 9]>
-<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
-<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
-<script src="dist/js/html5shiv.js"></script>
-<script src="dist/js/html5shiv-printshiv.js"></script>
-<script src="dist/js/classList.min.js"></script>
-<![endif]-->
-
-<style>
-
-	body {
-		background-color: #ffffff;
-		font-family: 'Roboto', sans-serif;
-		-webkit-transition: background 1.2s;
-		-moz-transition: background 1.2s;
-		-ms-transition: background 1.2s;
-		-o-transition: background 1.2s;
-		transition: background 1.2s;
-	}
-
-	body.is-biting,
-	body.is-loading {
-		overflow: hidden;
-	}
-
-	body.is-biting {
-		background-color: #757575;
-	}
-
-	@media (min-width: 48em) {
-
-		body.is-home {
-			overflow: hidden;
-		}
-
-	}
-
-	body.is-biting .TransitionScreen--start {
-		height: 100%;
-		position: fixed;
-		width: 100%;
-		background-color: #757575;
-		top: 0;
-		left: 0;
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-		z-index: 99;
-		-webkit-transition: background 1s;
-		-moz-transition: background 1s;
-		-ms-transition: background 1s;
-		-o-transition: background 1s;
-		transition: background 1s;
-	}
-
-	body.is-starting .TransitionScreen--start {
-		background-color: #424242;
-	}
-
-	html.is-debug .TransitionScreen--start {
-		display: none;
-	}
-
-	/* Load Bar */
-
-	body.is-biting .LoadBar {
-		background-color: #ffab00;
-		height: 6px;
-		-webkit-transition: opacity .6s .4s;
-		-moz-transition: opacity .6s .4s;
-		-ms-transition: opacity .6s .4s;
-		-o-transition: opacity .6s .4s;
-		transition: opacity .6s .4s;
-		width: 16em;
-	}
-
-	body.is-starting .LoadBar {
-		opacity: 0;
-	}
-
-	body.is-biting .LoadBar-progress {
-		background-color: #ffd740;
-		-webkit-animation: load-bar-animate 1.6s ease forwards;
-		-o-animation: load-bar-animate 1.6s ease forwards;
-		animation: load-bar-animate 1.6s ease forwards;
-		-webkit-transition: width .6s;
-		-moz-transition: width .6s;
-		-ms-transition: width .6s;
-		-o-transition: width .6s;
-		transition: width .6s;
-		height: 100%;
-		width: 8%;
-	}
-
-	.TransitionScreen--start .Logo {
-		height: 6em;
-	}
-
-	.MainHeader {
-		opacity: 1;
-		-webkit-transition: opacity 1s 1s ease;
-		-moz-transition: opacity 1s 1s ease;
-		-ms-transition: opacity 1s 1s ease;
-		-o-transition: opacity 1s 1s ease;
-		transition: opacity 1s 1s ease;
-	}
-
-	body.is-biting .MainHeader {
-		opacity: 0;
-	}
-
-</style>
-
-<body class="is-biting">
-
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	ga('create', 'UA-76358705-1', 'auto');
-	ga('send', 'pageview');
-
-</script>
-
-<div id="hero-photos">
-
-	<img src="dist/img/widePhotos/wp-cave.jpg" style="display: none" />
-	<img src="dist/img/headerPhotos/hp-torre-02.jpg" style="display: none" />
-	<img src="dist/img/largePhotos/lp-torre-01.jpg" style="display: none" />
-
-</div>
-
-<nav id="navigation" class="MainNav Navigation">
-
-	<div class="Transition">
-
-		<div class="TransitionScreen TransitionScreen--start flex justify-center align-center flex-column">
-
-			<div id="loadbar" class="LoadBar">
-
-				<div class="LoadBar-progress"></div>
-
-			</div>
-
-			<div id="start-screen-logo" class="Logo is-only-winery is-loading">
-
-				<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
-
-					<span id="start-logo"></span>
-
-				</a>
-
-			</div>
-
-		</div>
-
-		<div class="TransitionScreen TransitionScreen--first amber-a700"></div>
-		<div class="TransitionScreen TransitionScreen--second grey-900"></div>
-
-		<div class="TransitionScreen TransitionScreen--winemenu grey-900 font-grey-400">
-
-			<span>Carregando lista de vinhos...</span>
-
-		</div>
-
-	</div>
-
-	<header class="MainHeader">
-
-		<div class="MainHeaderBrand">
-
-			<div id="main-header-logo" class="Logo MainHeaderBrand-logo is-only-winery is-biting">
-
-				<a href="#" class="Logo-select-area NavigationItem" data-navigation-target="home">
-
-					<span id="logo"></span>
-
-				</a>
-
-			</div>
-
-			<div class="MainHeaderBrand-title">
-
-				<h1>Vinícola <strong><span>L</span>a Dorn<span>i</span></strong></h1>
-
-			</div>
-
-		</div>
-
-		<div id="service-menu" class="Menu Menu--service roboto">
-
-			<ul class="MenuList roboto">
-
-				<li class="MenuItem">
-
-					<a href="./como-chegar" class="MenuItem-select-area NavigationItem LocalTrigger" data-navigation-target="local">
-
-						<span>Como chegar</span>
-
-					</a>
-
-				</li>
-
-				<li class="MenuItem">
-
-					<a href="./contato" class="MenuItem-select-area NavigationItem" data-navigation-target="contact">
-
-						<span><strong>Contato</strong></span>
-
-					</a>
-
-				</li>
-
-			</ul>
-
-		</div>
-
-	</header>
-
-	<div id="main-menu" class="MainMenu Menu">
-
-		<div class="MenuToggleButton">
-
-			<a href="#" class="MenuToggleButton-select-area">
-
-				<span class="icon icon--open">
-
-					<span class="icon-menu"></span>
-
-				</span>
-
-				<span class="icon icon--close">
-
-					<span class="icon-angle-left"></span>
-
-				</span>
-
-			</a>
-
-		</div>
-
-		<ul class="MenuList white">
-
-			<li class="MenuItem">
-
-				<a href=".." class="MenuItem-select-area NavigationItem" data-navigation-target="home">
-
-					<span>Início</span>
-
-				</a>
-
-			</li>
-
-			<li class="MenuItem">
-
-				<a href="./vinhos" class="MenuItem-select-area NavigationItem" data-navigation-target="winemenu">
-
-					<span class="slash">/</span><span>Vinhos</span>
-
-				</a>
-
-			</li>
-
-			<li class="MenuItem">
-
-				<a href="./vinicola" class="MenuItem-select-area NavigationItem" data-navigation-target="winery">
-
-					<span class="slash">/</span><span>A Vinícola</span>
-
-				</a>
-
-			</li>
-
-			<li class="MenuItem">
-
-				<a href="./castelo" class="MenuItem-select-area NavigationItem" data-navigation-target="castle">
-
-					<span class="slash">/</span><span>O Castelo</span>
-
-				</a>
-
-			</li>
-
-			<li class="MenuItem">
-
-				<a href="./como-chegar" class="MenuItem-select-area NavigationItem LocalTrigger" data-navigation-target="local">
-
-					<span>Como chegar</span>
-
-				</a>
-
-			</li>
-
-			<li class="MenuItem">
-
-				<a href="./contato" class="MenuItem-select-area NavigationItem" data-navigation-target="contact">
-
-					<span><strong>Contato</strong></span>
-
-				</a>
-
-			</li>
-
-		</ul>
-
-	</div>
-
-</nav>
-
-<main class="Main roboto">
-
-	<section id="home" class="Home">
-
-		<section class="Hero">
-
-			<div class="Hero-background blue-grey-100">
-
-				<img src="dist/img/6-curves.png" alt=""/>
-
-			</div>
-
-			<div class="Hero-inner">
-
-				<div class="HeroGallery">
-
-					<article id="winemenu-hero" class="HeroGalleryItem HeroGalleryItem--winemenu" data-document-state="is-accent"></article>
-					<article id="winery-hero" class="HeroGalleryItem HeroGalleryItem--winery" data-document-state="is-header-accent"></article>
-					<article id="castle-hero" class="HeroGalleryItem HeroGalleryItem--castle" data-document-state="is-header-accent"></article>
-
-				</div>
-
-			</div>
-
-		</section>
-
-	</section>
-
-	<div class="Main-content">
-
-		<section id="winemenu" class="Page Page--winemenu">
-
-			<header class="PageHeader">
-
-				<div class="PageHeader-background"></div>
-				<div class="PageHeader-overlay"></div>
-
-				<a href="#vinhos" class="PageHeader-select-area NavAnchor NavigationItem font-grey-800" data-navigation-target="winemenu">
-
-					<div class="PageHeader-title">
-
-						<h3>Nossos<br/><strong>Vinhos</strong></h3>
-
-					</div>
-
-					<span class="PageHeader-secondary-title font-grey-700">
-
-						<span>Conheça a nossa <em>carta</em> de vinhos <span class="icon"><span class="icon-angle-right"></span></span></span>
-
-					</span>
-
-				</a>
-
-			</header>
-
-			<section id="vinhos" class="Page-content"></section>
-
-		</section>
-
-		<section id="winery" class="Page Page--winery">
-
-			<header class="PageHeader">
-
-				<div class="PageHeader-background"></div>
-				<div class="PageHeader-overlay"></div>
-
-				<a href="#vinicola" class="PageHeader-select-area NavAnchor NavigationItem font-grey-800" data-navigation-target="winery">
-
-					<div class="PageHeader-title">
-
-						<h3>A <strong>Vinícola</strong></h3>
-
-					</div>
-
-					<span class="PageHeader-secondary-title font-grey-700">
-
-						<span>Conheça a nossa vínicola <span class="icon"><span class="icon-angle-right"></span></span></span>
-
-					</span>
-
-				</a>
-
-			</header>
-
-			<section id="vinicola" class="Page-content">
-
-			</section>
-
-		</section>
-
-		<section id="castle" class="Page Page--castle">
-
-			<header class="PageHeader">
-
-				<div class="PageHeader-background"></div>
-				<div class="PageHeader-overlay"></div>
-
-				<a href="#castelo" class="PageHeader-select-area NavAnchor NavigationItem font-grey-800" data-navigation-target="castle">
-
-					<div class="PageHeader-title">
-
-						<h3>O <strong>Castelo</strong></h3>
-
-					</div>
-
-					<span class="PageHeader-secondary-title font-grey-700">
-
-						<span>Faça um <em>tour</em> pelo castelo <span class="icon"><span class="icon-angle-right"></span></span></span>
-
-					</span>
-
-				</a>
-
-			</header>
-
-			<section id="castelo" class="Page-content">
-
-			</section>
-
-		</section>
-
-		<div id="contact" class="Page Page--modal Contact">
-
-			<section id="contato" class="Page-content">
-
-				<div class="Contact-inner">
-
-					<div class="Contact-title">
-
-						<h2>Entre em contato</h2>
-
-					</div>
-
-					<div class="ContactInfo">
-
-						<h3>Por telefone:</h3>
-
-						<p class="ContactInfo-text">43 3542 4315</p>
-
-					</div>
-
-					<div class="ContactLine">
-
-						<div class="ContactLine-stroke"></div>
-						<span class="ContactLine-text">ou</span>
-						<div class="ContactLine-stroke"></div>
-
-					</div>
-
-					<form id="cForm" class="ContactForm flex flex-column">
-
-						<h3>Por mensagem:</h3>
-
-						<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
-
-							<div class="ContactForm-field ContactForm-field--name">
-								<input class="name-text" type="text" size="26" name="tNome" id="cName" maxlength="50"
-								       placeholder="Nome"
-								       title="Ops, o campo nome deve ser preenchido corretamente :)"
-								       x-moz-errormessage="Ops, o campo nome deve ser preenchido corretamente :)"/>
-								<label class="name" for="cName">Nome</label>
-							</div>
-
-							<div class="ContactForm-field ContactForm-field--phone">
-								<input class="phone-text" type="text" size="26" name="tPhone" id="cPhone" maxlength="14"
-								       placeholder="Telefone"
-								       title="Ops, o campo telefone deve ser preenchido corretamente :)"
-								       x-moz-errormessage="Ops, o campo telefone deve ser preenchido corretamente :)"/>
-								<label class="email" for="cEmail">Telefone</label>
-							</div>
-
-							<div class="ContactForm-field ContactForm-field--email">
-								<input class="email-text" type="email" size="26" name="tEmail" id="cEmail" maxlength="60"
-								       placeholder="E-mail"
-								       title="Ops, o campo deve ser preenchido corretamente :)"
-								       x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"/>
-								<label class="email" for="cEmail">Email</label>
-							</div>
-
-							<div class="ContactForm-field ContactForm-field--address">
-								<input class="phone-text" type="text" size="26" name="tAddress" id="cAddress" maxlength="90"
-								       placeholder="Endereço Completo"
-								       title="Ops, o campo deve ser preenchido corretamente :)"
-								       x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"/>
-								<label class="address" for="cAddress">Endereço</label>
-							</div>
-
-							<div class="ContactForm-field ContactForm-field--address">
-								<input class="phone-text" type="text" size="26" name="tCity" id="cCity" maxlength="25"
-								       placeholder="Cidade"
-								       title="Ops, o campo cidade deve ser preenchido corretamente :)"
-								       x-moz-errormessage="Ops, o campo cidade deve ser preenchido corretamente :)"/>
-								<label class="city" for="cCity">Cidade</label>
-							</div>
-
-						</div>
-
-						<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
-
-							<div class="ContactForm-field ContactForm-field--message">
-								<textarea class="lato" name="tMensagem" id="cMessage" cols="36"
-								          placeholder="Digite a sua mensagem"
-								          title="Ops, o campo mensagem deve ser preenchido corretamente :)"
-								          x-moz-errormessage="Ops, o campo mensagem deve ser preenchido corretamente :)"></textarea>
-								<label class="text-message" for="cMessage">Mensagem</label>
-							</div>
-
-							<div class="ContactFormFooter">
-
-								<div class="ContactFormStatus">
-
-									<span class="ContactFormStatus-text ContactFormStatus-text--sending font-light-blue-a700">Enviando...</span>
-
-									<span class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700">Enviado com sucesso!</span>
-
-									<span class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700">Não foi possível enviar, verifique os campos e tente novamente</span>
-
-									<span class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700">Houve algum problema, tentando novamente...</span>
-
-								</div>
-
-								<div class="ContactForm-field ContactForm-field--submit">
-
-									<input id="cSubmit" class="ContactForm-submit red-400" name="ir" type="submit" value="Enviar"/>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</form>
-
-				</div>
-
-			</section>
-
-		</div>
-
-		<div id="local" class="Page Page--modal Local">
-
-			<section id="como-chegar" class="Page-content">
-
-				<div id="local-map" class="LocalMap">
-
-					<div id="local-map-canvas" class="LocalMap-canvas"></div>
-
-				</div>
-
-				<div class="LocalInfo">
-
-					<div class="LocalInfo-inner">
-
-						<h2>Vínicola La Dorni</h2>
-
-						<p>Rua Sebastião D. do Nascimento, 0 <br/>Pq. Ind. Bela Vista <br/> CEP 86360-000 <br/> Bandeirantes, Paraná</p>
-
-					</div>
-
-				</div>
-
-			</section>
-
-		</div>
-
-	</div>
-
-</main>
-
-<!-- The fun init here! o/ -->
-
-<script src="dist/js/ladorni.js"></script>
-
-<script>
-
-	// this loadbar has 7 * 600 miliseconds of life
-	var loadbar = new LoadBar(document.getElementById('loadbar'), 600, 8, 4, 90);
-
-	var welcomeMessage = function (nav) {
-
-		if (!nav.changePageCount)
-			console.log('bem vindo ao site da LaDorni');
-
-	};
-
-	var mainMenu = new Menu(document.getElementById('main-menu'));
-
-	var headerLogo = document.getElementById('main-header-logo');
-
-	var logo = new Logo(document.getElementById('logo'), 'dist/img/LadorniLogoPure-web.min.svg', function () {
-
-		var delay = {
-			biting: 1000,
-			starting: 1200
-		};
-
-		if (document.documentElement.classList.contains('is-debug'))
-			delay = {
-				biting: 10,
-				starting: 100
-			};
-
-		this.cloneTo(document.getElementById('start-logo'));
-
-		setTimeout(function () {
-
-			// stop the loadBar
-			loadbar.stop(100);
-
-			// hide the loadBar and show the Logo
-			document.body.classList.add('is-starting');
-
-			setTimeout(function () {
-
-				// init the document instance and the navigation
-				ladorni.init(true);
-
-			}, delay.biting);
-
-		}, delay.starting);
-
-	});
-
-	var ladorni = new LaDorni(document.body);
-
-	ladorni.navigation = new Navigation(document.getElementById('navigation'), ladorni, mainMenu);
-
-	ladorni.navigation.pushItem({
-		action: new PageAction(ladorni.navigation, ladorni.home, 'is-home'),
-		itemName: 'home',
-		itemTitle: false,
-		itemURL: './',
-		isHome: true,
-		stateClass: 'is-home'
-	}, ladorni.home);
-
-	ladorni.navigation.pushItem({
-		action: new PageAction(ladorni.navigation, ladorni.winery, 'is-winery'),
-		itemName: 'winery',
-		itemTitle: 'A vínicola',
-		itemURL: './vinicola'
-	}, ladorni.winery);
-
-	ladorni.navigation.pushItem({
-		action: new PageAction(ladorni.navigation, ladorni.castle, 'is-castle'),
-		itemName: 'castle',
-		itemTitle: 'O Castelo',
-		itemURL: './castelo'
-	}, ladorni.castle);
-
-	ladorni.navigation.pushItem({
-		action: new PageAction(ladorni.navigation, ladorni.winemenu, 'is-winemenu'),
-		itemName: 'winemenu',
-		itemTitle: 'Vinhos',
-		itemURL: './vinhos'
-	}, ladorni.winemenu);
-
-	ladorni.navigation.pushItem({
-		action: new PageAction(ladorni.navigation, ladorni.contact, 'is-contact'),
-		itemName: 'contact',
-		itemTitle: 'Contato',
-		itemURL: './contato'
-	}, ladorni.contact);
-
-	ladorni.navigation.pushItem({
-		action: new PageAction(ladorni.navigation, ladorni.local, 'is-local'),
-		itemName: 'local',
-		itemTitle: 'Como Chegar',
-		itemURL: './como-chegar'
-	}, ladorni.local);
-
-</script>
-
-<script id="jquery" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-
-	var formSentCount = 0;
-	var formSentCountLimit = 2;
-
-	var requestURL = 'http://mailman.letsmowe.com/ladorni/';
-
-	var formLocked = false;
-
-	var form = {
-		viewport: document.getElementById('cForm')
-	};
-
-	form.fields = {};
-	form.sendButton = {};
-
-	form.fields.cName = document.getElementById('cName');
-	form.fields.cPhone = document.getElementById('cPhone');
-	form.fields.cEmail = document.getElementById('cEmail');
-	form.fields.cAddress = document.getElementById('cAddress');
-	form.fields.cCity = document.getElementById('cCity');
-	form.fields.cMessage = document.getElementById('cMessage');
-
-	form.sendButton.viewport = document.getElementById('cSubmit');
-
-	form.states = [
-		'is-error',
-		'is-fail',
-		'is-sending',
-		'is-success'
-	];
-
-	form.changeState = function (state) {
-
-		if (form.viewport) {
-
-			for (var i = form.states.length; i--; )
-				form.viewport.classList.remove(form.states[i])
-
-			form.viewport.classList.add(state);
-
-		}
-
-	};
-
-	// send the ajax request
-	form.sendRequest = function(requestData) {
-
-		if (requestData) {
-
-			// ajax request
-			$.ajax({
-				cache: false,
-				crossDomain: true,
-				data: requestData,
-				method: 'get',
-				beforeSend: function() {
-
-					formLocked = true;
-					form.changeState('is-sending');
-
-				},
-				error: function (data) {
-
-					console.log(data);
-
-					form.changeState('is-fail');
-					form.send(requestData, 5000);
-
-				},
-				success: function (data) {
-
-					console.log(data);
-
-					if (data.sent)
-						form.changeState('is-success');
-					else
-						form.changeState('is-error');
-
-					formLocked = false;
-
-				},
-				timeout: 12000,
-				url: requestURL
-			});
-
-		}
-
-	};
-
-	// control the time delay to init the ajax request
-	form.send = function(requestData, delay) {
-
-		if (requestData) {
-
-			if (delay) {
-
-				setTimeout(function() {
-
-					form.sendRequest(requestData);
-
-				}, delay)
-
-			} else {
-
-				form.sendRequest(requestData);
-
-			}
-
-		}
-
-	};
-
-	// form submit button listener
-	form.sendButton.viewport.addEventListener('click', function (ev) {
-
-		ev.preventDefault();
-
-		if (!formLocked) {
-
-			if (formSentCount < formSentCountLimit) {
-
-				var allow = !!(form.fields.cName.value && (form.fields.cPhone.value || form.fields.cEmail.value) && (form.fields.cAddress.value || form.fields.cCity.value) && form.fields.cMessage.value);
-
-				if (allow) {
-
-					// lock the form
-					formLocked = true;
-
-					// count the request
-					formSentCount++;
-
-					// get object data
-					var requestData = {
-						cName: form.fields.cName.value,
-						cPhone: form.fields.cPhone.value,
-						cEmail: form.fields.cEmail.value,
-						cAddress: form.fields.cAddress.value,
-						cCity: form.fields.cCity.value,
-						cMessage: form.fields.cMessage.value
-					};
-
-					// send
-					form.send(requestData, false);
-
-
-				} else {
-
-					form.changeState('is-error');
-
-				}
-
-			}
-
-		}
-
-	});
-
-</script>
-
-</body>
-
+  <script src="dist/js/villa.min.js"></script>
+  <link rel="stylesheet" href="dist/css/villa.min.css" />
+  <link rel="stylesheet" href="dist/css/ladorni.css" />
+  <!--[if lt IE 9]>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="dist/css/material-colors.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="dist/css/villa-cross.min.css"
+    />
+    <script src="dist/js/html5shiv.js"></script>
+    <script src="dist/js/html5shiv-printshiv.js"></script>
+    <script src="dist/js/classList.min.js"></script>
+  <![endif]-->
+
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      -webkit-transition: background 1.2s;
+      -moz-transition: background 1.2s;
+      -ms-transition: background 1.2s;
+      -o-transition: background 1.2s;
+      transition: background 1.2s;
+    }
+
+    body.is-biting,
+    body.is-loading {
+      overflow: hidden;
+    }
+
+    body.is-biting {
+      background-color: #757575;
+    }
+
+    @media (min-width: 48em) {
+      body.is-home {
+        overflow: hidden;
+      }
+    }
+
+    body.is-biting .TransitionScreen--start {
+      height: 100%;
+      position: fixed;
+      width: 100%;
+      background-color: #757575;
+      top: 0;
+      left: 0;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      z-index: 99;
+      -webkit-transition: background 1s;
+      -moz-transition: background 1s;
+      -ms-transition: background 1s;
+      -o-transition: background 1s;
+      transition: background 1s;
+    }
+
+    body.is-starting .TransitionScreen--start {
+      background-color: #424242;
+    }
+
+    html.is-debug .TransitionScreen--start {
+      display: none;
+    }
+
+    /* Load Bar */
+
+    body.is-biting .LoadBar {
+      background-color: #ffab00;
+      height: 6px;
+      -webkit-transition: opacity 0.6s 0.4s;
+      -moz-transition: opacity 0.6s 0.4s;
+      -ms-transition: opacity 0.6s 0.4s;
+      -o-transition: opacity 0.6s 0.4s;
+      transition: opacity 0.6s 0.4s;
+      width: 16em;
+    }
+
+    body.is-starting .LoadBar {
+      opacity: 0;
+    }
+
+    body.is-biting .LoadBar-progress {
+      background-color: #ffd740;
+      -webkit-animation: load-bar-animate 1.6s ease forwards;
+      -o-animation: load-bar-animate 1.6s ease forwards;
+      animation: load-bar-animate 1.6s ease forwards;
+      -webkit-transition: width 0.6s;
+      -moz-transition: width 0.6s;
+      -ms-transition: width 0.6s;
+      -o-transition: width 0.6s;
+      transition: width 0.6s;
+      height: 100%;
+      width: 8%;
+    }
+
+    .TransitionScreen--start .Logo {
+      height: 6em;
+    }
+
+    .MainHeader {
+      opacity: 1;
+      -webkit-transition: opacity 1s 1s ease;
+      -moz-transition: opacity 1s 1s ease;
+      -ms-transition: opacity 1s 1s ease;
+      -o-transition: opacity 1s 1s ease;
+      transition: opacity 1s 1s ease;
+    }
+
+    body.is-biting .MainHeader {
+      opacity: 0;
+    }
+  </style>
+
+  <body class="is-biting">
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://www.google-analytics.com/analytics.js",
+        "ga"
+      );
+
+      ga("create", "UA-76358705-1", "auto");
+      ga("send", "pageview");
+    </script>
+
+    <div id="hero-photos">
+      <img src="dist/img/widePhotos/wp-cave.jpg" style="display: none;" />
+      <img src="dist/img/headerPhotos/hp-torre-02.jpg" style="display: none;" />
+      <img src="dist/img/largePhotos/lp-torre-01.jpg" style="display: none;" />
+    </div>
+
+    <nav id="navigation" class="MainNav Navigation">
+      <div class="Transition">
+        <div
+          class="TransitionScreen TransitionScreen--start flex justify-center align-center flex-column"
+        >
+          <div id="loadbar" class="LoadBar">
+            <div class="LoadBar-progress"></div>
+          </div>
+
+          <div id="start-screen-logo" class="Logo is-only-winery is-loading">
+            <a
+              href="#"
+              class="Logo-select-area NavigationItem"
+              data-navigation-target="home"
+            >
+              <span id="start-logo"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="TransitionScreen TransitionScreen--first amber-a700"></div>
+        <div class="TransitionScreen TransitionScreen--second grey-900"></div>
+
+        <div
+          class="TransitionScreen TransitionScreen--winemenu grey-900 font-grey-400"
+        >
+          <span>Carregando lista de vinhos...</span>
+        </div>
+      </div>
+
+      <header class="MainHeader">
+        <div class="MainHeaderBrand">
+          <div
+            id="main-header-logo"
+            class="Logo MainHeaderBrand-logo is-only-winery is-biting"
+          >
+            <a
+              href="#"
+              class="Logo-select-area NavigationItem"
+              data-navigation-target="home"
+            >
+              <span id="logo"></span>
+            </a>
+          </div>
+
+          <div class="MainHeaderBrand-title">
+            <h1>
+              Vinícola <strong><span>L</span>a Dorn<span>i</span></strong>
+            </h1>
+          </div>
+        </div>
+
+        <div id="service-menu" class="Menu Menu--service roboto">
+          <ul class="MenuList roboto">
+            <li class="MenuItem">
+              <a
+                href="./como-chegar"
+                class="MenuItem-select-area NavigationItem LocalTrigger"
+                data-navigation-target="local"
+              >
+                <span>Como chegar</span>
+              </a>
+            </li>
+
+            <li class="MenuItem">
+              <a
+                href="./contato"
+                class="MenuItem-select-area NavigationItem"
+                data-navigation-target="contact"
+              >
+                <span><strong>Contato</strong></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <div id="main-menu" class="MainMenu Menu">
+        <div class="MenuToggleButton">
+          <a href="#" class="MenuToggleButton-select-area">
+            <span class="icon icon--open">
+              <span class="icon-menu"></span>
+            </span>
+
+            <span class="icon icon--close">
+              <span class="icon-angle-left"></span>
+            </span>
+          </a>
+        </div>
+
+        <ul class="MenuList white">
+          <li class="MenuItem">
+            <a
+              href=".."
+              class="MenuItem-select-area NavigationItem"
+              data-navigation-target="home"
+            >
+              <span>Início</span>
+            </a>
+          </li>
+
+          <li class="MenuItem">
+            <a
+              href="./vinhos"
+              class="MenuItem-select-area NavigationItem"
+              data-navigation-target="winemenu"
+            >
+              <span class="slash">/</span><span>Vinhos</span>
+            </a>
+          </li>
+
+          <li class="MenuItem">
+            <a
+              href="./vinicola"
+              class="MenuItem-select-area NavigationItem"
+              data-navigation-target="winery"
+            >
+              <span class="slash">/</span><span>A Vinícola</span>
+            </a>
+          </li>
+
+          <li class="MenuItem">
+            <a
+              href="./castelo"
+              class="MenuItem-select-area NavigationItem"
+              data-navigation-target="castle"
+            >
+              <span class="slash">/</span><span>O Castelo</span>
+            </a>
+          </li>
+
+          <li class="MenuItem">
+            <a
+              href="./como-chegar"
+              class="MenuItem-select-area NavigationItem LocalTrigger"
+              data-navigation-target="local"
+            >
+              <span>Como chegar</span>
+            </a>
+          </li>
+
+          <li class="MenuItem">
+            <a
+              href="./contato"
+              class="MenuItem-select-area NavigationItem"
+              data-navigation-target="contact"
+            >
+              <span><strong>Contato</strong></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="Main roboto">
+      <section id="home" class="Home">
+        <section class="Hero">
+          <div class="Hero-background blue-grey-100">
+            <img src="dist/img/6-curves.png" alt="" />
+          </div>
+
+          <div class="Hero-inner">
+            <div class="HeroGallery">
+              <article
+                id="winemenu-hero"
+                class="HeroGalleryItem HeroGalleryItem--winemenu"
+                data-document-state="is-accent"
+              ></article>
+              <article
+                id="winery-hero"
+                class="HeroGalleryItem HeroGalleryItem--winery"
+                data-document-state="is-header-accent"
+              ></article>
+              <article
+                id="castle-hero"
+                class="HeroGalleryItem HeroGalleryItem--castle"
+                data-document-state="is-header-accent"
+              ></article>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <div class="Main-content">
+        <section id="winemenu" class="Page Page--winemenu">
+          <header class="PageHeader">
+            <div class="PageHeader-background"></div>
+            <div class="PageHeader-overlay"></div>
+
+            <a
+              href="#vinhos"
+              class="PageHeader-select-area NavAnchor NavigationItem font-grey-800"
+              data-navigation-target="winemenu"
+            >
+              <div class="PageHeader-title">
+                <h3>Nossos<br /><strong>Vinhos</strong></h3>
+              </div>
+
+              <span class="PageHeader-secondary-title font-grey-700">
+                <span
+                  >Conheça a nossa <em>carta</em> de vinhos
+                  <span class="icon"
+                    ><span class="icon-angle-right"></span></span
+                ></span>
+              </span>
+            </a>
+          </header>
+
+          <section id="vinhos" class="Page-content"></section>
+        </section>
+
+        <section id="winery" class="Page Page--winery">
+          <header class="PageHeader">
+            <div class="PageHeader-background"></div>
+            <div class="PageHeader-overlay"></div>
+
+            <a
+              href="#vinicola"
+              class="PageHeader-select-area NavAnchor NavigationItem font-grey-800"
+              data-navigation-target="winery"
+            >
+              <div class="PageHeader-title">
+                <h3>A <strong>Vinícola</strong></h3>
+              </div>
+
+              <span class="PageHeader-secondary-title font-grey-700">
+                <span
+                  >Conheça a nossa vínicola
+                  <span class="icon"
+                    ><span class="icon-angle-right"></span></span
+                ></span>
+              </span>
+            </a>
+          </header>
+
+          <section id="vinicola" class="Page-content"></section>
+        </section>
+
+        <section id="castle" class="Page Page--castle">
+          <header class="PageHeader">
+            <div class="PageHeader-background"></div>
+            <div class="PageHeader-overlay"></div>
+
+            <a
+              href="#castelo"
+              class="PageHeader-select-area NavAnchor NavigationItem font-grey-800"
+              data-navigation-target="castle"
+            >
+              <div class="PageHeader-title">
+                <h3>O <strong>Castelo</strong></h3>
+              </div>
+
+              <span class="PageHeader-secondary-title font-grey-700">
+                <span
+                  >Faça um <em>tour</em> pelo castelo
+                  <span class="icon"
+                    ><span class="icon-angle-right"></span></span
+                ></span>
+              </span>
+            </a>
+          </header>
+
+          <section id="castelo" class="Page-content"></section>
+        </section>
+
+        <div id="contact" class="Page Page--modal Contact">
+          <section id="contato" class="Page-content">
+            <div class="Contact-inner">
+              <div class="Contact-title">
+                <h2>Entre em contato</h2>
+              </div>
+
+              <div class="ContactInfo">
+                <h3>Por telefone:</h3>
+
+                <p class="ContactInfo-text">43 3542 4315</p>
+              </div>
+
+              <div class="ContactLine">
+                <div class="ContactLine-stroke"></div>
+                <span class="ContactLine-text">ou</span>
+                <div class="ContactLine-stroke"></div>
+              </div>
+
+              <form id="cForm" class="ContactForm flex flex-column">
+                <h3>Por mensagem:</h3>
+
+                <div
+                  class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column"
+                >
+                  <div class="ContactForm-field ContactForm-field--name">
+                    <input
+                      class="name-text"
+                      type="text"
+                      size="26"
+                      name="tNome"
+                      id="cName"
+                      maxlength="50"
+                      placeholder="Nome"
+                      title="Ops, o campo nome deve ser preenchido corretamente :)"
+                      x-moz-errormessage="Ops, o campo nome deve ser preenchido corretamente :)"
+                    />
+                    <label class="name" for="cName">Nome</label>
+                  </div>
+
+                  <div class="ContactForm-field ContactForm-field--phone">
+                    <input
+                      class="phone-text"
+                      type="text"
+                      size="26"
+                      name="tPhone"
+                      id="cPhone"
+                      maxlength="14"
+                      placeholder="Telefone"
+                      title="Ops, o campo telefone deve ser preenchido corretamente :)"
+                      x-moz-errormessage="Ops, o campo telefone deve ser preenchido corretamente :)"
+                    />
+                    <label class="email" for="cEmail">Telefone</label>
+                  </div>
+
+                  <div class="ContactForm-field ContactForm-field--email">
+                    <input
+                      class="email-text"
+                      type="email"
+                      size="26"
+                      name="tEmail"
+                      id="cEmail"
+                      maxlength="60"
+                      placeholder="E-mail"
+                      title="Ops, o campo deve ser preenchido corretamente :)"
+                      x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"
+                    />
+                    <label class="email" for="cEmail">Email</label>
+                  </div>
+
+                  <div class="ContactForm-field ContactForm-field--address">
+                    <input
+                      class="phone-text"
+                      type="text"
+                      size="26"
+                      name="tAddress"
+                      id="cAddress"
+                      maxlength="90"
+                      placeholder="Endereço Completo"
+                      title="Ops, o campo deve ser preenchido corretamente :)"
+                      x-moz-errormessage="Ops, o campo deve ser preenchido corretamente :)"
+                    />
+                    <label class="address" for="cAddress">Endereço</label>
+                  </div>
+
+                  <div class="ContactForm-field ContactForm-field--address">
+                    <input
+                      class="phone-text"
+                      type="text"
+                      size="26"
+                      name="tCity"
+                      id="cCity"
+                      maxlength="25"
+                      placeholder="Cidade"
+                      title="Ops, o campo cidade deve ser preenchido corretamente :)"
+                      x-moz-errormessage="Ops, o campo cidade deve ser preenchido corretamente :)"
+                    />
+                    <label class="city" for="cCity">Cidade</label>
+                  </div>
+                </div>
+
+                <div
+                  class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column"
+                >
+                  <div class="ContactForm-field ContactForm-field--message">
+                    <textarea
+                      class="lato"
+                      name="tMensagem"
+                      id="cMessage"
+                      cols="36"
+                      placeholder="Digite a sua mensagem"
+                      title="Ops, o campo mensagem deve ser preenchido corretamente :)"
+                      x-moz-errormessage="Ops, o campo mensagem deve ser preenchido corretamente :)"
+                    ></textarea>
+                    <label class="text-message" for="cMessage">Mensagem</label>
+                  </div>
+
+                  <div class="ContactFormFooter">
+                    <div class="ContactFormStatus">
+                      <span
+                        class="ContactFormStatus-text ContactFormStatus-text--sending font-light-blue-a700"
+                        >Enviando...</span
+                      >
+
+                      <span
+                        class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700"
+                        >Enviado com sucesso!</span
+                      >
+
+                      <span
+                        class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700"
+                        >Não foi possível enviar, verifique os campos e tente
+                        novamente</span
+                      >
+
+                      <span
+                        class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700"
+                        >Houve algum problema, tentando novamente...</span
+                      >
+                    </div>
+
+                    <div class="ContactForm-field ContactForm-field--submit">
+                      <input
+                        id="cSubmit"
+                        class="ContactForm-submit red-400"
+                        name="ir"
+                        type="submit"
+                        value="Enviar"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+
+        <div id="local" class="Page Page--modal Local">
+          <section id="como-chegar" class="Page-content">
+            <div id="local-map" class="LocalMap">
+              <div id="local-map-canvas" class="LocalMap-canvas"></div>
+            </div>
+
+            <div class="LocalInfo">
+              <div class="LocalInfo-inner">
+                <h2>Vínicola La Dorni</h2>
+
+                <p>
+                  Rua Sebastião D. do Nascimento, 0 <br />Pq. Ind. Bela Vista
+                  <br />
+                  CEP 86360-000 <br />
+                  Bandeirantes, Paraná
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- The fun init here! o/ -->
+
+    <script src="dist/js/ladorni.js"></script>
+
+    <script>
+      // this loadbar has 7 * 600 miliseconds of life
+      var loadbar = new LoadBar(
+        document.getElementById("loadbar"),
+        600,
+        8,
+        4,
+        90
+      );
+
+      var welcomeMessage = function (nav) {
+        if (!nav.changePageCount) console.log("bem vindo ao site da LaDorni");
+      };
+
+      var mainMenu = new Menu(document.getElementById("main-menu"));
+
+      var headerLogo = document.getElementById("main-header-logo");
+
+      var logo = new Logo(
+        document.getElementById("logo"),
+        "dist/img/LadorniLogoPure-web.min.svg",
+        function () {
+          var delay = {
+            biting: 1000,
+            starting: 1200,
+          };
+
+          if (document.documentElement.classList.contains("is-debug"))
+            delay = {
+              biting: 10,
+              starting: 100,
+            };
+
+          this.cloneTo(document.getElementById("start-logo"));
+
+          setTimeout(function () {
+            // stop the loadBar
+            loadbar.stop(100);
+
+            // hide the loadBar and show the Logo
+            document.body.classList.add("is-starting");
+
+            setTimeout(function () {
+              // init the document instance and the navigation
+              ladorni.init(true);
+            }, delay.biting);
+          }, delay.starting);
+        }
+      );
+
+      var ladorni = new LaDorni(document.body);
+
+      ladorni.navigation = new Navigation(
+        document.getElementById("navigation"),
+        ladorni,
+        mainMenu
+      );
+
+      ladorni.navigation.pushItem(
+        {
+          action: new PageAction(ladorni.navigation, ladorni.home, "is-home"),
+          itemName: "home",
+          itemTitle: false,
+          itemURL: "./",
+          isHome: true,
+          stateClass: "is-home",
+        },
+        ladorni.home
+      );
+
+      ladorni.navigation.pushItem(
+        {
+          action: new PageAction(
+            ladorni.navigation,
+            ladorni.winery,
+            "is-winery"
+          ),
+          itemName: "winery",
+          itemTitle: "A vínicola",
+          itemURL: "./vinicola",
+        },
+        ladorni.winery
+      );
+
+      ladorni.navigation.pushItem(
+        {
+          action: new PageAction(
+            ladorni.navigation,
+            ladorni.castle,
+            "is-castle"
+          ),
+          itemName: "castle",
+          itemTitle: "O Castelo",
+          itemURL: "./castelo",
+        },
+        ladorni.castle
+      );
+
+      ladorni.navigation.pushItem(
+        {
+          action: new PageAction(
+            ladorni.navigation,
+            ladorni.winemenu,
+            "is-winemenu"
+          ),
+          itemName: "winemenu",
+          itemTitle: "Vinhos",
+          itemURL: "./vinhos",
+        },
+        ladorni.winemenu
+      );
+
+      ladorni.navigation.pushItem(
+        {
+          action: new PageAction(
+            ladorni.navigation,
+            ladorni.contact,
+            "is-contact"
+          ),
+          itemName: "contact",
+          itemTitle: "Contato",
+          itemURL: "./contato",
+        },
+        ladorni.contact
+      );
+
+      ladorni.navigation.pushItem(
+        {
+          action: new PageAction(ladorni.navigation, ladorni.local, "is-local"),
+          itemName: "local",
+          itemTitle: "Como Chegar",
+          itemURL: "./como-chegar",
+        },
+        ladorni.local
+      );
+    </script>
+
+    <script
+      id="jquery"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+    ></script>
+    <script>
+      var formSentCount = 0;
+      var formSentCountLimit = 2;
+
+      var requestURL = "http://mailman.letsmowe.com/ladorni/";
+
+      var formLocked = false;
+
+      var form = {
+        viewport: document.getElementById("cForm"),
+      };
+
+      form.fields = {};
+      form.sendButton = {};
+
+      form.fields.cName = document.getElementById("cName");
+      form.fields.cPhone = document.getElementById("cPhone");
+      form.fields.cEmail = document.getElementById("cEmail");
+      form.fields.cAddress = document.getElementById("cAddress");
+      form.fields.cCity = document.getElementById("cCity");
+      form.fields.cMessage = document.getElementById("cMessage");
+
+      form.sendButton.viewport = document.getElementById("cSubmit");
+
+      form.states = ["is-error", "is-fail", "is-sending", "is-success"];
+
+      form.changeState = function (state) {
+        if (form.viewport) {
+          for (var i = form.states.length; i--; )
+            form.viewport.classList.remove(form.states[i]);
+
+          form.viewport.classList.add(state);
+        }
+      };
+
+      // send the ajax request
+      form.sendRequest = function (requestData) {
+        if (requestData) {
+          // ajax request
+          $.ajax({
+            cache: false,
+            crossDomain: true,
+            data: requestData,
+            method: "get",
+            beforeSend: function () {
+              formLocked = true;
+              form.changeState("is-sending");
+            },
+            error: function (data) {
+              console.log(data);
+
+              form.changeState("is-fail");
+              form.send(requestData, 5000);
+            },
+            success: function (data) {
+              console.log(data);
+
+              if (data.sent) form.changeState("is-success");
+              else form.changeState("is-error");
+
+              formLocked = false;
+            },
+            timeout: 12000,
+            url: requestURL,
+          });
+        }
+      };
+
+      // control the time delay to init the ajax request
+      form.send = function (requestData, delay) {
+        if (requestData) {
+          if (delay) {
+            setTimeout(function () {
+              form.sendRequest(requestData);
+            }, delay);
+          } else {
+            form.sendRequest(requestData);
+          }
+        }
+      };
+
+      // form submit button listener
+      form.sendButton.viewport.addEventListener("click", function (ev) {
+        ev.preventDefault();
+
+        if (!formLocked) {
+          if (formSentCount < formSentCountLimit) {
+            var allow = !!(
+              form.fields.cName.value &&
+              (form.fields.cPhone.value || form.fields.cEmail.value) &&
+              (form.fields.cAddress.value || form.fields.cCity.value) &&
+              form.fields.cMessage.value
+            );
+
+            if (allow) {
+              // lock the form
+              formLocked = true;
+
+              // count the request
+              formSentCount++;
+
+              // get object data
+              var requestData = {
+                cName: form.fields.cName.value,
+                cPhone: form.fields.cPhone.value,
+                cEmail: form.fields.cEmail.value,
+                cAddress: form.fields.cAddress.value,
+                cCity: form.fields.cCity.value,
+                cMessage: form.fields.cMessage.value,
+              };
+
+              // send
+              form.send(requestData, false);
+            } else {
+              form.changeState("is-error");
+            }
+          }
+        }
+      });
+    </script>
+
+    <!--
+    WhatsApp Button
+    Desenvolvido por @dbarjs
+    Source: https://glitch.com/~whatsapp-button
+-->
+    <a
+      href="https://wa.me/5543984120116"
+      target="_blank"
+      id="whatsapp-button"
+      class="whatsapp-button"
+    ></a>
+    <script>
+      setTimeout(function () {
+        document.getElementById("whatsapp-button").className =
+          "whatsapp-button show";
+      }, 5000);
+    </script>
+    <style>
+      .whatsapp-button {
+        background-color: #25d366;
+        background-image: url("data:image/png;base64,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");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 48px;
+        border-radius: 50%;
+        bottom: 0;
+        box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+          0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+        height: 64px;
+        margin: 21px;
+        outline: 0;
+        position: fixed;
+        right: 0;
+        transition-duration: 0.28s;
+        transition-property: box-shadow, transform, opacity;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center center 0px;
+        transform: scale(0);
+        width: 64px;
+        will-change: box-shadow;
+        z-index: 100;
+      }
+
+      .whatsapp-button.show {
+        transform: scale(0.7);
+      }
+
+      .is-winemenu .whatsapp-button.show {
+        transform: scale(0);
+      }
+
+      .whatsapp-button.show:hover {
+        transform: scale(0.9);
+      }
+
+      .whatsapp-button::before {
+        content: "";
+        background-color: #ffffff;
+        opacity: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+        width: 100%;
+      }
+
+      .whatsapp-button:hover::before {
+        opacity: 0.08;
+      }
+
+      .whatsapp-button:focus::before {
+        opacity: 0.24;
+      }
+    </style>
+  </body>
 </html>
