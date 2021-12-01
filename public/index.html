@@ -2,6 +2,20 @@
 <html lang="pt-br" class="playfair-display roboto crimson-text-italic">
   <meta charset="UTF-8" />
   <title>La Dorni</title>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-WWMM8DH");
+  </script>
+  <!-- End Google Tag Manager -->
   <meta
     name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -151,30 +165,16 @@
   <![endif]-->
 
   <body class="is-biting">
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.google-analytics.com/analytics.js",
-        "ga"
-      );
-
-      ga("create", "UA-76358705-1", "auto");
-      ga("send", "pageview");
-    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WWMM8DH"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div id="hero-photos">
       <img src="dist/img/widePhotos/wp-cave.jpg" style="display: none" />
@@ -185,7 +185,13 @@
     <nav id="navigation" class="MainNav Navigation">
       <div class="Transition">
         <div
-          class="TransitionScreen TransitionScreen--start flex justify-center align-center flex-column"
+          class="
+            TransitionScreen TransitionScreen--start
+            flex
+            justify-center
+            align-center
+            flex-column
+          "
         >
           <div id="loadbar" class="LoadBar">
             <div class="LoadBar-progress"></div>
@@ -206,7 +212,11 @@
         <div class="TransitionScreen TransitionScreen--second grey-900"></div>
 
         <div
-          class="TransitionScreen TransitionScreen--winemenu grey-900 font-grey-400"
+          class="
+            TransitionScreen TransitionScreen--winemenu
+            grey-900
+            font-grey-400
+          "
         >
           <span>Carregando lista de vinhos...</span>
         </div>
@@ -373,7 +383,12 @@
 
             <a
               href="#vinhos"
-              class="PageHeader-select-area NavAnchor NavigationItem font-grey-800"
+              class="
+                PageHeader-select-area
+                NavAnchor
+                NavigationItem
+                font-grey-800
+              "
               data-navigation-target="winemenu"
             >
               <div class="PageHeader-title">
@@ -400,7 +415,12 @@
 
             <a
               href="#vinicola"
-              class="PageHeader-select-area NavAnchor NavigationItem font-grey-800"
+              class="
+                PageHeader-select-area
+                NavAnchor
+                NavigationItem
+                font-grey-800
+              "
               data-navigation-target="winery"
             >
               <div class="PageHeader-title">
@@ -427,7 +447,12 @@
 
             <a
               href="#castelo"
-              class="PageHeader-select-area NavAnchor NavigationItem font-grey-800"
+              class="
+                PageHeader-select-area
+                NavAnchor
+                NavigationItem
+                font-grey-800
+              "
               data-navigation-target="castle"
             >
               <div class="PageHeader-title">
@@ -470,7 +495,10 @@
                 <h3>Por mensagem:</h3>
 
                 <div
-                  class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column"
+                  class="
+                    ContactForm-wrapper ContactForm-wrapper--personal-info
+                    flex flex-column
+                  "
                 >
                   <div class="ContactForm-field ContactForm-field--name">
                     <input
@@ -549,7 +577,10 @@
                 </div>
 
                 <div
-                  class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column"
+                  class="
+                    ContactForm-wrapper ContactForm-wrapper--personal-info
+                    flex flex-column
+                  "
                 >
                   <div class="ContactForm-field ContactForm-field--message">
                     <textarea
@@ -567,23 +598,35 @@
                   <div class="ContactFormFooter">
                     <div class="ContactFormStatus">
                       <span
-                        class="ContactFormStatus-text ContactFormStatus-text--sending font-light-blue-a700"
+                        class="
+                          ContactFormStatus-text ContactFormStatus-text--sending
+                          font-light-blue-a700
+                        "
                         >Enviando...</span
                       >
 
                       <span
-                        class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700"
+                        class="
+                          ContactFormStatus-text ContactFormStatus-text--success
+                          font-light-green-a700
+                        "
                         >Enviado com sucesso!</span
                       >
 
                       <span
-                        class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700"
+                        class="
+                          ContactFormStatus-text ContactFormStatus-text--error
+                          font-red-a700
+                        "
                         >Não foi possível enviar, verifique os campos e tente
                         novamente</span
                       >
 
                       <span
-                        class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700"
+                        class="
+                          ContactFormStatus-text ContactFormStatus-text--fail
+                          font-red-a700
+                        "
                         >Houve algum problema, tentando novamente...</span
                       >
                     </div>
